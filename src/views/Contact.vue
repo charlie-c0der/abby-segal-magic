@@ -18,10 +18,38 @@ const submitting = ref(false)
 
 async function handleSubmit() {
   submitting.value = true
-  // TODO: Connect to form backend (Formspree, Netlify Forms, etc.)
-  await new Promise(r => setTimeout(r, 1200))
-  submitted.value = true
-  submitting.value = false
+  
+  try {
+    // Using Formspree for form handling
+    const response = await fetch('https://formspree.io/f/xpznzkyj', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: form.value.name,
+        email: form.value.email,
+        phone: form.value.phone,
+        eventDate: form.value.eventDate,
+        eventType: form.value.eventType,
+        guestCount: form.value.guestCount,
+        message: form.value.message,
+        subject: `Magic Booking Inquiry from ${form.value.name}`,
+      }),
+    })
+    
+    if (response.ok) {
+      submitted.value = true
+    } else {
+      throw new Error('Form submission failed')
+    }
+  } catch (error) {
+    console.error('Form submission error:', error)
+    // Could add error state here
+    alert('Sorry, there was an error sending your message. Please try again or email directly.')
+  } finally {
+    submitting.value = false
+  }
 }
 
 const eventTypes = [
@@ -43,8 +71,12 @@ const eventTypes = [
     <section class="section contact-hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Contact</p>
-        <h1 class="heading-xl reveal reveal-delay-1">Let's make <em>magic.</em></h1>
-        <div class="divider reveal reveal-delay-2" />
+        <h1 class="heading-xl reveal reveal-delay-1">Let's make <em class="shimmer">magic.</em></h1>
+        <p class="body-lg reveal reveal-delay-2" style="max-width: 560px; margin-top: 16px;">
+          Tell me about your event and I'll put together the perfect show.
+          Custom quotes within 24 hours - usually faster.
+        </p>
+        <div class="divider reveal reveal-delay-3" />
       </div>
     </section>
 
@@ -101,6 +133,12 @@ const eventTypes = [
             </form>
 
             <div v-else class="contact-success">
+              <div class="contact-success__sparkles">
+                <span v-for="n in 12" :key="n" class="contact-success__sparkle" :style="{
+                  '--angle': (n * 30) + 'deg',
+                  animationDelay: (n * 0.05) + 's',
+                }" />
+              </div>
               <span class="contact-success__icon">✦</span>
               <h2 class="heading-md">Message sent!</h2>
               <p class="body-lg">
@@ -183,7 +221,8 @@ const eventTypes = [
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--gold);
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px rgba(196, 132, 122, 0.08);
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -201,13 +240,59 @@ const eventTypes = [
 .contact-success {
   text-align: center;
   padding: 80px 40px;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--rose);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  animation: successReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes successReveal {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 .contact-success__icon {
   font-size: 48px;
   color: var(--gold);
   display: block;
   margin-bottom: 16px;
+  animation: symbolSpin 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes symbolSpin {
+  from { transform: rotate(0deg) scale(0); opacity: 0; }
+  to { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+.contact-success__sparkles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.contact-success__sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--rose);
+  border-radius: 50%;
+  animation: sparkleOut 0.8s ease-out forwards;
+  box-shadow: 0 0 6px var(--rose);
+}
+.contact-success__sparkle:nth-child(odd) {
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+}
+@keyframes sparkleOut {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(
+      calc(cos(var(--angle)) * 80px),
+      calc(sin(var(--angle)) * 80px)
+    ) scale(0);
+    opacity: 0;
+  }
 }
 
 /* Info */

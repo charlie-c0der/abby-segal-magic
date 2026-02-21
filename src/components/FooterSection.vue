@@ -89,7 +89,7 @@ const socials = [
   color: var(--white-muted);
   transition: color 0.3s;
 }
-.footer__links a:hover { color: var(--gold); }
+.footer__links a:hover { color: var(--rose); }
 .footer__socials {
   display: flex;
   gap: 20px;
@@ -99,7 +99,7 @@ const socials = [
   color: var(--white-muted);
   transition: color 0.3s;
 }
-.footer__socials a:hover { color: var(--gold); }
+.footer__socials a:hover { color: var(--rose); }
 .footer__copy {
   font-size: 12px;
   color: var(--white-muted);

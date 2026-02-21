@@ -36,7 +36,7 @@ onUnmounted(() => {
     <div class="nav__inner container">
       <router-link to="/" class="nav__logo" @click="menuOpen = false">
         <span class="nav__logo-text">Abby Segal</span>
-        <span class="nav__logo-sub">Magic</span>
+        <span class="nav__logo-sub shimmer">Magic</span>
       </router-link>
 
       <div class="nav__links hide-mobile">
@@ -142,12 +142,12 @@ onUnmounted(() => {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--gold);
+  background: var(--rose);
   transition: width 0.3s var(--ease-out);
 }
 .nav__link:hover,
 .nav__link--active {
-  color: var(--gold);
+  color: var(--rose);
 }
 .nav__link--active::after,
 .nav__link:hover::after {

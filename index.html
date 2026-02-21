@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Non-render-blocking font load (swap) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" /></noscript>
+
+    <!-- Preload critical hero image -->
+    <link rel="preload" as="image" type="image/webp" href="/images/performance.webp" />
+
+    <meta name="theme-color" content="#0b0a09" />
+    <meta name="color-scheme" content="dark" />
+
     <title>Abby Segal — Chicago Magician | Close-Up & Parlour Magic</title>
     <meta name="description" content="Abby Segal is a Chicago-based magician specializing in close-up and parlour magic for corporate events, private shows, and theatre. As seen on Penn & Teller: Fool Us." />
     <meta name="keywords" content="Chicago magician, close-up magic, parlour magic, corporate magician, event entertainment, Abby Segal, Penn and Teller Fool Us" />
@@ -11,6 +26,36 @@
     <meta property="og:description" content="Close-up & parlour magic for corporate events, private shows, and theatre. As seen on Penn & Teller: Fool Us." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.abbysegalmagic.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abby Segal — Chicago Magician" />
+    <meta name="twitter:description" content="Close-up & parlour magic. As seen on Penn & Teller: Fool Us." />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abby Segal",
+      "jobTitle": "Magician",
+      "url": "https://www.abbysegalmagic.com",
+      "sameAs": [
+        "https://www.instagram.com/abbysegalmagic/",
+        "https://www.youtube.com/channel/UC9IvIVvbBis47CZWKV7tjLg",
+        "https://www.facebook.com/abbysegalmagic/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL",
+        "addressCountry": "US"
+      },
+      "description": "Chicago-based magician specializing in close-up and parlour magic. As seen on Penn & Teller: Fool Us.",
+      "knowsAbout": ["Close-up magic", "Parlour magic", "Card magic", "Mentalism", "Psychology of magic"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Bates College"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>
