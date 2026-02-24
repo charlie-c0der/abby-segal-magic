@@ -330,14 +330,19 @@ onMounted(async () => {
     <!-- ━━━ BIG QUOTE ━━━ -->
     <section class="section big-quote">
       <div class="container">
-        <div class="big-quote__inner">
-          <div class="big-quote__mark">"</div>
-          <blockquote class="big-quote__text">
-            Your style is so humble and sweet, and still confident.
-          </blockquote>
-          <div class="divider divider--center" />
-          <p class="big-quote__author">- Penn Jillette</p>
-          <p class="big-quote__context">after watching Abby perform on <em>Fool Us</em></p>
+        <div class="big-quote__content">
+          <div class="big-quote__inner">
+            <div class="big-quote__mark">"</div>
+            <blockquote class="big-quote__text">
+              Your style is so humble and sweet, and still confident.
+            </blockquote>
+            <div class="divider divider--center" />
+            <p class="big-quote__author">- Penn Jillette</p>
+            <p class="big-quote__context">after watching Abby perform on <em>Fool Us</em></p>
+          </div>
+          <div class="big-quote__image reveal reveal-delay-2">
+            <img src="/images/press-1.webp" alt="Abby Segal performing on Penn & Teller: Fool Us" loading="lazy" decoding="async" />
+          </div>
         </div>
       </div>
     </section>
@@ -563,13 +568,79 @@ onMounted(async () => {
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--black-border); min-width: 300px; }
 
 /* ── BIG QUOTE ──────────────────────── */
-.big-quote { min-height: 80vh; display: flex; align-items: center; border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); background: var(--black-soft); }
-.big-quote__inner { text-align: center; max-width: 900px; margin: 0 auto; }
-.big-quote__mark { font-family: var(--font-display); font-size: 160px; line-height: 0.5; color: var(--gold); opacity: 0.6; display: block; margin-bottom: -20px; }
-.big-quote__text { font-style: italic; font-weight: 400; font-size: clamp(32px, 5vw, 60px); }
-.big-quote__author { font-family: var(--font-display); font-size: 20px; color: var(--gold); margin-top: 12px; }
-.big-quote__context { font-size: 14px; color: var(--white-muted); }
-.big-quote__context em { color: var(--white-dim); }
+.big-quote { 
+  min-height: 80vh; 
+  display: flex; 
+  align-items: center; 
+  border-top: 1px solid var(--black-border); 
+  border-bottom: 1px solid var(--black-border); 
+  background: var(--black-soft); 
+}
+
+.big-quote__content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.big-quote__inner { 
+  text-align: center; 
+  max-width: 900px; 
+  margin: 0 auto; 
+}
+
+.big-quote__mark { 
+  font-family: var(--font-display); 
+  font-size: 160px; 
+  line-height: 0.5; 
+  color: var(--gold); 
+  opacity: 0.6; 
+  display: block; 
+  margin-bottom: -20px; 
+}
+
+.big-quote__text { 
+  font-style: italic; 
+  font-weight: 400; 
+  font-size: clamp(28px, 4vw, 48px); 
+}
+
+.big-quote__author { 
+  font-family: var(--font-display); 
+  font-size: 20px; 
+  color: var(--gold); 
+  margin-top: 12px; 
+}
+
+.big-quote__context { 
+  font-size: 14px; 
+  color: var(--white-muted); 
+}
+
+.big-quote__context em { 
+  color: var(--white-dim); 
+}
+
+.big-quote__image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.big-quote__image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.big-quote__image:hover img {
+  transform: scale(1.05);
+}
 
 /* ── HOW IT WORKS ───────────────────── */
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -707,10 +778,27 @@ onMounted(async () => {
   }
 }
 
+@media (max-width: 768px) {
+  .big-quote__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .big-quote__image {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 480px) {
   .perfect-grid { grid-template-columns: 1fr; }
   .press-logos {
     grid-template-columns: 1fr;
+  }
+  
+  .big-quote__image {
+    max-width: 300px;
   }
 }
 </style>

@@ -126,6 +126,37 @@ const openFaq = ref<number | null>(null)
       </div>
     </section>
 
+    <!-- Performance Gallery -->
+    <section class="section performance-gallery">
+      <div class="container">
+        <p class="heading-eyebrow reveal" style="text-align: center;">In Action</p>
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
+          See the <em class="shimmer">magic happen</em>.
+        </h2>
+        
+        <div class="gallery-grid">
+          <div class="gallery-item reveal reveal-delay-1">
+            <img src="/images/performance.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
+            <div class="gallery-overlay">
+              <h3>Close-Up Performance</h3>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-2">
+            <img src="/images/press-show.webp" alt="Abby performing at Chicago Magic Lounge" loading="lazy" decoding="async" />
+            <div class="gallery-overlay">
+              <h3>Parlour Show</h3>
+            </div>
+          </div>
+          <div class="gallery-item reveal reveal-delay-3">
+            <img src="/images/press-2.webp" alt="Audience reaction during Abby's performance" loading="lazy" decoding="async" />
+            <div class="gallery-overlay">
+              <h3>Audience Reactions</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="section">
       <div class="container" style="max-width: 800px;">
@@ -217,10 +248,87 @@ const openFaq = ref<number | null>(null)
 .faq-item__a { padding-bottom: 24px; }
 .faq-item__a p { color: var(--white-dim); max-width: 650px; }
 
+/* Performance Gallery */
+.performance-gallery {
+  background: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+  border-bottom: 1px solid var(--black-border);
+}
+
+.performance-gallery h2 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--gold);
+}
+
 @media (max-width: 768px) {
   .show-card__body { grid-template-columns: 1fr; }
   .show-card__header { flex-direction: column; align-items: flex-start; gap: 12px; }
   .addons-grid, .addons-grid--4 { grid-template-columns: 1fr 1fr; }
-  @media (max-width: 480px) { .addons-grid, .addons-grid--4 { grid-template-columns: 1fr; } }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  @media (max-width: 480px) { 
+    .addons-grid, .addons-grid--4 { grid-template-columns: 1fr; }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 </style>
