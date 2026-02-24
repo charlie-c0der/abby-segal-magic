@@ -45,6 +45,17 @@ onUnmounted(() => {
 const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a']
 const konamiIndex = ref(0)
 const showEasterEgg = ref(false)
+const isReturningUser = ref(false)
+
+// Check if user has visited before
+onMounted(() => {
+  const hasVisited = localStorage.getItem('abby-magic-visited')
+  if (hasVisited) {
+    isReturningUser.value = true
+  } else {
+    localStorage.setItem('abby-magic-visited', 'true')
+  }
+})
 
 function onKeydown(e: KeyboardEvent) {
   if (e.key === konamiCode[konamiIndex.value]) {
@@ -104,7 +115,7 @@ onUnmounted(() => {
     <NavBar />
     <main id="main-content">
       <router-view v-slot="{ Component, route }">
-        <transition :name="route.meta.transition as string || 'magic'" mode="out-in">
+        <transition :name="route.meta.transition as string || (isReturningUser ? 'fade' : 'magic')" mode="out-in">
           <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
@@ -165,6 +176,18 @@ body { cursor: none; }
   opacity: 0;
   transform: scale(1.02) translateY(-10px);
   filter: blur(4px);
+}
+
+/* ── Simple Fade Transition (returning users) ── */
+.fade-enter-active {
+  transition: opacity 0.3s ease;
+}
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 /* ── Easter Egg Card Cascade ─────────── */

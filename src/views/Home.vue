@@ -252,6 +252,43 @@ onMounted(async () => {
       </div>
     </section>
 
+    <!-- ━━━ AS SEEN ON SECTION ━━━ -->
+    <section class="section as-seen-on">
+      <div class="container">
+        <p class="heading-eyebrow reveal" style="text-align: center;">As Seen On</p>
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
+          Featured on <em class="shimmer">major platforms</em>.
+        </h2>
+        
+        <div class="press-logos reveal reveal-delay-2">
+          <div class="press-logo">
+            <h3>Penn & Teller</h3>
+            <span>Fool Us (CW)</span>
+          </div>
+          <div class="press-logo">
+            <h3>Chicago Magic Lounge</h3>
+            <span>Resident Performer</span>
+          </div>
+          <div class="press-logo">
+            <h3>The Magic Castle</h3>
+            <span>Hollywood, CA</span>
+          </div>
+          <div class="press-logo">
+            <h3>Penguin Magic</h3>
+            <span>Featured Podcast</span>
+          </div>
+          <div class="press-logo">
+            <h3>Bates College</h3>
+            <span>Featured Graduate</span>
+          </div>
+          <div class="press-logo">
+            <h3>Berlinskej Model</h3>
+            <span>Art Exhibition</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ━━━ HORIZONTAL SCROLL SHOWS ━━━ -->
     <section class="shows-horizontal">
       <div class="shows-horizontal__header container">
@@ -295,7 +332,7 @@ onMounted(async () => {
       <div class="container">
         <div class="big-quote__inner">
           <div class="big-quote__mark">"</div>
-          <blockquote class="big-quote__text heading-xl">
+          <blockquote class="big-quote__text">
             Your style is so humble and sweet, and still confident.
           </blockquote>
           <div class="divider divider--center" />
@@ -456,7 +493,7 @@ onMounted(async () => {
 .hero__bg-image {
   position: absolute; inset: 0;
   background: url('/images/performance.webp') center/cover no-repeat;
-  opacity: 0.06; filter: grayscale(60%) sepia(20%); z-index: 0;
+  opacity: 0.15; filter: grayscale(60%) sepia(20%); z-index: 0;
 }
 .hero__vignette {
   position: absolute; inset: 0;
@@ -528,7 +565,7 @@ onMounted(async () => {
 /* ── BIG QUOTE ──────────────────────── */
 .big-quote { min-height: 80vh; display: flex; align-items: center; border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); background: var(--black-soft); }
 .big-quote__inner { text-align: center; max-width: 900px; margin: 0 auto; }
-.big-quote__mark { font-family: var(--font-display); font-size: 160px; line-height: 0.5; color: var(--gold); opacity: 0.4; display: block; margin-bottom: -20px; }
+.big-quote__mark { font-family: var(--font-display); font-size: 160px; line-height: 0.5; color: var(--gold); opacity: 0.6; display: block; margin-bottom: -20px; }
 .big-quote__text { font-style: italic; font-weight: 400; font-size: clamp(32px, 5vw, 60px); }
 .big-quote__author { font-family: var(--font-display); font-size: 20px; color: var(--gold); margin-top: 12px; }
 .big-quote__context { font-size: 14px; color: var(--white-muted); }
@@ -540,7 +577,7 @@ onMounted(async () => {
 .process-step { padding: 40px; border: 1px solid var(--black-border);
   border-radius: var(--radius-lg); transition: all 0.5s var(--ease-out); }
 .process-step:hover { border-color: var(--rose); transform: translateY(-4px); }
-.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: italic; color: var(--rose); opacity: 0.4; display: block; margin-bottom: 16px; }
+.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: italic; color: var(--rose); opacity: 0.7; display: block; margin-bottom: 16px; }
 .process-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
 
 /* ── TESTIMONIALS ───────────────────── */
@@ -611,7 +648,69 @@ onMounted(async () => {
   }
 }
 
+/* As Seen On */
+.as-seen-on {
+  background: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+  border-bottom: 1px solid var(--black-border);
+}
+
+.as-seen-on h2 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.press-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.press-logo {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s var(--ease-out);
+}
+
+.press-logo:hover {
+  transform: translateY(-5px);
+  border-color: var(--rose);
+  background: rgba(196, 132, 122, 0.05);
+}
+
+.press-logo h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--cream);
+}
+
+.press-logo span {
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .press-logos {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .press-logo {
+    padding: 1.5rem 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .perfect-grid { grid-template-columns: 1fr; }
+  .press-logos {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

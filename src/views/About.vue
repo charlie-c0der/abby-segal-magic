@@ -155,41 +155,59 @@ const milestones = [
           From living rooms to <em>world stages.</em>
         </h2>
         <div class="venues-grid">
-          <div class="card reveal reveal-delay-1">
-            <h3 class="venue-name">The Magic Castle</h3>
-            <p class="venue-loc">Hollywood, CA</p>
-          </div>
-          <div class="card reveal reveal-delay-2">
-            <h3 class="venue-name">Chicago Magic Lounge</h3>
-            <p class="venue-loc">Chicago, IL</p>
-          </div>
-          <div class="card reveal reveal-delay-3">
-            <h3 class="venue-name">Keys & Heels</h3>
-            <p class="venue-loc">New York City</p>
-          </div>
-          <div class="card reveal reveal-delay-1">
-            <h3 class="venue-name">Helsinki Magic Show</h3>
-            <p class="venue-loc">Helsinki, Finland</p>
-          </div>
-          <div class="card reveal reveal-delay-2">
-            <h3 class="venue-name">Amsterdam Magic Show</h3>
-            <p class="venue-loc">Amsterdam, Netherlands</p>
-          </div>
-          <div class="card reveal reveal-delay-3">
+          <div class="venue-card featured reveal reveal-delay-1">
+            <div class="venue-icon">📺</div>
             <h3 class="venue-name">Penn & Teller: Fool Us</h3>
             <p class="venue-loc">CW Television Network</p>
+            <p class="venue-desc">National television appearance</p>
           </div>
-          <div class="card reveal reveal-delay-1">
+          <div class="venue-card reveal reveal-delay-2">
+            <div class="venue-icon">🏰</div>
+            <h3 class="venue-name">The Magic Castle</h3>
+            <p class="venue-loc">Hollywood, CA</p>
+            <p class="venue-desc">Legendary magicians' club</p>
+          </div>
+          <div class="venue-card reveal reveal-delay-3">
+            <div class="venue-icon">🎪</div>
+            <h3 class="venue-name">Chicago Magic Lounge</h3>
+            <p class="venue-loc">Chicago, IL</p>
+            <p class="venue-desc">Regular performer</p>
+          </div>
+          <div class="venue-card reveal reveal-delay-1">
+            <div class="venue-icon">🗽</div>
+            <h3 class="venue-name">Keys & Heels</h3>
+            <p class="venue-loc">New York City</p>
+            <p class="venue-desc">Intimate magic venue</p>
+          </div>
+          <div class="venue-card reveal reveal-delay-2">
+            <div class="venue-icon">🌍</div>
+            <h3 class="venue-name">Helsinki Magic Show</h3>
+            <p class="venue-loc">Helsinki, Finland</p>
+            <p class="venue-desc">International performances</p>
+          </div>
+          <div class="venue-card reveal reveal-delay-3">
+            <div class="venue-icon">🌷</div>
+            <h3 class="venue-name">Amsterdam Magic Show</h3>
+            <p class="venue-loc">Amsterdam, Netherlands</p>
+            <p class="venue-desc">European tour</p>
+          </div>
+          <div class="venue-card reveal reveal-delay-1">
+            <div class="venue-icon">🎰</div>
             <h3 class="venue-name">Rio Theatre</h3>
             <p class="venue-loc">Las Vegas, NV</p>
+            <p class="venue-desc">Vegas magic scene</p>
           </div>
-          <div class="card reveal reveal-delay-2">
+          <div class="venue-card reveal reveal-delay-2">
+            <div class="venue-icon">🎯</div>
             <h3 class="venue-name">Magifest</h3>
             <p class="venue-loc">Magic Convention</p>
+            <p class="venue-desc">Lecture & performance</p>
           </div>
-          <div class="card reveal reveal-delay-3">
+          <div class="venue-card reveal reveal-delay-3">
+            <div class="venue-icon">🎨</div>
             <h3 class="venue-name">Berlinskej Model</h3>
             <p class="venue-loc">Prague, Czech Republic</p>
+            <p class="venue-desc">Art exhibition</p>
           </div>
         </div>
       </div>
@@ -293,17 +311,86 @@ const milestones = [
 }
 
 /* Venues */
-.venues-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-h2 em { color: var(--gold); font-style: italic; }
-.venue-name { font-family: var(--font-display); font-size: 20px; margin-bottom: 4px; }
-.venue-loc { font-size: 13px; color: var(--white-muted); }
+.venues-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px; 
+}
+
+h2 em { 
+  color: var(--gold); 
+  font-style: italic; 
+}
+
+.venue-card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: all 0.3s var(--ease-out);
+  text-align: center;
+}
+
+.venue-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--rose);
+  background: rgba(196, 132, 122, 0.05);
+}
+
+.venue-card.featured {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.venue-card.featured:hover {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.venue-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+  opacity: 0.8;
+}
+
+.venue-name { 
+  font-family: var(--font-display); 
+  font-size: 18px; 
+  margin-bottom: 8px;
+  color: var(--cream);
+}
+
+.venue-loc { 
+  font-size: 13px; 
+  color: var(--cream-muted); 
+  margin-bottom: 8px;
+}
+
+.venue-desc {
+  font-size: 14px;
+  color: var(--cream-dim);
+  font-style: italic;
+}
 
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-portrait__frame { position: static; }
-  .venues-grid { grid-template-columns: 1fr; }
+  .venues-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 16px; 
+  }
+  .venue-card {
+    padding: 20px;
+  }
   .timeline { padding-left: 40px; }
   .timeline::before { left: 10px; }
   .timeline__dot { left: -37px; }
+}
+
+@media (max-width: 480px) {
+  .venues-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
