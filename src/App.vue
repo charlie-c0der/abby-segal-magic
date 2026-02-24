@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.vue'
 import FooterSection from './components/FooterSection.vue'
 import FloatingCards from './components/FloatingCards.vue'
 import Preloader from './components/Preloader.vue'
+import BackToTop from './components/BackToTop.vue'
 import { useMagicCursor } from './composables/useMagicCursor'
 import Lenis from 'lenis'
 
@@ -101,7 +102,7 @@ onUnmounted(() => {
 
   <div :class="['site-wrapper', { ready: siteReady }]">
     <NavBar />
-    <main>
+    <main id="main-content">
       <router-view v-slot="{ Component, route }">
         <transition :name="route.meta.transition as string || 'magic'" mode="out-in">
           <component :is="Component" :key="route.path" />
@@ -109,6 +110,7 @@ onUnmounted(() => {
       </router-view>
     </main>
     <FooterSection />
+    <BackToTop />
   </div>
 
   <!-- Easter Egg: Konami Code Card Cascade -->

@@ -19,6 +19,7 @@ const router = createRouter({
     { path: '/press', component: () => import('./views/Press.vue') },
     { path: '/art', component: () => import('./views/Art.vue') },
     { path: '/contact', component: () => import('./views/Contact.vue') },
+    { path: '/:pathMatch(.*)*', component: () => import('./views/NotFound.vue') },
   ],
 })
 

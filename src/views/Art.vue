@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
+import { useSEO } from '../composables/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
+
 useReveal()
+useSEO({
+  title: 'Art Gallery | Abby Segal Original Magic-Themed Artwork',
+  description: 'Browse and purchase original magic-themed artwork by Abby Segal. Prints and originals available on Etsy. Exhibition pieces from Prague and beyond.',
+  ogImage: '/images/performance.webp',
+  canonicalUrl: '/art'
+})
 
 const lightboxOpen = ref(false)
 const lightboxImage = ref('')
@@ -38,6 +47,9 @@ const artworks = [
 
 <template>
   <div class="art-page">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
     <section class="section art-hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Visual Art</p>

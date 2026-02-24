@@ -4,7 +4,9 @@ import { useReveal } from '../composables/useReveal'
 import { useParticles } from '../composables/useParticles'
 import { useSplitText } from '../composables/useSplitText'
 import { useTilt } from '../composables/useTilt'
+import { useSEO } from '../composables/useSEO'
 import MagicReveal from '../components/MagicReveal.vue'
+import LazyYouTube from '../components/LazyYouTube.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -14,6 +16,12 @@ useReveal()
 useParticles('hero-particles', 60)
 useSplitText()
 useTilt('.tilt-card')
+useSEO({
+  title: 'Abby Segal — Chicago Magician | Close-Up & Parlour Magic',
+  description: 'Abby Segal is a Chicago-based magician specializing in close-up and parlour magic for corporate events, private shows, and theatre. As seen on Penn & Teller: Fool Us.',
+  ogImage: '/images/performance.webp',
+  canonicalUrl: '/'
+})
 
 const heroLoaded = ref(false)
 
@@ -214,6 +222,32 @@ onMounted(async () => {
             <span class="heading-eyebrow">As seen on</span>
             <span class="intro-section__float-title">Penn & Teller:<br>Fool Us</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ━━━ VIDEO SHOWCASE ━━━ -->
+    <section class="section video-section">
+      <div class="container">
+        <div class="video-content">
+          <p class="heading-eyebrow reveal">Watch the Magic</p>
+          <h2 class="heading-lg reveal reveal-delay-1">
+            See her <em class="shimmer">fool Penn & Teller</em>.
+          </h2>
+          <div class="divider reveal reveal-delay-2" />
+          <p class="body-lg reveal reveal-delay-2" style="max-width: 600px; margin: 0 auto;">
+            Watch Abby's appearance on Penn & Teller: Fool Us, where she earned praise from Penn Jillette 
+            for her "humble and sweet, yet confident" style.
+          </p>
+        </div>
+        
+        <div class="video-showcase reveal reveal-delay-3">
+          <LazyYouTube 
+            video-id="yHC32hkzFrc"
+            :width="800"
+            :height="450"
+            title="Abby Segal on Penn & Teller: Fool Us"
+          />
         </div>
       </div>
     </section>
@@ -546,6 +580,37 @@ onMounted(async () => {
   .process-grid { grid-template-columns: 1fr; }
   .perfect-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Video Section */
+.video-section {
+  background: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+  border-bottom: 1px solid var(--black-border);
+}
+
+.video-content {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.video-content h2 em {
+  color: var(--rose);
+  font-style: italic;
+}
+
+.video-showcase {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .video-content {
+    margin-bottom: 40px;
+  }
+}
+
 @media (max-width: 480px) {
   .perfect-grid { grid-template-columns: 1fr; }
 }

@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
+import { useSEO } from '../composables/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
+
 useReveal()
+useSEO({
+  title: 'Contact Abby Segal | Book Chicago Magician for Events',
+  description: 'Contact Abby Segal to book magic performances for corporate events, private parties, weddings, and more. Based in Chicago, available worldwide.',
+  ogImage: '/images/performance.webp',
+  canonicalUrl: '/contact'
+})
 
 const form = ref({
   name: '',
@@ -68,6 +77,9 @@ const eventTypes = [
 
 <template>
   <div class="contact-page">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
     <section class="section contact-hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Contact</p>
@@ -88,43 +100,85 @@ const eventTypes = [
             <form v-if="!submitted" @submit.prevent="handleSubmit" class="form">
               <div class="form-row">
                 <div class="form-group">
-                  <label>Name *</label>
-                  <input v-model="form.name" type="text" required placeholder="Your name" />
+                  <label for="contact-name">Name *</label>
+                  <input 
+                    id="contact-name"
+                    v-model="form.name" 
+                    name="name"
+                    type="text" 
+                    required 
+                    placeholder="Your name" 
+                  />
                 </div>
                 <div class="form-group">
-                  <label>Email *</label>
-                  <input v-model="form.email" type="email" required placeholder="your@email.com" />
+                  <label for="contact-email">Email *</label>
+                  <input 
+                    id="contact-email"
+                    v-model="form.email" 
+                    name="email"
+                    type="email" 
+                    required 
+                    placeholder="your@email.com" 
+                  />
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label>Phone</label>
-                  <input v-model="form.phone" type="tel" placeholder="(555) 123-4567" />
+                  <label for="contact-phone">Phone</label>
+                  <input 
+                    id="contact-phone"
+                    v-model="form.phone" 
+                    name="phone"
+                    type="tel" 
+                    placeholder="(555) 123-4567" 
+                  />
                 </div>
                 <div class="form-group">
-                  <label>Event Date</label>
-                  <input v-model="form.eventDate" type="date" />
+                  <label for="contact-date">Event Date</label>
+                  <input 
+                    id="contact-date"
+                    v-model="form.eventDate" 
+                    name="eventDate"
+                    type="date" 
+                  />
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label>Event Type</label>
-                  <select v-model="form.eventType">
+                  <label for="contact-type">Event Type</label>
+                  <select 
+                    id="contact-type"
+                    v-model="form.eventType"
+                    name="eventType"
+                  >
                     <option value="" disabled>Select type...</option>
                     <option v-for="t in eventTypes" :key="t" :value="t">{{ t }}</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>Estimated Guests</label>
-                  <input v-model="form.guestCount" type="text" placeholder="e.g. 50-100" />
+                  <label for="contact-guests">Estimated Guests</label>
+                  <input 
+                    id="contact-guests"
+                    v-model="form.guestCount" 
+                    name="guestCount"
+                    type="text" 
+                    placeholder="e.g. 50-100" 
+                  />
                 </div>
               </div>
 
               <div class="form-group">
-                <label>Tell me about your event *</label>
-                <textarea v-model="form.message" required rows="5" placeholder="What's the occasion? Any details that would help me plan the perfect show..." />
+                <label for="contact-message">Tell me about your event *</label>
+                <textarea 
+                  id="contact-message"
+                  v-model="form.message" 
+                  name="message"
+                  required 
+                  rows="5" 
+                  placeholder="What's the occasion? Any details that would help me plan the perfect show..." 
+                />
               </div>
 
               <button type="submit" class="btn btn--filled" :disabled="submitting">

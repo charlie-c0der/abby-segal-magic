@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
+import { useSEO } from '../composables/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
+
 useReveal()
+useSEO({
+  title: 'Magic Shows & Performances | Abby Segal Chicago Magician',
+  description: 'Book Abby Segal for corporate events, private parties, weddings, and theatre shows. Close-up magic and parlour performances available worldwide.',
+  ogImage: '/images/performance.webp',
+  canonicalUrl: '/shows'
+})
 
 const shows = [
   {
@@ -47,6 +56,9 @@ const openFaq = ref<number | null>(null)
 
 <template>
   <div class="shows-page">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
     <section class="section shows-hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Performances</p>

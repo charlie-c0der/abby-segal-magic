@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
+import { useSEO } from '../composables/useSEO'
 import LazyYouTube from '../components/LazyYouTube.vue'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
+
 useReveal()
+useSEO({
+  title: 'Press & Media | Abby Segal on Penn & Teller Fool Us',
+  description: 'Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic shows. Press coverage and media appearances.',
+  ogImage: '/images/performance.webp',
+  canonicalUrl: '/press'
+})
 
 const features = [
   {
@@ -74,6 +83,9 @@ const pressLogos = [
 
 <template>
   <div class="press-page">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
     <section class="section press-hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Press & Media</p>

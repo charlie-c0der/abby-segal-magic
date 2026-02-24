@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
+import { useSEO } from '../composables/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
+
 useReveal()
+useSEO({
+  title: 'About Abby Segal | Chicago Magician Biography & Story',
+  description: 'Learn about Abby Segal\'s journey from learning magic at age 11 to performing on Penn & Teller: Fool Us and at venues worldwide. Chicago-based close-up magician.',
+  ogImage: '/images/performance.webp',
+  canonicalUrl: '/about'
+})
 
 const milestones = [
   { year: '2012', event: 'Learned first trick at 11 - her sister was hired as a magician\'s assistant, and Abby got jealous. Taught herself from YouTube.' },
@@ -16,6 +25,9 @@ const milestones = [
 
 <template>
   <div class="about">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
     <!-- Hero -->
     <section class="about-hero section">
       <div class="container">

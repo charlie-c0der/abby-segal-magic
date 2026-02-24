@@ -32,6 +32,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
   <nav :class="['nav', { 'nav--scrolled': scrolled, 'nav--open': menuOpen }]">
     <div class="nav__inner container">
       <router-link to="/" class="nav__logo" @click="menuOpen = false">
@@ -208,6 +209,24 @@ onUnmounted(() => {
 .menu-enter-from, .menu-leave-to {
   opacity: 0;
   transform: translateY(-12px);
+}
+
+.skip-nav {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--rose);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-nav:focus {
+  top: 1rem;
 }
 
 @media (max-width: 768px) {
