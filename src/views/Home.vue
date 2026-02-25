@@ -90,7 +90,7 @@ onMounted(async () => {
   if (showsTrack) {
     gsap.to(showsTrack, {
       xPercent: -50, ease: 'none',
-      scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=100%', scrub: 1, pin: true, anticipatePin: 1 },
+      scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=80%', scrub: 1, pin: true, anticipatePin: 1 },
     })
   }
 
@@ -145,7 +145,7 @@ onMounted(async () => {
       <div class="hero__content container" :class="{ loaded: heroLoaded }">
         <p class="hero__eyebrow heading-eyebrow" data-split data-split-delay="0.3">Chicago Magician &amp; Mentalist</p>
         <h1 class="hero__title heading-xl" data-split data-split-delay="0.6">
-          Magic that happens<br>in <span class="shimmer">your hands.</span>
+          Magic that happens in <span class="shimmer">your hands.</span>
         </h1>
         <div class="divider hero__divider" />
         <p class="hero__subtitle body-lg">
@@ -498,7 +498,7 @@ onMounted(async () => {
 .intro-section__visual { position: relative; }
 
 /* ── HORIZONTAL SCROLL SHOWS ────────── */
-.shows-horizontal { height: 150vh; position: relative; }
+.shows-horizontal { height: 120vh; position: relative; }
 .shows-horizontal__header { padding-top: 80px; padding-bottom: 48px; }
 .shows-horizontal__header h2 em { color: var(--gold); font-style: italic; }
 .shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; }
