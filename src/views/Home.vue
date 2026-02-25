@@ -90,14 +90,11 @@ onMounted(async () => {
   if (showsTrack) {
     gsap.to(showsTrack, {
       xPercent: -50, ease: 'none',
-      scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=150%', scrub: 1, pin: true, anticipatePin: 1 },
+      scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=100%', scrub: 1, pin: true, anticipatePin: 1 },
     })
   }
 
-  gsap.from('.big-quote__text', {
-    scale: 0.85, opacity: 0, ease: 'power2.out',
-    scrollTrigger: { trigger: '.big-quote', start: 'top 70%', end: 'top 30%', scrub: 1 },
-  })
+  // Big quote animation removed
 
   document.querySelectorAll('.img-reveal').forEach((el) => {
     ScrollTrigger.create({ trigger: el, start: 'top 80%', onEnter: () => el.classList.add('revealed'), once: true })
@@ -327,26 +324,6 @@ onMounted(async () => {
       </div>
     </section>
 
-    <!-- ━━━ BIG QUOTE ━━━ -->
-    <section class="section big-quote">
-      <div class="container">
-        <div class="big-quote__content">
-          <div class="big-quote__inner">
-            <div class="big-quote__mark">"</div>
-            <blockquote class="big-quote__text">
-              Your style is so humble and sweet, and still confident.
-            </blockquote>
-            <div class="divider divider--center" />
-            <p class="big-quote__author">- Penn Jillette</p>
-            <p class="big-quote__context">after watching Abby perform on <em>Fool Us</em></p>
-          </div>
-          <div class="big-quote__image reveal reveal-delay-2">
-            <img src="/images/press-1.webp" alt="Abby Segal performing on Penn & Teller: Fool Us" loading="lazy" decoding="async" />
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ━━━ HOW IT WORKS ━━━ -->
     <section class="section">
       <div class="container">
@@ -521,7 +498,7 @@ onMounted(async () => {
 .intro-section__visual { position: relative; }
 
 /* ── HORIZONTAL SCROLL SHOWS ────────── */
-.shows-horizontal { height: 250vh; position: relative; }
+.shows-horizontal { height: 150vh; position: relative; }
 .shows-horizontal__header { padding-top: 80px; padding-bottom: 48px; }
 .shows-horizontal__header h2 em { color: var(--gold); font-style: italic; }
 .shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; }
@@ -534,80 +511,7 @@ onMounted(async () => {
 .show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--black-border); min-width: 300px; }
 
-/* ── BIG QUOTE ──────────────────────── */
-.big-quote { 
-  min-height: 80vh; 
-  display: flex; 
-  align-items: center; 
-  border-top: 1px solid var(--black-border); 
-  border-bottom: 1px solid var(--black-border); 
-  background: var(--black-soft); 
-}
-
-.big-quote__content {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.big-quote__inner { 
-  text-align: center; 
-  max-width: 900px; 
-  margin: 0 auto; 
-}
-
-.big-quote__mark { 
-  font-family: var(--font-display); 
-  font-size: 160px; 
-  line-height: 0.5; 
-  color: var(--gold); 
-  opacity: 0.6; 
-  display: block; 
-  margin-bottom: -20px; 
-}
-
-.big-quote__text { 
-  font-style: italic; 
-  font-weight: 400; 
-  font-size: clamp(28px, 4vw, 48px); 
-}
-
-.big-quote__author { 
-  font-family: var(--font-display); 
-  font-size: 20px; 
-  color: var(--gold); 
-  margin-top: 12px; 
-}
-
-.big-quote__context { 
-  font-size: 14px; 
-  color: var(--white-muted); 
-}
-
-.big-quote__context em { 
-  color: var(--white-dim); 
-}
-
-.big-quote__image {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
-
-.big-quote__image img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
-}
-
-.big-quote__image:hover img {
-  transform: scale(1.05);
-}
+/* ── BIG QUOTE SECTION REMOVED ────────── */
 
 /* ── HOW IT WORKS ───────────────────── */
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -767,18 +671,7 @@ onMounted(async () => {
   }
 }
 
-@media (max-width: 768px) {
-  .big-quote__content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .big-quote__image {
-    order: -1;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
+/* Big quote responsive styles removed */
 
 @media (max-width: 480px) {
   .press-logos {
