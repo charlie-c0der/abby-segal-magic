@@ -384,39 +384,6 @@ onMounted(async () => {
       </div>
     </section>
 
-    <!-- ━━━ PERFECT FOR ━━━ -->
-    <section class="section">
-      <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Who hires a magician?</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
-          Perfect for <em>your</em> event.
-        </h2>
-
-        <div class="perfect-grid">
-          <div class="perfect-item reveal reveal-delay-1">
-            <span class="perfect-item__icon">🏢</span>
-            <h3>Corporate Events</h3>
-            <p>Holiday parties, team offsites, client dinners, trade shows. Magic that makes your brand memorable.</p>
-          </div>
-          <div class="perfect-item reveal reveal-delay-2">
-            <span class="perfect-item__icon">🥂</span>
-            <h3>Weddings & Galas</h3>
-            <p>Cocktail hour magic that gets strangers talking, laughing, and bonding before dinner even starts.</p>
-          </div>
-          <div class="perfect-item reveal reveal-delay-3">
-            <span class="perfect-item__icon">🎂</span>
-            <h3>Private Parties</h3>
-            <p>Birthdays, anniversaries, house parties. Give your guests an experience they've never had before.</p>
-          </div>
-          <div class="perfect-item reveal reveal-delay-4">
-            <span class="perfect-item__icon">🎭</span>
-            <h3>Theatre & Venues</h3>
-            <p>Full parlour shows for comedy clubs, theatres, and magic venues. Interactive, intimate, unforgettable.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ━━━ FINAL CTA ━━━ -->
     <section class="section cta-final">
       <div class="container cta-final__inner">
@@ -689,15 +656,7 @@ onMounted(async () => {
   color: var(--cream-muted); 
 }
 
-/* ── PERFECT FOR ────────────────────── */
-.perfect-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.perfect-grid h2 em { color: var(--gold); font-style: italic; }
-.perfect-item { padding: 32px; border: 1px solid var(--black-border);
-  border-radius: var(--radius-lg); transition: all 0.5s var(--ease-out); }
-.perfect-item:hover { border-color: var(--rose); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
-.perfect-item__icon { font-size: 32px; display: block; margin-bottom: 16px; }
-.perfect-item h3 { font-family: var(--font-display); font-size: 18px; margin-bottom: 8px; }
-.perfect-item p { font-size: 14px; color: var(--white-dim); line-height: 1.6; }
+/* ── SECTION REMOVED ────────────────────── */
 
 /* ── FINAL CTA ──────────────────────── */
 .cta-final { min-height: 60vh; display: flex; align-items: center; border-top: 1px solid var(--black-border); background: var(--black-soft); }
@@ -717,7 +676,6 @@ onMounted(async () => {
   .show-panel { min-width: 100%; max-width: 100%; height: auto; }
   .testimonials-row { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; }
-  .perfect-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* Video Section */
@@ -823,7 +781,6 @@ onMounted(async () => {
 }
 
 @media (max-width: 480px) {
-  .perfect-grid { grid-template-columns: 1fr; }
   .press-logos {
     grid-template-columns: 1fr;
   }
