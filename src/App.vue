@@ -27,6 +27,10 @@ onMounted(() => {
     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.5,
+    infinite: false,
+    gestureOrientation: 'vertical'
   })
 
   function raf(time: number) {
@@ -34,6 +38,23 @@ onMounted(() => {
     rafId = requestAnimationFrame(raf)
   }
   rafId = requestAnimationFrame(raf)
+
+  // Integrate with GSAP ScrollTrigger if available
+  if (typeof window !== 'undefined' && (window as any).ScrollTrigger) {
+    lenis.on('scroll', (window as any).ScrollTrigger.update)
+  }
+
+  // Make Lenis available globally for components
+  if (typeof window !== 'undefined') {
+    (window as any).lenis = lenis
+
+    // Refresh ScrollTrigger after Lenis is ready
+    setTimeout(() => {
+      if ((window as any).ScrollTrigger) {
+        (window as any).ScrollTrigger.refresh()
+      }
+    }, 100)
+  }
 })
 
 onUnmounted(() => {

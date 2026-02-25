@@ -8,10 +8,14 @@ const handleScroll = () => {
 }
 
 const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
+  // Check if Lenis is available globally
+  const lenis = (window as any).lenis
+  if (lenis && lenis.scrollTo) {
+    lenis.scrollTo(0, { duration: 1.5 })
+  } else {
+    // Fallback to native scroll (Lenis handles smooth behavior)
+    window.scrollTo({ top: 0 })
+  }
 }
 
 onMounted(() => {
