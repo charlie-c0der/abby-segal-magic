@@ -230,9 +230,9 @@ onMounted(async () => {
     <section class="section video-section">
       <div class="container">
         <div class="video-content">
-          <p class="heading-eyebrow reveal">Watch the Magic</p>
-          <h2 class="heading-lg reveal reveal-delay-1">
-            See her <em class="shimmer">fool Penn & Teller</em>.
+          <p class="heading-eyebrow reveal" style="color: var(--gold);">Watch the Magic</p>
+          <h2 class="heading-lg reveal reveal-delay-1" style="color: var(--cream);">
+            See her <em class="shimmer" style="color: var(--gold);">fool Penn & Teller</em>.
           </h2>
           <div class="divider reveal reveal-delay-2" />
           <p class="body-lg reveal reveal-delay-2" style="max-width: 600px; margin: 0 auto;">
@@ -255,9 +255,9 @@ onMounted(async () => {
     <!-- ━━━ AS SEEN ON SECTION ━━━ -->
     <section class="section as-seen-on">
       <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">As Seen On</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
-          Featured on <em class="shimmer">major platforms</em>.
+        <p class="heading-eyebrow reveal" style="text-align: center; color: var(--gold);">As Seen On</p>
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--cream);">
+          Featured on <em class="shimmer" style="color: var(--gold);">major platforms</em>.
         </h2>
         
         <div class="press-logos reveal reveal-delay-2">
@@ -366,11 +366,11 @@ onMounted(async () => {
     </section>
 
     <!-- ━━━ TESTIMONIALS ━━━ -->
-    <section class="section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
+    <section class="section testimonials-section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
       <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Reactions</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
-          What people <em>say.</em>
+        <p class="heading-eyebrow reveal" style="text-align: center; color: var(--gold);">Reactions</p>
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--cream);">
+          What people <em style="color: var(--gold);">say.</em>
         </h2>
 
         <div class="testimonials-row">
@@ -652,11 +652,42 @@ onMounted(async () => {
 .process-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
 
 /* ── TESTIMONIALS ───────────────────── */
-.testimonials-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.testimonials-row h2 em { color: var(--gold); font-style: italic; }
-.testimonial__quote { font-family: var(--font-display); font-size: 18px; font-style: italic; line-height: 1.6; color: var(--white-dim); margin-bottom: 16px; }
-.testimonial__author { font-weight: 600; font-size: 14px; }
-.testimonial__context { font-size: 13px; color: var(--white-muted); }
+.testimonials-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.testimonials-row { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px; 
+}
+
+.testimonials-row h2 em { 
+  color: var(--gold); 
+  font-style: italic; 
+}
+
+.testimonial__quote { 
+  font-family: var(--font-display); 
+  font-size: 18px; 
+  font-style: italic; 
+  line-height: 1.6; 
+  color: var(--cream-dim); 
+  margin-bottom: 16px; 
+}
+
+.testimonial__author { 
+  font-weight: 600; 
+  font-size: 14px; 
+  color: var(--cream); 
+}
+
+.testimonial__context { 
+  font-size: 13px; 
+  color: var(--cream-muted); 
+}
 
 /* ── PERFECT FOR ────────────────────── */
 .perfect-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
