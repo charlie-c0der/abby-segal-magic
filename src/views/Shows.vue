@@ -8,7 +8,7 @@ useReveal()
 useSEO({
   title: 'Magic Shows & Performances | Abby Segal Chicago Magician',
   description: 'Book Abby Segal for corporate events, private parties, weddings, and theatre shows. Close-up magic and parlour performances available worldwide.',
-  ogImage: '/images/performance.webp',
+  ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/shows'
 })
 
@@ -136,19 +136,19 @@ const openFaq = ref<number | null>(null)
         
         <div class="gallery-grid">
           <div class="gallery-item reveal reveal-delay-1">
-            <img src="/images/performance.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
+            <img src="/assets/general/images/performance.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
             <div class="gallery-overlay">
               <h3>Close-Up Performance</h3>
             </div>
           </div>
           <div class="gallery-item reveal reveal-delay-2">
-            <img src="/images/press-show.webp" alt="Abby performing at Chicago Magic Lounge" loading="lazy" decoding="async" />
+            <img src="/assets/press/images/press-show.webp" alt="Abby performing at Chicago Magic Lounge" loading="lazy" decoding="async" />
             <div class="gallery-overlay">
               <h3>Parlour Show</h3>
             </div>
           </div>
           <div class="gallery-item reveal reveal-delay-3">
-            <img src="/images/press-2.webp" alt="Audience reaction during Abby's performance" loading="lazy" decoding="async" />
+            <img src="/assets/press/images/press-2.webp" alt="Audience reaction during Abby's performance" loading="lazy" decoding="async" />
             <div class="gallery-overlay">
               <h3>Audience Reactions</h3>
             </div>

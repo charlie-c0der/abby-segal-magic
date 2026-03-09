@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Development/Analysis artifacts
+videos/
+video-frames*/
+*.cjs
+capture-*
+record-*
+analyze-*

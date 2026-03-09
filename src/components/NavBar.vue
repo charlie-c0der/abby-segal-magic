@@ -19,8 +19,22 @@ function handleScroll() {
 }
 
 function navigate(to: string) {
+  // Haptic feedback on supported devices
+  if ('vibrate' in navigator) {
+    navigator.vibrate(10)
+  }
+  
   menuOpen.value = false
   router.push(to)
+}
+
+function toggleMenu() {
+  // Haptic feedback for menu toggle
+  if ('vibrate' in navigator) {
+    navigator.vibrate(menuOpen.value ? 10 : 20)
+  }
+  
+  menuOpen.value = !menuOpen.value
 }
 
 onMounted(() => {
@@ -56,7 +70,7 @@ onUnmounted(() => {
         <span>Book a Show</span>
       </router-link>
 
-      <button class="nav__burger" @click="menuOpen = !menuOpen" :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+      <button class="nav__burger" @click="toggleMenu" :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
         <span :class="['nav__burger-line', { open: menuOpen }]" />
         <span :class="['nav__burger-line', { open: menuOpen }]" />
       </button>

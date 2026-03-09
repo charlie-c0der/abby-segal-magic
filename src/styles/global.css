@@ -436,8 +436,58 @@ html.lenis, html.lenis body {
 }
 
 /* ── Responsive ───────────────────────── */
+/* ── Mobile Magic Effects ─────────────── */
+@keyframes sparkleOut {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+@keyframes scrollSparkle {
+  0% { transform: scale(0) translateY(0); opacity: 0.6; }
+  50% { transform: scale(1) translateY(-20px); opacity: 0.8; }
+  100% { transform: scale(0) translateY(-40px); opacity: 0; }
+}
+
+.mobile-sparkle, .scroll-sparkle {
+  will-change: transform, opacity;
+}
+
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }
   .card { padding: 28px; }
   .custom-cursor, .custom-cursor--dot { display: none !important; }
+  
+  /* Better touch targets and feedback */
+  .btn { 
+    min-height: 44px; 
+    padding: 16px 32px;
+    -webkit-tap-highlight-color: rgba(196, 132, 122, 0.1);
+  }
+  .nav__burger { 
+    padding: 12px; 
+    min-height: 44px; 
+    min-width: 44px;
+    -webkit-tap-highlight-color: rgba(196, 132, 122, 0.1);
+  }
+  .nav__mobile-link { 
+    padding: 16px 0;
+    -webkit-tap-highlight-color: rgba(196, 132, 122, 0.1);
+  }
+  
+  /* Active/touch states */
+  .btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .nav__mobile-link:active {
+    color: var(--rose) !important;
+  }
+  
+  /* Art gallery touch improvements */
+  .art-item:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
 }

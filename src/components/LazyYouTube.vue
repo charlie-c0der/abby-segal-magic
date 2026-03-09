@@ -50,6 +50,15 @@ const thumbnailUrl = `https://img.youtube.com/vi/${props.videoId}/hqdefault.jpg`
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--black-border);
+  transition: all 0.3s var(--ease-out);
+  max-width: 100%;
+  width: 100%;
+}
+.lazy-yt:hover {
+  border-color: var(--rose);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 .lazy-yt__thumb {
   width: 100%;
@@ -63,15 +72,39 @@ const thumbnailUrl = `https://img.youtube.com/vi/${props.videoId}/hqdefault.jpg`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: none;
+  background: rgba(0, 0, 0, 0.8);
   border: none;
   cursor: pointer;
   transition: transform 0.3s;
+  border-radius: 50%;
+  padding: 20px;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.lazy-yt:hover .lazy-yt__play { transform: translate(-50%, -50%) scale(1.1); }
+.lazy-yt:hover .lazy-yt__play { 
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(0, 0, 0, 0.9);
+}
 .lazy-yt iframe {
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: var(--radius-md);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .lazy-yt__play {
+    padding: 16px;
+    min-height: 60px;
+    min-width: 60px;
+  }
+  .lazy-yt__play svg {
+    width: 48px;
+    height: 36px;
+  }
 }
 </style>

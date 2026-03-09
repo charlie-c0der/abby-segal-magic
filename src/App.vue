@@ -3,12 +3,15 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import NavBar from './components/NavBar.vue'
 import FooterSection from './components/FooterSection.vue'
 import FloatingCards from './components/FloatingCards.vue'
+import MobileAtmosphere from './components/MobileAtmosphere.vue'
 import Preloader from './components/Preloader.vue'
 import BackToTop from './components/BackToTop.vue'
 import { useMagicCursor } from './composables/useMagicCursor'
+import { useMobileMagic } from './composables/useMobileMagic'
 import Lenis from 'lenis'
 
 const { cursorX, cursorY, cursorScale, cursorVisible } = useMagicCursor()
+useMobileMagic() // Mobile magic effects (self-contained)
 
 const showPreloader = ref(true)
 const siteReady = ref(false)
@@ -111,6 +114,9 @@ onUnmounted(() => {
 
   <!-- Floating Cards (atmospheric) -->
   <FloatingCards />
+  
+  <!-- Mobile Atmosphere (touch devices only) -->
+  <MobileAtmosphere />
 
   <!-- Custom Cursor -->
   <div

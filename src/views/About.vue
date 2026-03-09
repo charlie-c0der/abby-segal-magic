@@ -7,7 +7,7 @@ useReveal()
 useSEO({
   title: 'About Abby Segal | Chicago Magician Biography & Story',
   description: 'Learn about Abby Segal\'s journey from learning magic at age 11 to performing on Penn & Teller: Fool Us and at venues worldwide. Chicago-based close-up magician.',
-  ogImage: '/images/performance.webp',
+  ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/about'
 })
 
@@ -45,7 +45,7 @@ const milestones = [
       <div class="container about-grid">
         <div class="about-portrait reveal">
           <div class="about-portrait__frame">
-            <img src="/images/portrait.webp" alt="Abby Segal portrait" loading="lazy" decoding="async" />
+            <img src="/assets/portraits/images/portrait.webp" alt="Abby Segal portrait" loading="lazy" decoding="async" />
           </div>
         </div>
 

@@ -8,7 +8,7 @@ useReveal()
 useSEO({
   title: 'Contact Abby Segal | Book Chicago Magician for Events',
   description: 'Contact Abby Segal to book magic performances for corporate events, private parties, weddings, and more. Based in Chicago, available worldwide.',
-  ogImage: '/images/performance.webp',
+  ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/contact'
 })
 

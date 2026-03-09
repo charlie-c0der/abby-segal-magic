@@ -8,7 +8,7 @@ useReveal()
 useSEO({
   title: 'Press & Media | Abby Segal on Penn & Teller Fool Us',
   description: 'Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic shows. Press coverage and media appearances.',
-  ogImage: '/images/performance.webp',
+  ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/press'
 })
 
@@ -137,16 +137,16 @@ const pressLogos = [
     <!-- Photo Gallery Strip -->
     <section class="press-photos">
       <div class="press-photos__track">
-        <img src="/images/press-1.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
-        <img src="/images/press-show.webp" alt="Abby on stage" loading="lazy" decoding="async" />
-        <img src="/images/abby-2024.webp" alt="Abby Segal 2024" loading="lazy" decoding="async" />
-        <img src="/images/press-prague.webp" alt="Art gallery showcase in Prague" loading="lazy" decoding="async" />
-        <img src="/images/press-2.webp" alt="Abby performing" loading="lazy" decoding="async" />
-        <img src="/images/press-1.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
-        <img src="/images/press-show.webp" alt="Abby on stage" loading="lazy" decoding="async" />
-        <img src="/images/abby-2024.webp" alt="Abby Segal 2024" loading="lazy" decoding="async" />
-        <img src="/images/press-prague.webp" alt="Art gallery showcase in Prague" loading="lazy" decoding="async" />
-        <img src="/images/press-2.webp" alt="Abby performing" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-1.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-show.webp" alt="Abby on stage" loading="lazy" decoding="async" />
+        <img src="/assets/portraits/images/abby-2024.webp" alt="Abby Segal 2024" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-prague.webp" alt="Art gallery showcase in Prague" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-2.webp" alt="Abby performing" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-1.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-show.webp" alt="Abby on stage" loading="lazy" decoding="async" />
+        <img src="/assets/portraits/images/abby-2024.webp" alt="Abby Segal 2024" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-prague.webp" alt="Art gallery showcase in Prague" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-2.webp" alt="Abby performing" loading="lazy" decoding="async" />
       </div>
     </section>
 

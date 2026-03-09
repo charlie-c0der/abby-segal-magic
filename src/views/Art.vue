@@ -8,7 +8,7 @@ useReveal()
 useSEO({
   title: 'Art Gallery | Abby Segal Original Magic-Themed Artwork',
   description: 'Browse and purchase original magic-themed artwork by Abby Segal. Prints and originals available on Etsy. Exhibition pieces from Prague and beyond.',
-  ogImage: '/images/performance.webp',
+  ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/art'
 })
 
@@ -17,6 +17,10 @@ const lightboxImage = ref('')
 const lightboxTitle = ref('')
 
 const etsyShopUrl = 'https://www.etsy.com/shop/AbbySegalArt'
+
+// Touch gesture support for mobile
+let startY = 0
+let startTime = 0
 
 function openLightbox(image: string, title: string) {
   lightboxImage.value = image
@@ -28,20 +32,40 @@ function closeLightbox() {
   lightboxOpen.value = false
 }
 
+function onTouchStart(e: TouchEvent) {
+  if (e.touches[0]) {
+    startY = e.touches[0].clientY
+    startTime = Date.now()
+  }
+}
+
+function onTouchEnd(e: TouchEvent) {
+  if (e.changedTouches[0]) {
+    const endY = e.changedTouches[0].clientY
+    const deltaY = endY - startY
+    const deltaTime = Date.now() - startTime
+    
+    // Swipe down to close (minimum distance and reasonable speed)
+    if (deltaY > 100 && deltaTime < 500) {
+      closeLightbox()
+    }
+  }
+}
+
 // Placeholder gallery - replace with real images
 const artworks = [
-  { title: 'Borrowed Paper Collage', medium: 'Mixed media collage', year: '2023', image: '/images/art-collage-1.webp', thumb: '/images/art-collage-1-thumb.webp' },
-  { title: 'Girls Looking Up, Waiting for Rain', medium: 'Mixed media', year: '2023', image: '/images/art-girls.webp', thumb: '/images/art-girls-thumb.webp' },
-  { title: 'Tannes Magic Shop', medium: 'Digital illustration', year: '2024', image: '/images/art-tannes.webp', thumb: '/images/art-tannes-thumb.webp' },
-  { title: 'Apply Lipstick', medium: 'Digital art', year: '2023', image: '/images/art-lipstick.webp', thumb: '/images/art-lipstick-thumb.webp' },
-  { title: 'Abstract Shapes', medium: 'Mixed media', year: '2023', image: '/images/art-shapes.webp', thumb: '/images/art-shapes-thumb.webp' },
-  { title: 'Mogul Men, Mountains, Humanity', medium: 'Mixed media collage', year: '2023', image: '/images/art-mogul.webp', thumb: '/images/art-mogul-thumb.webp' },
-  { title: 'New to Prague', medium: 'Mixed media', year: '2022', image: '/images/art-prague.webp', thumb: '/images/art-prague-thumb.webp' },
-  { title: 'Smoking or Don\'t', medium: 'Mixed media collage', year: '2023', image: '/images/art-smoking.webp', thumb: '/images/art-smoking-thumb.webp' },
-  { title: 'Thinking Woman', medium: 'Mixed media', year: '2023', image: '/images/art-thinking.webp', thumb: '/images/art-thinking-thumb.webp' },
-  { title: 'Hidden Poetry', medium: 'Found text collage', year: '2023', image: '/images/art-poetry.webp', thumb: '/images/art-poetry-thumb.webp' },
-  { title: 'Trapped Eyes', medium: 'Mixed media', year: '2024', image: '/images/art-eyes.webp', thumb: '/images/art-eyes-thumb.webp' },
-  { title: 'Stretched Girl', medium: 'Digital illustration', year: '2023', image: '/images/art-stretched.webp', thumb: '/images/art-stretched-thumb.webp' },
+  { title: 'Borrowed Paper Collage', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-collage-1.webp', thumb: '/assets/art/images/art-collage-1-thumb.webp' },
+  { title: 'Girls Looking Up, Waiting for Rain', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-girls.webp', thumb: '/assets/art/images/art-girls-thumb.webp' },
+  { title: 'Tannes Magic Shop', medium: 'Digital illustration', year: '2024', image: '/assets/art/images/art-tannes.webp', thumb: '/assets/art/images/art-tannes-thumb.webp' },
+  { title: 'Apply Lipstick', medium: 'Digital art', year: '2023', image: '/assets/art/images/art-lipstick.webp', thumb: '/assets/art/images/art-lipstick-thumb.webp' },
+  { title: 'Abstract Shapes', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-shapes.webp', thumb: '/assets/art/images/art-shapes-thumb.webp' },
+  { title: 'Mogul Men, Mountains, Humanity', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-mogul.webp', thumb: '/assets/art/images/art-mogul-thumb.webp' },
+  { title: 'New to Prague', medium: 'Mixed media', year: '2022', image: '/assets/art/images/art-prague.webp', thumb: '/assets/art/images/art-prague-thumb.webp' },
+  { title: 'Smoking or Don\'t', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-smoking.webp', thumb: '/assets/art/images/art-smoking-thumb.webp' },
+  { title: 'Thinking Woman', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-thinking.webp', thumb: '/assets/art/images/art-thinking-thumb.webp' },
+  { title: 'Hidden Poetry', medium: 'Found text collage', year: '2023', image: '/assets/art/images/art-poetry.webp', thumb: '/assets/art/images/art-poetry-thumb.webp' },
+  { title: 'Trapped Eyes', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art-eyes.webp', thumb: '/assets/art/images/art-eyes-thumb.webp' },
+  { title: 'Stretched Girl', medium: 'Digital illustration', year: '2023', image: '/assets/art/images/art-stretched.webp', thumb: '/assets/art/images/art-stretched-thumb.webp' },
 ]
 </script>
 
@@ -101,10 +125,17 @@ const artworks = [
     <!-- Lightbox -->
     <Teleport to="body">
       <transition name="lightbox">
-        <div v-if="lightboxOpen" class="lightbox" @click="closeLightbox">
+        <div 
+          v-if="lightboxOpen" 
+          class="lightbox" 
+          @click="closeLightbox"
+          @touchstart="onTouchStart"
+          @touchend="onTouchEnd"
+        >
           <button class="lightbox__close" @click="closeLightbox">✕</button>
           <img :src="lightboxImage" :alt="lightboxTitle" class="lightbox__img" @click.stop />
           <p class="lightbox__title">{{ lightboxTitle }}</p>
+          <p class="lightbox__hint">Swipe down to close</p>
         </div>
       </transition>
     </Teleport>
@@ -234,6 +265,20 @@ const artworks = [
   font-size: 16px;
   color: var(--white-dim);
 }
+
+.lightbox__hint {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--white-muted);
+  margin-top: 8px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .lightbox__hint {
+    display: block;
+  }
+}
 .lightbox-enter-active { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 .lightbox-leave-active { transition: all 0.3s ease-in; }
 .lightbox-enter-from { opacity: 0; }
@@ -241,14 +286,65 @@ const artworks = [
 .lightbox-leave-to { opacity: 0; }
 
 @media (max-width: 1024px) {
-  .art-masonry { columns: 2; }
+  .art-masonry { columns: 2; column-gap: 16px; }
 }
+
 @media (max-width: 768px) {
-  .art-masonry { columns: 2; column-gap: 14px; }
-  .art-item { margin-bottom: 14px; }
-  .etsy-banner__inner { flex-direction: column; text-align: center; }
+  .art-masonry { 
+    columns: 2; 
+    column-gap: 12px; 
+  }
+  .art-item { 
+    margin-bottom: 12px; 
+    cursor: pointer;
+  }
+  
+  /* Better mobile banner */
+  .etsy-banner__inner { 
+    flex-direction: column; 
+    text-align: center; 
+    gap: 16px;
+    padding: 24px;
+  }
+  
+  /* Touch-optimized lightbox */
+  .lightbox {
+    padding: 20px;
+  }
+  
+  .lightbox__close {
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    padding: 8px;
+    min-height: 44px;
+    min-width: 44px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .lightbox__img {
+    max-width: 95vw;
+    max-height: 75vh;
+  }
 }
+
 @media (max-width: 480px) {
-  .art-masonry { columns: 1; }
+  .art-masonry { 
+    columns: 1; 
+    column-gap: 0; 
+  }
+  
+  .art-item {
+    margin-bottom: 16px;
+  }
+  
+  .lightbox__img {
+    max-width: 100vw;
+    max-height: 70vh;
+  }
 }
 </style>

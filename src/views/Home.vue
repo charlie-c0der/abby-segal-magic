@@ -19,7 +19,7 @@ useTilt('.tilt-card')
 useSEO({
   title: 'Abby Segal — Chicago Magician | Close-Up & Parlour Magic',
   description: 'Abby Segal is a Chicago-based magician specializing in close-up and parlour magic for corporate events, private shows, and theatre. As seen on Penn & Teller: Fool Us.',
-  ogImage: '/images/performance.webp',
+  ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/'
 })
 
@@ -212,7 +212,7 @@ onMounted(async () => {
         <div class="intro-section__visual reveal">
           <div class="img-reveal">
             <div class="intro-portrait">
-              <img src="/images/abby-2024.webp" alt="Abby Segal - Chicago Magician" loading="lazy" decoding="async" />
+              <img src="/assets/portraits/images/abby-2024.webp" alt="Abby Segal - Chicago Magician" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="intro-section__float" data-speed="0.85">
@@ -441,7 +441,7 @@ onMounted(async () => {
 .hero__particles { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 .hero__bg-image {
   position: absolute; inset: 0;
-  background: url('/images/performance.webp') center/cover no-repeat;
+  background: url('/assets/general/images/performance.webp') center/cover no-repeat;
   opacity: 0.15; filter: grayscale(60%) sepia(20%); z-index: 0;
 }
 .hero__vignette {
@@ -568,18 +568,72 @@ onMounted(async () => {
 
 /* ── RESPONSIVE ─────────────────────── */
 @media (max-width: 768px) {
-  .hero__content { padding-top: 160px; }
+  .hero__content { padding-top: 140px; }
   .hero__card { display: none; }
-  .stats-bar__inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-  .intro-section { grid-template-columns: 1fr; gap: 40px; }
+  
+  /* Improved stats layout */
+  .stats-bar__inner { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px;
+    text-align: center;
+  }
+  
+  /* Better intro section flow */
+  .intro-section { 
+    grid-template-columns: 1fr; 
+    gap: 32px; 
+    text-align: center; 
+  }
   .intro-section__visual { order: -1; }
-  .intro-section__float { position: static; margin-top: 16px; display: inline-block; }
-  .shows-horizontal { height: auto; }
-  .shows-horizontal__track { flex-direction: column; height: auto; padding: 0 20px; }
+  .intro-section__float { 
+    position: static; 
+    margin: 16px auto 0; 
+    display: inline-block; 
+  }
+  
+  /* Mobile-optimized shows section */
+  .shows-horizontal { 
+    height: auto; 
+    padding-bottom: var(--section-pad); 
+  }
+  .shows-horizontal__track { 
+    flex-direction: column; 
+    height: auto; 
+    padding: 0 20px; 
+    gap: 24px; 
+  }
   .shows-horizontal__spacer { display: none; }
-  .show-panel { min-width: 100%; max-width: 100%; height: auto; }
-  .testimonials-row { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr; }
+  .show-panel { 
+    min-width: 100%; 
+    max-width: 100%; 
+    height: auto; 
+    padding: 32px 24px;
+    min-height: 320px;
+  }
+  
+  /* Better testimonials on mobile */
+  .testimonials-row { 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+  }
+  
+  /* Mobile process grid with better spacing */
+  .process-grid { 
+    grid-template-columns: 1fr; 
+    gap: 24px; 
+  }
+  
+  /* Mobile hero actions */
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .hero__actions .btn {
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 /* Video Section */
