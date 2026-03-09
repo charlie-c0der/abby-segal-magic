@@ -145,7 +145,7 @@ onUnmounted(() => {
   gap: 36px;
 }
 .nav__link {
-  font-size: 13px;
+  font-size: var(--text-nav);
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -212,7 +212,7 @@ onUnmounted(() => {
 }
 .nav__mobile-link {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: var(--text-card-title);
   color: var(--white-dim);
   cursor: pointer;
   transition: color 0.3s;

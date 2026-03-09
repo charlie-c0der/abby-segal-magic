@@ -301,14 +301,14 @@ const milestones = [
 }
 .timeline__year {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--text-btn);
   color: var(--bronze);
   letter-spacing: 0.05em;
   display: block;
   margin-bottom: 6px;
 }
 .timeline__event {
-  font-size: 16px;
+  font-size: var(--text-body);
   color: var(--white-dim);
   line-height: 1.6;
 }
@@ -360,7 +360,7 @@ h2 em {
 
 .venue-name { 
   font-family: var(--font-display); 
-  font-size: 17px; 
+  font-size: var(--text-card-title); 
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-bottom: 8px;
@@ -368,13 +368,13 @@ h2 em {
 }
 
 .venue-loc { 
-  font-size: 13px; 
+  font-size: var(--text-btn); 
   color: var(--cream-muted); 
   margin-bottom: 8px;
 }
 
 .venue-desc {
-  font-size: 14px;
+  font-size: var(--text-body-sm);
   color: var(--cream-dim);
   font-style: italic;
 }

@@ -90,7 +90,7 @@ const socials = [
   gap: 24px;
 }
 .footer__links a {
-  font-size: 13px;
+  font-size: var(--text-btn);
   color: var(--white-muted);
   transition: color 0.3s;
 }
@@ -100,13 +100,13 @@ const socials = [
   gap: 20px;
 }
 .footer__socials a {
-  font-size: 13px;
+  font-size: var(--text-btn);
   color: var(--white-muted);
   transition: color 0.3s;
 }
 .footer__socials a:hover { color: var(--plum); }
 .footer__copy {
-  font-size: 12px;
+  font-size: var(--text-micro);
   color: var(--white-muted);
   width: 100%;
   text-align: center;

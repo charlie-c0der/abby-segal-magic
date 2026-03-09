@@ -71,7 +71,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   padding: 1rem 0;
   border-bottom: 1px solid var(--ember);
   background: var(--obsidian);
-  font-size: 0.9rem;
+  font-size: var(--text-body-sm);
 }
 
 .breadcrumbs__list {
@@ -106,7 +106,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 
 .breadcrumbs__separator {
   color: var(--white-muted);
-  font-size: 0.8rem;
+  font-size: var(--text-micro);
 }
 
 @media (max-width: 768px) {

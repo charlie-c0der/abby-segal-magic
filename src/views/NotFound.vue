@@ -178,7 +178,7 @@ useSEO({
   border: 1px solid var(--ember);
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: var(--text-body-sm);
 }
 
 .link-grid a:hover {
@@ -206,6 +206,10 @@ useSEO({
 @media (max-width: 480px) {
   .floating-card {
     font-size: 3rem;
+  }
+  
+  .not-found__number {
+    font-size: clamp(4rem, 20vw, 8rem);
   }
   
   .link-grid {

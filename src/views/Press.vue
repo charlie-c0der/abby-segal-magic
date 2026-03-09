@@ -206,9 +206,9 @@ const pressLogos = [
 .press-quote--highlight { border-color: rgba(141, 59, 120, 0.3); }
 .press-quote__text { font-family: var(--font-display); font-size: 17px; font-style: italic; font-weight: 400; line-height: 1.6; color: var(--ivory-dim); }
 .press-quote__meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-.press-quote__source { font-weight: 600; font-size: 14px; color: var(--gold); }
-.press-quote__context { font-size: 13px; color: var(--white-muted); }
-.press-quote__year { font-family: var(--font-mono); font-size: 12px; color: var(--white-muted); }
+.press-quote__source { font-weight: 600; font-size: var(--text-body-sm); color: var(--gold); }
+.press-quote__context { font-size: var(--text-btn); color: var(--white-muted); }
+.press-quote__year { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--white-muted); }
 
 /* Press Photos Strip */
 .press-photos { overflow: hidden; border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
@@ -220,7 +220,7 @@ const pressLogos = [
 .press-quote__link {
   display: inline-block;
   margin-top: 12px;
-  font-size: 13px;
+  font-size: var(--text-btn);
   color: var(--gold);
   font-family: var(--font-mono);
   letter-spacing: 0.05em;
@@ -248,13 +248,13 @@ const pressLogos = [
 }
 .featured-in__name {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: var(--text-body);
   font-weight: 700;
   color: var(--ivory-dim);
 }
 .featured-in__outlet {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--white-muted);

@@ -421,7 +421,7 @@ onMounted(async () => {
   position: absolute;
   top: 16px;
   left: 20px;
-  font-size: 22px;
+  font-size: var(--text-card-title);
   line-height: 1.1;
   color: rgba(141, 59, 120, 0.12);
   font-weight: 700;
@@ -473,7 +473,7 @@ onMounted(async () => {
 /* ── TICKER ─────────────────────────── */
 .ticker { padding: 18px 0; border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); overflow: hidden; background: var(--obsidian); }
 .ticker__track { display: flex; animation: tickerScroll 35s linear infinite; white-space: nowrap; width: max-content; }
-.ticker__item { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); padding: 0 28px; }
+.ticker__item { font-family: var(--font-mono); font-size: var(--text-ticker); letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); padding: 0 28px; }
 .ticker__star { color: var(--gold); margin: 0 4px; font-size: 8px; }
 @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.33%); } }
 
@@ -481,9 +481,9 @@ onMounted(async () => {
 .stats-bar { padding: 48px 0; border-bottom: 1px solid var(--ember); }
 .stats-bar__inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
 .stat__number {
-  font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: var(--bronze); display: block;
+  font-family: var(--font-display); font-size: var(--text-stat); font-weight: 700; color: var(--bronze); display: block;
 }
-.stat__label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-muted); }
+.stat__label { font-family: var(--font-mono); font-size: var(--text-stat-label); letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-muted); }
 
 /* ── INTRO ──────────────────────────── */
 .intro-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -494,7 +494,7 @@ onMounted(async () => {
 .intro-portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(5%) sepia(10%) sepia(15%) contrast(1.02); transition: all 0.6s var(--ease-out); }
 .intro-portrait:hover img { filter: grayscale(0%) sepia(0%) sepia(0%) contrast(1.05); transform: scale(1.03); }
 .intro-section__float { position: absolute; bottom: -20px; right: -20px; background: var(--void); border: 1px solid var(--plum); border-radius: var(--radius-md); padding: 20px 28px; }
-.intro-section__float-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; display: block; margin-top: 6px; }
+.intro-section__float-title { font-family: var(--font-display); font-size: var(--text-card-title); font-weight: 600; display: block; margin-top: 6px; }
 .intro-section__visual { position: relative; }
 
 /* ── HORIZONTAL SCROLL SHOWS ────────── */
@@ -507,8 +507,8 @@ onMounted(async () => {
   border-radius: var(--radius-md); padding: 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
 .show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
 .show-panel__number { font-family: var(--font-display); font-size: 64px; font-weight: 900; letter-spacing: -0.03em; color: rgba(141, 59, 120, 0.12); position: absolute; top: 32px; right: 32px; line-height: 1; }
-.show-panel__title { font-family: var(--font-display); font-size: 34px; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; }
-.show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+.show-panel__title { font-family: var(--font-display); font-size: var(--text-subtitle); font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; }
+.show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--ember); min-width: 300px; }
 
 /* ── BIG QUOTE SECTION REMOVED ────────── */
@@ -519,8 +519,8 @@ onMounted(async () => {
 .process-step { padding: 40px; border: 1px solid var(--ember);
   border-radius: var(--radius-lg); transition: all 0.5s var(--ease-out); }
 .process-step:hover { border-color: var(--plum); transform: translateY(-4px); }
-.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: normal; font-weight: 900; color: var(--bronze); opacity: 0.5; display: block; margin-bottom: 16px; }
-.process-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.process-step__number { font-family: var(--font-display); font-size: var(--text-subtitle); font-style: normal; font-weight: 900; color: var(--bronze); opacity: 0.5; display: block; margin-bottom: 16px; }
+.process-step__title { font-family: var(--font-display); font-size: var(--text-card-title); font-weight: 700; margin-bottom: 12px; }
 
 /* ── TESTIMONIALS ───────────────────── */
 .testimonials-section {
@@ -553,12 +553,12 @@ onMounted(async () => {
 
 .testimonial__author { 
   font-weight: 600; 
-  font-size: 14px; 
+  font-size: var(--text-body-sm); 
   color: var(--ivory); 
 }
 
 .testimonial__context { 
-  font-size: 13px; 
+  font-size: var(--text-btn); 
   color: var(--cream-muted); 
 }
 
@@ -636,6 +636,17 @@ onMounted(async () => {
     text-align: center;
     justify-content: center;
   }
+
+  /* Typography mobile overrides */
+  .show-panel__title {
+    font-size: var(--text-card-title);
+  }
+  .show-panel__number {
+    font-size: 40px;
+  }
+  .process-step__number {
+    font-size: var(--text-card-title);
+  }
 }
 
 /* Video Section */
@@ -707,13 +718,13 @@ onMounted(async () => {
 
 .press-logo h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: var(--text-body);
   margin-bottom: 0.5rem;
   color: var(--ivory);
 }
 
 .press-logo span {
-  font-size: 0.9rem;
+  font-size: var(--text-body-sm);
   color: var(--cream-dim);
   font-weight: 500;
 }

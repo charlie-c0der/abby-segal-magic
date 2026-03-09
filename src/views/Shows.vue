@@ -119,7 +119,7 @@ const openFaq = ref<number | null>(null)
         <div class="addons-grid addons-grid--4">
           <div v-for="(a, i) in addOns" :key="a.title" class="card reveal" :class="`reveal-delay-${(i % 4)+1}`">
             <span class="addon-icon">{{ a.icon }}</span>
-            <h3 class="heading-md" style="font-size: 22px; margin: 12px 0 8px;">{{ a.title }}</h3>
+            <h3 class="heading-md" style="font-size: var(--text-card-title); margin: 12px 0 8px;">{{ a.title }}</h3>
             <p class="body-md">{{ a.desc }}</p>
           </div>
         </div>
@@ -207,20 +207,20 @@ const openFaq = ref<number | null>(null)
 .show-card:hover { border-color: rgba(141, 59, 120, 0.3); box-shadow: 0 16px 50px rgba(0,0,0,0.3); }
 .show-card__header { display: flex; align-items: center; gap: 24px; padding: 40px; border-bottom: 1px solid var(--ember); }
 .show-card__number {
-  font-family: var(--font-display); font-size: 48px; font-weight: 900; letter-spacing: -0.03em; color: var(--gold-dim); line-height: 1;
+  font-family: var(--font-display); font-size: var(--text-hero); font-weight: 900; letter-spacing: -0.03em; color: var(--gold-dim); line-height: 1;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .show-card:hover .show-card__number { color: var(--gold); text-shadow: 0 0 30px rgba(201, 168, 76, 0.4); transform: scale(1.1); }
-.show-card__subtitle { font-size: 14px; color: var(--white-muted); margin-top: 4px; }
+.show-card__subtitle { font-size: var(--text-body-sm); color: var(--white-muted); margin-top: 4px; }
 .show-card__body { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; padding: 40px; }
 .show-card__meta { display: flex; gap: 40px; margin-bottom: 20px; }
-.show-card__meta-item p { font-size: 18px; font-weight: 500; margin-top: 4px; }
+.show-card__meta-item p { font-size: var(--text-body-lg); font-weight: 500; margin-top: 4px; }
 .show-card__experience {
-  font-style: italic; color: var(--plum); font-size: 15px; margin-top: 16px;
+  font-style: italic; color: var(--plum); font-size: var(--text-body); margin-top: 16px;
   padding-top: 16px; border-top: 1px solid var(--ember);
 }
 .show-card__ideal ul { list-style: none; padding: 0; margin-top: 12px; }
-.show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: 15px; color: var(--white-dim); }
+.show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: var(--text-body); color: var(--white-dim); }
 .show-card__ideal li::before { content: '✦ '; color: var(--gold); font-size: 10px; }
 
 .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -239,7 +239,7 @@ const openFaq = ref<number | null>(null)
   display: flex; justify-content: space-between; align-items: center;
   padding: 24px 0;
 }
-.faq-item__q h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+.faq-item__q h3 { font-family: var(--font-display); font-size: var(--text-body-lg); font-weight: 600; }
 .faq-item__toggle {
   font-size: 24px; color: var(--gold); flex-shrink: 0; width: 32px; text-align: center;
   transition: transform 0.3s;
@@ -311,7 +311,7 @@ const openFaq = ref<number | null>(null)
 
 .gallery-overlay h3 {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: var(--text-body);
   font-weight: 700;
   letter-spacing: -0.01em;
   margin: 0;
@@ -321,6 +321,7 @@ const openFaq = ref<number | null>(null)
 @media (max-width: 768px) {
   .show-card__body { grid-template-columns: 1fr; }
   .show-card__header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .show-card__number { font-size: var(--text-subtitle); }
   .addons-grid, .addons-grid--4 { grid-template-columns: 1fr 1fr; }
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -176,7 +176,7 @@ const artworks = [
   align-items: center;
   gap: 12px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--text-body);
   color: var(--cream-dim);
 }
 .etsy-banner__icon {
@@ -184,7 +184,7 @@ const artworks = [
 }
 .btn--sm {
   padding: 10px 22px;
-  font-size: 11px;
+  font-size: var(--text-micro);
 }
 
 .art-masonry {
@@ -262,14 +262,14 @@ const artworks = [
 }
 .lightbox__title {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: var(--text-body);
   font-weight: 600;
   color: var(--ivory-dim);
 }
 
 .lightbox__hint {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--text-micro);
   color: var(--white-muted);
   margin-top: 8px;
   display: none;

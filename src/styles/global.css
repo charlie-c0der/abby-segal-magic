@@ -40,6 +40,28 @@
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
+  /* Typography Scale — 1.33 ratio (perfect fourth) */
+  /* Display — Montserrat */
+  --text-display: clamp(64px, 9vw, 128px);
+  --text-hero: clamp(48px, 7vw, 96px);
+  --text-title: clamp(36px, 5vw, 64px);
+  --text-subtitle: clamp(26px, 3vw, 40px);
+  --text-card-title: clamp(20px, 2vw, 24px);
+  --text-eyebrow: 14px;
+
+  /* Body — Inter */
+  --text-body-lg: clamp(18px, 1.3vw, 21px);
+  --text-body: 16px;
+  --text-body-sm: 14px;
+
+  /* UI */
+  --text-btn: 13px;
+  --text-nav: 13px;
+  --text-stat: clamp(36px, 5vw, 56px);
+  --text-stat-label: 13px;
+  --text-ticker: 14px;
+  --text-micro: 12px;
+
   /* Spacing */
   --section-pad: clamp(80px, 10vw, 140px);
   --container: 1200px;
@@ -123,43 +145,68 @@ h1, h2, h3, h4 {
   margin: 24px auto;
 }
 
-/* ── Heading Styles ───────────────────── */
-.heading-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--plum);
-  margin-bottom: 16px;
+/* ── Heading Classes ───────────────────── */
+.heading-display {
+  font-size: var(--text-display);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
 }
 
 .heading-xl {
-  font-size: clamp(40px, 6vw, 80px);
+  font-size: var(--text-hero);
   font-weight: 900;
   letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .heading-lg {
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: var(--text-title);
   font-weight: 700;
   letter-spacing: -0.025em;
+  line-height: 1.1;
 }
 
 .heading-md {
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: var(--text-subtitle);
   font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
+.heading-sm {
+  font-size: var(--text-card-title);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* ── Eyebrow ─────────────────────────── */
+.heading-eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 16px;
+  line-height: 1.0;
+}
+
+/* ── Body ────────────────────────────── */
 .body-lg {
-  font-size: clamp(17px, 1.2vw, 20px);
-  color: var(--cream-dim);
+  font-size: var(--text-body-lg);
   line-height: 1.7;
 }
 
 .body-md {
-  font-size: 16px;
-  color: var(--cream-dim);
+  font-size: var(--text-body);
   line-height: 1.7;
+}
+
+.body-sm {
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
 }
 
 /* ── Buttons — rounded, warmer ────────── */
@@ -173,8 +220,8 @@ h1, h2, h3, h4 {
   background: transparent;
   color: var(--gold);
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: var(--text-btn);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.5s var(--ease-out);
@@ -471,6 +518,20 @@ html.lenis, html.lenis body {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --text-display: clamp(40px, 12vw, 72px);
+    --text-hero: clamp(36px, 9vw, 56px);
+    --text-title: clamp(28px, 7vw, 44px);
+    --text-subtitle: clamp(22px, 5vw, 32px);
+    --text-card-title: clamp(18px, 4vw, 22px);
+    --text-eyebrow: 13px;
+    --text-body-lg: clamp(16px, 4vw, 18px);
+    --text-stat: clamp(28px, 8vw, 40px);
+    --text-stat-label: 12px;
+    --text-ticker: 13px;
+    --text-btn: 12px;
+  }
+
   .hide-mobile { display: none !important; }
   .card { padding: 28px; }
   .custom-cursor, .custom-cursor--dot { display: none !important; }
@@ -506,5 +567,16 @@ html.lenis, html.lenis body {
   .art-item:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-display: clamp(32px, 14vw, 56px);
+    --text-hero: clamp(30px, 10vw, 44px);
+    --text-title: clamp(24px, 8vw, 36px);
+    --text-subtitle: clamp(20px, 6vw, 28px);
+    --text-eyebrow: 12px;
+    --text-stat: clamp(24px, 10vw, 36px);
   }
 }

@@ -253,7 +253,7 @@ const eventTypes = [
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-micro);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--white-muted);
@@ -266,7 +266,7 @@ const eventTypes = [
   border: 1px solid var(--ember);
   color: var(--ivory);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--text-body);
   transition: border-color 0.3s;
   outline: none;
   border-radius: 0;
@@ -358,14 +358,14 @@ const eventTypes = [
   top: 120px;
 }
 .contact-info__link {
-  font-size: 18px;
+  font-size: var(--text-body-lg);
   font-weight: 500;
   color: var(--gold);
   transition: opacity 0.3s;
 }
 .contact-info__link:hover { opacity: 0.7; }
 .contact-info__text {
-  font-size: 18px;
+  font-size: var(--text-body-lg);
   font-weight: 500;
 }
 .contact-info__socials {
@@ -374,7 +374,7 @@ const eventTypes = [
   margin-top: 8px;
 }
 .contact-info__socials a {
-  font-size: 14px;
+  font-size: var(--text-body-sm);
   color: var(--white-dim);
   transition: color 0.3s;
 }
