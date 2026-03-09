@@ -36,12 +36,12 @@
   --ivory-ghost: rgba(237, 230, 218, 0.06);
 
   /* Type — geometric, precise, magical */
-  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Typography Scale — 1.33 ratio (perfect fourth) */
-  /* Display — Montserrat */
+  /* Display — Playfair Display */
   --text-display: clamp(64px, 9vw, 128px);
   --text-hero: clamp(48px, 7vw, 96px);
   --text-title: clamp(36px, 5vw, 64px);
