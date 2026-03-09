@@ -1,15 +1,29 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
 
 useReveal()
 useSEO({
-  title: 'Art Gallery | Abby Segal Original Magic-Themed Artwork',
-  description: 'Browse and purchase original magic-themed artwork by Abby Segal. Prints and originals available on Etsy. Exhibition pieces from Prague and beyond.',
+  title: 'Art Gallery | Magic-Themed Artwork by Chicago Magician Abby Segal',
+  description: 'Browse original magic-themed artwork by Chicago magician Abby Segal. Collage, watercolor, and illustration exploring perception and illusion. Prints available on Etsy.',
+  keywords: 'Abby Segal art, magic-themed artwork, Chicago magician, collage art, magic illustration, prints, Etsy',
   ogImage: '/assets/general/images/performance.webp',
-  canonicalUrl: '/art'
+  canonicalUrl: '/art',
+  jsonLd: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': 'Art Gallery — Abby Segal',
+      'description': 'Original magic-themed artwork by Chicago magician Abby Segal.',
+      'url': 'https://www.abbysegalmagic.com/art'
+    },
+    buildBreadcrumbs([
+      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
+      { name: 'Art', url: 'https://www.abbysegalmagic.com/art' }
+    ])
+  ]
 })
 
 const lightboxOpen = ref(false)

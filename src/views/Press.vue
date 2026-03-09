@@ -1,15 +1,29 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
 import LazyYouTube from '../components/LazyYouTube.vue'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
 
 useReveal()
 useSEO({
-  title: 'Press & Media | Abby Segal on Penn & Teller Fool Us',
-  description: 'Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic shows. Press coverage and media appearances.',
+  title: 'Press & Media | Chicago Magician Abby Segal on Penn & Teller: Fool Us',
+  description: 'Chicago magician Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic performances. Press coverage, media appearances, and close-up magic reviews.',
+  keywords: 'Abby Segal press, Chicago magician media, Penn and Teller Fool Us, Chicago Magic Lounge, magic performance, close-up magic, sleight of hand, entertainment',
   ogImage: '/assets/general/images/performance.webp',
-  canonicalUrl: '/press'
+  canonicalUrl: '/press',
+  jsonLd: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      'name': 'Press & Media — Abby Segal',
+      'description': 'Media coverage and press features for Chicago magician Abby Segal.',
+      'url': 'https://www.abbysegalmagic.com/press'
+    },
+    buildBreadcrumbs([
+      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
+      { name: 'Press', url: 'https://www.abbysegalmagic.com/press' }
+    ])
+  ]
 })
 
 const features = [

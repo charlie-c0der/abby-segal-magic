@@ -1,14 +1,34 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
 
 useReveal()
 useSEO({
-  title: 'About Abby Segal | Chicago Magician Biography & Story',
-  description: 'Learn about Abby Segal\'s journey from learning magic at age 11 to performing on Penn & Teller: Fool Us and at venues worldwide. Chicago-based close-up magician.',
+  title: 'About Abby Segal | Chicago Magician, Sleight of Hand Expert & Entertainer',
+  description: 'Learn about Abby Segal — Chicago magician and sleight of hand expert performing close-up magic since age 11. Resident performer at Chicago Magic Lounge. As seen on Penn & Teller: Fool Us.',
+  keywords: 'Abby Segal, Chicago magician, sleight of hand expert, close-up magic, Chicago Magic Lounge, performance, entertainment, Penn and Teller Fool Us, magician biography',
   ogImage: '/assets/general/images/performance.webp',
-  canonicalUrl: '/about'
+  canonicalUrl: '/about',
+  jsonLd: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      'name': 'About Abby Segal',
+      'description': 'Biography of Chicago magician and sleight of hand expert Abby Segal.',
+      'url': 'https://www.abbysegalmagic.com/about',
+      'mainEntity': {
+        '@type': 'Person',
+        'name': 'Abby Segal',
+        'jobTitle': 'Magician & Sleight of Hand Expert',
+        'url': 'https://www.abbysegalmagic.com'
+      }
+    },
+    buildBreadcrumbs([
+      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
+      { name: 'About', url: 'https://www.abbysegalmagic.com/about' }
+    ])
+  ]
 })
 
 const milestones = [

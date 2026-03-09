@@ -1,15 +1,54 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
 
 useReveal()
 useSEO({
-  title: 'Magic Shows & Performances | Abby Segal Chicago Magician',
-  description: 'Book Abby Segal for corporate events, private parties, weddings, and theatre shows. Close-up magic and parlour performances available worldwide.',
+  title: 'Magic Shows & Performances | Hire Chicago Magician Abby Segal for Events',
+  description: 'Book Abby Segal — Chicago magician for hire for private events, corporate entertainment, weddings, and theatre. Close-up magic and sleight of hand performances available worldwide.',
+  keywords: 'magician for hire, Chicago magician, private events, corporate entertainment, close-up magic, sleight of hand, magic show, performance, activities in Chicago, wedding magician',
   ogImage: '/assets/general/images/performance.webp',
-  canonicalUrl: '/shows'
+  canonicalUrl: '/shows',
+  jsonLd: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Close-Up Magic Performance',
+      'description': 'Strolling and table-side close-up magic and sleight of hand for private events, corporate entertainment, and activities in Chicago.',
+      'provider': {
+        '@type': 'Person',
+        'name': 'Abby Segal',
+        'url': 'https://www.abbysegalmagic.com'
+      },
+      'serviceType': 'Entertainment',
+      'areaServed': {
+        '@type': 'City',
+        'name': 'Chicago'
+      }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Parlour Magic Show',
+      'description': 'Intimate stage magic performance for private events, corporate entertainment, and theatre venues.',
+      'provider': {
+        '@type': 'Person',
+        'name': 'Abby Segal',
+        'url': 'https://www.abbysegalmagic.com'
+      },
+      'serviceType': 'Entertainment',
+      'areaServed': {
+        '@type': 'City',
+        'name': 'Chicago'
+      }
+    },
+    buildBreadcrumbs([
+      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
+      { name: 'Shows', url: 'https://www.abbysegalmagic.com/shows' }
+    ])
+  ]
 })
 
 const shows = [

@@ -2,9 +2,10 @@
 import { useSEO } from '../composables/useSEO'
 
 useSEO({
-  title: '404 - Page Not Found | Abby Segal Magic',
-  description: 'The page you\'re looking for has vanished like a magic trick. Return to Abby Segal\'s homepage to explore her magic shows and performances.',
-  canonicalUrl: '/404'
+  title: '404 — Page Not Found | Abby Segal Magic',
+  description: 'The page you\'re looking for has vanished. Return to Abby Segal\'s homepage to explore Chicago magic shows and performances.',
+  canonicalUrl: '/404',
+  robots: 'noindex, follow'
 })
 </script>
 

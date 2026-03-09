@@ -1,15 +1,29 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
 
 useReveal()
 useSEO({
-  title: 'Contact Abby Segal | Book Chicago Magician for Events',
-  description: 'Contact Abby Segal to book magic performances for corporate events, private parties, weddings, and more. Based in Chicago, available worldwide.',
+  title: 'Book Abby Segal | Hire a Chicago Magician for Private Events & Entertainment',
+  description: 'Contact Abby Segal to hire a Chicago magician for private events, corporate entertainment, weddings, and more. Close-up magic and sleight of hand performances. Custom quotes within 24 hours.',
+  keywords: 'hire Chicago magician, magician for hire, book magician, private events, corporate entertainment, close-up magic, sleight of hand, activities in Chicago, Abby Segal contact',
   ogImage: '/assets/general/images/performance.webp',
-  canonicalUrl: '/contact'
+  canonicalUrl: '/contact',
+  jsonLd: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      'name': 'Contact Abby Segal',
+      'description': 'Book Chicago magician Abby Segal for private events and corporate entertainment.',
+      'url': 'https://www.abbysegalmagic.com/contact'
+    },
+    buildBreadcrumbs([
+      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
+      { name: 'Contact', url: 'https://www.abbysegalmagic.com/contact' }
+    ])
+  ]
 })
 
 const form = ref({

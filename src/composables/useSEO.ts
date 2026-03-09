@@ -3,8 +3,11 @@ import { onMounted, onUnmounted } from 'vue'
 interface SEOData {
   title?: string
   description?: string
+  keywords?: string
   ogImage?: string
   canonicalUrl?: string
+  robots?: string
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }
 
 export function useSEO(data: SEOData) {
@@ -45,13 +48,21 @@ export function useSEO(data: SEOData) {
     canonical.href = url
   }
 
+  const injectJsonLd = (data: Record<string, unknown> | Record<string, unknown>[]) => {
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.textContent = JSON.stringify(data)
+    document.head.appendChild(script)
+    addedElements.push(script)
+  }
+
   onMounted(() => {
-    // Store original values
     originalTitle = document.title
 
-    // Set new values
     if (data.title) {
       document.title = data.title
+      updateOGMeta('og:title', data.title)
+      updateMeta('twitter:title', data.title)
     }
 
     if (data.description) {
@@ -60,10 +71,19 @@ export function useSEO(data: SEOData) {
       updateMeta('twitter:description', data.description)
     }
 
-    if (data.title) {
-      updateOGMeta('og:title', data.title)
-      updateMeta('twitter:title', data.title)
+    if (data.keywords) {
+      updateMeta('keywords', data.keywords)
     }
+
+    if (data.robots) {
+      updateMeta('robots', data.robots)
+    }
+
+    // Always set these OG defaults
+    updateOGMeta('og:type', 'website')
+    updateOGMeta('og:locale', 'en_US')
+    updateOGMeta('og:site_name', 'Abby Segal Magic')
+    updateMeta('twitter:site', '@abbysegalmagic')
 
     if (data.ogImage) {
       const fullImageUrl = data.ogImage.startsWith('http') ? data.ogImage : `${baseUrl}${data.ogImage}`
@@ -76,19 +96,34 @@ export function useSEO(data: SEOData) {
       updateCanonical(fullUrl)
       updateOGMeta('og:url', fullUrl)
     }
+
+    if (data.jsonLd) {
+      injectJsonLd(data.jsonLd)
+    }
   })
 
   onUnmounted(() => {
-    // Restore original values
     if (originalTitle) {
       document.title = originalTitle
     }
     
-    // Remove added elements
     addedElements.forEach(element => {
       if (element.parentNode) {
         element.parentNode.removeChild(element)
       }
     })
   })
+}
+
+export function buildBreadcrumbs(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': items.map((item, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': item.name,
+      'item': item.url
+    }))
+  }
 }

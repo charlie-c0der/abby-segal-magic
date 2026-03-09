@@ -17,10 +17,23 @@ useParticles('hero-particles', 60)
 useSplitText()
 useTilt('.tilt-card')
 useSEO({
-  title: 'Abby Segal — Chicago Magician | Close-Up & Parlour Magic',
-  description: 'Abby Segal is a Chicago-based magician specializing in close-up and parlour magic for corporate events, private shows, and theatre. As seen on Penn & Teller: Fool Us.',
+  title: 'Abby Segal — Chicago Magician | Close-Up Magic & Sleight of Hand Entertainment',
+  description: 'Abby Segal is a Chicago magician for hire specializing in close-up magic, sleight of hand, and parlour performances for private events, corporate entertainment, and theatre. As seen on Penn & Teller: Fool Us.',
+  keywords: 'Chicago magician, close-up magic, sleight of hand, magician for hire, private events, Chicago entertainment, activities in Chicago, Abby Segal, Chicago Magic Lounge, parlour magic, performance',
   ogImage: '/assets/general/images/performance.webp',
-  canonicalUrl: '/'
+  canonicalUrl: '/',
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    'name': 'Abby Segal — Chicago Magician',
+    'description': 'Chicago magician for hire specializing in close-up magic and sleight of hand for private events and corporate entertainment.',
+    'url': 'https://www.abbysegalmagic.com/',
+    'isPartOf': {
+      '@type': 'WebSite',
+      'name': 'Abby Segal Magic',
+      'url': 'https://www.abbysegalmagic.com'
+    }
+  }
 })
 
 const heroLoaded = ref(false)
