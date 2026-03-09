@@ -225,20 +225,38 @@ onMounted(() => {
 /* Signature on the card */
 .preloader__card-signature {
   position: absolute;
-  bottom: 20px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 75%;
   opacity: 0;
-  transition: opacity 0.6s ease-in-out 0.3s;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
 }
 .preloader__card-wrap.phase-3 .preloader__card-signature {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 .preloader__card-signature-img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25)) 
+          drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
+  animation: signatureInk 2s ease-out 1.2s both;
+}
+
+@keyframes signatureInk {
+  0% { 
+    opacity: 0;
+    transform: scale(0.9) translateY(5px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.02) translateY(0);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Card signature styling complete above */
