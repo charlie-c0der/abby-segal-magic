@@ -14,7 +14,7 @@ useSEO({
 
 const features = [
   {
-    quote: 'Your style is so humble and sweet, and still confident.',
+    quote: 'Your style is so <em class="shimmer">humble and sweet</em>, and <em class="underline-sketch">still confident</em>.',
     source: 'Penn Jillette',
     context: 'Penn & Teller: Fool Us, CW',
     year: '2021',
@@ -22,7 +22,7 @@ const features = [
     link: 'https://www.youtube.com/watch?v=yHC32hkzFrc',
   },
   {
-    quote: 'From minute one, she pulled us in and had the skills to back it up. She was very natural, which is unusual for someone of her age. Very conversational and just calming to watch - because she had such a grasp of what she was doing already.',
+    quote: 'From minute one, <em class="underline-sketch">she pulled us in</em> and had the skills to back it up. She was <em class="shimmer">very natural</em>, which is unusual for someone of her age. Very conversational and <em>just calming to watch</em> - because she had such a <em class="shimmer">grasp of what she was doing already</em>.',
     source: 'Evan Northrup',
     context: 'Professional Magician & Mentor, quoted in Lowell Sun',
     year: '2021',
@@ -30,7 +30,7 @@ const features = [
     link: 'https://www.lowellsun.com/2021/02/22/abracadabra-chelmsford-magician-to-appear-on-penn-teller/',
   },
   {
-    quote: 'I don\'t think there\'s a better show on TV right now that\'s showing magicians, so to get on Penn & Teller is to make your career. That\'s not overstating it.',
+    quote: 'I don\'t think there\'s a better show on TV right now that\'s showing magicians, so to get on <em class="shimmer">Penn & Teller is to make your career</em>. <em class="underline-sketch">That\'s not overstating it.</em>',
     source: 'David Penn',
     context: 'Abby\'s first mentor, quoted in Lowell Sun',
     year: '2021',
@@ -54,7 +54,7 @@ const features = [
     link: 'https://www.bates.edu/news/2023/04/14/magic-and-soccer-take-home-first-prize-at-the-2023-bobcat-ventures-competition/',
   },
   {
-    quote: 'Abby Segal is a rising young star in magic. She has written a hit children\'s book that is sold at The Magic Castle, lectured and performed at Magifest, and is a featured performer at The Chicago Magic Lounge.',
+    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has written a <em class="underline-sketch">hit children\'s book</em> that is sold at <em class="shimmer">The Magic Castle</em>, lectured and performed at Magifest, and is a featured performer at <em class="underline-sketch">The Chicago Magic Lounge</em>.',
     source: 'Penguin Magic Podcast',
     context: 'Season 6, Episode 16',
     year: '2024',

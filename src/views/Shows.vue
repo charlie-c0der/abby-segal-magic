@@ -19,8 +19,8 @@ const shows = [
     subtitle: 'Strolling & Table-Side',
     duration: '45 minutes',
     audience: '4 – 400 guests',
-    description: 'Abby moves through your event, performing for small groups at a time. Cards transform in your hands. Coins vanish while you\'re holding them. Someone\'s watch ends up somewhere it shouldn\'t. The magic happens inches from your eyes - no stage, no distance, no place to hide. Your guests will grab their friends and say "you HAVE to see this."',
-    experience: 'Guests don\'t watch the show - they\'re IN the show. Expect laughter, gasps, and at least one person saying "do that again" (she won\'t).',
+    description: 'Abby moves through your event, performing for small groups at a time. Cards transform <em class="underline-sketch">in your hands</em>. Coins <em class="shimmer">vanish while you\'re holding them</em>. Someone\'s watch ends up somewhere it <em>shouldn\'t</em>. The magic happens <em class="shimmer">inches from your eyes</em> - <em class="underline-sketch">no stage, no distance, no place to hide</em>. Your guests will grab their friends and say <em class="shimmer">"you HAVE to see this."</em>',
+    experience: 'Guests don\'t watch the show - <em class="underline-sketch">they\'re IN the show</em>. Expect laughter, gasps, and at least one person saying <em class="shimmer">"do that again"</em> (she won\'t).',
     ideal: ['Corporate cocktail hours', 'Wedding receptions', 'Private dinners', 'Holiday parties', 'Trade shows & activations'],
   },
   {
@@ -29,25 +29,25 @@ const shows = [
     subtitle: 'Stage & Interactive',
     duration: 'Customizable (30–60 min)',
     audience: 'Up to 80 guests',
-    description: 'A full interactive show where the audience is part of the performance. Volunteers come up. Impossible things happen. Predictions are revealed. It\'s theatrical, funny, and deeply personal - because Abby tailors every show to the room she\'s in. Debuted at the legendary Chicago Magic Lounge.',
-    experience: 'Think comedy show meets impossible magic meets "how is this possible." Everyone has the best seat in the house because the magic happens WITH the audience.',
+    description: 'A full interactive show where <em class="underline-sketch">the audience is part of the performance</em>. Volunteers come up. <em class="shimmer">Impossible things happen</em>. Predictions are revealed. It\'s theatrical, funny, and <em>deeply personal</em> - because Abby <em class="underline-sketch">tailors every show</em> to the room she\'s in. Debuted at the <em class="shimmer">legendary Chicago Magic Lounge</em>.',
+    experience: 'Think comedy show meets impossible magic meets <em class="shimmer">"how is this possible."</em> Everyone has <em class="underline-sketch">the best seat in the house</em> because the magic happens <em class="shimmer">WITH the audience</em>.',
     ideal: ['Theatre & comedy venues', 'Corporate keynotes', 'Fundraiser galas', 'School assemblies', 'Birthday celebrations'],
   },
 ]
 
 const addOns = [
-  { icon: '🎓', title: 'Magic Workshops', desc: 'Private or group magic instruction. Learn real sleight of hand from someone who\'s been teaching since sixth grade. Perfect for team-building, kids\' parties, or aspiring magicians.' },
-  { icon: '🎨', title: 'Custom Routines', desc: 'Brand magic. Abby can design a routine around your company, product, or event theme. Your logo appears on a card. That sort of thing.' },
-  { icon: '🎤', title: 'MC & Hosting', desc: 'Need someone to run the evening? Abby can MC with magic woven throughout - transitions, surprises, and the occasional impossible moment between courses.' },
-  { icon: '📚', title: 'Children\'s Book', desc: '"Shelly Shazam!" - Abby\'s children\'s book about creativity and imagination. Sold on Amazon and at The Magic Castle. Great gift for young magic fans.' },
+  { icon: '🎓', title: 'Magic Workshops', desc: 'Private or group magic instruction. Learn <em class="shimmer">real sleight of hand</em> from someone who\'s been teaching since <em class="underline-sketch">sixth grade</em>. Perfect for team-building, kids\' parties, or aspiring magicians.' },
+  { icon: '🎨', title: 'Custom Routines', desc: '<em class="shimmer">Brand magic.</em> Abby can design a routine around your company, product, or event theme. <em class="underline-sketch">Your logo appears on a card.</em> That sort of thing.' },
+  { icon: '🎤', title: 'MC & Hosting', desc: 'Need someone to run the evening? Abby can MC with <em class="shimmer">magic woven throughout</em> - transitions, surprises, and the occasional <em class="underline-sketch">impossible moment</em> between courses.' },
+  { icon: '📚', title: 'Children\'s Book', desc: '"Shelly Shazam!" - Abby\'s children\'s book about creativity and imagination. Sold on Amazon and at <em class="shimmer">The Magic Castle</em>. Great gift for young magic fans.' },
 ]
 
 const faqs = [
-  { q: 'How far in advance should I book?', a: 'As early as possible. Weekends fill up fast, especially during holiday season (October–December). Two to four weeks is usually fine, but earlier is better.' },
-  { q: 'How much does it cost?', a: 'It depends on the event - format, duration, travel, and guest count all factor in. Reach out with your details and I\'ll put together a custom quote within 24 hours.' },
-  { q: 'Do you travel?', a: 'Yes! Based in Chicago, available worldwide. I\'ve performed in Helsinki, Amsterdam, Las Vegas, New York, and everywhere in between. Travel fees may apply for events outside the Chicago area.' },
-  { q: 'What about virtual events?', a: 'Absolutely. Virtual magic shows work surprisingly well - interactive, engaging, and perfect for remote teams. I\'ve done them for companies across the country.' },
-  { q: 'Is it appropriate for all ages?', a: 'Yes. The magic is sophisticated enough for adults and accessible enough for kids. No crude humor, no scary stuff. Just genuine astonishment.' },
+  { q: 'How far in advance should I book?', a: 'As early as possible. <em class="shimmer">Weekends fill up fast</em>, especially during holiday season (October–December). Two to four weeks is usually fine, but <em class="underline-sketch">earlier is better</em>.' },
+  { q: 'How much does it cost?', a: 'It depends on the event - format, duration, travel, and guest count all factor in. Reach out with your details and I\'ll put together a <em class="shimmer">custom quote within 24 hours</em>.' },
+  { q: 'Do you travel?', a: 'Yes! Based in Chicago, <em class="shimmer">available worldwide</em>. I\'ve performed in <em class="underline-sketch">Helsinki, Amsterdam, Las Vegas, New York</em>, and everywhere in between. Travel fees may apply for events outside the Chicago area.' },
+  { q: 'What about virtual events?', a: 'Absolutely. Virtual magic shows work <em class="shimmer">surprisingly well</em> - interactive, engaging, and perfect for remote teams. I\'ve done them for companies <em class="underline-sketch">across the country</em>.' },
+  { q: 'Is it appropriate for all ages?', a: 'Yes. The magic is <em class="shimmer">sophisticated enough for adults</em> and <em class="underline-sketch">accessible enough for kids</em>. No crude humor, no scary stuff. Just <em class="shimmer">genuine astonishment</em>.' },
   { q: 'What do you need from us?', a: 'Almost nothing. A place to stand and people to astonish. For close-up magic: just a room with guests. For parlour shows: a small stage or designated area, and ideally a microphone for larger groups.' },
 ]
 

@@ -85,8 +85,8 @@ const eventTypes = [
         <p class="heading-eyebrow reveal">Contact</p>
         <h1 class="heading-xl reveal reveal-delay-1">Let's make <em class="shimmer">magic.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 560px; margin-top: 16px;">
-          Tell me about your event and I'll put together the perfect show.
-          Custom quotes within 24 hours - usually faster.
+          Tell me about your event and I'll put together <em class="underline-sketch">the perfect show</em>.
+          <em class="shimmer">Custom quotes within 24 hours</em> - usually faster.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>
@@ -214,7 +214,7 @@ const eventTypes = [
           <div class="card reveal reveal-delay-2">
             <p class="heading-eyebrow">Based in</p>
             <p class="contact-info__text">Chicago, Illinois</p>
-            <p class="body-md" style="margin-top: 8px;">Available for travel worldwide.</p>
+            <p class="body-md" style="margin-top: 8px;">Available for <em class="shimmer">travel worldwide</em>.</p>
           </div>
 
           <div class="card reveal reveal-delay-3">

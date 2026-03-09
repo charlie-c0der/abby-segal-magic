@@ -53,37 +53,37 @@ const milestones = [
           <h2 class="heading-md reveal" style="margin-bottom: 24px;">The origin story</h2>
 
           <p class="body-lg reveal">
-            Abby Segal got into magic at 11 because her older sister Julia was hired
+            Abby Segal got into magic <em class="shimmer">at 11</em> because her older sister Julia was hired
             as an assistant to a family friend and magician named David Penn - "Crazy Davy."
             He came over to their house in Chelmsford, Massachusetts, and did a trick
-            with sponge balls that ended up in Abby's hand. She was hooked.
+            with sponge balls that <em class="underline-sketch">ended up in Abby's hand</em>. <em class="shimmer">She was hooked.</em>
           </p>
 
           <p class="body-lg reveal reveal-delay-1">
-            <em>"I just remember that feeling of astonishment,"</em> she says.
+            <em class="shimmer">"I just remember that feeling of astonishment,"</em> she says.
             <em>"It wasn't that I needed to figure out how it worked. I liked the
-            way it made me feel and wanted to see how it could make other people feel."</em>
+            <em class="underline-sketch">way it made me feel</em> and wanted to see how it could <em class="shimmer">make other people feel</em>."</em>
           </p>
 
           <p class="body-lg reveal reveal-delay-1">
-            She taught herself from YouTube. By sixth grade she'd created her own
-            show and was performing at preschools. By high school she was gigging
-            solo - schools, camps, corporate events, nursing homes. At 18, she auditioned
-            for Penn & Teller: Fool Us with an original trick. She didn't make it.
-            She spent two years perfecting it. Then COVID hit, she tried again -
-            and this time, at 20 years old, she was on national television. Teller
-            sketched her portrait backstage and called her a <em>"wonder-worker."</em>
+            She <em class="underline-sketch">taught herself from YouTube</em>. By <em class="shimmer">sixth grade</em> she'd created her own
+            show and was performing at preschools. By high school she was <em>gigging
+            solo</em> - schools, camps, corporate events, nursing homes. At 18, she auditioned
+            for <em class="shimmer">Penn & Teller: Fool Us</em> with an original trick. She didn't make it.
+            She spent <em class="underline-sketch">two years perfecting it</em>. Then COVID hit, she tried again -
+            and this time, at <em class="shimmer">20 years old</em>, she was on <em class="underline-sketch">national television</em>. Teller
+            sketched her portrait backstage and called her a <em class="shimmer">"wonder-worker."</em>
           </p>
 
           <h2 class="heading-md reveal reveal-delay-2" style="margin-top: 40px; margin-bottom: 24px;">The psychology thing</h2>
 
           <p class="body-lg reveal reveal-delay-2">
-            Abby graduated from Bates College with a B.A. in Psychology and a Film Studies
-            minor. This isn't a fun fact - it's core to how she performs. In her cognitive
-            psychology lab, she literally wrote her research paper on magic: how
+            Abby graduated from <em class="shimmer">Bates College</em> with a <em class="underline-sketch">B.A. in Psychology</em> and a Film Studies
+            minor. This isn't a fun fact - <em class="shimmer">it's core to how she performs</em>. In her cognitive
+            psychology lab, she literally <em class="underline-sketch">wrote her research paper on magic</em>: how
             violating a routine's expectations elevates audience surprise. She studies
-            <em>how you pay attention</em>, what you'll remember, what you'll miss, and
-            how to make you feel something real.
+            <em class="shimmer">how you pay attention</em>, what you'll remember, what you'll miss, and
+            how to <em class="underline-sketch">make you feel something real</em>.
           </p>
 
           <p class="body-lg reveal reveal-delay-3">

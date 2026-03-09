@@ -44,31 +44,31 @@ const stats = [
 
 const testimonials = [
   {
-    quote: 'Your style is so humble and sweet, and still confident.',
+    quote: 'Your style is so <em class="shimmer">humble and sweet</em>, and <em class="underline-sketch">still confident</em>.',
     author: 'Penn Jillette',
     context: "Penn & Teller: Fool Us, CW",
   },
   {
-    quote: 'From minute one, she pulled us in. She was very natural, which is unusual for someone of her age. Very conversational and just calming to watch.',
+    quote: 'From minute one, <em class="underline-sketch">she pulled us in</em>. She was <em class="shimmer">very natural</em>, which is unusual for someone of her age. Very conversational and <em>just calming to watch</em>.',
     author: 'Evan Northrup',
     context: 'Professional Magician, quoted in Lowell Sun',
   },
   {
-    quote: 'She was actually better than me at the magic within three years. She would show me better ways of doing things I was trying to do.',
+    quote: 'She was <em class="shimmer">actually better than me</em> at the magic within three years. She would show me <em class="underline-sketch">better ways of doing things</em> I was trying to do.',
     author: 'David Penn',
     context: 'Abby\'s first mentor, Patch.com',
   },
   {
-    quote: 'Abby Segal is a rising young star in magic. She has written a hit children\'s book sold at The Magic Castle, lectured at Magifest, and is a featured performer at The Chicago Magic Lounge.',
+    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has written a hit children\'s book sold at <em class="underline-sketch">The Magic Castle</em>, lectured at Magifest, and is a featured performer at <em class="shimmer">The Chicago Magic Lounge</em>.',
     author: 'Penguin Magic Podcast',
     context: 'Season 6, Episode 16',
   },
 ]
 
 const processSteps = [
-  { number: '01', title: 'Tell me about your event', desc: 'Fill out the quick form - date, guest count, vibe. The more I know, the better the magic fits.' },
-  { number: '02', title: 'We\'ll plan the perfect show', desc: 'I\'ll reach out within 24 hours to discuss your event, recommend a format, and answer any questions.' },
-  { number: '03', title: 'Your guests will never forget it', desc: 'I show up, I astonish people, they talk about it for weeks. That\'s the deal.' },
+  { number: '01', title: 'Tell me about your event', desc: 'Fill out the quick form - date, guest count, vibe. <em class="underline-sketch">The more I know, the better the magic fits.</em>' },
+  { number: '02', title: 'We\'ll plan the perfect show', desc: 'I\'ll reach out <em class="shimmer">within 24 hours</em> to discuss your event, recommend a format, and answer any questions.' },
+  { number: '03', title: 'Your guests will never forget it', desc: 'I show up, I <em class="shimmer">astonish people</em>, they <em class="underline-sketch">talk about it for weeks</em>. That\'s the deal.' },
 ]
 
 onMounted(async () => {
@@ -149,8 +149,8 @@ onMounted(async () => {
         </h1>
         <div class="divider hero__divider" />
         <p class="hero__subtitle body-lg">
-          Close-up and parlour magic powered by psychology, dry humor,<br class="hide-mobile">
-          and 14 years of making the impossible happen inches from your eyes.
+          Close-up and parlour magic powered by <em class="underline-sketch">psychology</em>, dry humor,<br class="hide-mobile">
+          and <em class="shimmer">14 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes.
         </p>
         <div class="hero__actions">
           <router-link to="/contact" class="btn btn--filled magnetic glow-pulse"><span>Book Your Event</span></router-link>
@@ -195,16 +195,16 @@ onMounted(async () => {
           </h2>
           <div class="divider reveal reveal-delay-2" />
           <p class="body-lg reveal reveal-delay-2">
-            Forget everything you think you know about magic shows. There's no stage.
-            No sequined assistant. No "pick a card, any card" autopilot.
+            Forget everything you think you know about magic shows. <em class="underline-sketch">There's no stage.</em>
+            No sequined assistant. No <em>"pick a card, any card"</em> autopilot.
           </p>
           <p class="body-lg reveal reveal-delay-3">
-            Abby performs inches away from you. Cards change in <em>your</em> hands.
-            Coins vanish while you're holding them. She'll know what you're thinking - and
+            Abby performs <em class="shimmer">inches away</em> from you. Cards change in <em>your</em> hands.
+            Coins <em class="underline-sketch">vanish while you're holding them</em>. She'll know what you're thinking - and
             you'll laugh, because she's probably right about the embarrassing thing too.
           </p>
           <p class="body-lg reveal reveal-delay-3" style="font-style: italic; color: var(--gold);">
-            Psychology degree. 14 years of practice. Pure skill.
+            <em class="shimmer">Psychology degree.</em> <em class="underline-sketch">14 years of practice.</em> Pure skill.
           </p>
           <router-link to="/about" class="btn reveal reveal-delay-4 magnetic"><span>Meet Abby</span></router-link>
         </div>
@@ -300,7 +300,7 @@ onMounted(async () => {
           <div class="show-panel__number">01</div>
           <h3 class="show-panel__title">Close-Up<br>Magic</h3>
           <div class="divider" />
-          <p class="body-md">The magic happens in your hands, at your table, inches from your eyes. Abby mingles through your event performing jaw-dropping card and coin magic for small groups. Perfect for cocktail hours, dinners, and receptions.</p>
+          <p class="body-md">The magic happens <em class="shimmer">in your hands</em>, at your table, <em class="underline-sketch">inches from your eyes</em>. Abby mingles through your event performing <em>jaw-dropping</em> card and coin magic for small groups. Perfect for cocktail hours, dinners, and receptions.</p>
           <div class="show-panel__meta">
             <span>45 min</span>
             <span>4–400 guests</span>
@@ -311,7 +311,7 @@ onMounted(async () => {
           <div class="show-panel__number">02</div>
           <h3 class="show-panel__title">Parlour<br>Show</h3>
           <div class="divider" />
-          <p class="body-md">An interactive stage show where your guests become the stars. Volunteers participate, impossible things happen, secrets are revealed - and everyone has the best seat in the house. As debuted at the legendary Chicago Magic Lounge.</p>
+          <p class="body-md">An interactive stage show where <em class="shimmer">your guests become the stars</em>. Volunteers participate, <em class="underline-sketch">impossible things happen</em>, secrets are revealed - and everyone has <em>the best seat in the house</em>. As debuted at the <em class="shimmer">legendary Chicago Magic Lounge</em>.</p>
           <div class="show-panel__meta">
             <span>Custom length</span>
             <span>Up to 80 guests</span>
@@ -370,7 +370,7 @@ onMounted(async () => {
         </h2>
         <div class="divider divider--center reveal reveal-delay-2" />
         <p class="body-lg reveal reveal-delay-2" style="text-align: center; max-width: 500px; margin: 0 auto 40px;">
-          Most events blur together. Magic makes yours the one people remember.
+          Most events <em>blur together</em>. <em class="shimmer">Magic makes yours</em> the <em class="underline-sketch">one people remember</em>.
           Let's talk about what that looks like for you.
         </p>
         <router-link to="/contact" class="btn btn--filled reveal reveal-delay-3 magnetic"><span>Book Your Event</span></router-link>

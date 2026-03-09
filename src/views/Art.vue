@@ -80,10 +80,10 @@ const artworks = [
         <h1 class="heading-xl reveal reveal-delay-1">The other <em class="shimmer">craft.</em></h1>
         <div class="divider reveal reveal-delay-2" />
         <p class="body-lg reveal reveal-delay-3" style="max-width: 600px;">
-          Magic isn't Abby's only medium. She's a visual artist working in collage,
-          watercolor, and illustration - exploring themes of identity, perception,
-          and the things we see (and don't) in everyday life. Her work has been
-          exhibited at Berlinskej Model in Prague. Commissions available.
+          <em class="underline-sketch">Magic isn't Abby's only medium.</em> She's a visual artist working in <em class="shimmer">collage,
+          watercolor, and illustration</em> - exploring themes of identity, perception,
+          and <em class="underline-sketch">the things we see (and don't)</em> in everyday life. Her work has been
+          exhibited at <em class="shimmer">Berlinskej Model in Prague</em>. <em class="underline-sketch">Commissions available.</em>
         </p>
       </div>
     </section>
