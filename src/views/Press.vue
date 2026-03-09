@@ -165,7 +165,7 @@ const pressLogos = [
             class="press-quote card reveal"
             :class="[`reveal-delay-${(i % 4) + 1}`, { 'press-quote--highlight': f.highlight }]"
           >
-            <p class="press-quote__text">"{{ f.quote }}"</p>
+            <p class="press-quote__text">"<span v-html="f.quote"></span>"</p>
             <div class="divider" />
             <div class="press-quote__meta">
               <span class="press-quote__source">{{ f.source }}</span>

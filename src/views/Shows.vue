@@ -95,8 +95,8 @@ const openFaq = ref<number | null>(null)
                   <p>{{ show.audience }}</p>
                 </div>
               </div>
-              <p class="body-md">{{ show.description }}</p>
-              <p class="show-card__experience">{{ show.experience }}</p>
+              <p class="body-md" v-html="show.description"></p>
+              <p class="show-card__experience" v-html="show.experience"></p>
             </div>
             <div class="show-card__ideal">
               <p class="heading-eyebrow">Perfect for</p>
@@ -120,7 +120,7 @@ const openFaq = ref<number | null>(null)
           <div v-for="(a, i) in addOns" :key="a.title" class="card reveal" :class="`reveal-delay-${(i % 4)+1}`">
             <span class="addon-icon">{{ a.icon }}</span>
             <h3 class="heading-md" style="font-size: var(--text-card-title); margin: 12px 0 8px;">{{ a.title }}</h3>
-            <p class="body-md">{{ a.desc }}</p>
+            <p class="body-md" v-html="a.desc"></p>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const openFaq = ref<number | null>(null)
               <span class="faq-item__toggle">{{ openFaq === i ? '−' : '+' }}</span>
             </div>
             <div class="faq-item__a" v-show="openFaq === i">
-              <p class="body-md">{{ faq.a }}</p>
+              <p class="body-md" v-html="faq.a"></p>
             </div>
           </div>
         </div>

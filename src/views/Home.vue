@@ -336,7 +336,7 @@ onMounted(async () => {
           <div v-for="(step, i) in processSteps" :key="step.number" class="process-step reveal" :class="`reveal-delay-${i + 1}`">
             <span class="process-step__number">{{ step.number }}</span>
             <h3 class="process-step__title">{{ step.title }}</h3>
-            <p class="body-md">{{ step.desc }}</p>
+            <p class="body-md" v-html="step.desc"></p>
           </div>
         </div>
       </div>
@@ -352,7 +352,7 @@ onMounted(async () => {
 
         <div class="testimonials-row">
           <div v-for="(t, i) in testimonials" :key="i" class="card tilt-card reveal" :class="`reveal-delay-${(i % 4) + 1}`">
-            <p class="testimonial__quote">"{{ t.quote }}"</p>
+            <p class="testimonial__quote">"<span v-html="t.quote"></span>"</p>
             <div class="divider" />
             <p class="testimonial__author">{{ t.author }}</p>
             <p v-if="t.context" class="testimonial__context">{{ t.context }}</p>
