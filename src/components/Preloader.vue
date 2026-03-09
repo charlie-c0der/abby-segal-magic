@@ -76,7 +76,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
   transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
               transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -115,12 +115,19 @@ onMounted(() => {
 
 /* Card wrapper - controls position & flip */
 .preloader__card-wrap {
-  width: 140px;
-  height: 200px;
+  width: 200px;
+  height: 280px;
   perspective: 1000px;
   opacity: 0;
   transform: translateY(60px) scale(0.8);
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .preloader__card-wrap {
+    width: 160px;
+    height: 240px;
+  }
 }
 .preloader__card-wrap.phase-1 {
   opacity: 1;
@@ -222,27 +229,34 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .preloader__signature.visible {
   opacity: 1;
   transform: translateY(0);
 }
 .preloader__signature-img {
-  width: 180px;
+  width: 240px;
   height: auto;
-  color: var(--ivory);
-  filter: drop-shadow(0 2px 8px rgba(141, 59, 120, 0.3));
-  animation: signatureGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 3px 12px rgba(141, 59, 120, 0.4)) 
+          drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
+  animation: signatureGlow 4s ease-in-out infinite;
 }
 @keyframes signatureGlow {
   0%, 100% { 
-    filter: drop-shadow(0 2px 8px rgba(141, 59, 120, 0.3));
+    filter: drop-shadow(0 3px 12px rgba(141, 59, 120, 0.4)) 
+            drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
   }
   50% { 
-    filter: drop-shadow(0 4px 12px rgba(141, 59, 120, 0.5)) 
-            drop-shadow(0 0 20px rgba(201, 168, 76, 0.2));
+    filter: drop-shadow(0 5px 20px rgba(141, 59, 120, 0.6)) 
+            drop-shadow(0 0 16px rgba(201, 168, 76, 0.5));
+  }
+}
+
+@media (max-width: 768px) {
+  .preloader__signature-img {
+    width: 200px;
   }
 }
 </style>
