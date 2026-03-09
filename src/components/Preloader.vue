@@ -46,23 +46,24 @@ onMounted(() => {
             <div class="preloader__card-pattern-inner">✦</div>
           </div>
         </div>
-        <!-- Front of card - Ace of Spades (Abby's signature) -->
+        <!-- Front of card - Ace of Spades with Abby's signature -->
         <div class="preloader__card-front">
           <span class="preloader__card-corner preloader__card-corner--tl">A<br>♠</span>
           <span class="preloader__card-suit">♠</span>
           <span class="preloader__card-corner preloader__card-corner--br">A<br>♠</span>
+          <!-- Signature on the card -->
+          <div class="preloader__card-signature">
+            <img 
+              src="/assets/general/images/abby-signature.svg" 
+              alt="Abby Segal signature"
+              class="preloader__card-signature-img"
+            />
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Signature reveal -->
-    <div :class="['preloader__signature', { visible: phase >= 3 }]">
-      <img 
-        src="/assets/general/images/abby-signature.svg" 
-        alt="Abby Segal signature"
-        class="preloader__signature-img"
-      />
-    </div>
+    <!-- Card is now the sole focus -->
   </div>
 </template>
 
@@ -75,8 +76,6 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 60px;
   transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
               transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -223,40 +222,24 @@ onMounted(() => {
   transform: rotate(180deg);
 }
 
-/* Signature reveal */
-.preloader__signature {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Signature on the card */
+.preloader__card-signature {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s ease-in-out 0.3s;
 }
-.preloader__signature.visible {
+.preloader__card-wrap.phase-3 .preloader__card-signature {
   opacity: 1;
-  transform: translateY(0);
 }
-.preloader__signature-img {
-  width: 240px;
+.preloader__card-signature-img {
+  width: 100%;
   height: auto;
-  filter: drop-shadow(0 3px 12px rgba(141, 59, 120, 0.4)) 
-          drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
-  animation: signatureGlow 4s ease-in-out infinite;
-}
-@keyframes signatureGlow {
-  0%, 100% { 
-    filter: drop-shadow(0 3px 12px rgba(141, 59, 120, 0.4)) 
-            drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
-  }
-  50% { 
-    filter: drop-shadow(0 5px 20px rgba(141, 59, 120, 0.6)) 
-            drop-shadow(0 0 16px rgba(201, 168, 76, 0.5));
-  }
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 }
 
-@media (max-width: 768px) {
-  .preloader__signature-img {
-    width: 200px;
-  }
-}
+/* Card signature styling complete above */
 </style>
