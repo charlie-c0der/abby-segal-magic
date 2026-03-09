@@ -1,0 +1,35 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .signature-text {
+        font-family: 'Brush Script MT', cursive, serif;
+        font-size: 24px;
+        font-weight: normal;
+        fill: currentColor;
+        stroke: currentColor;
+        stroke-width: 0.5;
+        paint-order: stroke fill;
+      }
+      .signature-flourish {
+        stroke: currentColor;
+        stroke-width: 1.5;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  
+  <!-- Decorative flourish under signature -->
+  <path class="signature-flourish" 
+        d="M20,45 Q50,35 80,40 T140,42 Q160,38 180,45" 
+        opacity="0.6"/>
+  
+  <!-- Signature text with handwritten style -->
+  <text class="signature-text" x="25" y="32">Abby Segal</text>
+  
+  <!-- Small decorative swirl at the end -->
+  <path class="signature-flourish" 
+        d="M145,28 Q155,20 160,25 Q165,30 158,32" 
+        opacity="0.7"/>
+</svg>

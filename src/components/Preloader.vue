@@ -55,10 +55,13 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Text reveal -->
-    <div :class="['preloader__text', { visible: phase >= 3 }]">
-      <span class="preloader__name">Abby Segal</span>
-      <span class="preloader__title">Magic</span>
+    <!-- Signature reveal -->
+    <div :class="['preloader__signature', { visible: phase >= 3 }]">
+      <img 
+        src="/assets/general/images/abby-signature.svg" 
+        alt="Abby Segal signature"
+        class="preloader__signature-img"
+      />
     </div>
   </div>
 </template>
@@ -213,35 +216,33 @@ onMounted(() => {
   transform: rotate(180deg);
 }
 
-/* Text reveal */
-.preloader__text {
+/* Signature reveal */
+.preloader__signature {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.preloader__text.visible {
+.preloader__signature.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.preloader__name {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 800;
+.preloader__signature-img {
+  width: 180px;
+  height: auto;
   color: var(--ivory);
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  filter: drop-shadow(0 2px 8px rgba(141, 59, 120, 0.3));
+  animation: signatureGlow 3s ease-in-out infinite;
 }
-.preloader__title {
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--plum);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+@keyframes signatureGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 2px 8px rgba(141, 59, 120, 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 4px 12px rgba(141, 59, 120, 0.5)) 
+            drop-shadow(0 0 20px rgba(201, 168, 76, 0.2));
+  }
 }
 </style>
