@@ -1,17 +1,16 @@
-<svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .signature-text {
-        font-family: 'Great Vibes', 'Dancing Script', 'Brush Script MT', cursive;
-        font-size: 28px;
-        font-weight: 400;
+        font-family: 'Dancing Script', cursive;
+        font-size: 24px;
+        font-weight: 500;
         fill: #8D3B78;
         text-anchor: middle;
-        dominant-baseline: middle;
+        dominant-baseline: central;
       }
     </style>
   </defs>
   
-  <!-- Elegant signature text in plum -->
-  <text class="signature-text" x="90" y="25">Abby Segal</text>
+  <text class="signature-text" x="80" y="20">Abby Segal</text>
 </svg>
