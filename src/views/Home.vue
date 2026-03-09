@@ -36,10 +36,10 @@ const venues = [
 ]
 
 const stats = [
-  { number: '14+', label: 'Years Performing' },
-  { number: '500+', label: 'Shows Worldwide' },
+  { number: '15+', label: 'Years Performing' },
+  { number: '1000+', label: 'Shows Worldwide' },
   { number: '6', label: 'Countries' },
-  { number: '1', label: 'Penn & Teller Appearance' },
+  { number: '2', label: 'Penn & Teller Appearances' },
 ]
 
 const testimonials = [
@@ -150,7 +150,7 @@ onMounted(async () => {
         <div class="divider hero__divider" />
         <p class="hero__subtitle body-lg">
           Close-up and parlour magic powered by <em class="underline-sketch">psychology</em>, dry humor,<br class="hide-mobile">
-          and <em class="shimmer">14 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes.
+          and <em class="shimmer">15 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes.
         </p>
         <div class="hero__actions">
           <router-link to="/contact" class="btn btn--filled magnetic glow-pulse"><span>Book Your Event</span></router-link>
@@ -204,7 +204,7 @@ onMounted(async () => {
             you'll laugh, because she's probably right about the embarrassing thing too.
           </p>
           <p class="body-lg reveal reveal-delay-3" style="font-style: italic; color: var(--gold);">
-            <em class="shimmer">Psychology degree.</em> <em class="underline-sketch">14 years of practice.</em> Pure skill.
+            <em class="shimmer">Psychology degree.</em> <em class="underline-sketch">15 years of practice.</em> Pure skill.
           </p>
           <router-link to="/about" class="btn reveal reveal-delay-4 magnetic"><span>Meet Abby</span></router-link>
         </div>

@@ -113,7 +113,7 @@ const milestones = [
           </p>
 
           <p class="body-lg reveal reveal-delay-4" style="font-style: italic; color: var(--gold);">
-            Pure skill. No gimmicks. Just 14 years of obsessive practice 
+            Pure skill. No gimmicks. Just 15 years of obsessive practice 
             and a psychology degree that explains why you never see it coming.
           </p>
 
