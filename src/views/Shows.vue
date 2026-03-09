@@ -103,8 +103,7 @@ const openFaq = ref<number | null>(null)
         <p class="heading-eyebrow reveal">Performances</p>
         <h1 class="heading-xl reveal reveal-delay-1">The <em class="shimmer">shows.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 600px;">
-          Every event is different. The magic should be too. Here's what
-          Abby offers - and what your guests will be talking about the next day.
+          Every event is different. The magic should be too. Whether you're looking for a magician for hire for private events or corporate entertainment in Chicago, here's what Abby offers.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>

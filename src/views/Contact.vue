@@ -99,8 +99,8 @@ const eventTypes = [
         <p class="heading-eyebrow reveal">Contact</p>
         <h1 class="heading-xl reveal reveal-delay-1">Let's make <em class="shimmer">magic.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 560px; margin-top: 16px;">
-          Tell me about your event and I'll put together <em class="underline-sketch">the perfect show</em>.
-          <em class="shimmer">Custom quotes within 24 hours</em> - usually faster.
+          Looking for a magician for hire? Tell me about your event and I'll put together <em class="underline-sketch">the perfect close-up magic or sleight of hand performance</em>.
+          <em class="shimmer">Custom quotes within 24 hours</em> — usually faster.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>

@@ -162,8 +162,8 @@ onMounted(async () => {
         </h1>
         <div class="divider hero__divider" />
         <p class="hero__subtitle body-lg">
-          Close-up and parlour magic powered by <em class="underline-sketch">psychology</em>, dry humor,<br class="hide-mobile">
-          and <em class="shimmer">15 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes.
+          Close-up magic and sleight of hand powered by <em class="underline-sketch">psychology</em>, dry humor,<br class="hide-mobile">
+          and <em class="shimmer">15 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes. Available for private events and entertainment in Chicago.
         </p>
         <div class="hero__actions">
           <router-link to="/contact" class="btn btn--filled magnetic glow-pulse"><span>Book Your Event</span></router-link>
@@ -313,7 +313,7 @@ onMounted(async () => {
           <div class="show-panel__number">01</div>
           <h3 class="show-panel__title">Close-Up<br>Magic</h3>
           <div class="divider" />
-          <p class="body-md">The magic happens <em class="shimmer">in your hands</em>, at your table, <em class="underline-sketch">inches from your eyes</em>. Abby mingles through your event performing <em>jaw-dropping</em> card and coin magic for small groups. Perfect for cocktail hours, dinners, and receptions.</p>
+          <p class="body-md">The magic happens <em class="shimmer">in your hands</em>, at your table, <em class="underline-sketch">inches from your eyes</em>. Abby mingles through your event performing <em>jaw-dropping</em> sleight of hand and close-up magic for small groups. Perfect for cocktail hours, dinners, and receptions.</p>
           <div class="show-panel__meta">
             <span>45 min</span>
             <span>4–400 guests</span>
@@ -341,9 +341,12 @@ onMounted(async () => {
     <section class="section">
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center;">Booking</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 60px;">
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center;">
           How it <em>works.</em>
         </h2>
+        <p class="body-lg reveal reveal-delay-2" style="text-align: center; margin: 16px auto 60px; max-width: 500px;">
+          Looking for a magician for hire in Chicago? Here's how booking works.
+        </p>
 
         <div class="process-grid">
           <div v-for="(step, i) in processSteps" :key="step.number" class="process-step reveal" :class="`reveal-delay-${i + 1}`">

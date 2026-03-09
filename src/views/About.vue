@@ -54,7 +54,7 @@ const milestones = [
         <p class="heading-eyebrow reveal">About</p>
         <h1 class="heading-xl reveal reveal-delay-1">Not your average <em class="shimmer">magician.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 600px; margin-top: 16px;">
-          She's been making the impossible happen since she was 11.
+          A Chicago magician and sleight of hand expert who's been making the impossible happen since she was 11.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>
@@ -172,7 +172,7 @@ const milestones = [
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center;">Venues</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 60px;">
-          From living rooms to <em>world stages.</em>
+          From private events to <em>world stages.</em>
         </h2>
         <div class="venues-grid">
           <div class="venue-card featured reveal reveal-delay-1">
