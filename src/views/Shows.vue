@@ -29,8 +29,8 @@ const shows = [
     subtitle: 'Stage & Interactive',
     duration: 'Customizable (30–60 min)',
     audience: 'Up to 80 guests',
-    description: 'A full interactive show where the audience is part of the performance. Volunteers come up. Minds are read. Impossible predictions are revealed. It\'s theatrical, funny, and deeply personal - because Abby tailors every show to the room she\'s in. Debuted at the legendary Chicago Magic Lounge.',
-    experience: 'Think comedy show meets mind-reading meets "how is this possible." Everyone has the best seat in the house because the magic happens WITH the audience.',
+    description: 'A full interactive show where the audience is part of the performance. Volunteers come up. Impossible things happen. Predictions are revealed. It\'s theatrical, funny, and deeply personal - because Abby tailors every show to the room she\'s in. Debuted at the legendary Chicago Magic Lounge.',
+    experience: 'Think comedy show meets impossible magic meets "how is this possible." Everyone has the best seat in the house because the magic happens WITH the audience.',
     ideal: ['Theatre & comedy venues', 'Corporate keynotes', 'Fundraiser galas', 'School assemblies', 'Birthday celebrations'],
   },
 ]
@@ -38,7 +38,7 @@ const shows = [
 const addOns = [
   { icon: '🎓', title: 'Magic Workshops', desc: 'Private or group magic instruction. Learn real sleight of hand from someone who\'s been teaching since sixth grade. Perfect for team-building, kids\' parties, or aspiring magicians.' },
   { icon: '🎨', title: 'Custom Routines', desc: 'Brand magic. Abby can design a routine around your company, product, or event theme. Your logo appears on a card. That sort of thing.' },
-  { icon: '🎤', title: 'MC & Hosting', desc: 'Need someone to run the evening? Abby can MC with magic woven throughout - transitions, surprises, and the occasional mind-read between courses.' },
+  { icon: '🎤', title: 'MC & Hosting', desc: 'Need someone to run the evening? Abby can MC with magic woven throughout - transitions, surprises, and the occasional impossible moment between courses.' },
   { icon: '📚', title: 'Children\'s Book', desc: '"Shelly Shazam!" - Abby\'s children\'s book about creativity and imagination. Sold on Amazon and at The Magic Castle. Great gift for young magic fans.' },
 ]
 

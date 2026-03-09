@@ -143,7 +143,7 @@ onMounted(async () => {
       </div>
 
       <div class="hero__content container" :class="{ loaded: heroLoaded }">
-        <p class="hero__eyebrow heading-eyebrow" data-split data-split-delay="0.3">Chicago Magician &amp; Mentalist</p>
+        <p class="hero__eyebrow heading-eyebrow" data-split data-split-delay="0.3">Chicago Magician &amp; Sleight of Hand Expert</p>
         <h1 class="hero__title heading-xl" data-split data-split-delay="0.6">
           Magic that happens in <span class="shimmer">your hands.</span>
         </h1>
@@ -200,7 +200,7 @@ onMounted(async () => {
           </p>
           <p class="body-lg reveal reveal-delay-3">
             Abby performs inches away from you. Cards change in <em>your</em> hands.
-            Coins vanish while you're holding them. She'll read your mind - and
+            Coins vanish while you're holding them. She'll know what you're thinking - and
             you'll laugh, because she's probably right about the embarrassing thing too.
           </p>
           <p class="body-lg reveal reveal-delay-3" style="font-style: italic; color: var(--gold);">
@@ -311,7 +311,7 @@ onMounted(async () => {
           <div class="show-panel__number">02</div>
           <h3 class="show-panel__title">Parlour<br>Show</h3>
           <div class="divider" />
-          <p class="body-md">An interactive stage show where your guests become the stars. Volunteers participate, minds are read, impossible things happen - and everyone has the best seat in the house. As debuted at the legendary Chicago Magic Lounge.</p>
+          <p class="body-md">An interactive stage show where your guests become the stars. Volunteers participate, impossible things happen, secrets are revealed - and everyone has the best seat in the house. As debuted at the legendary Chicago Magic Lounge.</p>
           <div class="show-panel__meta">
             <span>Custom length</span>
             <span>Up to 80 guests</span>
