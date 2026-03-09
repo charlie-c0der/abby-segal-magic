@@ -239,8 +239,8 @@ onMounted(() => {
 .preloader__card-signature-img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25)) 
-          drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 2px 4px rgba(141, 59, 120, 0.4)) 
+          drop-shadow(0 0 2px rgba(141, 59, 120, 0.2));
   animation: signatureInk 2s ease-out 1.2s both;
 }
 
