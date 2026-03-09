@@ -45,8 +45,8 @@ const socials = [
 <style scoped>
 .footer {
   padding: 80px 0 40px;
-  border-top: 1px solid var(--black-border);
-  background: var(--black-soft);
+  border-top: 1px solid var(--ember);
+  background: var(--obsidian);
 }
 .footer__top {
   display: flex;
@@ -70,7 +70,7 @@ const socials = [
 .footer__divider {
   width: 100%;
   height: 1px;
-  background: var(--black-border);
+  background: var(--ember);
   margin: 48px 0 24px;
 }
 .footer__bottom {
@@ -89,7 +89,7 @@ const socials = [
   color: var(--white-muted);
   transition: color 0.3s;
 }
-.footer__links a:hover { color: var(--rose); }
+.footer__links a:hover { color: var(--plum); }
 .footer__socials {
   display: flex;
   gap: 20px;
@@ -99,7 +99,7 @@ const socials = [
   color: var(--white-muted);
   transition: color 0.3s;
 }
-.footer__socials a:hover { color: var(--rose); }
+.footer__socials a:hover { color: var(--plum); }
 .footer__copy {
   font-size: 12px;
   color: var(--white-muted);

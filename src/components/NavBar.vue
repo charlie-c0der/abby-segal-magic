@@ -108,10 +108,10 @@ onUnmounted(() => {
 }
 .nav--scrolled {
   padding: 16px 0;
-  background: rgba(5, 5, 5, 0.9);
+  background: rgba(9, 9, 14, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--black-border);
+  border-bottom: 1px solid var(--ember);
 }
 .nav__inner {
   display: flex;
@@ -127,7 +127,7 @@ onUnmounted(() => {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--ivory);
   letter-spacing: -0.01em;
 }
 .nav__logo-sub {
@@ -157,12 +157,12 @@ onUnmounted(() => {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--rose);
+  background: var(--plum);
   transition: width 0.3s var(--ease-out);
 }
 .nav__link:hover,
 .nav__link--active {
-  color: var(--rose);
+  color: var(--plum);
 }
 .nav__link--active::after,
 .nav__link:hover::after {
@@ -183,7 +183,7 @@ onUnmounted(() => {
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--white);
+  background: var(--ivory);
   transition: all 0.3s var(--ease-out);
 }
 .nav__burger-line.open:first-child {
@@ -199,8 +199,8 @@ onUnmounted(() => {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--black);
-  border-bottom: 1px solid var(--black-border);
+  background: var(--void);
+  border-bottom: 1px solid var(--ember);
   padding: 32px 0;
   display: flex;
   flex-direction: column;
@@ -229,8 +229,8 @@ onUnmounted(() => {
   position: absolute;
   top: -40px;
   left: 1rem;
-  background: var(--rose);
-  color: var(--white);
+  background: var(--plum);
+  color: var(--ivory);
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: var(--radius-sm);

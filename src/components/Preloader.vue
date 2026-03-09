@@ -68,7 +68,7 @@ onMounted(() => {
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: #050505;
+  background: var(--void);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,11 +93,11 @@ onMounted(() => {
   position: absolute;
   width: 3px;
   height: 3px;
-  background: #c4847a;
+  background: #8D3B78;
   border-radius: 50%;
   opacity: 0;
   animation: moteFloat linear infinite;
-  box-shadow: 0 0 8px #c4847a;
+  box-shadow: 0 0 8px #8D3B78;
 }
 .preloader__mote:nth-child(odd) {
   background: #c9a84c;
@@ -146,12 +146,12 @@ onMounted(() => {
   inset: 0;
   backface-visibility: hidden;
   border-radius: 16px;
-  border: 1px solid rgba(196, 132, 122, 0.2);
+  border: 1px solid rgba(141, 59, 120, 0.2);
 }
 
 /* Back - ornate pattern */
 .preloader__card-back {
-  background: linear-gradient(135deg, #1a1510 0%, #0a0a08 100%);
+  background: linear-gradient(135deg, #15131E 0%, #09090E 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,7 +159,7 @@ onMounted(() => {
 .preloader__card-pattern {
   width: 80%;
   height: 85%;
-  border: 1px solid rgba(196, 132, 122, 0.2);
+  border: 1px solid rgba(141, 59, 120, 0.2);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -184,7 +184,7 @@ onMounted(() => {
 
 /* Front - Ace of Spades */
 .preloader__card-front {
-  background: linear-gradient(135deg, #f5f0e8 0%, #e8e0d0 100%);
+  background: linear-gradient(135deg, #EDE6DA 0%, #DDD6C8 100%);
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
@@ -192,14 +192,14 @@ onMounted(() => {
 }
 .preloader__card-suit {
   font-size: 72px;
-  color: #111;
+  color: #0F0E15;
   line-height: 1;
 }
 .preloader__card-corner {
   position: absolute;
   font-size: 14px;
   line-height: 1.1;
-  color: #111;
+  color: #0F0E15;
   font-weight: 700;
   text-align: center;
 }
@@ -231,7 +231,7 @@ onMounted(() => {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 28px;
   font-weight: 700;
-  color: #f5f0e8;
+  color: var(--ivory);
   letter-spacing: -0.01em;
 }
 .preloader__title {
@@ -239,7 +239,7 @@ onMounted(() => {
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
-  color: #c4847a;
+  color: var(--plum);
   letter-spacing: 0.1em;
 }
 </style>

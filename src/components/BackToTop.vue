@@ -49,9 +49,9 @@ onUnmounted(() => {
   right: 2rem;
   width: 50px;
   height: 50px;
-  background: var(--rose);
-  border: 1px solid var(--rose);
-  color: var(--white);
+  background: var(--plum);
+  border: 1px solid var(--plum);
+  color: var(--ivory);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -59,18 +59,18 @@ onUnmounted(() => {
   justify-content: center;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(196, 132, 122, 0.3);
+  box-shadow: 0 4px 20px rgba(141, 59, 120, 0.3);
 }
 
 .back-to-top:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--bronze);
+  border-color: var(--bronze);
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(196, 146, 79, 0.4);
+  box-shadow: 0 8px 30px rgba(197, 130, 47, 0.4);
 }
 
 .back-to-top:focus {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--bronze);
   outline-offset: 2px;
 }
 

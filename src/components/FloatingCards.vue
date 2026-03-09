@@ -101,8 +101,8 @@ onUnmounted(() => {
   position: absolute;
   width: 80px;
   height: 115px;
-  background: rgba(245, 237, 227, 0.02);
-  border: 1px solid rgba(196, 132, 122, 0.05);
+  background: rgba(237, 230, 218, 0.02);
+  border: 1px solid rgba(141, 59, 120, 0.05);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -117,17 +117,17 @@ onUnmounted(() => {
   left: 7px;
   font-size: 9px;
   line-height: 1.1;
-  color: rgba(196, 132, 122, 0.12);
+  color: rgba(141, 59, 120, 0.12);
   font-weight: 700;
 }
 
 .fcard__center {
   font-size: 28px;
-  color: rgba(196, 132, 122, 0.06);
+  color: rgba(141, 59, 120, 0.06);
 }
 
 .fcard__center--red {
-  color: rgba(196, 132, 122, 0.08);
+  color: rgba(141, 59, 120, 0.08);
 }
 
 @keyframes fcardDrift {

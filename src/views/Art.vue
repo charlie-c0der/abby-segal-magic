@@ -96,7 +96,7 @@ const artworks = [
             <span class="etsy-banner__icon">🛍</span>
             <span>Original prints &amp; artwork available on Etsy</span>
           </div>
-          <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--rose btn--sm">
+          <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--plum btn--sm">
             <span>Visit Shop</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
@@ -140,7 +140,7 @@ const artworks = [
       </transition>
     </Teleport>
 
-    <section class="section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
+    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
       <div class="container" style="text-align: center;">
         <h2 class="heading-lg reveal">Interested in a <em>commission?</em></h2>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 480px; margin: 16px auto 32px;">
@@ -166,8 +166,8 @@ const artworks = [
   justify-content: space-between;
   gap: 20px;
   padding: 20px 28px;
-  background: var(--black-card);
-  border: 1px solid var(--black-border);
+  background: var(--ash);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-md);
   margin-top: -20px;
 }
@@ -197,8 +197,8 @@ const artworks = [
   overflow: hidden;
 }
 .art-item__image {
-  background: var(--black-card);
-  border: 1px solid var(--black-border);
+  background: var(--ash);
+  border: 1px solid var(--ember);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,7 +207,7 @@ const artworks = [
   border-radius: var(--radius-md);
 }
 .art-item:hover .art-item__image {
-  border-color: var(--rose);
+  border-color: var(--plum);
 }
 .art-item__image img {
   width: 100%;
@@ -229,7 +229,7 @@ const artworks = [
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: rgba(5, 5, 5, 0.95);
+  background: rgba(9, 9, 14, 0.95);
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
@@ -257,7 +257,7 @@ const artworks = [
   max-height: 80vh;
   object-fit: contain;
   cursor: default;
-  border: 1px solid var(--black-border);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-md);
 }
 .lightbox__title {

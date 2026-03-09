@@ -132,7 +132,7 @@ onMounted(async () => {
       <div class="hero__bg-image" />
       <div class="hero__vignette" />
       <!-- Organic blobs for warmth -->
-      <div class="blob blob--rose" style="width: 500px; height: 500px; left: -10%; top: 20%;" />
+      <div class="blob blob--plum" style="width: 500px; height: 500px; left: -10%; top: 20%;" />
       <div class="blob blob--gold" style="width: 400px; height: 400px; right: -5%; bottom: 10%;" />
 
       <div class="hero__card" :class="{ loaded: heroLoaded }">
@@ -228,7 +228,7 @@ onMounted(async () => {
       <div class="container">
         <div class="video-content">
           <p class="heading-eyebrow reveal" style="color: var(--gold);">Watch the Magic</p>
-          <h2 class="heading-lg reveal reveal-delay-1" style="color: var(--cream);">
+          <h2 class="heading-lg reveal reveal-delay-1" style="color: var(--ivory);">
             See her <em class="shimmer" style="color: var(--gold);">fool Penn & Teller</em>.
           </h2>
           <div class="divider reveal reveal-delay-2" />
@@ -253,7 +253,7 @@ onMounted(async () => {
     <section class="section as-seen-on">
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center; color: var(--gold);">As Seen On</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--cream);">
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--ivory);">
           Featured on <em class="shimmer" style="color: var(--gold);">major platforms</em>.
         </h2>
         
@@ -343,10 +343,10 @@ onMounted(async () => {
     </section>
 
     <!-- ━━━ TESTIMONIALS ━━━ -->
-    <section class="section testimonials-section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
+    <section class="section testimonials-section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center; color: var(--gold);">Reactions</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--cream);">
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--ivory);">
           What people <em style="color: var(--gold);">say.</em>
         </h2>
 
@@ -387,7 +387,7 @@ onMounted(async () => {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: var(--black);
+  background: var(--void);
 }
 .hero__card {
   position: absolute;
@@ -408,8 +408,8 @@ onMounted(async () => {
 .hero__card-inner {
   width: 100%;
   height: 100%;
-  background: linear-gradient(160deg, rgba(196, 132, 122, 0.03), rgba(201, 168, 76, 0.02));
-  border: 1px solid rgba(196, 132, 122, 0.08);
+  background: linear-gradient(160deg, rgba(141, 59, 120, 0.03), rgba(201, 168, 76, 0.02));
+  border: 1px solid rgba(141, 59, 120, 0.08);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -423,14 +423,14 @@ onMounted(async () => {
   left: 20px;
   font-size: 22px;
   line-height: 1.1;
-  color: rgba(196, 132, 122, 0.12);
+  color: rgba(141, 59, 120, 0.12);
   font-weight: 700;
   font-family: var(--font-display);
   font-style: italic;
 }
 .hero__card-suit {
   font-size: 100px;
-  color: rgba(196, 132, 122, 0.06);
+  color: rgba(141, 59, 120, 0.06);
   line-height: 1;
 }
 @keyframes heroCardFloat {
@@ -447,9 +447,9 @@ onMounted(async () => {
 .hero__vignette {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(196, 132, 122, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(141, 59, 120, 0.04) 0%, transparent 60%),
     radial-gradient(ellipse 50% 50% at 70% 60%, rgba(201, 168, 76, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at center, transparent 30%, rgba(11, 10, 9, 0.85) 100%);
+    radial-gradient(ellipse at center, transparent 30%, rgba(9, 9, 14, 0.85) 100%);
   z-index: 1;
 }
 .hero__content {
@@ -471,17 +471,17 @@ onMounted(async () => {
 @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.5); } }
 
 /* ── TICKER ─────────────────────────── */
-.ticker { padding: 18px 0; border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); overflow: hidden; background: var(--black-soft); }
+.ticker { padding: 18px 0; border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); overflow: hidden; background: var(--obsidian); }
 .ticker__track { display: flex; animation: tickerScroll 35s linear infinite; white-space: nowrap; width: max-content; }
 .ticker__item { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); padding: 0 28px; }
 .ticker__star { color: var(--gold); margin: 0 4px; font-size: 8px; }
 @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-33.33%); } }
 
 /* ── STATS BAR ──────────────────────── */
-.stats-bar { padding: 48px 0; border-bottom: 1px solid var(--black-border); }
+.stats-bar { padding: 48px 0; border-bottom: 1px solid var(--ember); }
 .stats-bar__inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
 .stat__number {
-  font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: var(--gold); display: block;
+  font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: var(--bronze); display: block;
 }
 .stat__label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-muted); }
 
@@ -490,10 +490,10 @@ onMounted(async () => {
 .intro-section__text h2 em { color: var(--gold); font-style: italic; }
 .intro-section__text em { color: var(--gold); }
 .intro-section__text .btn { margin-top: 32px; }
-.intro-portrait { aspect-ratio: 3/4; background: var(--black-card); overflow: hidden; border-radius: var(--radius-lg); }
+.intro-portrait { aspect-ratio: 3/4; background: var(--ash); overflow: hidden; border-radius: var(--radius-lg); }
 .intro-portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(5%) sepia(10%) sepia(15%) contrast(1.02); transition: all 0.6s var(--ease-out); }
 .intro-portrait:hover img { filter: grayscale(0%) sepia(0%) sepia(0%) contrast(1.05); transform: scale(1.03); }
-.intro-section__float { position: absolute; bottom: -20px; right: -20px; background: var(--black); border: 1px solid var(--rose); border-radius: var(--radius-md); padding: 20px 28px; }
+.intro-section__float { position: absolute; bottom: -20px; right: -20px; background: var(--void); border: 1px solid var(--plum); border-radius: var(--radius-md); padding: 20px 28px; }
 .intro-section__float-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; display: block; margin-top: 6px; }
 .intro-section__visual { position: relative; }
 
@@ -503,23 +503,23 @@ onMounted(async () => {
 .shows-horizontal__header h2 em { color: var(--gold); font-style: italic; }
 .shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; }
 .shows-horizontal__spacer { min-width: 20vw; }
-.show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--black-card); border: 1px solid var(--black-border);
+.show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--ash); border: 1px solid var(--ember);
   border-radius: var(--radius-md); padding: 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
-.show-panel:hover { border-color: var(--rose); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-.show-panel__number { font-family: var(--font-mono); font-size: 64px; color: rgba(196, 132, 122, 0.12); position: absolute; top: 32px; right: 32px; line-height: 1; }
+.show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.show-panel__number { font-family: var(--font-mono); font-size: 64px; color: rgba(141, 59, 120, 0.12); position: absolute; top: 32px; right: 32px; line-height: 1; }
 .show-panel__title { font-family: var(--font-display); font-size: 36px; font-weight: 700; margin-bottom: 16px; }
 .show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
-.show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--black-border); min-width: 300px; }
+.show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--ember); min-width: 300px; }
 
 /* ── BIG QUOTE SECTION REMOVED ────────── */
 
 /* ── HOW IT WORKS ───────────────────── */
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .process-grid h2 em { color: var(--gold); font-style: italic; }
-.process-step { padding: 40px; border: 1px solid var(--black-border);
+.process-step { padding: 40px; border: 1px solid var(--ember);
   border-radius: var(--radius-lg); transition: all 0.5s var(--ease-out); }
-.process-step:hover { border-color: var(--rose); transform: translateY(-4px); }
-.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: italic; color: var(--rose); opacity: 0.7; display: block; margin-bottom: 16px; }
+.process-step:hover { border-color: var(--plum); transform: translateY(-4px); }
+.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: italic; color: var(--bronze); opacity: 0.7; display: block; margin-bottom: 16px; }
 .process-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
 
 /* ── TESTIMONIALS ───────────────────── */
@@ -552,7 +552,7 @@ onMounted(async () => {
 .testimonial__author { 
   font-weight: 600; 
   font-size: 14px; 
-  color: var(--cream); 
+  color: var(--ivory); 
 }
 
 .testimonial__context { 
@@ -563,7 +563,7 @@ onMounted(async () => {
 /* ── SECTION REMOVED ────────────────────── */
 
 /* ── FINAL CTA ──────────────────────── */
-.cta-final { min-height: 60vh; display: flex; align-items: center; border-top: 1px solid var(--black-border); background: var(--black-soft); }
+.cta-final { min-height: 60vh; display: flex; align-items: center; border-top: 1px solid var(--ember); background: var(--obsidian); }
 .cta-final__inner { text-align: center; }
 
 /* ── RESPONSIVE ─────────────────────── */
@@ -638,9 +638,9 @@ onMounted(async () => {
 
 /* Video Section */
 .video-section {
-  background: var(--black-soft);
-  border-top: 1px solid var(--black-border);
-  border-bottom: 1px solid var(--black-border);
+  background: var(--obsidian);
+  border-top: 1px solid var(--ember);
+  border-bottom: 1px solid var(--ember);
 }
 
 .video-content {
@@ -649,7 +649,7 @@ onMounted(async () => {
 }
 
 .video-content h2 em {
-  color: var(--rose);
+  color: var(--plum);
   font-style: italic;
 }
 
@@ -668,9 +668,9 @@ onMounted(async () => {
 
 /* As Seen On */
 .as-seen-on {
-  background: var(--black-soft);
-  border-top: 1px solid var(--black-border);
-  border-bottom: 1px solid var(--black-border);
+  background: var(--obsidian);
+  border-top: 1px solid var(--ember);
+  border-bottom: 1px solid var(--ember);
 }
 
 .as-seen-on h2 em {
@@ -689,23 +689,23 @@ onMounted(async () => {
 .press-logo {
   text-align: center;
   padding: 2rem 1.5rem;
-  background: var(--black-card);
-  border: 1px solid var(--black-border);
+  background: var(--ash);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-lg);
   transition: all 0.3s var(--ease-out);
 }
 
 .press-logo:hover {
   transform: translateY(-5px);
-  border-color: var(--rose);
-  background: rgba(196, 132, 122, 0.05);
+  border-color: var(--plum);
+  background: rgba(141, 59, 120, 0.05);
 }
 
 .press-logo h3 {
   font-family: var(--font-display);
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: var(--cream);
+  color: var(--ivory);
 }
 
 .press-logo span {

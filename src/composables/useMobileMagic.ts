@@ -34,11 +34,11 @@ export function useMobileMagic() {
       top: ${touch.clientY}px;
       width: 8px;
       height: 8px;
-      background: #c4847a;
+      background: #8D3B78;
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
-      box-shadow: 0 0 12px #c4847a;
+      box-shadow: 0 0 12px #8D3B78;
       animation: sparkleOut 0.8s ease-out forwards;
     `
 

@@ -69,8 +69,8 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 <style scoped>
 .breadcrumbs {
   padding: 1rem 0;
-  border-bottom: 1px solid var(--black-border);
-  background: var(--black-soft);
+  border-bottom: 1px solid var(--ember);
+  background: var(--obsidian);
   font-size: 0.9rem;
 }
 
@@ -100,7 +100,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 }
 
 .breadcrumbs__current {
-  color: var(--white);
+  color: var(--ivory);
   font-weight: 500;
 }
 

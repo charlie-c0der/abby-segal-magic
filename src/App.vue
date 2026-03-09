@@ -230,7 +230,7 @@ body { cursor: none; }
   top: -80px;
   width: 50px;
   height: 72px;
-  background: rgba(245, 240, 232, 0.9);
+  background: rgba(237, 230, 218, 0.9);
   border-radius: 4px;
   border: 1px solid rgba(201, 168, 76, 0.4);
   display: flex;
@@ -240,11 +240,11 @@ body { cursor: none; }
   animation: cardFall linear forwards;
 }
 .easter-card span {
-  color: #111;
+  color: var(--void);
 }
 .easter-card:nth-child(4n+1) span,
 .easter-card:nth-child(4n+2) span {
-  color: #c0392b;
+  color: var(--plum);
 }
 
 @keyframes cardFall {

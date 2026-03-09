@@ -110,7 +110,7 @@ const openFaq = ref<number | null>(null)
     </section>
 
     <!-- Add-ons -->
-    <section class="section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
+    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center;">Also Available</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
@@ -186,7 +186,7 @@ const openFaq = ref<number | null>(null)
     </section>
 
     <!-- CTA -->
-    <section class="section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
+    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
       <div class="container" style="text-align: center;">
         <h2 class="heading-lg reveal">Ready to <em>book?</em></h2>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 480px; margin: 16px auto 32px;">
@@ -203,9 +203,9 @@ const openFaq = ref<number | null>(null)
 .shows-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
 .shows-hero h1 em, h2 em { color: var(--gold); font-style: italic; }
 
-.show-card { border: 1px solid var(--black-border); border-radius: var(--radius-lg); margin-bottom: 32px; transition: all 0.5s var(--ease-out); overflow: hidden; }
-.show-card:hover { border-color: rgba(196, 132, 122, 0.3); box-shadow: 0 16px 50px rgba(0,0,0,0.3); }
-.show-card__header { display: flex; align-items: center; gap: 24px; padding: 40px; border-bottom: 1px solid var(--black-border); }
+.show-card { border: 1px solid var(--ember); border-radius: var(--radius-lg); margin-bottom: 32px; transition: all 0.5s var(--ease-out); overflow: hidden; }
+.show-card:hover { border-color: rgba(141, 59, 120, 0.3); box-shadow: 0 16px 50px rgba(0,0,0,0.3); }
+.show-card__header { display: flex; align-items: center; gap: 24px; padding: 40px; border-bottom: 1px solid var(--ember); }
 .show-card__number {
   font-family: var(--font-mono); font-size: 48px; color: var(--gold-dim); line-height: 1;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -216,11 +216,11 @@ const openFaq = ref<number | null>(null)
 .show-card__meta { display: flex; gap: 40px; margin-bottom: 20px; }
 .show-card__meta-item p { font-size: 18px; font-weight: 500; margin-top: 4px; }
 .show-card__experience {
-  font-style: italic; color: var(--rose); font-size: 15px; margin-top: 16px;
-  padding-top: 16px; border-top: 1px solid var(--black-border);
+  font-style: italic; color: var(--plum); font-size: 15px; margin-top: 16px;
+  padding-top: 16px; border-top: 1px solid var(--ember);
 }
 .show-card__ideal ul { list-style: none; padding: 0; margin-top: 12px; }
-.show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--black-border); font-size: 15px; color: var(--white-dim); }
+.show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: 15px; color: var(--white-dim); }
 .show-card__ideal li::before { content: '✦ '; color: var(--gold); font-size: 10px; }
 
 .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -230,11 +230,11 @@ const openFaq = ref<number | null>(null)
 /* FAQ */
 .faq-list { display: flex; flex-direction: column; gap: 0; }
 .faq-item {
-  border-bottom: 1px solid var(--black-border); cursor: pointer;
+  border-bottom: 1px solid var(--ember); cursor: pointer;
   transition: background 0.3s;
 }
-.faq-item:first-child { border-top: 1px solid var(--black-border); }
-.faq-item:hover { background: rgba(196, 132, 122, 0.03); }
+.faq-item:first-child { border-top: 1px solid var(--ember); }
+.faq-item:hover { background: rgba(141, 59, 120, 0.03); }
 .faq-item__q {
   display: flex; justify-content: space-between; align-items: center;
   padding: 24px 0;
@@ -250,9 +250,9 @@ const openFaq = ref<number | null>(null)
 
 /* Performance Gallery */
 .performance-gallery {
-  background: var(--black-soft);
-  border-top: 1px solid var(--black-border);
-  border-bottom: 1px solid var(--black-border);
+  background: var(--obsidian);
+  border-top: 1px solid var(--ember);
+  border-bottom: 1px solid var(--ember);
 }
 
 .performance-gallery h2 em {
@@ -298,7 +298,7 @@ const openFaq = ref<number | null>(null)
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(transparent, rgba(9, 9, 14, 0.85));
   color: white;
   padding: 2rem 1.5rem 1.5rem;
   transform: translateY(100%);

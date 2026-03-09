@@ -52,7 +52,7 @@ useSEO({
   justify-content: center;
   position: relative;
   padding: 120px 0;
-  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 50%, var(--black) 100%);
+  background: linear-gradient(180deg, var(--void) 0%, var(--obsidian) 50%, var(--void) 100%);
 }
 
 .not-found__bg {
@@ -65,7 +65,7 @@ useSEO({
 .floating-card {
   position: absolute;
   font-size: 4rem;
-  color: var(--rose);
+  color: var(--plum);
   opacity: 0.1;
   animation: cardFloat 8s ease-in-out infinite;
   pointer-events: none;
@@ -127,7 +127,7 @@ useSEO({
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 800;
   line-height: 0.8;
-  background: linear-gradient(45deg, var(--rose), var(--gold));
+  background: linear-gradient(45deg, var(--plum), var(--gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,7 +137,7 @@ useSEO({
 
 .not-found h1 {
   margin-bottom: 1rem;
-  color: var(--white);
+  color: var(--ivory);
 }
 
 .not-found p {
@@ -174,16 +174,16 @@ useSEO({
   color: var(--white-dim);
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--black-border);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
   font-size: 0.9rem;
 }
 
 .link-grid a:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-  background: rgba(196, 146, 79, 0.1);
+  color: var(--plum);
+  border-color: var(--plum);
+  background: rgba(141, 59, 120, 0.1);
 }
 
 @media (max-width: 768px) {

@@ -6,28 +6,34 @@
 /* Fonts loaded via <link> in index.html for non-blocking render */
 
 :root {
-  /* Palette — warm darks, antique gold, dusty rose accent, creamy whites */
-  --black: #0b0a09;
-  --black-soft: #110f0d;
-  --black-card: #161412;
-  --black-border: #221f1b;
-  --gold: #c9a84c;
-  --gold-light: #e4cc7a;
+  /* Backgrounds — cool-shifted blacks with faint purple undertone */
+  --void: #09090E;
+  --obsidian: #0F0E15;
+  --smoke: #17161F;
+  --ash: #201E2A;
+  --ember: #2D2A38;
+
+  /* Gold — prestige, playing cards, spotlight */
+  --gold: #C9A84C;
+  --gold-light: #DFC06E;
   --gold-dim: rgba(201, 168, 76, 0.12);
   --gold-glow: rgba(201, 168, 76, 0.06);
-  --rose: #c4847a;
-  --rose-dim: rgba(196, 132, 122, 0.12);
-  --rose-glow: rgba(196, 132, 122, 0.06);
-  --cream: #f5ede3;
-  --cream-dim: rgba(245, 237, 227, 0.7);
-  --cream-muted: rgba(245, 237, 227, 0.4);
-  --cream-ghost: rgba(245, 237, 227, 0.06);
 
-  /* Legacy aliases for compat */
-  --white: var(--cream);
-  --white-dim: var(--cream-dim);
-  --white-muted: var(--cream-muted);
-  --white-ghost: var(--cream-ghost);
+  /* Plum — magic, mystery, the supernatural */
+  --plum: #8D3B78;
+  --plum-light: #A8558F;
+  --plum-dim: rgba(141, 59, 120, 0.12);
+  --plum-glow: rgba(141, 59, 120, 0.06);
+
+  /* Bronze — warmth, humanity, approachability */
+  --bronze: #C5822F;
+  --bronze-dim: rgba(197, 130, 47, 0.12);
+
+  /* Ivory — text, playing card paper */
+  --ivory: #EDE6DA;
+  --ivory-dim: rgba(237, 230, 218, 0.7);
+  --ivory-muted: rgba(237, 230, 218, 0.4);
+  --ivory-ghost: rgba(237, 230, 218, 0.06);
 
   /* Type — lighter, more elegant weights */
   --font-display: 'Playfair Display', Georgia, serif;
@@ -63,8 +69,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--black);
-  color: var(--cream);
+  background: var(--void);
+  color: var(--ivory);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -87,8 +93,8 @@ h1, h2, h3, h4 {
 }
 
 ::selection {
-  background: var(--rose);
-  color: var(--black);
+  background: var(--plum);
+  color: var(--void);
 }
 
 /* ── Container ────────────────────────── */
@@ -108,7 +114,7 @@ h1, h2, h3, h4 {
 .divider {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, var(--gold), var(--rose));
+  background: linear-gradient(90deg, var(--gold), var(--plum));
   margin: 24px 0;
   border-radius: 1px;
 }
@@ -123,7 +129,7 @@ h1, h2, h3, h4 {
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--rose);
+  color: var(--plum);
   margin-bottom: 16px;
 }
 
@@ -186,7 +192,7 @@ h1, h2, h3, h4 {
 }
 
 .btn:hover {
-  color: var(--black);
+  color: var(--void);
 }
 
 .btn:hover::before {
@@ -200,35 +206,44 @@ h1, h2, h3, h4 {
 
 .btn--filled {
   background: var(--gold);
-  color: var(--black);
+  color: var(--void);
 }
 
 .btn--filled::before {
-  background: var(--cream);
+  background: var(--ivory);
 }
 
 /* Rose variant for secondary actions */
-.btn--rose {
-  border-color: var(--rose);
-  color: var(--rose);
+.btn--plum {
+  border-color: var(--plum);
+  color: var(--plum);
 }
-.btn--rose::before {
-  background: var(--rose);
+.btn--plum::before {
+  background: var(--plum);
+}
+
+/* Bronze button variant (for secondary CTAs) */
+.btn--bronze {
+  border-color: var(--bronze);
+  color: var(--bronze);
+}
+.btn--bronze::before {
+  background: var(--bronze);
 }
 
 /* ── Card — rounded, organic ──────────── */
 .card {
-  background: var(--black-card);
-  border: 1px solid var(--black-border);
+  background: var(--ash);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-md);
   padding: 40px;
   transition: all 0.5s var(--ease-out);
 }
 
 .card:hover {
-  border-color: var(--rose);
+  border-color: var(--plum);
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(196, 132, 122, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(141, 59, 120, 0.1);
 }
 
 /* ── Grain Overlay — subtler, warmer ──── */
@@ -252,8 +267,8 @@ h1, h2, h3, h4 {
 .blob--gold {
   background: radial-gradient(circle, rgba(201, 168, 76, 0.06), transparent 70%);
 }
-.blob--rose {
-  background: radial-gradient(circle, rgba(196, 132, 122, 0.05), transparent 70%);
+.blob--plum {
+  background: radial-gradient(circle, rgba(141, 59, 120, 0.05), transparent 70%);
 }
 
 /* ── Hand-drawn underline effect ──────── */
@@ -268,7 +283,7 @@ h1, h2, h3, h4 {
   left: -2%;
   width: 104%;
   height: 8px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 5c30-3 60 2 90-1s70 2 106-1' stroke='%23c4847a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 5c30-3 60 2 90-1s70 2 106-1' stroke='%238D3B78' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
   background-size: 100% 100%;
   opacity: 0.6;
 }
@@ -314,7 +329,7 @@ h1, h2, h3, h4 {
   position: fixed;
   width: 22px;
   height: 22px;
-  border: 1.5px solid var(--rose);
+  border: 1.5px solid var(--plum);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -326,7 +341,7 @@ h1, h2, h3, h4 {
   position: fixed;
   width: 4px;
   height: 4px;
-  background: var(--rose);
+  background: var(--plum);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -343,7 +358,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--gold), var(--rose));
+  background: linear-gradient(135deg, var(--gold), var(--plum));
   transform: scaleX(1);
   transform-origin: right;
   transition: transform 0.9s var(--ease-in-out);
@@ -364,9 +379,9 @@ h1, h2, h3, h4 {
   background: linear-gradient(
     110deg,
     var(--gold) 0%,
-    var(--rose) 25%,
+    var(--plum) 25%,
     var(--gold-light) 50%,
-    var(--rose) 75%,
+    var(--bronze) 75%,
     var(--gold) 100%
   );
   background-size: 300% 100%;
@@ -387,8 +402,8 @@ h1, h2, h3, h4 {
   animation: glowPulse 3s ease-in-out infinite;
 }
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 132, 122, 0); }
-  50% { box-shadow: 0 0 24px 4px rgba(196, 132, 122, 0.12); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(141, 59, 120, 0); }
+  50% { box-shadow: 0 0 24px 4px rgba(141, 59, 120, 0.12); }
 }
 
 /* ── Performance Hints ────────────────── */
@@ -462,17 +477,17 @@ html.lenis, html.lenis body {
   .btn { 
     min-height: 44px; 
     padding: 16px 32px;
-    -webkit-tap-highlight-color: rgba(196, 132, 122, 0.1);
+    -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
   }
   .nav__burger { 
     padding: 12px; 
     min-height: 44px; 
     min-width: 44px;
-    -webkit-tap-highlight-color: rgba(196, 132, 122, 0.1);
+    -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
   }
   .nav__mobile-link { 
     padding: 16px 0;
-    -webkit-tap-highlight-color: rgba(196, 132, 122, 0.1);
+    -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
   }
   
   /* Active/touch states */
@@ -482,7 +497,7 @@ html.lenis, html.lenis body {
   }
   
   .nav__mobile-link:active {
-    color: var(--rose) !important;
+    color: var(--plum) !important;
   }
   
   /* Art gallery touch improvements */

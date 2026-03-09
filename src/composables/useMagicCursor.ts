@@ -89,8 +89,8 @@ export function useMagicCursor() {
 
       ctx!.save()
       ctx!.globalAlpha = p.opacity * 0.6
-      // Alternate between rose and gold particles
-      const color = Math.random() > 0.5 ? '#c4847a' : '#c9a84c'
+      // Alternate between plum and gold particles
+      const color = Math.random() > 0.5 ? '#8D3B78' : '#c9a84c'
       ctx!.fillStyle = color
       ctx!.shadowColor = color
       ctx!.shadowBlur = p.size * 4

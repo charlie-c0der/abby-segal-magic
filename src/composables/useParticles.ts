@@ -72,10 +72,10 @@ export function useParticles(canvasId: string, count = 60) {
 
       ctx.save()
       ctx.globalAlpha = alpha
-      // Mix rose and gold motes for warmth
-      const isRose = m.phase > Math.PI
-      ctx.fillStyle = isRose ? '#c4847a' : '#c9a84c'
-      ctx.shadowColor = isRose ? '#c4847a' : '#c9a84c'
+      // Mix plum and gold motes for warmth
+      const isPlum = m.phase > Math.PI
+      ctx.fillStyle = isPlum ? '#8D3B78' : '#c9a84c'
+      ctx.shadowColor = isPlum ? '#8D3B78' : '#c9a84c'
       ctx.shadowBlur = m.size * 6
       ctx.beginPath()
       ctx.arc(m.x, m.y, m.size, 0, Math.PI * 2)

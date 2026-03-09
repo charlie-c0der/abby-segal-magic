@@ -151,7 +151,7 @@ const pressLogos = [
     </section>
 
     <!-- Press Quotes -->
-    <section class="section" style="background: var(--black-soft); border-top: 1px solid var(--black-border);">
+    <section class="section" style="background: var(--obsidian); border-top: 1px solid var(--ember);">
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center;">In their words</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 60px;">
@@ -198,12 +198,12 @@ const pressLogos = [
 .press-hero h1 em, h2 em { color: var(--gold); font-style: italic; }
 
 .video-feature { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: center; }
-.video-feature__embed { aspect-ratio: 16/9; background: var(--black-card); border: 1px solid var(--black-border); overflow: hidden; }
+.video-feature__embed { aspect-ratio: 16/9; background: var(--ash); border: 1px solid var(--ember); overflow: hidden; }
 .video-feature__embed iframe { width: 100%; height: 100%; }
 
 .press-quotes { columns: 2; column-gap: 24px; }
 .press-quote { break-inside: avoid; margin-bottom: 24px; }
-.press-quote--highlight { border-color: rgba(196, 132, 122, 0.3); }
+.press-quote--highlight { border-color: rgba(141, 59, 120, 0.3); }
 .press-quote__text { font-family: var(--font-display); font-size: 18px; font-style: italic; line-height: 1.6; color: var(--white-dim); }
 .press-quote__meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .press-quote__source { font-weight: 600; font-size: 14px; color: var(--gold); }
@@ -211,7 +211,7 @@ const pressLogos = [
 .press-quote__year { font-family: var(--font-mono); font-size: 12px; color: var(--white-muted); }
 
 /* Press Photos Strip */
-.press-photos { overflow: hidden; border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
+.press-photos { overflow: hidden; border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
 .press-photos__track { display: flex; gap: 4px; animation: photoScroll 40s linear infinite; width: max-content; }
 .press-photos__track img { height: 280px; width: auto; object-fit: cover; filter: grayscale(20%); transition: filter 0.4s; }
 .press-photos__track img:hover { filter: grayscale(0%) sepia(0%); }
@@ -231,8 +231,8 @@ const pressLogos = [
 /* Featured In Bar */
 .featured-in {
   padding: 40px 0;
-  border-bottom: 1px solid var(--black-border);
-  background: var(--black-soft);
+  border-bottom: 1px solid var(--ember);
+  background: var(--obsidian);
 }
 .featured-in__track {
   display: flex;

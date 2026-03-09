@@ -214,7 +214,7 @@ const milestones = [
     </section>
 
     <!-- CTA -->
-    <section class="section" style="border-top: 1px solid var(--black-border); background: var(--black-soft);">
+    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
       <div class="container" style="text-align: center;">
         <h2 class="heading-lg reveal">Want the full <em>experience?</em></h2>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 480px; margin: 16px auto 32px;">
@@ -242,7 +242,7 @@ const milestones = [
 }
 .about-portrait__frame {
   aspect-ratio: 3/4;
-  border: 1px solid var(--black-border);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-lg);
   position: sticky;
   top: 120px;
@@ -264,7 +264,7 @@ const milestones = [
 .about-bio h2 em { color: var(--gold); }
 
 /* Timeline - vertical for more room */
-.timeline-section { background: var(--black-soft); border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); }
+.timeline-section { background: var(--obsidian); border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
 .timeline-section h2 em { color: var(--gold); font-style: italic; }
 .timeline {
   max-width: 700px;
@@ -279,7 +279,7 @@ const milestones = [
   top: 0;
   bottom: 0;
   width: 1px;
-  background: var(--black-border);
+  background: var(--ember);
 }
 .timeline__item {
   position: relative;
@@ -292,14 +292,17 @@ const milestones = [
   top: 4px;
   width: 11px;
   height: 11px;
-  background: var(--rose);
+  background: var(--plum);
   border-radius: 50%;
-  border: 2px solid var(--black-soft);
+  border: 2px solid var(--obsidian);
+}
+.timeline__item:nth-child(even) .timeline__dot {
+  background: var(--bronze);
 }
 .timeline__year {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--gold);
+  color: var(--bronze);
   letter-spacing: 0.05em;
   display: block;
   margin-bottom: 6px;
@@ -323,8 +326,8 @@ h2 em {
 }
 
 .venue-card {
-  background: var(--black-card);
-  border: 1px solid var(--black-border);
+  background: var(--ash);
+  border: 1px solid var(--ember);
   border-radius: var(--radius-lg);
   padding: 24px;
   transition: all 0.3s var(--ease-out);
@@ -333,8 +336,8 @@ h2 em {
 
 .venue-card:hover {
   transform: translateY(-5px);
-  border-color: var(--rose);
-  background: rgba(196, 132, 122, 0.05);
+  border-color: var(--plum);
+  background: rgba(141, 59, 120, 0.05);
 }
 
 .venue-card.featured {
@@ -358,7 +361,7 @@ h2 em {
   font-family: var(--font-display); 
   font-size: 18px; 
   margin-bottom: 8px;
-  color: var(--cream);
+  color: var(--ivory);
 }
 
 .venue-loc { 

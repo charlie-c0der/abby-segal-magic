@@ -55,7 +55,7 @@ onMounted(() => {
   position: absolute;
   inset: -20px;
   background: radial-gradient(ellipse at center,
-    rgba(201, 168, 76, 0.15) 0%,
+    rgba(141, 59, 120, 0.15) 0%,
     rgba(201, 168, 76, 0.05) 40%,
     transparent 70%
   );

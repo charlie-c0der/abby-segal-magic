@@ -74,7 +74,7 @@ onUnmounted(() => {
   height: 200px;
   top: 10%;
   right: 5%;
-  background: radial-gradient(circle, rgba(196, 132, 122, 0.04), transparent 70%);
+  background: radial-gradient(circle, rgba(141, 59, 120, 0.04), transparent 70%);
 }
 
 .atmosphere-element--2 {
@@ -89,7 +89,7 @@ onUnmounted(() => {
   height: 120px;
   top: 60%;
   right: 15%;
-  background: radial-gradient(circle, rgba(196, 132, 122, 0.03), transparent 70%);
+  background: radial-gradient(circle, rgba(141, 59, 120, 0.03), transparent 70%);
 }
 
 .atmosphere-dots {
@@ -101,11 +101,11 @@ onUnmounted(() => {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #c4847a;
+  background: #8D3B78;
   border-radius: 50%;
   opacity: 0;
   animation: dotPulse 4s ease-in-out infinite;
-  box-shadow: 0 0 6px #c4847a;
+  box-shadow: 0 0 6px #8D3B78;
 }
 
 .atmosphere-dot:nth-child(even) {

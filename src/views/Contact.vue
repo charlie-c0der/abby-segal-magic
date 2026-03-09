@@ -262,9 +262,9 @@ const eventTypes = [
 .form-group select,
 .form-group textarea {
   padding: 14px 16px;
-  background: var(--black-card);
-  border: 1px solid var(--black-border);
-  color: var(--white);
+  background: var(--ash);
+  border: 1px solid var(--ember);
+  color: var(--ivory);
   font-family: var(--font-body);
   font-size: 15px;
   transition: border-color 0.3s;
@@ -275,8 +275,8 @@ const eventTypes = [
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--rose);
-  box-shadow: 0 0 0 3px rgba(196, 132, 122, 0.08);
+  border-color: var(--plum);
+  box-shadow: 0 0 0 3px rgba(141, 59, 120, 0.08);
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -294,7 +294,7 @@ const eventTypes = [
 .contact-success {
   text-align: center;
   padding: 80px 40px;
-  border: 1px solid var(--rose);
+  border: 1px solid var(--plum);
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
@@ -326,10 +326,10 @@ const eventTypes = [
   position: absolute;
   width: 4px;
   height: 4px;
-  background: var(--rose);
+  background: var(--plum);
   border-radius: 50%;
   animation: sparkleOut 0.8s ease-out forwards;
-  box-shadow: 0 0 6px var(--rose);
+  box-shadow: 0 0 6px var(--plum);
 }
 .contact-success__sparkle:nth-child(odd) {
   background: var(--gold);
