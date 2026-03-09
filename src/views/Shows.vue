@@ -201,13 +201,13 @@ const openFaq = ref<number | null>(null)
 
 <style scoped>
 .shows-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
-.shows-hero h1 em, h2 em { color: var(--gold); font-style: italic; }
+.shows-hero h1 em, h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
 .show-card { border: 1px solid var(--ember); border-radius: var(--radius-lg); margin-bottom: 32px; transition: all 0.5s var(--ease-out); overflow: hidden; }
 .show-card:hover { border-color: rgba(141, 59, 120, 0.3); box-shadow: 0 16px 50px rgba(0,0,0,0.3); }
 .show-card__header { display: flex; align-items: center; gap: 24px; padding: 40px; border-bottom: 1px solid var(--ember); }
 .show-card__number {
-  font-family: var(--font-mono); font-size: 48px; color: var(--gold-dim); line-height: 1;
+  font-family: var(--font-display); font-size: 48px; font-weight: 900; letter-spacing: -0.03em; color: var(--gold-dim); line-height: 1;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .show-card:hover .show-card__number { color: var(--gold); text-shadow: 0 0 30px rgba(201, 168, 76, 0.4); transform: scale(1.1); }
@@ -239,7 +239,7 @@ const openFaq = ref<number | null>(null)
   display: flex; justify-content: space-between; align-items: center;
   padding: 24px 0;
 }
-.faq-item__q h3 { font-family: var(--font-display); font-size: 18px; font-weight: 500; }
+.faq-item__q h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
 .faq-item__toggle {
   font-size: 24px; color: var(--gold); flex-shrink: 0; width: 32px; text-align: center;
   transition: transform 0.3s;
@@ -311,7 +311,9 @@ const openFaq = ref<number | null>(null)
 
 .gallery-overlay h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin: 0;
   color: var(--gold);
 }

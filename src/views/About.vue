@@ -232,7 +232,7 @@ const milestones = [
 
 <style scoped>
 .about-hero { padding-bottom: 0; padding-top: calc(var(--section-pad) + 80px); }
-.about-hero h1 em { color: var(--gold); font-style: italic; }
+.about-hero h1 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
 .about-grid {
   display: grid;
@@ -260,12 +260,12 @@ const milestones = [
   transform: scale(1.02);
 }
 .about-bio p { margin-bottom: 20px; }
-.about-bio em { color: var(--gold); font-style: italic; }
+.about-bio em { color: var(--gold); font-style: normal; font-weight: 400; }
 .about-bio h2 em { color: var(--gold); }
 
 /* Timeline - vertical for more room */
 .timeline-section { background: var(--obsidian); border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
-.timeline-section h2 em { color: var(--gold); font-style: italic; }
+.timeline-section h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 .timeline {
   max-width: 700px;
   margin: 0 auto;
@@ -322,7 +322,8 @@ const milestones = [
 
 h2 em { 
   color: var(--gold); 
-  font-style: italic; 
+  font-style: normal; 
+  font-weight: 400; 
 }
 
 .venue-card {
@@ -359,7 +360,9 @@ h2 em {
 
 .venue-name { 
   font-family: var(--font-display); 
-  font-size: 18px; 
+  font-size: 17px; 
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 8px;
   color: var(--ivory);
 }

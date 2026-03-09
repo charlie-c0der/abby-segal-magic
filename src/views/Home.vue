@@ -487,7 +487,7 @@ onMounted(async () => {
 
 /* ── INTRO ──────────────────────────── */
 .intro-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.intro-section__text h2 em { color: var(--gold); font-style: italic; }
+.intro-section__text h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 .intro-section__text em { color: var(--gold); }
 .intro-section__text .btn { margin-top: 32px; }
 .intro-portrait { aspect-ratio: 3/4; background: var(--ash); overflow: hidden; border-radius: var(--radius-lg); }
@@ -500,14 +500,14 @@ onMounted(async () => {
 /* ── HORIZONTAL SCROLL SHOWS ────────── */
 .shows-horizontal { height: 120vh; position: relative; }
 .shows-horizontal__header { padding-top: 80px; padding-bottom: 48px; }
-.shows-horizontal__header h2 em { color: var(--gold); font-style: italic; }
+.shows-horizontal__header h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 .shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; }
 .shows-horizontal__spacer { min-width: 20vw; }
 .show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--ash); border: 1px solid var(--ember);
   border-radius: var(--radius-md); padding: 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
 .show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-.show-panel__number { font-family: var(--font-mono); font-size: 64px; color: rgba(141, 59, 120, 0.12); position: absolute; top: 32px; right: 32px; line-height: 1; }
-.show-panel__title { font-family: var(--font-display); font-size: 36px; font-weight: 700; margin-bottom: 16px; }
+.show-panel__number { font-family: var(--font-display); font-size: 64px; font-weight: 900; letter-spacing: -0.03em; color: rgba(141, 59, 120, 0.12); position: absolute; top: 32px; right: 32px; line-height: 1; }
+.show-panel__title { font-family: var(--font-display); font-size: 34px; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; }
 .show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--ember); min-width: 300px; }
 
@@ -515,12 +515,12 @@ onMounted(async () => {
 
 /* ── HOW IT WORKS ───────────────────── */
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.process-grid h2 em { color: var(--gold); font-style: italic; }
+.process-grid h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 .process-step { padding: 40px; border: 1px solid var(--ember);
   border-radius: var(--radius-lg); transition: all 0.5s var(--ease-out); }
 .process-step:hover { border-color: var(--plum); transform: translateY(-4px); }
-.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: italic; color: var(--bronze); opacity: 0.7; display: block; margin-bottom: 16px; }
-.process-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.process-step__number { font-family: var(--font-display); font-size: 40px; font-style: normal; font-weight: 900; color: var(--bronze); opacity: 0.5; display: block; margin-bottom: 16px; }
+.process-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 
 /* ── TESTIMONIALS ───────────────────── */
 .testimonials-section {
@@ -537,15 +537,17 @@ onMounted(async () => {
 
 .testimonials-row h2 em { 
   color: var(--gold); 
-  font-style: italic; 
+  font-style: normal; 
+  font-weight: 400; 
 }
 
 .testimonial__quote { 
   font-family: var(--font-display); 
-  font-size: 18px; 
+  font-size: 17px; 
   font-style: italic; 
+  font-weight: 400;
   line-height: 1.6; 
-  color: var(--cream-dim); 
+  color: var(--ivory-dim); 
   margin-bottom: 16px; 
 }
 
@@ -650,7 +652,8 @@ onMounted(async () => {
 
 .video-content h2 em {
   color: var(--plum);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .video-showcase {
@@ -675,7 +678,8 @@ onMounted(async () => {
 
 .as-seen-on h2 em {
   color: var(--gold);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .press-logos {

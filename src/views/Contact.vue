@@ -238,7 +238,7 @@ const eventTypes = [
 
 <style scoped>
 .contact-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
-.contact-hero h1 em { color: var(--gold); font-style: italic; }
+.contact-hero h1 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
 .contact-grid {
   display: grid;

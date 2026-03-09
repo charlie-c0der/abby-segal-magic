@@ -57,12 +57,17 @@ const socials = [
 }
 .footer__logo {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   margin-bottom: 12px;
 }
 .footer__logo em {
   color: var(--gold);
   font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.15em;
 }
 .footer__cta {
   text-align: right;

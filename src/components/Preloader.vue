@@ -228,18 +228,20 @@ onMounted(() => {
   transform: translateY(0);
 }
 .preloader__name {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--ivory);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 .preloader__title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 16px;
+  font-family: var(--font-display);
+  font-size: 14px;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   color: var(--plum);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 </style>

@@ -125,17 +125,20 @@ onUnmounted(() => {
 }
 .nav__logo-text {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
   color: var(--ivory);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 .nav__logo-sub {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 .nav__links {
   display: flex;

@@ -35,8 +35,8 @@
   --ivory-muted: rgba(237, 230, 218, 0.4);
   --ivory-ghost: rgba(237, 230, 218, 0.06);
 
-  /* Type — lighter, more elegant weights */
-  --font-display: 'Playfair Display', Georgia, serif;
+  /* Type — geometric, precise, magical */
+  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -87,9 +87,9 @@ img, video {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 ::selection {
@@ -135,17 +135,19 @@ h1, h2, h3, h4 {
 
 .heading-xl {
   font-size: clamp(40px, 6vw, 80px);
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: -0.03em;
 }
 
 .heading-lg {
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 .heading-md {
   font-size: clamp(24px, 3vw, 36px);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .body-lg {

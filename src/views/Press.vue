@@ -195,7 +195,7 @@ const pressLogos = [
 
 <style scoped>
 .press-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
-.press-hero h1 em, h2 em { color: var(--gold); font-style: italic; }
+.press-hero h1 em, h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
 .video-feature { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: center; }
 .video-feature__embed { aspect-ratio: 16/9; background: var(--ash); border: 1px solid var(--ember); overflow: hidden; }
@@ -204,7 +204,7 @@ const pressLogos = [
 .press-quotes { columns: 2; column-gap: 24px; }
 .press-quote { break-inside: avoid; margin-bottom: 24px; }
 .press-quote--highlight { border-color: rgba(141, 59, 120, 0.3); }
-.press-quote__text { font-family: var(--font-display); font-size: 18px; font-style: italic; line-height: 1.6; color: var(--white-dim); }
+.press-quote__text { font-family: var(--font-display); font-size: 17px; font-style: italic; font-weight: 400; line-height: 1.6; color: var(--ivory-dim); }
 .press-quote__meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .press-quote__source { font-weight: 600; font-size: 14px; color: var(--gold); }
 .press-quote__context { font-size: 13px; color: var(--white-muted); }
@@ -248,9 +248,9 @@ const pressLogos = [
 }
 .featured-in__name {
   font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--white-dim);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ivory-dim);
 }
 .featured-in__outlet {
   font-family: var(--font-mono);

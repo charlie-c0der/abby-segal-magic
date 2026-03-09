@@ -154,7 +154,7 @@ const artworks = [
 
 <style scoped>
 .art-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
-.art-hero h1 em, h2 em { color: var(--gold); font-style: italic; }
+.art-hero h1 em, h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
 /* ── Etsy Shop Banner ─────────────────── */
 .etsy-banner {
@@ -262,8 +262,9 @@ const artworks = [
 }
 .lightbox__title {
   font-family: var(--font-display);
-  font-size: 16px;
-  color: var(--white-dim);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ivory-dim);
 }
 
 .lightbox__hint {

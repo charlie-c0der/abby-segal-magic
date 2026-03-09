@@ -125,7 +125,8 @@ useSEO({
 .not-found__number {
   font-family: var(--font-display);
   font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: -0.04em;
   line-height: 0.8;
   background: linear-gradient(45deg, var(--plum), var(--gold));
   -webkit-background-clip: text;
