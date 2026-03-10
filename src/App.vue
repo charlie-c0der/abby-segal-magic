@@ -1,4 +1,12 @@
 <script setup lang="ts">
+// Global type augmentation for Window interface
+declare global {
+  interface Window {
+    lenis?: import('lenis').default
+    ScrollTrigger?: typeof import('gsap/ScrollTrigger').ScrollTrigger
+  }
+}
+
 import { onMounted, onUnmounted, ref } from 'vue'
 import NavBar from './components/NavBar.vue'
 import FooterSection from './components/FooterSection.vue'
@@ -43,18 +51,18 @@ onMounted(() => {
   rafId = requestAnimationFrame(raf)
 
   // Integrate with GSAP ScrollTrigger if available
-  if (typeof window !== 'undefined' && (window as any).ScrollTrigger) {
-    lenis.on('scroll', (window as any).ScrollTrigger.update)
+  if (typeof window !== 'undefined' && window.ScrollTrigger) {
+    lenis.on('scroll', window.ScrollTrigger.update)
   }
 
   // Make Lenis available globally for components
   if (typeof window !== 'undefined') {
-    (window as any).lenis = lenis
+    window.lenis = lenis
 
     // Refresh ScrollTrigger after Lenis is ready
     setTimeout(() => {
-      if ((window as any).ScrollTrigger) {
-        (window as any).ScrollTrigger.refresh()
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.refresh()
       }
     }, 100)
   }

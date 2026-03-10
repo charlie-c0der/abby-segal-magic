@@ -49,11 +49,15 @@ export function useSEO(data: SEOData) {
   }
 
   const injectJsonLd = (data: Record<string, unknown> | Record<string, unknown>[]) => {
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify(data)
-    document.head.appendChild(script)
-    addedElements.push(script)
+    try {
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.textContent = JSON.stringify(data)
+      document.head.appendChild(script)
+      addedElements.push(script)
+    } catch (e) {
+      console.error('Failed to serialize JSON-LD:', e)
+    }
   }
 
   onMounted(() => {

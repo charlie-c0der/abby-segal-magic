@@ -4,6 +4,7 @@
  * Particles gently react to mouse movement.
  */
 import { onMounted, onUnmounted } from 'vue'
+import { getThemeColors } from '../utils/colors'
 
 interface Mote {
   x: number
@@ -24,6 +25,8 @@ export function useParticles(canvasId: string, count = 60) {
   let mouseY = 0
   let animFrame = 0
   let time = 0
+  let resizeHandler: (() => void) | null = null
+  const themeColors = { plum: '#8D3B78', gold: '#c9a84c' } // fallbacks
 
   function initMotes(w: number, h: number) {
     motes = Array.from({ length: count }, () => ({
@@ -55,7 +58,7 @@ export function useParticles(canvasId: string, count = 60) {
       const dx = m.x - mouseX
       const dy = m.y - mouseY
       const dist = Math.sqrt(dx * dx + dy * dy)
-      if (dist < 150) {
+      if (dist < 150 && dist > 0) { // Add dist > 0 check to prevent division by zero
         const force = (150 - dist) / 150
         m.x += (dx / dist) * force * 0.8
         m.y += (dy / dist) * force * 0.8
@@ -74,8 +77,8 @@ export function useParticles(canvasId: string, count = 60) {
       ctx.globalAlpha = alpha
       // Mix plum and gold motes for warmth
       const isPlum = m.phase > Math.PI
-      ctx.fillStyle = isPlum ? '#8D3B78' : '#c9a84c'
-      ctx.shadowColor = isPlum ? '#8D3B78' : '#c9a84c'
+      ctx.fillStyle = isPlum ? themeColors.plum : themeColors.gold
+      ctx.shadowColor = isPlum ? themeColors.plum : themeColors.gold
       ctx.shadowBlur = m.size * 6
       ctx.beginPath()
       ctx.arc(m.x, m.y, m.size, 0, Math.PI * 2)
@@ -99,7 +102,16 @@ export function useParticles(canvasId: string, count = 60) {
     if (!canvas) return
     ctx = canvas.getContext('2d')
 
-    const resize = () => {
+    // Load theme colors from CSS
+    try {
+      const colors = getThemeColors()
+      themeColors.plum = colors.plum || themeColors.plum
+      themeColors.gold = colors.gold || themeColors.gold
+    } catch (e) {
+      console.warn('Could not load theme colors, using fallbacks')
+    }
+
+    resizeHandler = () => {
       if (!canvas) return
       const parent = canvas.parentElement
       if (parent) {
@@ -108,9 +120,9 @@ export function useParticles(canvasId: string, count = 60) {
       }
     }
 
-    resize()
+    resizeHandler()
     initMotes(canvas.width, canvas.height)
-    window.addEventListener('resize', resize)
+    window.addEventListener('resize', resizeHandler)
     window.addEventListener('mousemove', onMouseMove, { passive: true })
     animate()
   })
@@ -118,5 +130,9 @@ export function useParticles(canvasId: string, count = 60) {
   onUnmounted(() => {
     cancelAnimationFrame(animFrame)
     window.removeEventListener('mousemove', onMouseMove)
+    if (resizeHandler) {
+      window.removeEventListener('resize', resizeHandler)
+      resizeHandler = null
+    }
   })
 }

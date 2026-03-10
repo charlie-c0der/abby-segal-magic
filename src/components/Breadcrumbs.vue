@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { PATH_LABELS } from '../constants/navigation'
 
 const route = useRoute()
 
@@ -14,15 +15,9 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
     { text: 'Home', to: '/' }
   ]
   
-  const pathMap: Record<string, string> = {
-    '/about': 'About',
-    '/shows': 'Shows',
-    '/press': 'Press',
-    '/art': 'Art',
-    '/contact': 'Contact'
-  }
-  
-  const currentPageTitle = pathMap[route.path]
+  // Extract page name from current path and look it up
+  const pathSegment = route.path.replace('/', '')
+  const currentPageTitle = PATH_LABELS[pathSegment]
   if (currentPageTitle) {
     items.push({ text: currentPageTitle })
   }

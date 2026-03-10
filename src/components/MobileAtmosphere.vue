@@ -17,6 +17,9 @@ onMounted(() => {
   const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0
   if (!isMobile) return
   
+  // Respect reduced motion preference
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  
   isVisible.value = true
   window.addEventListener('scroll', onScroll, { passive: true })
 })

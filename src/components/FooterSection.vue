@@ -1,10 +1,8 @@
 <script setup lang="ts">
+import { SOCIAL_LINKS_ARRAY } from '../constants/social'
+
 const year = new Date().getFullYear()
-const socials = [
-  { label: 'Instagram', url: 'https://www.instagram.com/abbysegalmagic/' },
-  { label: 'YouTube', url: 'https://www.youtube.com/channel/UC9IvIVvbBis47CZWKV7tjLg' },
-  { label: 'Facebook', url: 'https://www.facebook.com/abbysegalmagic/' },
-]
+const socials = SOCIAL_LINKS_ARRAY
 </script>
 
 <template>
@@ -32,7 +30,14 @@ const socials = [
           <router-link to="/contact">Contact</router-link>
         </div>
         <div class="footer__socials">
-          <a v-for="s in socials" :key="s.label" :href="s.url" target="_blank" rel="noopener">
+          <a 
+            v-for="s in socials" 
+            :key="s.label" 
+            :href="s.url" 
+            target="_blank" 
+            rel="noopener" 
+            :aria-label="`Follow Abby Segal on ${s.label} (opens in new tab)`"
+          >
             {{ s.label }}
           </a>
         </div>

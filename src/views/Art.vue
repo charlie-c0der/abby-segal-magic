@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick, watch } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
@@ -29,6 +29,7 @@ useSEO({
 const lightboxOpen = ref(false)
 const lightboxImage = ref('')
 const lightboxTitle = ref('')
+const lightboxRef = ref<HTMLElement | null>(null)
 
 const etsyShopUrl = 'https://www.etsy.com/shop/AbbySegalArt'
 
@@ -45,6 +46,17 @@ function openLightbox(image: string, title: string) {
 function closeLightbox() {
   lightboxOpen.value = false
 }
+
+// Focus management for lightbox accessibility
+watch(lightboxOpen, async (isOpen) => {
+  if (isOpen) {
+    await nextTick()
+    lightboxRef.value?.focus()
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+})
 
 function onTouchStart(e: TouchEvent) {
   if (e.touches[0]) {
@@ -127,6 +139,11 @@ const artworks = [
             class="art-item reveal"
             :class="`reveal-delay-${(i % 4) + 1}`"
             @click="openLightbox(art.image, art.title)"
+            @keydown.enter="openLightbox(art.image, art.title)"
+            @keydown.space.prevent="openLightbox(art.image, art.title)"
+            tabindex="0"
+            role="button"
+            :aria-label="`View ${art.title}`"
           >
             <div class="art-item__image">
               <img :src="art.thumb" :alt="art.title" loading="lazy" decoding="async" />
@@ -142,11 +159,17 @@ const artworks = [
         <div 
           v-if="lightboxOpen" 
           class="lightbox" 
-          @click="closeLightbox"
+          @click.self="closeLightbox"
+          @keydown.escape="closeLightbox"
           @touchstart="onTouchStart"
           @touchend="onTouchEnd"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="`Viewing: ${lightboxTitle}`"
+          ref="lightboxRef"
+          tabindex="-1"
         >
-          <button class="lightbox__close" @click="closeLightbox">✕</button>
+          <button class="lightbox__close" @click="closeLightbox" aria-label="Close lightbox">✕</button>
           <img :src="lightboxImage" :alt="lightboxTitle" class="lightbox__img" @click.stop />
           <p class="lightbox__title">{{ lightboxTitle }}</p>
           <p class="lightbox__hint">Swipe down to close</p>

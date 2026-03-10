@@ -5,8 +5,7 @@
 import { onMounted, onUnmounted } from 'vue'
 
 export function useTilt(selector: string, maxTilt = 8) {
-  const handlers = new Map<Element, (e: MouseEvent) => void>()
-  const leaveHandlers = new Map<Element, () => void>()
+  const handlers = new Map<Element, { move: (e: MouseEvent) => void; leave: () => void }>()
 
   onMounted(() => {
     document.querySelectorAll(selector).forEach((el) => {
@@ -29,17 +28,15 @@ export function useTilt(selector: string, maxTilt = 8) {
 
       htmlEl.addEventListener('mousemove', handler)
       htmlEl.addEventListener('mouseleave', leaveHandler)
-      handlers.set(el, handler)
-      leaveHandlers.set(el, leaveHandler)
+      handlers.set(el, { move: handler, leave: leaveHandler })
     })
   })
 
   onUnmounted(() => {
-    handlers.forEach((handler, el) => {
-      el.removeEventListener('mousemove', handler as any)
+    handlers.forEach(({ move, leave }, el) => {
+      ;(el as HTMLElement).removeEventListener('mousemove', move)
+      ;(el as HTMLElement).removeEventListener('mouseleave', leave)
     })
-    leaveHandlers.forEach((handler, el) => {
-      el.removeEventListener('mouseleave', handler as any)
-    })
+    handlers.clear()
   })
 }

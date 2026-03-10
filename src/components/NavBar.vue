@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { NAV_LINKS } from '../constants/navigation'
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
 const router = useRouter()
 
-const links = [
-  { label: 'About', to: '/about' },
-  { label: 'Shows', to: '/shows' },
-  { label: 'Press', to: '/press' },
-  { label: 'Art', to: '/art' },
-  { label: 'Contact', to: '/contact' },
-]
+const links = NAV_LINKS.map(link => ({ label: link.label, to: link.path }))
 
 function handleScroll() {
   scrolled.value = window.scrollY > 40
@@ -37,11 +32,26 @@ function toggleMenu() {
   menuOpen.value = !menuOpen.value
 }
 
+// Watch for menu state changes to handle body scroll lock
+watch(menuOpen, (isOpen) => {
+  if (isOpen) {
+    document.body.style.overflow = 'hidden'
+    // Stop Lenis smooth scroll if available
+    if (window.lenis) window.lenis.stop()
+  } else {
+    document.body.style.overflow = ''
+    // Restart Lenis smooth scroll if available
+    if (window.lenis) window.lenis.start()
+  }
+})
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  // Clean up body style on unmount
+  document.body.style.overflow = ''
 })
 </script>
 
@@ -198,10 +208,11 @@ onUnmounted(() => {
 
 /* Mobile Menu */
 .nav__mobile {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 60px; /* navbar height */
   left: 0;
   right: 0;
+  bottom: 0;
   background: var(--void);
   border-bottom: 1px solid var(--ember);
   padding: 32px 0;
@@ -209,6 +220,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .nav__mobile-link {
   font-family: var(--font-display);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, nextTick } from 'vue'
+import { onMounted, onUnmounted, ref, nextTick } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useParticles } from '../composables/useParticles'
 import { useSplitText } from '../composables/useSplitText'
@@ -37,6 +37,7 @@ useSEO({
 })
 
 const heroLoaded = ref(false)
+const scrollTriggers: ScrollTrigger[] = []
 
 const venues = [
   'Penn & Teller: Fool Us',
@@ -88,52 +89,65 @@ onMounted(async () => {
   await nextTick()
   setTimeout(() => { heroLoaded.value = true }, 200)
 
-  gsap.to('.hero__title', {
+  const st1 = gsap.to('.hero__title', {
     yPercent: -30,
     ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 },
-  })
+  }).scrollTrigger
+  if (st1) scrollTriggers.push(st1)
 
-  gsap.to('.hero__subtitle', {
+  const st2 = gsap.to('.hero__subtitle', {
     yPercent: -15, opacity: 0, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: '60% top', scrub: 1 },
-  })
+  }).scrollTrigger
+  if (st2) scrollTriggers.push(st2)
 
   const showsTrack = document.querySelector('.shows-horizontal__track')
   if (showsTrack) {
-    gsap.to(showsTrack, {
+    const st3 = gsap.to(showsTrack, {
       xPercent: -50, ease: 'none',
       scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=80%', scrub: 1, pin: true, anticipatePin: 1 },
-    })
+    }).scrollTrigger
+    if (st3) scrollTriggers.push(st3)
   }
 
   // Big quote animation removed
 
   document.querySelectorAll('.img-reveal').forEach((el) => {
-    ScrollTrigger.create({ trigger: el, start: 'top 80%', onEnter: () => el.classList.add('revealed'), once: true })
+    const st = ScrollTrigger.create({ trigger: el, start: 'top 80%', onEnter: () => el.classList.add('revealed'), once: true })
+    scrollTriggers.push(st)
   })
 
-  gsap.to('.hero__card', {
+  const st4 = gsap.to('.hero__card', {
     yPercent: -40, rotation: 20, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 2 },
-  })
+  }).scrollTrigger
+  if (st4) scrollTriggers.push(st4)
 
   // Stats counter animation
-  gsap.from('.stat__number', {
+  const st5 = gsap.from('.stat__number', {
     textContent: 0, duration: 1.5, ease: 'power2.out', snap: { textContent: 1 },
     stagger: 0.2,
     scrollTrigger: { trigger: '.stats-bar', start: 'top 80%' },
-  })
+  }).scrollTrigger
+  if (st5) scrollTriggers.push(st5)
 
-  gsap.from('.testimonials-row .card', {
+  const st6 = gsap.from('.testimonials-row .card', {
     y: 80, opacity: 0, stagger: 0.15, duration: 0.8, ease: 'power3.out',
     scrollTrigger: { trigger: '.testimonials-row', start: 'top 75%' },
-  })
+  }).scrollTrigger
+  if (st6) scrollTriggers.push(st6)
 
-  gsap.to('.intro-portrait', {
+  const st7 = gsap.to('.intro-portrait', {
     y: -30, ease: 'none',
     scrollTrigger: { trigger: '.intro-section', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
-  })
+  }).scrollTrigger
+  if (st7) scrollTriggers.push(st7)
+})
+
+onUnmounted(() => {
+  scrollTriggers.forEach(st => st.kill())
+  scrollTriggers.length = 0
 })
 </script>
 
@@ -398,7 +412,8 @@ onMounted(async () => {
 <style scoped>
 /* ── HERO ───────────────────────────── */
 .hero {
-  min-height: 100vh;
+  min-height: 100vh; /* Fallback for older browsers */
+  min-height: 100dvh; /* Dynamic viewport height for mobile Safari */
   display: flex;
   align-items: center;
   position: relative;
@@ -517,7 +532,7 @@ onMounted(async () => {
 .shows-horizontal { height: 120vh; position: relative; }
 .shows-horizontal__header { padding-top: 80px; padding-bottom: 48px; }
 .shows-horizontal__header h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
-.shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; }
+.shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; height: 100dvh; }
 .shows-horizontal__spacer { min-width: 20vw; }
 .show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--ash); border: 1px solid var(--ember);
   border-radius: var(--radius-md); padding: 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }

@@ -4,6 +4,7 @@
  * Transforms on hover states (magnetic pull, expand).
  */
 import { onMounted, onUnmounted, ref } from 'vue'
+import { getThemeColors } from '../utils/colors'
 
 interface Particle {
   x: number
@@ -13,6 +14,7 @@ interface Particle {
   vx: number
   vy: number
   life: number
+  color: string // Add color property to prevent flickering
 }
 
 export function useMagicCursor() {
@@ -27,6 +29,9 @@ export function useMagicCursor() {
   let ctx: CanvasRenderingContext2D | null = null
   let animFrame: number = 0
   let lastEmit = 0
+  let resizeHandler: (() => void) | null = null
+  let mouseoverHandler: ((e: Event) => void) | null = null
+  const themeColors = { plum: '#8D3B78', gold: '#c9a84c' } // fallbacks
 
   function onMouseMove(e: MouseEvent) {
     cursorX.value = e.clientX
@@ -69,6 +74,7 @@ export function useMagicCursor() {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed - 0.5,
         life: 1,
+        color: Math.random() > 0.5 ? themeColors.plum : themeColors.gold, // Set color once at creation
       })
     }
   }
@@ -89,10 +95,9 @@ export function useMagicCursor() {
 
       ctx!.save()
       ctx!.globalAlpha = p.opacity * 0.6
-      // Alternate between plum and gold particles
-      const color = Math.random() > 0.5 ? '#8D3B78' : '#c9a84c'
-      ctx!.fillStyle = color
-      ctx!.shadowColor = color
+      // Use the particle's stored color to prevent flickering
+      ctx!.fillStyle = p.color
+      ctx!.shadowColor = p.color
       ctx!.shadowBlur = p.size * 4
       ctx!.beginPath()
       ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2)
@@ -110,6 +115,16 @@ export function useMagicCursor() {
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
       return
     }
+
+    // Load theme colors from CSS
+    try {
+      const colors = getThemeColors()
+      themeColors.plum = colors.plum || themeColors.plum
+      themeColors.gold = colors.gold || themeColors.gold
+    } catch (e) {
+      console.warn('Could not load theme colors, using fallbacks')
+    }
+
     // Create particle canvas
     canvas = document.createElement('canvas')
     canvas.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:10000;'
@@ -118,32 +133,32 @@ export function useMagicCursor() {
     document.body.appendChild(canvas)
     ctx = canvas.getContext('2d')
 
-    window.addEventListener('mousemove', onMouseMove, { passive: true })
-    window.addEventListener('mouseleave', onMouseLeave)
-    window.addEventListener('mouseenter', onMouseEnter)
-    window.addEventListener('click', onClick)
-    window.addEventListener('resize', () => {
+    resizeHandler = () => {
       if (canvas) {
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
       }
-    })
+    }
 
-    animate()
-
-    // Use event delegation instead of MutationObserver (much cheaper)
-    document.addEventListener('mouseover', (e) => {
+    mouseoverHandler = (e: Event) => {
       const target = (e.target as HTMLElement).closest('a, button, .magnetic')
       if (target) {
         cursorScale.value = 2
         isHovering.value = true
-      } else {
-        if (isHovering.value) {
-          cursorScale.value = 1
-          isHovering.value = false
-        }
+      } else if (isHovering.value) {
+        cursorScale.value = 1
+        isHovering.value = false
       }
-    }, { passive: true })
+    }
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
+    window.addEventListener('mouseleave', onMouseLeave)
+    window.addEventListener('mouseenter', onMouseEnter)
+    window.addEventListener('click', onClick)
+    window.addEventListener('resize', resizeHandler)
+    document.addEventListener('mouseover', mouseoverHandler, { passive: true })
+
+    animate()
   })
 
   onUnmounted(() => {
@@ -152,6 +167,8 @@ export function useMagicCursor() {
     window.removeEventListener('mouseleave', onMouseLeave)
     window.removeEventListener('mouseenter', onMouseEnter)
     window.removeEventListener('click', onClick)
+    if (resizeHandler) window.removeEventListener('resize', resizeHandler)
+    if (mouseoverHandler) document.removeEventListener('mouseover', mouseoverHandler)
     canvas?.remove()
   })
 

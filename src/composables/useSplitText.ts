@@ -2,9 +2,11 @@
  * Split Text Animation - Characters animate in staggered from below.
  * Pure CSS/JS implementation (no GSAP SplitText dependency).
  */
-import { onMounted, nextTick } from 'vue'
+import { onMounted, onUnmounted, nextTick } from 'vue'
 
 export function useSplitText() {
+  const observers: IntersectionObserver[] = []
+
   onMounted(async () => {
     await nextTick()
 
@@ -51,6 +53,12 @@ export function useSplitText() {
         { threshold: 0.3 }
       )
       observer.observe(el)
+      observers.push(observer) // Track for cleanup
     })
+  })
+
+  onUnmounted(() => {
+    observers.forEach(obs => obs.disconnect())
+    observers.length = 0
   })
 }

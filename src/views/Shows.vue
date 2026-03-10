@@ -209,13 +209,26 @@ const openFaq = ref<number | null>(null)
             :key="i"
             class="faq-item reveal"
             :class="[`reveal-delay-${(i % 4) + 1}`, { 'faq-item--open': openFaq === i }]"
-            @click="openFaq = openFaq === i ? null : i as number"
           >
-            <div class="faq-item__q">
+            <div 
+              class="faq-item__q"
+              @click="openFaq = openFaq === i ? null : i as number"
+              @keydown.enter="openFaq = openFaq === i ? null : i as number"
+              @keydown.space.prevent="openFaq = openFaq === i ? null : i as number"
+              tabindex="0"
+              role="button"
+              :aria-expanded="openFaq === i"
+              :aria-controls="`faq-answer-${i}`"
+            >
               <h3>{{ faq.q }}</h3>
-              <span class="faq-item__toggle">{{ openFaq === i ? '−' : '+' }}</span>
+              <span class="faq-item__toggle" aria-hidden="true">{{ openFaq === i ? '−' : '+' }}</span>
             </div>
-            <div class="faq-item__a" v-show="openFaq === i">
+            <div 
+              v-show="openFaq === i" 
+              class="faq-item__a"
+              :id="`faq-answer-${i}`"
+              role="region"
+            >
               <p class="body-md" v-html="faq.a"></p>
             </div>
           </div>

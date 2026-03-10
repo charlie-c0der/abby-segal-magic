@@ -38,6 +38,7 @@ const form = ref({
 
 const submitted = ref(false)
 const submitting = ref(false)
+const errorMessage = ref('')
 
 async function handleSubmit() {
   submitting.value = true
@@ -68,8 +69,7 @@ async function handleSubmit() {
     }
   } catch (error) {
     console.error('Form submission error:', error)
-    // Could add error state here
-    alert('Sorry, there was an error sending your message. Please try again or email directly.')
+    errorMessage.value = 'Sorry, there was an error sending your message. Please try again or email directly.'
   } finally {
     submitting.value = false
   }
@@ -112,30 +112,33 @@ const eventTypes = [
         <div class="contact-form reveal">
           <transition name="fade" mode="out-in">
             <form v-if="!submitted" @submit.prevent="handleSubmit" class="form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="contact-name">Name *</label>
-                  <input 
-                    id="contact-name"
-                    v-model="form.name" 
-                    name="name"
-                    type="text" 
-                    required 
-                    placeholder="Your name" 
-                  />
+              <fieldset :disabled="submitting" class="form-fieldset">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contact-name">Name *</label>
+                    <input 
+                      id="contact-name"
+                      v-model="form.name" 
+                      name="name"
+                      type="text" 
+                      required 
+                      aria-required="true"
+                      placeholder="Your name" 
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-email">Email *</label>
+                    <input 
+                      id="contact-email"
+                      v-model="form.email" 
+                      name="email"
+                      type="email" 
+                      required 
+                      aria-required="true"
+                      placeholder="your@email.com" 
+                    />
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="contact-email">Email *</label>
-                  <input 
-                    id="contact-email"
-                    v-model="form.email" 
-                    name="email"
-                    type="email" 
-                    required 
-                    placeholder="your@email.com" 
-                  />
-                </div>
-              </div>
 
               <div class="form-row">
                 <div class="form-group">
@@ -183,24 +186,28 @@ const eventTypes = [
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="contact-message">Tell me about your event *</label>
-                <textarea 
-                  id="contact-message"
-                  v-model="form.message" 
-                  name="message"
-                  required 
-                  rows="5" 
-                  placeholder="What's the occasion? Any details that would help me plan the perfect show..." 
-                />
-              </div>
+                <div class="form-group">
+                  <label for="contact-message">Tell me about your event *</label>
+                  <textarea 
+                    id="contact-message"
+                    v-model="form.message" 
+                    name="message"
+                    required 
+                    aria-required="true"
+                    rows="5" 
+                    placeholder="What's the occasion? Any details that would help me plan the perfect show..." 
+                  />
+                </div>
+              </fieldset>
+
+              <p v-if="errorMessage" class="form-error" role="alert">{{ errorMessage }}</p>
 
               <button type="submit" class="btn btn--filled" :disabled="submitting">
                 <span>{{ submitting ? 'Sending...' : 'Send Message' }}</span>
               </button>
             </form>
 
-            <div v-else class="contact-success">
+            <div v-else class="contact-success" role="alert" aria-live="polite">
               <div class="contact-success__sparkles">
                 <span v-for="n in 12" :key="n" class="contact-success__sparkle" :style="{
                   '--angle': (n * 30) + 'deg',
@@ -263,6 +270,27 @@ const eventTypes = [
 
 /* Form */
 .form { display: flex; flex-direction: column; gap: 20px; }
+.form-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-fieldset:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.form-error {
+  color: #ff6b6b;
+  font-size: var(--text-body-sm);
+  margin: 12px 0 0;
+  padding: 12px 16px;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 8px;
+}
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label {
