@@ -178,11 +178,8 @@ onMounted(async () => {
   }).scrollTrigger
   if (st5) scrollTriggers.push(st5)
 
-  const st6 = gsap.from('.testimonials-row .card', {
-    y: 80, opacity: 0, stagger: 0.15, duration: 0.8, ease: 'power3.out',
-    scrollTrigger: { trigger: '.testimonials-row', start: 'top 75%' },
-  }).scrollTrigger
-  if (st6) scrollTriggers.push(st6)
+  // Testimonial cards now use CSS reveal classes instead of GSAP
+  // to avoid scroll position miscalculation from pinned sections
 
   const st7 = gsap.to('.intro-portrait', {
     y: -30, ease: 'none',
@@ -586,6 +583,9 @@ onUnmounted(() => {
   min-height: 60vh;
   display: flex;
   align-items: center;
+}
+.testimonials-section > .container {
+  width: 100%;
 }
 
 .testimonials-row { 
