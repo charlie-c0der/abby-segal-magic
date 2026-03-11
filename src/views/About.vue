@@ -110,9 +110,7 @@ useStrategicLinking({
             Beyond the stage Abby is a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague. She's been featured on the <em class="shimmer">Penguin Magic Podcast</em>, lectured at <em class="underline-sketch">Magifest</em>, and teaches magic workshops for all ages.
           </p>
 
-          <div class="reveal reveal-delay-4" style="margin-top: 32px;">
-            <router-link to="/contact" class="btn btn--filled magnetic"><span>Book Abby</span></router-link>
-          </div>
+          <!-- Book Abby button removed - redundant with header/footer -->
         </div>
       </div>
     </section>

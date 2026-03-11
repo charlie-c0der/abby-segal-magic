@@ -6,7 +6,7 @@ import { useSplitText } from '../composables/useSplitText'
 import { useTilt } from '../composables/useTilt'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
 import { useStrategicLinking } from '../composables/useStrategicLinking'
-import MagicReveal from '../components/MagicReveal.vue'
+// MagicReveal import removed - final CTA section deleted
 import LazyYouTube from '../components/LazyYouTube.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -433,21 +433,7 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- ━━━ FINAL CTA ━━━ -->
-    <section class="section cta-final">
-      <div class="container cta-final__inner">
-        <p class="heading-eyebrow reveal">Ready?</p>
-        <h2 class="heading-xl reveal reveal-delay-1">
-          <MagicReveal text="Your guests will never forget it." tag="span" />
-        </h2>
-        <div class="divider divider--center reveal reveal-delay-2" />
-        <p class="body-lg reveal reveal-delay-2" style="text-align: center; max-width: 500px; margin: 0 auto 40px;">
-          Most events <em>blur together</em>. <em class="shimmer">Magic makes yours</em> the <em class="underline-sketch">one people remember</em>.
-          Let's talk about what that looks like for you.
-        </p>
-        <router-link to="/contact" class="btn btn--filled reveal reveal-delay-3 magnetic-element"><span>Book Your Event</span></router-link>
-      </div>
-    </section>
+    <!-- Final CTA section removed - redundant with header/footer -->
   </div>
 </template>
 
@@ -637,9 +623,7 @@ onUnmounted(() => {
 
 /* ── SECTION REMOVED ────────────────────── */
 
-/* ── FINAL CTA ──────────────────────── */
-.cta-final { min-height: 60vh; display: flex; align-items: center; border-top: 1px solid var(--ember); background: var(--obsidian); }
-.cta-final__inner { text-align: center; }
+/* Final CTA styles removed - section deleted */
 
 /* ── RESPONSIVE ─────────────────────── */
 @media (max-width: 768px) {

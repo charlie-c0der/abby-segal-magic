@@ -315,17 +315,7 @@ const openFaq = ref<number | null>(null)
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
-      <div class="container" style="text-align: center;">
-        <h2 class="heading-lg reveal">Ready to <em>book?</em></h2>
-        <p class="body-lg reveal reveal-delay-1" style="max-width: 480px; margin: 16px auto 32px;">
-          Tell me about your event and I'll put together the perfect magic experience.
-          Custom quotes within 24 hours.
-        </p>
-        <router-link to="/contact" class="btn btn--filled reveal reveal-delay-2"><span>Get a Quote</span></router-link>
-      </div>
-    </section>
+    <!-- Booking CTA section removed - redundant with header/footer -->
   </div>
 </template>
 
