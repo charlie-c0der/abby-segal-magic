@@ -116,11 +116,16 @@ onUnmounted(() => {
   transition: all 0.4s var(--ease-out);
   background: transparent;
 }
-.nav--scrolled {
+.nav--scrolled:not(.nav--open) {
   padding: 16px 0;
   background: rgba(9, 9, 14, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ember);
+}
+.nav--scrolled.nav--open {
+  padding: 16px 0;
+  background: rgba(9, 9, 14, 0.92);
   border-bottom: 1px solid var(--ember);
 }
 .nav__inner {
