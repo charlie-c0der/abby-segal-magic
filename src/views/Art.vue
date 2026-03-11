@@ -122,7 +122,7 @@ const artworks = [
             <span class="etsy-banner__icon">🛍</span>
             <span>Original prints &amp; artwork available on Etsy</span>
           </div>
-          <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--plum btn--sm">
+          <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--plum btn--sm magnetic-element">
             <span>Visit Shop</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
@@ -136,7 +136,7 @@ const artworks = [
           <div
             v-for="(art, i) in artworks"
             :key="art.title"
-            class="art-item reveal"
+            class="art-item reveal magnetic-element"
             :class="`reveal-delay-${(i % 4) + 1}`"
             @click="openLightbox(art.image, art.title)"
             @keydown.enter="openLightbox(art.image, art.title)"

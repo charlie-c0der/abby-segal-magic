@@ -205,7 +205,7 @@ onUnmounted(() => {
     <!-- ━━━ STATS BAR ━━━ -->
     <section class="stats-bar">
       <div class="container stats-bar__inner">
-        <div v-for="s in stats" :key="s.label" class="stat">
+        <div v-for="s in stats" :key="s.label" class="stat reveal">
           <span class="stat__number">{{ s.number }}</span>
           <span class="stat__label">{{ s.label }}</span>
         </div>
@@ -233,7 +233,7 @@ onUnmounted(() => {
           <p class="body-lg reveal reveal-delay-3" style="font-style: italic; color: var(--gold);">
             <em class="shimmer">Psychology degree.</em> <em class="underline-sketch">15 years of practice.</em> Pure skill.
           </p>
-          <router-link to="/about" class="btn reveal reveal-delay-4 magnetic"><span>Meet Abby</span></router-link>
+          <router-link to="/about" class="btn reveal reveal-delay-4 magnetic-element"><span>Meet Abby</span></router-link>
         </div>
 
         <div class="intro-section__visual reveal">
@@ -346,7 +346,7 @@ onUnmounted(() => {
         </div>
 
         <div class="show-panel show-panel--cta">
-          <router-link to="/shows" class="btn btn--filled magnetic"><span>See Full Details →</span></router-link>
+          <router-link to="/shows" class="btn btn--filled magnetic-element"><span>See Full Details →</span></router-link>
         </div>
       </div>
     </section>
@@ -381,7 +381,7 @@ onUnmounted(() => {
         </h2>
 
         <div class="testimonials-row">
-          <div v-for="(t, i) in testimonials" :key="i" class="card tilt-card reveal" :class="`reveal-delay-${(i % 4) + 1}`">
+          <div v-for="(t, i) in testimonials" :key="i" class="card magnetic-element reveal" :class="`reveal-delay-${(i % 4) + 1}`">
             <p class="testimonial__quote">"<span v-html="t.quote"></span>"</p>
             <div class="divider" />
             <p class="testimonial__author">{{ t.author }}</p>
@@ -403,7 +403,7 @@ onUnmounted(() => {
           Most events <em>blur together</em>. <em class="shimmer">Magic makes yours</em> the <em class="underline-sketch">one people remember</em>.
           Let's talk about what that looks like for you.
         </p>
-        <router-link to="/contact" class="btn btn--filled reveal reveal-delay-3 magnetic"><span>Book Your Event</span></router-link>
+        <router-link to="/contact" class="btn btn--filled reveal reveal-delay-3 magnetic-element"><span>Book Your Event</span></router-link>
       </div>
     </section>
   </div>

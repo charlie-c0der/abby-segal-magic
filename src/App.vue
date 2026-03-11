@@ -14,12 +14,21 @@ import FloatingCards from './components/FloatingCards.vue'
 import MobileAtmosphere from './components/MobileAtmosphere.vue'
 import Preloader from './components/Preloader.vue'
 import BackToTop from './components/BackToTop.vue'
+import { useAnimationOrchestra } from './composables/useAnimationOrchestra'
 import { useMagicCursor } from './composables/useMagicCursor'
-import { useMobileMagic } from './composables/useMobileMagic'
 import Lenis from 'lenis'
 
 const { cursorX, cursorY, cursorScale, cursorVisible } = useMagicCursor()
-useMobileMagic() // Mobile magic effects (self-contained)
+// Initialize world-class animation system
+useAnimationOrchestra({
+  enablePageTransitions: true,
+  enableScrollMagic: true,
+  enableMicroInteractions: true,
+  enableLoadingExperience: false, // Keep existing preloader
+  enablePerformanceOptimizations: true,
+  enableAccessibility: true,
+  debugMode: false
+})
 
 const showPreloader = ref(true)
 const siteReady = ref(false)
