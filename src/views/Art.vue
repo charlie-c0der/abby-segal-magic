@@ -161,9 +161,11 @@ function onTouchEnd(e: TouchEvent) {
       if (absX > absY && absX > 50) {
         if (deltaX > 0) {
           // Swipe right = previous image
+          console.log('🎨 Swipe right detected - going to previous image')
           navigateLightbox('prev')
         } else {
           // Swipe left = next image  
+          console.log('🎨 Swipe left detected - going to next image')
           navigateLightbox('next')
         }
       }
@@ -660,11 +662,25 @@ const artworks = [
   height: 50px;
 }
 
-.gallery-lightbox__nav:hover {
-  background: rgba(201, 168, 76, 0.2);
-  border-color: var(--gold);
-  color: var(--gold);
-  transform: translateY(-50%) scale(1.1);
+/* Desktop hover - with scale animation */
+@media (min-width: 769px) {
+  .gallery-lightbox__nav:hover {
+    background: rgba(201, 168, 76, 0.2);
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+/* Mobile - no hover scaling to prevent movement */
+@media (max-width: 768px) {
+  .gallery-lightbox__nav:hover,
+  .gallery-lightbox__nav:active {
+    background: rgba(201, 168, 76, 0.3);
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-50%); /* No scale to prevent movement */
+  }
 }
 
 .gallery-lightbox__nav--prev {
@@ -821,11 +837,7 @@ const artworks = [
     right: 0.5rem;
   }
   
-  /* Disable hover effects on mobile to prevent position shifts */
-  .gallery-lightbox__nav:hover {
-    transform: translateY(-50%);
-    background: rgba(201, 168, 76, 0.3);
-  }
+  /* Mobile-specific stable positioning - no movement on tap */
   
   .artwork-frame {
     padding: 1rem;
