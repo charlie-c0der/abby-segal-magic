@@ -1,18 +1,83 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useWorldClassSEO, generateFAQSchema, generateLocalBusinessSchema } from '../composables/useWorldClassSEO'
+import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
-useSEO({
+// World-class SEO for Shows page with FAQ and Local Business schema
+useWorldClassSEO({
   title: 'Magic Shows & Performances | Hire Chicago Magician Abby Segal for Events',
   description: 'Book Abby Segal — Chicago magician for hire for private events, corporate entertainment, weddings, and theatre. Close-up magic and sleight of hand performances available worldwide.',
-  keywords: 'magician for hire, Chicago magician, private events, corporate entertainment, close-up magic, sleight of hand, magic show, performance, activities in Chicago, wedding magician',
+  
+  // Enhanced service-focused keywords
+  focusKeyphrases: [
+    'hire Chicago magician for events',
+    'corporate entertainment magic shows',
+    'close-up magic performer for hire',
+    'private party magician Chicago'
+  ],
+  semanticKeywords: [
+    'wedding magician Illinois',
+    'corporate event entertainment',
+    'birthday party magic show',
+    'table-side magic performance',
+    'parlour magic show Chicago',
+    'sleight of hand entertainment',
+    'professional magic performances',
+    'Chicago event entertainment services',
+    'intimate magic show venue',
+    'magic show booking Chicago',
+    'event magician for hire',
+    'magic entertainment services'
+  ],
+  
+  // Technical SEO
   ogImage: '/assets/general/images/performance.webp',
+  ogType: 'article',
   canonicalUrl: '/shows',
+  priority: 1.0,
+  changeFreq: 'monthly',
+  
+  // Performance optimization
+  preloadImages: [
+    '/assets/general/images/performance.webp',
+    '/assets/general/images/closeup-magic.webp'
+  ],
+  prefetchLinks: [
+    '/contact',
+    '/about',
+    '/press'
+  ],
+  
+  contentType: 'service',
+  
+  // Enhanced structured data with FAQ and Local Business
   jsonLd: [
+    generateLocalBusinessSchema(),
+    generateFAQSchema([
+      {
+        question: 'What types of magic shows does Abby offer?',
+        answer: 'Abby offers two main types of performances: Close-Up Magic (strolling table-side magic for 4-400 guests) and Parlour Shows (interactive stage magic for up to 80 people).'
+      },
+      {
+        question: 'How much does it cost to hire Abby for an event?',
+        answer: 'Pricing varies based on event type, duration, guest count, and location. Contact Abby for a personalized quote for your specific event needs.'
+      },
+      {
+        question: 'What areas does Abby perform in?',
+        answer: 'Abby is based in Chicago and primarily serves the Chicago metropolitan area and Illinois, but is available for events nationwide and internationally.'
+      },
+      {
+        question: 'How far in advance should I book?',
+        answer: 'Popular dates book months in advance, especially for weddings and corporate events. Contact Abby as early as possible to secure your preferred date.'
+      },
+      {
+        question: 'What makes Abby different from other magicians?',
+        answer: 'Abby specializes in close-up magic and sleight of hand, performs at the prestigious Chicago Magic Lounge, and has been featured on Penn & Teller: Fool Us. She brings both technical skill and engaging personality to every performance.'
+      }
+    ]),
     {
-      '@context': 'https://schema.org',
       '@type': 'Service',
       'name': 'Close-Up Magic Performance',
       'description': 'Strolling and table-side close-up magic and sleight of hand for private events, corporate entertainment, and activities in Chicago.',
@@ -25,11 +90,15 @@ useSEO({
       'areaServed': {
         '@type': 'City',
         'name': 'Chicago'
+      },
+      'offers': {
+        '@type': 'Offer',
+        'description': '45-minute close-up magic performance for 4-400 guests',
+        'areaServed': 'Chicago, Illinois'
       }
     },
     {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
+      '@type': 'Service', 
       'name': 'Parlour Magic Show',
       'description': 'Intimate stage magic performance for private events, corporate entertainment, and theatre venues.',
       'provider': {
@@ -41,9 +110,21 @@ useSEO({
       'areaServed': {
         '@type': 'City',
         'name': 'Chicago'
+      },
+      'offers': {
+        '@type': 'Offer',
+        'description': 'Interactive stage magic show for up to 80 guests',
+        'areaServed': 'Chicago, Illinois'
       }
     }
   ]
+})
+
+// Strategic linking for Shows page
+useStrategicLinking({
+  enableAutolinking: true,
+  maxLinksPerPage: 8,
+  respectExistingLinks: true
 })
 
 const shows = [

@@ -1,22 +1,60 @@
 <script setup lang="ts">
 import { ref, nextTick, watch } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
-useSEO({
+// World-class SEO for Art Gallery page
+useWorldClassSEO({
   title: 'Art Gallery | Magic-Themed Artwork by Chicago Magician Abby Segal',
   description: 'Browse original magic-themed artwork by Chicago magician Abby Segal. Collage, watercolor, and illustration exploring perception and illusion. Prints available on Etsy.',
-  keywords: 'Abby Segal art, magic-themed artwork, Chicago magician, collage art, magic illustration, prints, Etsy',
-  ogImage: '/assets/general/images/performance.webp',
+  
+  // Art-focused keywords
+  focusKeyphrases: [
+    'magic-themed artwork by magician',
+    'Abby Segal art gallery',
+    'magician visual art portfolio',
+    'magic illustration and collage'
+  ],
+  semanticKeywords: [
+    'visual art by performer',
+    'magic-inspired artwork',
+    'collage and watercolor art',
+    'artistic magician portfolio',
+    'perception and illusion art',
+    'Chicago artist artwork',
+    'magic art prints for sale',
+    'Etsy magic artwork shop',
+    'artistic entertainment performer',
+    'visual art by entertainer'
+  ],
+  
+  // Technical SEO
+  ogImage: '/assets/art/images/art-sample-1.webp',
+  ogType: 'article',
   canonicalUrl: '/art',
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    'name': 'Art Gallery — Abby Segal',
-    'description': 'Original magic-themed artwork by Chicago magician Abby Segal.',
-    'url': 'https://www.abbysegalmagic.com/art'
-  }
+  priority: 0.7,
+  changeFreq: 'monthly',
+  
+  // Performance optimization
+  preloadImages: [
+    '/assets/art/images/art-sample-1.webp',
+    '/assets/art/images/art-sample-2.webp'
+  ],
+  prefetchLinks: [
+    '/about',
+    '/contact'
+  ],
+  
+  contentType: 'gallery'
+})
+
+// Strategic linking for Art page
+useStrategicLinking({
+  enableAutolinking: true,
+  maxLinksPerPage: 4,
+  respectExistingLinks: true
 })
 
 const lightboxOpen = ref(false)

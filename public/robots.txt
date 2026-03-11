@@ -1,5 +1,112 @@
+# Robots.txt for abbysegalmagic.com
+# Updated: March 11, 2026
+
+# Allow all search engines to crawl everything
 User-agent: *
 Allow: /
-Disallow: /404
 
+# Optimize crawl budget - prioritize important content
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.abbysegalmagic.com/sitemap.xml
+
+# Performance assets - allow crawling for PageSpeed insights
+Allow: /assets/
+Allow: /_nuxt/
+Allow: /js/
+Allow: /css/
+
+# Development/build artifacts - block if they exist
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /build/
+Disallow: /.env*
+Disallow: /package*.json
+Disallow: /vite.config*
+Disallow: /tsconfig*
+Disallow: /eslint.config*
+
+# Temporary/cache files
+Disallow: /*.tmp$
+Disallow: /*.log$
+Disallow: /*~$
+Disallow: /*.bak$
+
+# Admin/sensitive areas (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+
+# API endpoints that don't need indexing
+Disallow: /api/
+Disallow: /webhook/
+
+# Search/filter URLs to prevent duplicate content
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid*
+Disallow: /*?*gclid*
+Disallow: /*?*ref=*
+
+# Specific optimization for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Allow Googlebot Image to crawl all images
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow social media crawlers for optimal sharing
+User-agent: facebookexternalhit/1.1
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# SEO tools and analyzers
+User-agent: SemrushBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+# Block known bad bots to preserve server resources
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: WebSauger
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /

@@ -1,27 +1,60 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
-useSEO({
+// World-class SEO for About page
+useWorldClassSEO({
   title: 'About Abby Segal | Chicago Magician, Sleight of Hand Expert & Entertainer',
   description: 'Learn about Abby Segal — Chicago magician and sleight of hand expert performing close-up magic since age 11. Resident performer at Chicago Magic Lounge. As seen on Penn & Teller: Fool Us.',
-  keywords: 'Abby Segal, Chicago magician, sleight of hand expert, close-up magic, Chicago Magic Lounge, performance, entertainment, Penn and Teller Fool Us, magician biography',
-  ogImage: '/assets/general/images/performance.webp',
+  
+  // Enhanced keyword targeting for About page
+  focusKeyphrases: [
+    'Abby Segal magician biography',
+    'Chicago Magic Lounge performer',
+    'Penn and Teller Fool Us magician',
+    'professional sleight of hand expert'
+  ],
+  semanticKeywords: [
+    'magic performer background',
+    'Bates College psychology degree',
+    'magic show performer Chicago',
+    'close-up magic expert',
+    'The Magic Castle performer',
+    'professional magician credentials',
+    'Chicago entertainment industry',
+    'magic show experience',
+    'sleight of hand training',
+    'magical entertainment biography'
+  ],
+  
+  // Technical SEO
+  ogImage: '/assets/portraits/images/abby-2024.webp',
+  ogType: 'profile',
   canonicalUrl: '/about',
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    'name': 'About Abby Segal',
-    'description': 'Biography of Chicago magician and sleight of hand expert Abby Segal.',
-    'url': 'https://www.abbysegalmagic.com/about',
-    'mainEntity': {
-      '@type': 'Person',
-      'name': 'Abby Segal',
-      'jobTitle': 'Magician & Sleight of Hand Expert',
-      'url': 'https://www.abbysegalmagic.com'
-    }
-  }
+  priority: 0.9,
+  changeFreq: 'monthly',
+  
+  // Performance optimization
+  preloadImages: [
+    '/assets/portraits/images/abby-2024.webp',
+    '/assets/portraits/images/penn-teller-appearance.webp'
+  ],
+  prefetchLinks: [
+    '/shows',
+    '/contact',
+    '/press'
+  ],
+  
+  contentType: 'about'
+})
+
+// Strategic linking for About page
+useStrategicLinking({
+  enableAutolinking: true,
+  maxLinksPerPage: 5,
+  respectExistingLinks: true
 })
 
 const milestones = [

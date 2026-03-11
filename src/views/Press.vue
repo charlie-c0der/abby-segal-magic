@@ -1,22 +1,61 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import { useStrategicLinking } from '../composables/useStrategicLinking'
 import LazyYouTube from '../components/LazyYouTube.vue'
 
 useReveal()
-useSEO({
+// World-class SEO for Press page (social proof & authority)
+useWorldClassSEO({
   title: 'Press & Media | Chicago Magician Abby Segal on Penn & Teller: Fool Us',
   description: 'Chicago magician Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic performances. Press coverage, media appearances, and close-up magic reviews.',
-  keywords: 'Abby Segal press, Chicago magician media, Penn and Teller Fool Us, Chicago Magic Lounge, magic performance, close-up magic, sleight of hand, entertainment',
-  ogImage: '/assets/general/images/performance.webp',
+  
+  // Media and authority-focused keywords
+  focusKeyphrases: [
+    'Abby Segal Penn and Teller Fool Us',
+    'Chicago Magic Lounge performer press',
+    'magician media appearances Chicago',
+    'professional magician press coverage'
+  ],
+  semanticKeywords: [
+    'Penn and Teller Fool Us featured magician',
+    'Chicago Magic Lounge resident performer',
+    'The Magic Castle performer',
+    'professional magic reviews',
+    'magic show press coverage',
+    'entertainment industry features',
+    'Chicago performer media',
+    'magic entertainment press',
+    'sleight of hand expert reviews',
+    'close-up magic performer features'
+  ],
+  
+  // Technical SEO
+  ogImage: '/assets/press/images/penn-teller-feature.webp',
+  ogType: 'article',
   canonicalUrl: '/press',
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    'name': 'Press & Media — Abby Segal',
-    'description': 'Media coverage and press features for Chicago magician Abby Segal.',
-    'url': 'https://www.abbysegalmagic.com/press'
-  }
+  priority: 0.8,
+  changeFreq: 'monthly',
+  
+  // Performance optimization
+  preloadImages: [
+    '/assets/press/images/penn-teller-feature.webp',
+    '/assets/press/images/chicago-magic-lounge.webp'
+  ],
+  prefetchLinks: [
+    '/shows',
+    '/about',
+    '/contact'
+  ],
+  
+  contentType: 'press'
+})
+
+// Strategic linking for Press page
+useStrategicLinking({
+  enableAutolinking: true,
+  maxLinksPerPage: 5,
+  respectExistingLinks: true
 })
 
 const features = [

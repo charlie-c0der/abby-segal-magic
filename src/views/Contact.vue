@@ -1,22 +1,61 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO } from '../composables/useSEO'
+import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
-useSEO({
+// World-class SEO for Contact page (high conversion value)
+useWorldClassSEO({
   title: 'Book Abby Segal | Hire a Chicago Magician for Private Events & Entertainment',
   description: 'Contact Abby Segal to hire a Chicago magician for private events, corporate entertainment, weddings, and more. Close-up magic and sleight of hand performances. Custom quotes within 24 hours.',
-  keywords: 'hire Chicago magician, magician for hire, book magician, private events, corporate entertainment, close-up magic, sleight of hand, activities in Chicago, Abby Segal contact',
+  
+  // Conversion-focused keywords
+  focusKeyphrases: [
+    'book Chicago magician for event',
+    'hire magician for private party',
+    'contact Chicago entertainment services',
+    'get quote for magic show'
+  ],
+  semanticKeywords: [
+    'magician booking inquiry',
+    'event entertainment pricing',
+    'magic show availability',
+    'corporate entertainment quote',
+    'wedding magician booking',
+    'party entertainment contact',
+    'magic performance inquiry',
+    'Chicago event planning services',
+    'professional magician booking',
+    'custom magic show quote',
+    'event entertainment consultation',
+    'private party magic pricing'
+  ],
+  
+  // Technical SEO
   ogImage: '/assets/general/images/performance.webp',
+  ogType: 'website',
   canonicalUrl: '/contact',
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    'name': 'Contact Abby Segal',
-    'description': 'Book Chicago magician Abby Segal for private events and corporate entertainment.',
-    'url': 'https://www.abbysegalmagic.com/contact'
-  }
+  priority: 0.9,
+  changeFreq: 'monthly',
+  
+  // Performance optimization
+  preloadImages: [
+    '/assets/general/images/performance.webp'
+  ],
+  prefetchLinks: [
+    '/shows',
+    '/about'
+  ],
+  
+  contentType: 'contact'
+})
+
+// Strategic linking for Contact page (minimal - focus on conversion)
+useStrategicLinking({
+  enableAutolinking: false, // Keep contact page focused on conversion
+  maxLinksPerPage: 3,
+  respectExistingLinks: true
 })
 
 const form = ref({

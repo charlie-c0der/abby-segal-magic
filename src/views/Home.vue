@@ -4,7 +4,8 @@ import { useReveal } from '../composables/useReveal'
 import { useParticles } from '../composables/useParticles'
 import { useSplitText } from '../composables/useSplitText'
 import { useTilt } from '../composables/useTilt'
-import { useSEO } from '../composables/useSEO'
+import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import { useStrategicLinking } from '../composables/useStrategicLinking'
 import MagicReveal from '../components/MagicReveal.vue'
 import LazyYouTube from '../components/LazyYouTube.vue'
 import gsap from 'gsap'
@@ -16,24 +17,58 @@ useReveal()
 useParticles('hero-particles', 60)
 useSplitText()
 useTilt('.tilt-card')
-useSEO({
+// World-class SEO optimization
+useWorldClassSEO({
   title: 'Abby Segal — Chicago Magician | Close-Up Magic & Sleight of Hand Entertainment',
-  description: 'Abby Segal is a Chicago magician for hire specializing in close-up magic, sleight of hand, and parlour performances for private events, corporate entertainment, and theatre. As seen on Penn & Teller: Fool Us.',
-  keywords: 'Chicago magician, close-up magic, sleight of hand, magician for hire, private events, Chicago entertainment, activities in Chicago, Abby Segal, Chicago Magic Lounge, parlour magic, performance',
+  description: 'Chicago magician Abby Segal specializes in close-up magic, sleight of hand, and parlour performances for private events, corporate entertainment, and theatre. As seen on Penn & Teller: Fool Us.',
+  
+  // Enhanced keyword targeting
+  focusKeyphrases: [
+    'Chicago magician for hire',
+    'close-up magic entertainment', 
+    'sleight of hand expert',
+    'private event magician Chicago'
+  ],
+  semanticKeywords: [
+    'corporate entertainment Chicago',
+    'parlour magic shows',
+    'wedding magician Illinois',
+    'birthday party entertainment',
+    'Chicago Magic Lounge performer',
+    'Penn and Teller Fool Us magician',
+    'professional magic shows',
+    'table-side magic performance',
+    'intimate magic entertainment',
+    'Chicago event entertainment'
+  ],
+  
+  // Technical SEO
   ogImage: '/assets/general/images/performance.webp',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
   canonicalUrl: '/',
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    'name': 'Abby Segal — Chicago Magician',
-    'description': 'Chicago magician for hire specializing in close-up magic and sleight of hand for private events and corporate entertainment.',
-    'url': 'https://www.abbysegalmagic.com/',
-    'isPartOf': {
-      '@type': 'WebSite',
-      'name': 'Abby Segal Magic',
-      'url': 'https://www.abbysegalmagic.com'
-    }
-  }
+  priority: 1.0,
+  changeFreq: 'weekly',
+  
+  // Performance optimization
+  preloadImages: [
+    '/assets/portraits/images/abby-2024.webp',
+    '/assets/general/images/performance.webp'
+  ],
+  prefetchLinks: [
+    '/shows',
+    '/contact',
+    '/about'
+  ],
+  
+  contentType: 'service'
+})
+
+// Strategic internal linking
+useStrategicLinking({
+  enableAutolinking: true,
+  maxLinksPerPage: 6,
+  respectExistingLinks: true
 })
 
 const heroLoaded = ref(false)

@@ -1,53 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://www.abbysegalmagic.com/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.abbysegalmagic.com/assets/general/images/performance.webp</image:loc>
-      <image:caption>Abby Segal performing close-up magic and sleight of hand in Chicago</image:caption>
+      <image:title>Abby Segal - Chicago Magician</image:title>
+      <image:caption>Chicago magician Abby Segal performing close-up magic</image:caption>
     </image:image>
   </url>
+  
+  <!-- Shows - Main Service Page -->
+  <url>
+    <loc>https://www.abbysegalmagic.com/shows</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.abbysegalmagic.com/assets/general/images/performance.webp</image:loc>
+      <image:title>Magic Show Performances</image:title>
+      <image:caption>Close-up magic and parlour show options</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Contact - High Conversion Priority -->
+  <url>
+    <loc>https://www.abbysegalmagic.com/contact</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- About - Authority Page -->
   <url>
     <loc>https://www.abbysegalmagic.com/about</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.abbysegalmagic.com/assets/portraits/images/abby-2024.webp</image:loc>
+      <image:title>Abby Segal - Professional Magician</image:title>
+      <image:caption>Professional portrait of Chicago magician Abby Segal</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Press - Social Proof -->
+  <url>
+    <loc>https://www.abbysegalmagic.com/press</loc>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.abbysegalmagic.com/assets/general/images/performance.webp</image:loc>
-      <image:caption>Chicago magician Abby Segal portrait</image:caption>
+      <image:loc>https://www.abbysegalmagic.com/assets/press/images/penn-teller-feature.webp</image:loc>
+      <image:title>Penn & Teller: Fool Us Feature</image:title>
+      <image:caption>Abby Segal on Penn & Teller: Fool Us</image:caption>
     </image:image>
   </url>
-  <url>
-    <loc>https://www.abbysegalmagic.com/shows</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.abbysegalmagic.com/assets/general/images/performance.webp</image:loc>
-      <image:caption>Close-up magic performance at private event</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.abbysegalmagic.com/press</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
+  <!-- Art Gallery - Secondary Content -->
   <url>
     <loc>https://www.abbysegalmagic.com/art</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-03-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.abbysegalmagic.com/assets/art/images/art-sample-1.webp</image:loc>
+      <image:title>Magic-Themed Artwork</image:title>
+      <image:caption>Original artwork by magician Abby Segal</image:caption>
+    </image:image>
   </url>
-  <url>
-    <loc>https://www.abbysegalmagic.com/contact</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  
 </urlset>
