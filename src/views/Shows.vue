@@ -161,7 +161,6 @@ const addOns = [
   { icon: '🎓', title: 'Magic Workshops', desc: 'Private or group magic instruction. Learn <em class="shimmer">real sleight of hand</em> from someone who\'s been teaching since <em class="underline-sketch">sixth grade</em>. Perfect for team-building, kids\' parties, or aspiring magicians.' },
   { icon: '🎨', title: 'Custom Routines', desc: '<em class="shimmer">Brand magic.</em> Abby can design a routine around your company, product, or event theme. <em class="underline-sketch">Your logo appears on a card.</em> That sort of thing.' },
   { icon: '🎤', title: 'MC & Hosting', desc: 'Need someone to run the evening? Abby can MC with <em class="shimmer">magic woven throughout</em> - transitions, surprises, and the occasional <em class="underline-sketch">impossible moment</em> between courses.' },
-  { icon: '📚', title: 'Children\'s Book', desc: '"Shelly Shazam!" - Abby\'s children\'s book about creativity and imagination. Sold on Amazon and at <em class="shimmer">The Magic Castle</em>. Great gift for young magic fans.' },
 ]
 
 const faqs = [

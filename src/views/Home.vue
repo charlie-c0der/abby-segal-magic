@@ -118,7 +118,7 @@ const testimonials = [
     context: 'Abby\'s first mentor, Patch.com',
   },
   {
-    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has written a hit children\'s book sold at <em class="underline-sketch">The Magic Castle</em>, lectured at Magifest, and is a featured performer at <em class="shimmer">The Chicago Magic Lounge</em>.',
+    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has lectured at <em class="underline-sketch">Magifest</em> and is a featured performer at <em class="shimmer">The Chicago Magic Lounge</em>.',
     author: 'Penguin Magic Podcast',
     context: 'Season 6, Episode 16',
   },

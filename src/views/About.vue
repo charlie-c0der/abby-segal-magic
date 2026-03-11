@@ -107,7 +107,7 @@ useStrategicLinking({
           <h2 class="heading-md reveal reveal-delay-3" style="margin-top: 40px; margin-bottom: 24px;">Beyond the stage</h2>
 
           <p class="body-lg reveal reveal-delay-3">
-            Beyond the stage Abby is also a <em class="shimmer">published author</em> - her children's book <em class="underline-sketch">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague. She's been featured on the <em class="shimmer">Penguin Magic Podcast</em>, lectured at <em class="underline-sketch">Magifest</em>, and teaches magic workshops for all ages.
+            Beyond the stage Abby is a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague. She's been featured on the <em class="shimmer">Penguin Magic Podcast</em>, lectured at <em class="underline-sketch">Magifest</em>, and teaches magic workshops for all ages.
           </p>
 
           <div class="reveal reveal-delay-4" style="margin-top: 32px;">

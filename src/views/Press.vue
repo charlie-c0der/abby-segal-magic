@@ -104,7 +104,7 @@ const features = [
     link: 'https://www.bates.edu/news/2023/04/14/magic-and-soccer-take-home-first-prize-at-the-2023-bobcat-ventures-competition/',
   },
   {
-    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has written a <em class="underline-sketch">hit children\'s book</em> that is sold at <em class="shimmer">The Magic Castle</em>, lectured and performed at Magifest, and is a featured performer at <em class="underline-sketch">The Chicago Magic Lounge</em>.',
+    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has lectured and performed at <em class="underline-sketch">Magifest</em> and is a featured performer at <em class="shimmer">The Chicago Magic Lounge</em>.',
     source: 'Penguin Magic Podcast',
     context: 'Season 6, Episode 16',
     year: '2024',
