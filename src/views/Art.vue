@@ -491,18 +491,18 @@ const artworks = [
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 .published-header h2 {
   color: var(--gold);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .published-header p {
   color: var(--ivory-dim);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .published-header em {
@@ -521,17 +521,17 @@ const artworks = [
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 .take-home__text h2 {
   color: var(--ivory);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .take-home__text p {
   color: var(--ivory-dim);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* ── Magical Button Effects ─────────────────── */
@@ -562,6 +562,14 @@ const artworks = [
 .magical-button span {
   position: relative;
   z-index: 2;
+}
+
+/* Plum button specific magical effect */
+.btn--plum.magical-button::before {
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(141, 59, 120, 0.3), 
+    transparent);
 }
 /* Old art-item styles removed - replaced with gallery-piece styles */
 
@@ -811,7 +819,7 @@ const artworks = [
 @media (max-width: 768px) {
   .published-header,
   .take-home__content {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
   }
   
   .art-gallery { 
