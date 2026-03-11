@@ -261,9 +261,9 @@ onUnmounted(() => {
     <section class="section">
       <div class="container intro-section">
         <div class="intro-section__text">
-          <p class="heading-eyebrow reveal">The Experience</p>
+          <p class="heading-eyebrow reveal">THE EXPERIENCE</p>
           <h2 class="heading-lg reveal reveal-delay-1">
-            Magic that happens<br><em class="shimmer">in your hands.</em>
+            Magic that happens <em class="shimmer">in your hands.</em>
           </h2>
           <div class="divider reveal reveal-delay-2" />
           <p class="body-lg reveal reveal-delay-2">
@@ -274,9 +274,6 @@ onUnmounted(() => {
             Abby performs <em class="shimmer">inches away</em> from you. Cards change in <em>your</em> hands.
             Coins <em class="underline-sketch">vanish while you're holding them</em>. She'll know what you're thinking - and
             you'll laugh, because she's probably right about the embarrassing thing too.
-          </p>
-          <p class="body-lg reveal reveal-delay-3" style="font-style: italic; color: var(--gold);">
-            <em class="shimmer">Psychology degree.</em> <em class="underline-sketch">15 years of practice.</em> Pure skill.
           </p>
           <router-link to="/about" class="btn reveal reveal-delay-4 magnetic-element"><span>Meet Abby</span></router-link>
         </div>
