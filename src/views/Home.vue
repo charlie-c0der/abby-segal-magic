@@ -147,8 +147,9 @@ onMounted(async () => {
   }).scrollTrigger
   if (st2) scrollTriggers.push(st2)
 
+  // Horizontal scroll only on desktop — mobile uses CSS snap-scroll
   const showsTrack = document.querySelector('.shows-horizontal__track')
-  if (showsTrack) {
+  if (showsTrack && window.innerWidth > 768) {
     const st3 = gsap.to(showsTrack, {
       xPercent: -50, ease: 'none',
       scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=80%', scrub: 1, pin: true, anticipatePin: 1 },
@@ -649,35 +650,49 @@ onUnmounted(() => {
     display: inline-block; 
   }
   
-  /* Mobile-optimized shows section — snap-scroll carousel */
-  .shows-horizontal { 
-    height: auto; 
-    padding-bottom: var(--section-pad); 
+  /* Mobile shows section — snap-scroll horizontal carousel */
+  .shows-horizontal {
+    height: auto !important;
+    position: relative !important;
+    padding-bottom: var(--section-pad);
+    /* Kill any GSAP pin leftovers */
+    transform: none !important;
+    pin-spacer: none;
   }
-  .shows-horizontal__track { 
+  .shows-horizontal__header {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+  .shows-horizontal__track {
+    display: flex;
     flex-direction: row;
-    height: auto; 
-    padding: 0 20px; 
+    height: auto !important;
+    padding: 0 20px;
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    /* Reset any GSAP transforms */
+    transform: none !important;
   }
   .shows-horizontal__track::-webkit-scrollbar { display: none; }
   .shows-horizontal__spacer { display: none; }
-  .show-panel { 
-    min-width: 85vw;
-    max-width: 85vw;
+  .show-panel {
+    min-width: 82vw;
+    max-width: 82vw;
+    width: 82vw;
     flex-shrink: 0;
     scroll-snap-align: center;
-    height: auto; 
+    height: auto;
     padding: 32px 24px;
-    min-height: 320px;
+    min-height: auto;
   }
   .show-panel--cta {
-    min-width: 60vw;
-    max-width: 60vw;
+    min-width: 55vw;
+    max-width: 55vw;
+    width: 55vw;
+    min-height: 200px;
   }
   
   /* Better testimonials on mobile */
