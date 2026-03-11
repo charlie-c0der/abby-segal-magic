@@ -159,6 +159,25 @@ const artworks = [
       </div>
     </section>
 
+    <!-- Book Section -->
+    <section class="section">
+      <div class="container">
+        <div class="book-showcase reveal">
+          <div class="book-showcase__content">
+            <h2 class="heading-md reveal reveal-delay-1">Published Author</h2>
+            <p class="body-lg reveal reveal-delay-2">
+              <em class="shimmer">Shelly Shazam!</em> is Abby's children's book that brings magic to young readers. 
+              Available on <em class="underline-sketch">Amazon</em> and at <em class="shimmer">The Magic Castle</em> in Hollywood.
+            </p>
+            <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magnetic-element">
+              <span>View on Amazon</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="art-masonry">
@@ -251,6 +270,27 @@ const artworks = [
 .btn--sm {
   padding: 10px 22px;
   font-size: var(--text-micro);
+}
+
+/* ── Book Showcase ─────────────────────── */
+.book-showcase {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 0;
+}
+.book-showcase__content h2 {
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.book-showcase__content p {
+  margin-bottom: 2rem;
+  color: var(--ivory-dim);
+}
+.book-showcase__content em {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 500;
 }
 
 .art-masonry {
@@ -357,6 +397,9 @@ const artworks = [
 }
 
 @media (max-width: 768px) {
+  .book-showcase {
+    padding: 2rem 0;
+  }
   .art-masonry { 
     columns: 2; 
     column-gap: 12px; 

@@ -298,7 +298,7 @@ onUnmounted(() => {
         <div class="video-content">
           <p class="heading-eyebrow reveal" style="color: var(--gold);">Watch the Magic</p>
           <h2 class="heading-lg reveal reveal-delay-1" style="color: var(--ivory);">
-            See her <em class="shimmer" style="color: var(--gold);">fool Penn & Teller</em>.
+            See her <em class="shimmer" style="color: var(--gold);">on Penn & Teller</em>.
           </h2>
           <div class="divider reveal reveal-delay-2" />
           <p class="body-lg reveal reveal-delay-2" style="max-width: 600px; margin: 0 auto;">
