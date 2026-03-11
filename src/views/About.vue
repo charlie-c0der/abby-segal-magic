@@ -63,15 +63,7 @@ useStrategicLinking({
   respectExistingLinks: true
 })
 
-const milestones = [
-  { year: '2012', event: 'Started performing magic at age 11. Began learning and developing skills in close-up magic and sleight of hand.' },
-  { year: '2013', event: 'Created her own magic show and started performing at preschools and local venues.' },
-  { year: '2016', event: 'First professional solo performances. Schools, camps, birthday parties, and corporate events.' },
-  { year: '2021', event: 'First appearance on Penn & Teller: Fool Us (CW Television Network) showcasing original magic routines.' },
-  { year: '2023', event: 'Graduated Bates College - B.A. Psychology with concentrations in Film Studies and Design. Published "Shelly Shazam!" children\'s book.' },
-  { year: '2024', event: 'Regular performer at Chicago Magic Lounge. Lectured at Magifest. Featured on Penguin Magic Podcast. Art exhibited at Berlinskej Model in Prague.' },
-  { year: '2025', event: 'Second appearance on Penn & Teller: Fool Us. International performances at The Helsinki Magic Show and The Amsterdam Magic Show.' },
-]
+// Timeline data removed
 </script>
 
 <template>
@@ -125,28 +117,7 @@ const milestones = [
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="section timeline-section">
-      <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Journey</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 60px;">
-          The <em>timeline.</em>
-        </h2>
-
-        <div class="timeline">
-          <div
-            v-for="(m, i) in milestones"
-            :key="m.year"
-            class="timeline__item reveal"
-            :class="`reveal-delay-${(i % 4) + 1}`"
-          >
-            <span class="timeline__year">{{ m.year }}</span>
-            <div class="timeline__dot" />
-            <p class="timeline__event">{{ m.event }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Timeline section removed -->
 
     <!-- Venues -->
     <section class="section">
@@ -264,55 +235,7 @@ const milestones = [
 .about-bio em { color: var(--gold); font-style: normal; font-weight: 400; }
 .about-bio h2 em { color: var(--gold); }
 
-/* Timeline - vertical for more room */
-.timeline-section { background: var(--obsidian); border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
-.timeline-section h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
-.timeline {
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  padding-left: 60px;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--ember);
-}
-.timeline__item {
-  position: relative;
-  padding-bottom: 40px;
-}
-.timeline__item:last-child { padding-bottom: 0; }
-.timeline__dot {
-  position: absolute;
-  left: -47px;
-  top: 4px;
-  width: 11px;
-  height: 11px;
-  background: var(--plum);
-  border-radius: 50%;
-  border: 2px solid var(--obsidian);
-}
-.timeline__item:nth-child(even) .timeline__dot {
-  background: var(--bronze);
-}
-.timeline__year {
-  font-family: var(--font-mono);
-  font-size: var(--text-btn);
-  color: var(--bronze);
-  letter-spacing: 0.05em;
-  display: block;
-  margin-bottom: 6px;
-}
-.timeline__event {
-  font-size: var(--text-body);
-  color: var(--white-dim);
-  line-height: 1.6;
-}
+/* Timeline styles removed */
 
 /* Venues */
 .venues-grid { 
@@ -390,9 +313,7 @@ h2 em {
   .venue-card {
     padding: 20px;
   }
-  .timeline { padding-left: 40px; }
-  .timeline::before { left: 10px; }
-  .timeline__dot { left: -37px; }
+  /* Timeline mobile styles removed */
 }
 
 @media (max-width: 480px) {
