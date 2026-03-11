@@ -226,7 +226,7 @@ const artworks = [
         <div class="published-header reveal">
           <h2 class="heading-md reveal reveal-delay-1">Published Works</h2>
           <p class="body-lg reveal reveal-delay-2">
-            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em> and at The Magic Castle in Hollywood.
+            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em>.
           </p>
           <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magical-button">
             <span>View on Amazon</span>
@@ -485,13 +485,14 @@ const artworks = [
 .published-works {
   background: var(--ash);
   border-top: 1px solid var(--ember);
+  padding: 0 !important;
 }
 
 .published-header {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .published-header h2 {
@@ -515,13 +516,14 @@ const artworks = [
 .take-home {
   background: var(--obsidian);
   border-top: 1px solid var(--ember);
+  padding: 0 !important;
 }
 
 .take-home__content {
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .take-home__text h2 {
@@ -819,7 +821,7 @@ const artworks = [
 @media (max-width: 768px) {
   .published-header,
   .take-home__content {
-    padding: 0.75rem 0;
+    padding: 0.25rem 0;
   }
   
   .art-gallery { 
