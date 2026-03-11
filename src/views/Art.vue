@@ -97,8 +97,31 @@ watch(lightboxOpen, async (isOpen) => {
     await nextTick()
     lightboxRef.value?.focus()
     document.body.style.overflow = 'hidden'
+    // Force cursor visibility in lightbox
+    document.body.style.cursor = 'default'
+    // Hide any custom cursor elements
+    const customCursors = document.querySelectorAll('.custom-cursor, .custom-cursor--dot')
+    customCursors.forEach(cursor => {
+      (cursor as HTMLElement).style.opacity = '0'
+    })
+    // Hide magic cursor canvas if present
+    const magicCanvas = document.querySelector('canvas[style*="pointer-events:none"]')
+    if (magicCanvas) {
+      (magicCanvas as HTMLElement).style.opacity = '0'
+    }
   } else {
     document.body.style.overflow = ''
+    document.body.style.cursor = ''
+    // Restore custom cursor elements
+    const customCursors = document.querySelectorAll('.custom-cursor, .custom-cursor--dot')
+    customCursors.forEach(cursor => {
+      (cursor as HTMLElement).style.opacity = ''
+    })
+    // Restore magic cursor canvas if present
+    const magicCanvas = document.querySelector('canvas[style*="pointer-events:none"]')
+    if (magicCanvas) {
+      (magicCanvas as HTMLElement).style.opacity = ''
+    }
   }
 })
 
@@ -547,13 +570,13 @@ const artworks = [
 .gallery-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #1a1a1a;
   font-family: var(--font-body);
-  cursor: default;
+  cursor: default !important;
 }
 
 /* Gallery Background with Ambient Lighting */
@@ -695,14 +718,43 @@ const artworks = [
   pointer-events: none;
 }
 
-/* Ensure cursor is always visible in lightbox */
+/* Force disable custom cursor system inside lightbox */
+.gallery-lightbox {
+  /* Hide any custom cursors inside lightbox */
+}
+
 .gallery-lightbox * {
-  cursor: inherit;
+  cursor: inherit !important;
 }
 
 .gallery-lightbox__nav,
 .gallery-lightbox__close {
   cursor: pointer !important;
+}
+
+/* Force normal cursor behavior - override any global cursor styles */
+.gallery-lightbox {
+  /* Force default cursor to be visible */
+  cursor: default !important;
+}
+
+.gallery-lightbox *:not(.gallery-lightbox__nav):not(.gallery-lightbox__close) {
+  cursor: default !important;
+}
+
+/* Disable all custom cursor systems inside lightbox */
+.gallery-lightbox .custom-cursor,
+.gallery-lightbox .custom-cursor--dot {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Override any mix-blend-mode effects that might hide cursor */
+.gallery-lightbox,
+.gallery-lightbox * {
+  mix-blend-mode: normal !important;
 }
 
 @media (max-width: 768px) {
