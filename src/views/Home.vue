@@ -225,8 +225,7 @@ onUnmounted(() => {
           and <em class="shimmer">14 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes.
         </p>
         <div class="hero__actions">
-          <router-link to="/contact" class="btn btn--filled magnetic glow-pulse"><span>Book Your Event</span></router-link>
-          <a href="https://www.youtube.com/watch?v=yHC32hkzFrc" target="_blank" rel="noopener" class="btn magnetic">
+          <a href="https://www.youtube.com/watch?v=yHC32hkzFrc" target="_blank" rel="noopener" class="btn btn--filled magnetic glow-pulse">
             <span>▶ Watch on Fool Us</span>
           </a>
         </div>

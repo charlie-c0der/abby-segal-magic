@@ -183,20 +183,7 @@ useStrategicLinking({
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
-      <div class="container" style="text-align: center;">
-        <h2 class="heading-lg reveal">Want the full <em>experience?</em></h2>
-        <p class="body-lg reveal reveal-delay-1" style="max-width: 480px; margin: 16px auto 32px;">
-          Check out the shows, or just skip ahead and book.
-          Either way, your guests will thank you.
-        </p>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <router-link to="/shows" class="btn reveal reveal-delay-2"><span>See the Shows</span></router-link>
-          <router-link to="/contact" class="btn btn--filled reveal reveal-delay-3"><span>Book Now</span></router-link>
-        </div>
-      </div>
-    </section>
+    <!-- Bottom CTA section removed - redundant with header/footer -->
   </div>
 </template>
 
