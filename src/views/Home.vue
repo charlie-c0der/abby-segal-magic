@@ -649,24 +649,35 @@ onUnmounted(() => {
     display: inline-block; 
   }
   
-  /* Mobile-optimized shows section */
+  /* Mobile-optimized shows section — snap-scroll carousel */
   .shows-horizontal { 
     height: auto; 
     padding-bottom: var(--section-pad); 
   }
   .shows-horizontal__track { 
-    flex-direction: column; 
+    flex-direction: row;
     height: auto; 
     padding: 0 20px; 
-    gap: 24px; 
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .shows-horizontal__track::-webkit-scrollbar { display: none; }
   .shows-horizontal__spacer { display: none; }
   .show-panel { 
-    min-width: 100%; 
-    max-width: 100%; 
+    min-width: 85vw;
+    max-width: 85vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
     height: auto; 
     padding: 32px 24px;
     min-height: 320px;
+  }
+  .show-panel--cta {
+    min-width: 60vw;
+    max-width: 60vw;
   }
   
   /* Better testimonials on mobile */
