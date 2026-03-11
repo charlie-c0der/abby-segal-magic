@@ -190,36 +190,44 @@ onUnmounted(() => {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 101;
+  -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
 }
 .nav__burger-line {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;
   background: var(--ivory);
   transition: all 0.3s var(--ease-out);
+  border-radius: 1px;
 }
 .nav__burger-line.open:first-child {
-  transform: rotate(45deg) translate(3px, 3px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 .nav__burger-line.open:last-child {
-  transform: rotate(-45deg) translate(3px, -3px);
+  transform: rotate(-45deg) translate(4px, -4px);
 }
 
 /* Mobile Menu */
 .nav__mobile {
   position: fixed;
-  top: 60px; /* navbar height */
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: var(--void);
-  border-bottom: 1px solid var(--ember);
-  padding: 32px 0;
+  z-index: 99;
+  padding: 80px 0 32px 0; /* Top padding accounts for nav height */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -229,9 +237,25 @@ onUnmounted(() => {
   color: var(--white-dim);
   cursor: pointer;
   transition: color 0.3s;
+  padding: 12px 24px;
+  text-align: center;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
 }
-.nav__mobile-link:hover { color: var(--gold); }
-.nav__mobile-link--cta { color: var(--gold); }
+.nav__mobile-link:hover, 
+.nav__mobile-link:active { 
+  color: var(--gold); 
+}
+.nav__mobile-link--cta { 
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 16px;
+}
 
 .menu-enter-active, .menu-leave-active {
   transition: all 0.3s var(--ease-out);
@@ -261,5 +285,25 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .nav__burger { display: flex; }
+  
+  .nav {
+    padding: 16px 0;
+  }
+  
+  .nav--scrolled {
+    padding: 12px 0;
+  }
+  
+  .nav__inner {
+    padding: 0 clamp(16px, 4vw, 24px);
+  }
+  
+  .nav__logo-text {
+    font-size: 18px;
+  }
+  
+  .nav__logo-sub {
+    font-size: 11px;
+  }
 }
 </style>

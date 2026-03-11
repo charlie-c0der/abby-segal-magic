@@ -770,24 +770,37 @@ const artworks = [
 @media (max-width: 768px) {
   .gallery-lightbox__hint {
     display: block;
+    bottom: 2rem;
   }
   
   .gallery-lightbox__nav {
-    width: 44px;
-    height: 44px;
-    padding: 0.75rem;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    bottom: 50%;
+    top: auto;
+    transform: translateY(50%);
   }
   
   .gallery-lightbox__nav--prev {
-    left: 1rem;
+    left: 0.5rem;
   }
   
   .gallery-lightbox__nav--next {
-    right: 1rem;
+    right: 0.5rem;
   }
   
   .artwork-frame {
     padding: 1rem;
+  }
+  
+  .gallery-main {
+    padding: 1.5rem 0;
+  }
+  
+  .take-home__content,
+  .published-header {
+    padding: 30px 0;
   }
 }
 /* Lightbox Transitions */

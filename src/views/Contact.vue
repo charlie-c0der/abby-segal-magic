@@ -460,8 +460,45 @@ const eventTypes = [
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 
 @media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .contact-info { position: static; }
+  .contact-grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px;
+  }
+  
+  .form-row { 
+    grid-template-columns: 1fr; 
+    gap: 16px;
+  }
+  
+  .contact-info { 
+    position: static;
+    order: 2;
+  }
+  
+  .contact-form {
+    order: 1;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    min-height: 48px;
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 16px;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+  }
+  
+  .contact-info__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .contact-success {
+    padding: 40px 24px;
+    margin: 0 -8px;
+  }
 }
 </style>

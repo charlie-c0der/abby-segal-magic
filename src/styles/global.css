@@ -554,9 +554,31 @@ html.lenis, html.lenis body {
   
   /* Better touch targets and feedback */
   .btn { 
-    min-height: 44px; 
+    min-height: 48px; 
     padding: 16px 32px;
     -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Touch-optimized links and buttons */
+  a, button {
+    -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
+  }
+  
+  /* Better mobile spacing */
+  .container {
+    padding: 0 clamp(16px, 4vw, 24px);
+  }
+  
+  /* Optimize scroll behavior */
+  body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  body, html {
+    overflow-x: hidden;
   }
   .nav__burger { 
     padding: 12px; 
@@ -567,6 +589,34 @@ html.lenis, html.lenis body {
   .nav__mobile-link { 
     padding: 16px 0;
     -webkit-tap-highlight-color: rgba(141, 59, 120, 0.1);
+  }
+  
+  /* Better mobile readability */
+  p, .body-md, .body-lg {
+    line-height: 1.65;
+  }
+  
+  /* Mobile-optimized sections */
+  .section {
+    padding: clamp(40px, 8vw, 80px) 0;
+  }
+  
+  /* Better mobile form elements */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    min-height: 48px;
+  }
+  
+  /* Improved mobile card spacing */
+  .card {
+    margin-bottom: 24px;
+  }
+  
+  /* Better mobile button sizing */
+  .btn {
+    min-height: 48px;
+    padding: 16px 24px;
+    font-size: 16px;
   }
   
   /* Active/touch states */
