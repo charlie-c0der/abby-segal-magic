@@ -11,7 +11,7 @@ const socials = SOCIAL_LINKS_ARRAY
       <div class="footer__top">
         <div class="footer__brand">
           <h3 class="footer__logo">Abby Segal <em>Magic</em></h3>
-          <p class="body-md">Chicago-based magician.<br>Corporate events, private shows, and theatre.</p>
+          <p class="body-md">Chicago-based magician.<br>Corporate events, private shows, and theatres.</p>
         </div>
         <div class="footer__cta">
           <p class="heading-eyebrow">Ready to be amazed?</p>
