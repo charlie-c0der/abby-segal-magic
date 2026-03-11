@@ -65,7 +65,8 @@ const lightboxRef = ref<HTMLElement | null>(null)
 
 const etsyShopUrl = 'https://www.etsy.com/shop/AbbySegalArt'
 
-// Touch gesture support for mobile
+// Enhanced touch gesture support for mobile
+let startX = 0
 let startY = 0
 let startTime = 0
 
@@ -84,6 +85,11 @@ function navigateLightbox(direction: 'prev' | 'next') {
   if (artwork) {
     lightboxImage.value = artwork.image
     lightboxIndex.value = newIndex
+    
+    // Haptic feedback on supported devices
+    if ('vibrate' in navigator) {
+      navigator.vibrate(10)
+    }
   }
 }
 
@@ -127,20 +133,44 @@ watch(lightboxOpen, async (isOpen) => {
 
 function onTouchStart(e: TouchEvent) {
   if (e.touches[0]) {
+    startX = e.touches[0].clientX
     startY = e.touches[0].clientY
     startTime = Date.now()
   }
 }
 
+function onTouchMove(e: TouchEvent) {
+  // Prevent scrolling while swiping in lightbox
+  e.preventDefault()
+}
+
 function onTouchEnd(e: TouchEvent) {
   if (e.changedTouches[0]) {
+    const endX = e.changedTouches[0].clientX
     const endY = e.changedTouches[0].clientY
+    const deltaX = endX - startX
     const deltaY = endY - startY
     const deltaTime = Date.now() - startTime
     
-    // Swipe down to close (minimum distance and reasonable speed)
-    if (deltaY > 100 && deltaTime < 500) {
-      closeLightbox()
+    // Only process swipes if they're fast enough and significant enough
+    if (deltaTime < 500) {
+      const absX = Math.abs(deltaX)
+      const absY = Math.abs(deltaY)
+      
+      // Horizontal swipe for navigation (prioritize if horizontal movement is larger)
+      if (absX > absY && absX > 50) {
+        if (deltaX > 0) {
+          // Swipe right = previous image
+          navigateLightbox('prev')
+        } else {
+          // Swipe left = next image  
+          navigateLightbox('next')
+        }
+      }
+      // Vertical swipe down to close (only if not a horizontal swipe)
+      else if (deltaY > 100 && absX < 50) {
+        closeLightbox()
+      }
     }
   }
 }
@@ -247,6 +277,7 @@ const artworks = [
           @keydown.arrow-left="navigateLightbox('prev')"
           @keydown.arrow-right="navigateLightbox('next')"
           @touchstart="onTouchStart"
+          @touchmove="onTouchMove"
           @touchend="onTouchEnd"
           role="dialog"
           aria-modal="true"
@@ -292,7 +323,7 @@ const artworks = [
           <button class="gallery-lightbox__close" @click="closeLightbox" aria-label="Close gallery">✕</button>
           
           <!-- Mobile Instructions -->
-          <p class="gallery-lightbox__hint">Swipe down to close • Use arrow keys to navigate</p>
+          <p class="gallery-lightbox__hint">Swipe left/right to navigate • Swipe down to close</p>
         </div>
       </transition>
     </Teleport>
@@ -777,9 +808,9 @@ const artworks = [
     width: 52px;
     height: 52px;
     padding: 0;
-    bottom: 50%;
-    top: auto;
-    transform: translateY(50%);
+    top: 50%;
+    transform: translateY(-50%);
+    position: fixed;
   }
   
   .gallery-lightbox__nav--prev {
@@ -788,6 +819,12 @@ const artworks = [
   
   .gallery-lightbox__nav--next {
     right: 0.5rem;
+  }
+  
+  /* Disable hover effects on mobile to prevent position shifts */
+  .gallery-lightbox__nav:hover {
+    transform: translateY(-50%);
+    background: rgba(201, 168, 76, 0.3);
   }
   
   .artwork-frame {
