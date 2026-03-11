@@ -60,7 +60,7 @@ useStrategicLinking({
 
 const lightboxOpen = ref(false)
 const lightboxImage = ref('')
-const lightboxTitle = ref('')
+const lightboxIndex = ref(0)
 const lightboxRef = ref<HTMLElement | null>(null)
 
 const etsyShopUrl = 'https://www.etsy.com/shop/AbbySegalArt'
@@ -69,10 +69,22 @@ const etsyShopUrl = 'https://www.etsy.com/shop/AbbySegalArt'
 let startY = 0
 let startTime = 0
 
-function openLightbox(image: string, title: string) {
+function openLightbox(image: string, index: number) {
   lightboxImage.value = image
-  lightboxTitle.value = title
+  lightboxIndex.value = index
   lightboxOpen.value = true
+}
+
+function navigateLightbox(direction: 'prev' | 'next') {
+  const newIndex = direction === 'prev' 
+    ? (lightboxIndex.value - 1 + artworks.length) % artworks.length
+    : (lightboxIndex.value + 1) % artworks.length
+  
+  const artwork = artworks[newIndex]
+  if (artwork) {
+    lightboxImage.value = artwork.image
+    lightboxIndex.value = newIndex
+  }
 }
 
 function closeLightbox() {
@@ -132,26 +144,68 @@ const artworks = [
     <section class="section art-hero section--hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Visual Art</p>
-        <h1 class="heading-xl reveal reveal-delay-1">The other <em class="shimmer">craft.</em></h1>
+        <h1 class="heading-xl reveal reveal-delay-1">The other <em class="shimmer">medium.</em></h1>
         <div class="divider reveal reveal-delay-2" />
         <p class="body-lg reveal reveal-delay-3" style="max-width: 600px;">
-          <em class="underline-sketch">Magic isn't Abby's only medium.</em> She's a visual artist working in <em class="shimmer">collage,
-          watercolor, and illustration</em> - exploring themes of identity, perception,
-          and <em class="underline-sketch">the things we see (and don't)</em> in everyday life. Her work has been
-          exhibited at <em class="shimmer">Berlinskej Model in Prague</em>. <em class="underline-sketch">Commissions available.</em>
+          <em class="underline-sketch">Magic isn't Abby's only medium.</em> As a visual artist, she works in <em class="shimmer">collage,
+          mixed media, and illustration</em> - creating pieces that explore <em class="underline-sketch">perception, identity, and the magic hidden in plain sight</em>. Her work has been
+          exhibited at <em class="shimmer">Berlinskej Model in Prague</em>.
         </p>
       </div>
     </section>
 
-    <!-- Etsy Shop Banner -->
-    <section class="etsy-banner reveal">
+    <!-- Art Gallery -->
+    <section class="section gallery-main">
       <div class="container">
-        <div class="etsy-banner__inner">
-          <div class="etsy-banner__text">
-            <span class="etsy-banner__icon">🛍</span>
-            <span>Original prints &amp; artwork available on Etsy</span>
+        <div class="art-gallery">
+          <div
+            v-for="(art, i) in artworks"
+            :key="art.title"
+            class="gallery-piece reveal magnetic-element"
+            :class="`reveal-delay-${(i % 4) + 1}`"
+            @click="openLightbox(art.image, i)"
+            @keydown.enter="openLightbox(art.image, i)"
+            @keydown.space.prevent="openLightbox(art.image, i)"
+            tabindex="0"
+            role="button"
+            aria-label="View artwork"
+          >
+            <div class="gallery-piece__frame">
+              <div class="gallery-piece__image">
+                <img :src="art.thumb" alt="Artwork by Abby Segal" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-piece__spotlight"></div>
+            </div>
           </div>
-          <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--plum btn--sm magnetic-element">
+        </div>
+      </div>
+    </section>
+
+    <!-- Published Works -->
+    <section class="section published-works">
+      <div class="container">
+        <div class="published-header reveal">
+          <h2 class="heading-md reveal reveal-delay-1">Published Works</h2>
+          <p class="body-lg reveal reveal-delay-2">
+            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em> and at The Magic Castle in Hollywood.
+          </p>
+          <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magical-button">
+            <span>View on Amazon</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Take a Piece Home -->
+    <section class="section take-home">
+      <div class="container">
+        <div class="take-home__content reveal">
+          <div class="take-home__text">
+            <h2 class="heading-md">Take a Piece Home</h2>
+            <p class="body-lg">Original prints and artwork available on Etsy</p>
+          </div>
+          <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--plum magical-button">
             <span>Visit Shop</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
@@ -159,87 +213,174 @@ const artworks = [
       </div>
     </section>
 
-    <!-- Book Section -->
-    <section class="section">
-      <div class="container">
-        <div class="book-showcase reveal">
-          <div class="book-showcase__content">
-            <h2 class="heading-md reveal reveal-delay-1">Published Author</h2>
-            <p class="body-lg reveal reveal-delay-2">
-              <em class="shimmer">Shelly Shazam!</em> is Abby's children's book that brings magic to young readers. 
-              Available on <em class="underline-sketch">Amazon</em> and at <em class="shimmer">The Magic Castle</em> in Hollywood.
-            </p>
-            <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magnetic-element">
-              <span>View on Amazon</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="art-masonry">
-          <div
-            v-for="(art, i) in artworks"
-            :key="art.title"
-            class="art-item reveal magnetic-element"
-            :class="`reveal-delay-${(i % 4) + 1}`"
-            @click="openLightbox(art.image, art.title)"
-            @keydown.enter="openLightbox(art.image, art.title)"
-            @keydown.space.prevent="openLightbox(art.image, art.title)"
-            tabindex="0"
-            role="button"
-            :aria-label="`View ${art.title}`"
-          >
-            <div class="art-item__image">
-              <img :src="art.thumb" :alt="art.title" loading="lazy" decoding="async" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lightbox -->
+    <!-- Enhanced Gallery Lightbox -->
     <Teleport to="body">
       <transition name="lightbox">
         <div 
           v-if="lightboxOpen" 
-          class="lightbox" 
+          class="gallery-lightbox" 
           @click.self="closeLightbox"
           @keydown.escape="closeLightbox"
+          @keydown.arrow-left="navigateLightbox('prev')"
+          @keydown.arrow-right="navigateLightbox('next')"
           @touchstart="onTouchStart"
           @touchend="onTouchEnd"
           role="dialog"
           aria-modal="true"
-          :aria-label="`Viewing: ${lightboxTitle}`"
+          aria-label="Viewing artwork"
           ref="lightboxRef"
           tabindex="-1"
         >
-          <button class="lightbox__close" @click="closeLightbox" aria-label="Close lightbox">✕</button>
-          <img :src="lightboxImage" :alt="lightboxTitle" class="lightbox__img" @click.stop />
-          <p class="lightbox__title">{{ lightboxTitle }}</p>
-          <p class="lightbox__hint">Swipe down to close</p>
+          <!-- Gallery Background -->
+          <div class="gallery-lightbox__background">
+            <div class="gallery-lightbox__ambient-light"></div>
+          </div>
+          
+          <!-- Navigation -->
+          <button 
+            class="gallery-lightbox__nav gallery-lightbox__nav--prev" 
+            @click="navigateLightbox('prev')"
+            aria-label="Previous artwork"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          
+          <button 
+            class="gallery-lightbox__nav gallery-lightbox__nav--next" 
+            @click="navigateLightbox('next')"
+            aria-label="Next artwork"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+          
+          <!-- Artwork Display -->
+          <div class="gallery-lightbox__main">
+            <div class="artwork-frame">
+              <div class="artwork-spotlight"></div>
+              <img :src="lightboxImage" alt="Artwork by Abby Segal" class="artwork-image" @click.stop />
+            </div>
+          </div>
+          
+          <!-- Close Button -->
+          <button class="gallery-lightbox__close" @click="closeLightbox" aria-label="Close gallery">✕</button>
+          
+          <!-- Mobile Instructions -->
+          <p class="gallery-lightbox__hint">Swipe down to close • Use arrow keys to navigate</p>
         </div>
       </transition>
     </Teleport>
 
-    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
-      <div class="container" style="text-align: center;">
-        <h2 class="heading-lg reveal">Interested in a <em>commission?</em></h2>
-        <p class="body-lg reveal reveal-delay-1" style="max-width: 480px; margin: 16px auto 32px;">
-          Custom collages, watercolors, and sketches available. Reach out to discuss your project.
-        </p>
-        <router-link to="/contact" class="btn btn--filled reveal reveal-delay-2"><span>Inquire</span></router-link>
-      </div>
-    </section>
+    <!-- Commission section removed -->
   </div>
 </template>
 
 <style scoped>
 .art-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
 .art-hero h1 em, h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
+
+/* Artist statement removed for cleaner presentation */
+
+/* ── Gallery Main ─────────────────── */
+.gallery-main {
+  background: var(--void);
+  padding: 2rem 0;
+}
+
+/* Gallery header removed for cleaner presentation */
+
+/* ── Gallery Pieces (Professional Art Presentation) ─────────────────── */
+.art-gallery {
+  columns: 3;
+  column-gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-piece {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-piece:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-piece__frame {
+  position: relative;
+  background: var(--ash);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 1px solid var(--ember);
+}
+
+.gallery-piece__frame:hover {
+  box-shadow: 0 15px 50px rgba(201, 168, 76, 0.2);
+}
+
+.gallery-piece__image {
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.gallery-piece__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-piece:hover .gallery-piece__image img {
+  transform: scale(1.02);
+}
+
+/* Gallery Spotlight Effect */
+.gallery-piece__spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, 
+    rgba(201, 168, 76, 0.1) 0%, 
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  cursor: inherit;
+  z-index: 1;
+}
+
+.gallery-piece:hover .gallery-piece__spotlight {
+  opacity: 1;
+}
+
+/* Gallery labels removed for cleaner presentation */
+
+.book-showcase__content h2 {
+  margin-bottom: 16px;
+  color: var(--ivory);
+}
+
+.book-showcase__content p {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.book-showcase__content em {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 500;
+}
 
 /* ── Etsy Shop Banner ─────────────────── */
 .etsy-banner {
@@ -293,120 +434,345 @@ const artworks = [
   font-weight: 500;
 }
 
-.art-masonry {
-  columns: 3;
-  column-gap: 20px;
+/* ── Gallery Header ─────────────────── */
+.gallery-header {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 3rem auto;
+  padding-top: 2rem;
 }
-.art-item {
-  break-inside: avoid;
-  margin-bottom: 20px;
-  overflow: hidden;
+
+.gallery-header h2 {
+  margin-bottom: 1rem;
+  color: var(--ivory);
 }
-.art-item__image {
+
+.gallery-header p {
+  color: var(--white-dim);
+  line-height: 1.6;
+}
+
+.gallery-header em {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ── Published Works ─────────────────── */
+.published-works {
   background: var(--ash);
-  border: 1px solid var(--ember);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s var(--ease-out);
+  border-top: 1px solid var(--ember);
+}
+
+.published-header {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.published-header h2 {
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.published-header p {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.published-header em {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ── Take Home Section ─────────────────── */
+.take-home {
+  background: var(--obsidian);
+  border-top: 1px solid var(--ember);
+}
+
+.take-home__content {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.take-home__text h2 {
+  color: var(--ivory);
+  margin-bottom: 1rem;
+}
+
+.take-home__text p {
+  color: var(--ivory-dim);
+  margin-bottom: 2rem;
+}
+
+/* ── Magical Button Effects ─────────────────── */
+.magical-button {
+  position: relative;
   overflow: hidden;
-  border-radius: var(--radius-md);
 }
-.art-item:hover .art-item__image {
-  border-color: var(--plum);
-}
-.art-item__image img {
+
+.magical-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: all 0.6s var(--ease-out);
-  filter: grayscale(5%) sepia(10%);
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(201, 168, 76, 0.3), 
+    transparent);
+  transition: left 0.6s ease;
+  z-index: 0;
 }
-.art-item:hover .art-item__image img {
-  transform: scale(1.05);
-  filter: grayscale(0%) sepia(0%);
-}
-/* info styles removed - image only */
 
-.art-item { cursor: pointer; }
+.magical-button:hover::before {
+  left: 100%;
+}
+
+.magical-button span {
+  position: relative;
+  z-index: 2;
+}
+/* Old art-item styles removed - replaced with gallery-piece styles */
 
 /* Lightbox */
-.lightbox {
+/* ── Enhanced Gallery Lightbox ─────────────────── */
+.gallery-lightbox {
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: rgba(9, 9, 14, 0.95);
-  backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 16px;
-  padding: 40px;
-  cursor: pointer;
-}
-.lightbox__close {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  background: none;
-  border: none;
-  color: var(--white-muted);
-  font-size: 28px;
-  cursor: pointer;
-  transition: color 0.3s;
-  z-index: 1;
-}
-.lightbox__close:hover { color: var(--gold); }
-.lightbox__img {
-  max-width: 90vw;
-  max-height: 80vh;
-  object-fit: contain;
+  background: #1a1a1a;
+  font-family: var(--font-body);
   cursor: default;
-  border: 1px solid var(--ember);
-  border-radius: var(--radius-md);
-}
-.lightbox__title {
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  font-weight: 600;
-  color: var(--ivory-dim);
 }
 
-.lightbox__hint {
+/* Gallery Background with Ambient Lighting */
+.gallery-lightbox__background {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #2a2a2a 0%, #1a1a1a 70%);
+  z-index: 1;
+  cursor: default;
+  pointer-events: none;
+}
+
+.gallery-lightbox__ambient-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, 
+    rgba(201, 168, 76, 0.05) 0%, 
+    transparent 70%);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Navigation Controls */
+.gallery-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--ember);
+  color: var(--ivory);
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.gallery-lightbox__nav:hover {
+  background: rgba(201, 168, 76, 0.2);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-lightbox__nav--prev {
+  left: 2rem;
+}
+
+.gallery-lightbox__nav--next {
+  right: 2rem;
+}
+
+/* Main Artwork Display */
+.gallery-lightbox__main {
+  position: relative;
+  z-index: 5;
+  max-width: 80vw;
+  max-height: 70vh;
+}
+
+.artwork-frame {
+  position: relative;
+  background: var(--ash);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--ember);
+  cursor: default;
+}
+
+.artwork-spotlight {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  cursor: default;
+}
+
+.artwork-image {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: default;
+}
+
+/* Artwork information panel removed for cleaner viewing */
+
+/* Close Button */
+.gallery-lightbox__close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--ember);
+  color: var(--ivory);
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox__close:hover {
+  background: rgba(201, 168, 76, 0.2);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: scale(1.1);
+}
+
+/* Mobile Instructions */
+.gallery-lightbox__hint {
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-mono);
-  font-size: var(--text-micro);
+  font-size: var(--text-xs);
   color: var(--white-muted);
-  margin-top: 8px;
+  text-align: center;
+  z-index: 10;
   display: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Ensure cursor is always visible in lightbox */
+.gallery-lightbox * {
+  cursor: inherit;
+}
+
+.gallery-lightbox__nav,
+.gallery-lightbox__close {
+  cursor: pointer !important;
 }
 
 @media (max-width: 768px) {
-  .lightbox__hint {
+  .gallery-lightbox__hint {
     display: block;
   }
+  
+  .gallery-lightbox__nav {
+    width: 44px;
+    height: 44px;
+    padding: 0.75rem;
+  }
+  
+  .gallery-lightbox__nav--prev {
+    left: 1rem;
+  }
+  
+  .gallery-lightbox__nav--next {
+    right: 1rem;
+  }
+  
+  .artwork-frame {
+    padding: 1rem;
+  }
 }
-.lightbox-enter-active { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.lightbox-leave-active { transition: all 0.3s ease-in; }
-.lightbox-enter-from { opacity: 0; }
-.lightbox-enter-from .lightbox__img { transform: scale(0.9); }
-.lightbox-leave-to { opacity: 0; }
+/* Lightbox Transitions */
+.lightbox-enter-active { 
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.lightbox-leave-active { 
+  transition: all 0.3s ease-in; 
+}
+.lightbox-enter-from { 
+  opacity: 0; 
+}
+.lightbox-enter-from .artwork-image { 
+  transform: scale(0.9); 
+}
+.lightbox-leave-to { 
+  opacity: 0; 
+}
 
 @media (max-width: 1024px) {
-  .art-masonry { columns: 2; column-gap: 16px; }
+  .art-gallery { 
+    columns: 2; 
+    column-gap: 24px; 
+  }
+  
+  .gallery-piece {
+    margin-bottom: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .book-showcase {
-    padding: 2rem 0;
+  .published-header,
+  .take-home__content {
+    padding: 1.5rem 0;
   }
-  .art-masonry { 
+  
+  .art-gallery { 
     columns: 2; 
-    column-gap: 12px; 
+    column-gap: 16px; 
   }
-  .art-item { 
-    margin-bottom: 12px; 
-    cursor: pointer;
+  
+  .gallery-piece { 
+    margin-bottom: 1rem; 
+  }
+  
+  .gallery-piece__frame {
+    padding: 15px;
   }
   
   /* Better mobile banner */
@@ -443,18 +809,32 @@ const artworks = [
 }
 
 @media (max-width: 480px) {
-  .art-masonry { 
+  .art-gallery { 
     columns: 1; 
     column-gap: 0; 
   }
   
-  .art-item {
-    margin-bottom: 16px;
+  .gallery-piece {
+    margin-bottom: 1rem;
   }
   
-  .lightbox__img {
-    max-width: 100vw;
-    max-height: 70vh;
+  .gallery-piece__frame {
+    padding: 12px;
+  }
+  
+  .gallery-lightbox__main {
+    max-width: 95vw;
+  }
+  
+  .artwork-image {
+    max-height: 60vh;
+  }
+  
+  .gallery-lightbox__close {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
   }
 }
 </style>
