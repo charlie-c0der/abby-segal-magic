@@ -10,24 +10,25 @@ useWorldClassSEO({
   title: 'Art Gallery | Magic-Themed Artwork by Chicago Magician Abby Segal',
   description: 'Browse original magic-themed artwork by Chicago magician Abby Segal. Collage, watercolor, and illustration exploring perception and illusion. Prints available on Etsy.',
   
-  // Art-focused keywords
+  // Art-focused keywords with priority terms
   focusKeyphrases: [
-    'magic-themed artwork by magician',
-    'Abby Segal art gallery',
-    'magician visual art portfolio',
-    'magic illustration and collage'
+    'Abby Segal magician artwork',
+    'Chicago Magic performer art gallery',
+    'sleight of hand artist portfolio',
+    'Chicago entertainment performer art',
+    'magician visual art Chicago'
   ],
   semanticKeywords: [
-    'visual art by performer',
-    'magic-inspired artwork',
-    'collage and watercolor art',
-    'artistic magician portfolio',
-    'perception and illusion art',
-    'Chicago artist artwork',
-    'magic art prints for sale',
-    'Etsy magic artwork shop',
-    'artistic entertainment performer',
-    'visual art by entertainer'
+    'Abby Segal Chicago artist magician',
+    'magic-themed artwork Chicago',
+    'Chicago Magic performer visual art',
+    'sleight of hand artist Chicago',
+    'entertainment performer artwork',
+    'Chicago magician art gallery',
+    'close-up magic artist portfolio',
+    'magic performance inspired art',
+    'Chicago entertainment artist',
+    'Abby Segal magic artwork'
   ],
   
   // Technical SEO

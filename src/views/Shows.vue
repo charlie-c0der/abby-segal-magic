@@ -10,26 +10,33 @@ useWorldClassSEO({
   title: 'Magic Shows & Performances | Hire Chicago Magician Abby Segal for Events',
   description: 'Book Abby Segal — Chicago magician for hire for private events, corporate entertainment, weddings, and theatre. Close-up magic and sleight of hand performances available worldwide.',
   
-  // Enhanced service-focused keywords
+  // Enhanced service-focused keywords with priority terms
   focusKeyphrases: [
-    'hire Chicago magician for events',
-    'corporate entertainment magic shows',
-    'close-up magic performer for hire',
-    'private party magician Chicago'
+    'magician for hire Chicago',
+    'Chicago entertainment magic shows',
+    'Abby Segal close-up magic',
+    'sleight of hand magician for hire',
+    'private events Chicago magician'
   ],
   semanticKeywords: [
-    'wedding magician Illinois',
-    'corporate event entertainment',
-    'birthday party magic show',
-    'table-side magic performance',
-    'parlour magic show Chicago',
-    'sleight of hand entertainment',
-    'professional magic performances',
-    'Chicago event entertainment services',
-    'intimate magic show venue',
-    'magic show booking Chicago',
-    'event magician for hire',
-    'magic entertainment services'
+    'Chicago Magic Lounge performer shows',
+    'activities in Chicago magic entertainment',
+    'Chicago magician private events',
+    'close-up magic sleight of hand shows',
+    'Chicago entertainment for private events',
+    'magic performance Chicago area',
+    'Abby Segal magician for hire',
+    'Chicago corporate entertainment magic',
+    'sleight of hand performance Chicago',
+    'Chicago magic shows entertainment',
+    'private events magician Chicago area',
+    'Chicago close-up magic performer',
+    'magic entertainment activities Chicago',
+    'Chicago professional magician shows',
+    'entertainment magic Chicago events',
+    'Chicago sleight of hand expert',
+    'magician Chicago Magic Lounge',
+    'Chicago private party magic entertainment'
   ],
   
   // Technical SEO

@@ -10,24 +10,28 @@ useWorldClassSEO({
   title: 'Press & Media | Chicago Magician Abby Segal on Penn & Teller: Fool Us',
   description: 'Chicago magician Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic performances. Press coverage, media appearances, and close-up magic reviews.',
   
-  // Media and authority-focused keywords
+  // Media and authority-focused keywords with priority terms
   focusKeyphrases: [
-    'Abby Segal Penn and Teller Fool Us',
-    'Chicago Magic Lounge performer press',
-    'magician media appearances Chicago',
-    'professional magician press coverage'
+    'Abby Segal Chicago Magic Lounge press',
+    'Chicago magician Penn Teller Fool Us',
+    'Chicago entertainment magician media',
+    'sleight of hand Chicago performer press',
+    'Chicago Magic performer media coverage'
   ],
   semanticKeywords: [
-    'Penn and Teller Fool Us featured magician',
-    'Chicago Magic Lounge resident performer',
-    'The Magic Castle performer',
-    'professional magic reviews',
-    'magic show press coverage',
-    'entertainment industry features',
-    'Chicago performer media',
-    'magic entertainment press',
-    'sleight of hand expert reviews',
-    'close-up magic performer features'
+    'Abby Segal Chicago magician press',
+    'Chicago Magic Lounge performer features',
+    'Chicago entertainment industry magician',
+    'sleight of hand expert Chicago media',
+    'close-up magic Chicago performer press',
+    'Chicago magic entertainment coverage',
+    'Abby Segal performance reviews Chicago',
+    'Chicago Magic performer media',
+    'entertainment magician Chicago press',
+    'Chicago sleight of hand media coverage',
+    'magic shows Chicago performer press',
+    'activities in Chicago magic performer',
+    'private events Chicago magician press'
   ],
   
   // Technical SEO

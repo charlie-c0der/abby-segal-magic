@@ -10,26 +10,29 @@ useWorldClassSEO({
   title: 'Book Abby Segal | Hire a Chicago Magician for Private Events & Entertainment',
   description: 'Contact Abby Segal to hire a Chicago magician for private events, corporate entertainment, weddings, and more. Close-up magic and sleight of hand performances. Custom quotes within 24 hours.',
   
-  // Conversion-focused keywords
+  // Conversion-focused keywords with priority terms
   focusKeyphrases: [
-    'book Chicago magician for event',
-    'hire magician for private party',
-    'contact Chicago entertainment services',
-    'get quote for magic show'
+    'hire Abby Segal Chicago magician',
+    'book Chicago entertainment magic',
+    'magician for hire private events',
+    'Chicago Magic Lounge performer booking',
+    'contact Chicago sleight of hand magician'
   ],
   semanticKeywords: [
-    'magician booking inquiry',
-    'event entertainment pricing',
-    'magic show availability',
-    'corporate entertainment quote',
-    'wedding magician booking',
-    'party entertainment contact',
-    'magic performance inquiry',
-    'Chicago event planning services',
-    'professional magician booking',
-    'custom magic show quote',
-    'event entertainment consultation',
-    'private party magic pricing'
+    'Abby Segal magician for hire',
+    'Chicago entertainment booking',
+    'hire Chicago Magic performer',
+    'private events Chicago magician',
+    'Chicago close-up magic booking',
+    'sleight of hand magician hire',
+    'Chicago entertainment services contact',
+    'magic performance Chicago booking',
+    'activities in Chicago magic booking',
+    'Chicago corporate entertainment hire',
+    'private events entertainment Chicago',
+    'Chicago magic shows booking',
+    'entertainment magician for hire Chicago',
+    'Chicago sleight of hand performer'
   ],
   
   // Technical SEO

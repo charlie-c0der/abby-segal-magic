@@ -9,24 +9,30 @@ useWorldClassSEO({
   title: 'About Abby Segal | Chicago Magician, Sleight of Hand Expert & Entertainer',
   description: 'Learn about Abby Segal — Chicago magician and sleight of hand expert performing close-up magic since age 11. Resident performer at Chicago Magic Lounge. As seen on Penn & Teller: Fool Us.',
   
-  // Enhanced keyword targeting for About page
+  // Enhanced keyword targeting for About page with priority terms
   focusKeyphrases: [
-    'Abby Segal magician biography',
-    'Chicago Magic Lounge performer',
-    'Penn and Teller Fool Us magician',
-    'professional sleight of hand expert'
+    'Abby Segal Chicago magician',
+    'Chicago Magic Lounge performer Abby',
+    'sleight of hand expert Abby Segal',
+    'Chicago entertainment magician biography',
+    'close-up magic performer Abby Segal'
   ],
   semanticKeywords: [
-    'magic performer background',
-    'Bates College psychology degree',
-    'magic show performer Chicago',
-    'close-up magic expert',
-    'The Magic Castle performer',
-    'professional magician credentials',
-    'Chicago entertainment industry',
-    'magic show experience',
-    'sleight of hand training',
-    'magical entertainment biography'
+    'Abby Segal magic performance background',
+    'Chicago Magic Lounge resident performer',
+    'Chicago entertainment industry magician',
+    'sleight of hand magic expert Chicago',
+    'close-up magic Chicago performer',
+    'Abby Segal magician for hire',
+    'Chicago magic entertainment professional',
+    'performance magician Chicago area',
+    'magic shows Chicago performer',
+    'Chicago sleight of hand artist',
+    'entertainment magic Chicago expert',
+    'Abby Segal Chicago Magic',
+    'private events magician Chicago',
+    'Chicago corporate entertainment performer',
+    'activities in Chicago magic shows'
   ],
   
   // Technical SEO

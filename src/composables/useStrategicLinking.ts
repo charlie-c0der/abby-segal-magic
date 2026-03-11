@@ -32,27 +32,27 @@ export function useStrategicLinking(config: LinkingConfig = {}) {
   
   const settings = { ...defaultConfig, ...config }
   
-  // Strategic linking rules based on content analysis
+  // Strategic linking rules based on content analysis with priority keywords
   const linkingRules: LinkingRule[] = [
     // From any page to Shows (highest priority - main service)
     {
-      triggers: ['magic show', 'performance', 'entertainment', 'hire a magician', 'book a magician'],
+      triggers: ['magic show', 'performance', 'entertainment', 'hire a magician', 'book a magician', 'magician for hire'],
       target: '/shows',
-      linkText: 'magic performances',
+      linkText: 'Chicago magic performances',
       priority: 10,
       maxLinks: 2
     },
     {
       triggers: ['close-up magic', 'sleight of hand', 'table-side magic'],
       target: '/shows',
-      linkText: 'close-up magic shows',
+      linkText: 'close-up magic and sleight of hand shows',
       priority: 9,
       maxLinks: 1
     },
     {
-      triggers: ['parlour show', 'stage magic', 'group performance'],
+      triggers: ['parlour show', 'stage magic', 'group performance', 'private events'],
       target: '/shows',
-      linkText: 'parlour magic shows',
+      linkText: 'private events entertainment',
       priority: 9,
       maxLinks: 1
     },
@@ -75,16 +75,16 @@ export function useStrategicLinking(config: LinkingConfig = {}) {
     
     // From any page to About (authority building)
     {
-      triggers: ['Abby Segal', 'about Abby', 'magician background', 'experience'],
+      triggers: ['Abby Segal', 'about Abby', 'magician background', 'experience', 'Chicago magician'],
       target: '/about',
-      linkText: 'about Abby',
+      linkText: 'about Abby Segal',
       priority: 6,
       maxLinks: 1
     },
     {
-      triggers: ['Penn & Teller', 'Fool Us', 'Chicago Magic Lounge'],
+      triggers: ['Penn & Teller', 'Fool Us', 'Chicago Magic Lounge', 'sleight of hand expert'],
       target: '/about',
-      linkText: 'Abby\'s background',
+      linkText: 'Chicago Magic Lounge performer',
       priority: 6,
       maxLinks: 1
     },
@@ -108,23 +108,31 @@ export function useStrategicLinking(config: LinkingConfig = {}) {
     }
   ]
   
-  // Location-based and service-specific rules
+  // Location-based and service-specific rules with priority keywords
   const locationRules: LinkingRule[] = [
     {
-      triggers: ['Chicago', 'Illinois', 'Midwest'],
+      triggers: ['Chicago', 'Illinois', 'Midwest', 'activities in Chicago'],
       target: '/shows',
-      linkText: 'Chicago magic entertainment',
+      linkText: 'Chicago entertainment and magic shows',
       priority: 8,
       maxLinks: 1,
       context: 'location'
     },
     {
-      triggers: ['corporate event', 'private party', 'wedding', 'birthday party'],
+      triggers: ['corporate event', 'private party', 'wedding', 'birthday party', 'private events'],
       target: '/shows',
-      linkText: 'event entertainment',
+      linkText: 'private events entertainment',
       priority: 7,
       maxLinks: 1,
       context: 'event-type'
+    },
+    {
+      triggers: ['magic', 'magician', 'entertainment'],
+      target: '/shows',
+      linkText: 'Chicago magician services',
+      priority: 6,
+      maxLinks: 1,
+      context: 'service-type'
     }
   ]
   
