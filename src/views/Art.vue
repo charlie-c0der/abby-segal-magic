@@ -220,6 +220,22 @@ const artworks = [
       </div>
     </section>
 
+    <!-- Published Works -->
+    <section class="section published-works">
+      <div class="container">
+        <div class="published-header reveal">
+          <h2 class="heading-md reveal reveal-delay-1">Published Works</h2>
+          <p class="body-lg reveal reveal-delay-2">
+            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em>.
+          </p>
+          <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magical-button">
+            <span>View on Amazon</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Enhanced Gallery Lightbox -->
     <Teleport to="body">
       <transition name="lightbox">
@@ -465,7 +481,36 @@ const artworks = [
   font-weight: 500;
 }
 
-/* Published works section removed - redundant with header/footer CTAs */
+/* ── Published Works ─────────────────── */
+.published-works {
+  background: var(--ash);
+  border-top: 1px solid var(--ember);
+  padding: 0 !important;
+}
+
+.published-header {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.published-header h2 {
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.published-header p {
+  color: var(--ivory-dim);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.published-header em {
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 500;
+}
 
 /* ── Take Home Section ─────────────────── */
 .take-home {
@@ -774,6 +819,7 @@ const artworks = [
 }
 
 @media (max-width: 768px) {
+  .published-header,
   .take-home__content {
     padding: 30px 0;
   }
