@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick, watch } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
+import { useSEO } from '../composables/useSEO'
 
 useReveal()
 useSEO({
@@ -11,19 +10,13 @@ useSEO({
   keywords: 'Abby Segal art, magic-themed artwork, Chicago magician, collage art, magic illustration, prints, Etsy',
   ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/art',
-  jsonLd: [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      'name': 'Art Gallery — Abby Segal',
-      'description': 'Original magic-themed artwork by Chicago magician Abby Segal.',
-      'url': 'https://www.abbysegalmagic.com/art'
-    },
-    buildBreadcrumbs([
-      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
-      { name: 'Art', url: 'https://www.abbysegalmagic.com/art' }
-    ])
-  ]
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Art Gallery — Abby Segal',
+    'description': 'Original magic-themed artwork by Chicago magician Abby Segal.',
+    'url': 'https://www.abbysegalmagic.com/art'
+  }
 })
 
 const lightboxOpen = ref(false)
@@ -97,10 +90,7 @@ const artworks = [
 
 <template>
   <div class="art-page">
-    <div class="container">
-      <Breadcrumbs />
-    </div>
-    <section class="section art-hero">
+    <section class="section art-hero section--hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Visual Art</p>
         <h1 class="heading-xl reveal reveal-delay-1">The other <em class="shimmer">craft.</em></h1>

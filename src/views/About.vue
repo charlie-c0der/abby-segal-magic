@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
-import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
+import { useSEO } from '../composables/useSEO'
 
 useReveal()
 useSEO({
@@ -10,25 +9,19 @@ useSEO({
   keywords: 'Abby Segal, Chicago magician, sleight of hand expert, close-up magic, Chicago Magic Lounge, performance, entertainment, Penn and Teller Fool Us, magician biography',
   ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/about',
-  jsonLd: [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'AboutPage',
-      'name': 'About Abby Segal',
-      'description': 'Biography of Chicago magician and sleight of hand expert Abby Segal.',
-      'url': 'https://www.abbysegalmagic.com/about',
-      'mainEntity': {
-        '@type': 'Person',
-        'name': 'Abby Segal',
-        'jobTitle': 'Magician & Sleight of Hand Expert',
-        'url': 'https://www.abbysegalmagic.com'
-      }
-    },
-    buildBreadcrumbs([
-      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
-      { name: 'About', url: 'https://www.abbysegalmagic.com/about' }
-    ])
-  ]
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    'name': 'About Abby Segal',
+    'description': 'Biography of Chicago magician and sleight of hand expert Abby Segal.',
+    'url': 'https://www.abbysegalmagic.com/about',
+    'mainEntity': {
+      '@type': 'Person',
+      'name': 'Abby Segal',
+      'jobTitle': 'Magician & Sleight of Hand Expert',
+      'url': 'https://www.abbysegalmagic.com'
+    }
+  }
 })
 
 const milestones = [
@@ -45,11 +38,8 @@ const milestones = [
 
 <template>
   <div class="about">
-    <div class="container">
-      <Breadcrumbs />
-    </div>
     <!-- Hero -->
-    <section class="about-hero section">
+    <section class="about-hero section section--hero">
       <div class="container">
         <p class="heading-eyebrow reveal">About</p>
         <h1 class="heading-xl reveal reveal-delay-1">Not your average <em class="shimmer">magician.</em></h1>

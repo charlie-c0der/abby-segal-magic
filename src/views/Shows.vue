@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
+import { useSEO } from '../composables/useSEO'
 
 useReveal()
 useSEO({
@@ -43,11 +42,7 @@ useSEO({
         '@type': 'City',
         'name': 'Chicago'
       }
-    },
-    buildBreadcrumbs([
-      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
-      { name: 'Shows', url: 'https://www.abbysegalmagic.com/shows' }
-    ])
+    }
   ]
 })
 
@@ -95,10 +90,7 @@ const openFaq = ref<number | null>(null)
 
 <template>
   <div class="shows-page">
-    <div class="container">
-      <Breadcrumbs />
-    </div>
-    <section class="section shows-hero">
+    <section class="section shows-hero section--hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Performances</p>
         <h1 class="heading-xl reveal reveal-delay-1">The <em class="shimmer">shows.</em></h1>

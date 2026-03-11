@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
-import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
+import { useSEO } from '../composables/useSEO'
 
 useReveal()
 useSEO({
@@ -11,19 +10,13 @@ useSEO({
   keywords: 'hire Chicago magician, magician for hire, book magician, private events, corporate entertainment, close-up magic, sleight of hand, activities in Chicago, Abby Segal contact',
   ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/contact',
-  jsonLd: [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      'name': 'Contact Abby Segal',
-      'description': 'Book Chicago magician Abby Segal for private events and corporate entertainment.',
-      'url': 'https://www.abbysegalmagic.com/contact'
-    },
-    buildBreadcrumbs([
-      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
-      { name: 'Contact', url: 'https://www.abbysegalmagic.com/contact' }
-    ])
-  ]
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    'name': 'Contact Abby Segal',
+    'description': 'Book Chicago magician Abby Segal for private events and corporate entertainment.',
+    'url': 'https://www.abbysegalmagic.com/contact'
+  }
 })
 
 const form = ref({
@@ -91,10 +84,7 @@ const eventTypes = [
 
 <template>
   <div class="contact-page">
-    <div class="container">
-      <Breadcrumbs />
-    </div>
-    <section class="section contact-hero">
+    <section class="section contact-hero section--hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Contact</p>
         <h1 class="heading-xl reveal reveal-delay-1">Let's make <em class="shimmer">magic.</em></h1>

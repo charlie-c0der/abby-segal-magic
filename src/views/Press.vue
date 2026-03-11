@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
-import { useSEO, buildBreadcrumbs } from '../composables/useSEO'
+import { useSEO } from '../composables/useSEO'
 import LazyYouTube from '../components/LazyYouTube.vue'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
 
 useReveal()
 useSEO({
@@ -11,19 +10,13 @@ useSEO({
   keywords: 'Abby Segal press, Chicago magician media, Penn and Teller Fool Us, Chicago Magic Lounge, magic performance, close-up magic, sleight of hand, entertainment',
   ogImage: '/assets/general/images/performance.webp',
   canonicalUrl: '/press',
-  jsonLd: [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      'name': 'Press & Media — Abby Segal',
-      'description': 'Media coverage and press features for Chicago magician Abby Segal.',
-      'url': 'https://www.abbysegalmagic.com/press'
-    },
-    buildBreadcrumbs([
-      { name: 'Home', url: 'https://www.abbysegalmagic.com/' },
-      { name: 'Press', url: 'https://www.abbysegalmagic.com/press' }
-    ])
-  ]
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Press & Media — Abby Segal',
+    'description': 'Media coverage and press features for Chicago magician Abby Segal.',
+    'url': 'https://www.abbysegalmagic.com/press'
+  }
 })
 
 const features = [
@@ -97,10 +90,7 @@ const pressLogos = [
 
 <template>
   <div class="press-page">
-    <div class="container">
-      <Breadcrumbs />
-    </div>
-    <section class="section press-hero">
+    <section class="section press-hero section--hero">
       <div class="container">
         <p class="heading-eyebrow reveal">Press & Media</p>
         <h1 class="heading-xl reveal reveal-delay-1">In the <em class="shimmer">spotlight.</em></h1>
