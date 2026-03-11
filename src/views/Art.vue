@@ -492,7 +492,7 @@ const artworks = [
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 40px 0;
 }
 
 .published-header h2 {
@@ -523,7 +523,7 @@ const artworks = [
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 40px 0;
 }
 
 .take-home__text h2 {
@@ -821,7 +821,7 @@ const artworks = [
 @media (max-width: 768px) {
   .published-header,
   .take-home__content {
-    padding: 0.25rem 0;
+    padding: 30px 0;
   }
   
   .art-gallery { 
