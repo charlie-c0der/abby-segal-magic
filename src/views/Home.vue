@@ -95,7 +95,7 @@ const venues = [
 ]
 
 const stats = [
-  { number: '15+', label: 'Years Performing' },
+  { number: '14', label: 'Years Performing' },
   { number: '1000+', label: 'Shows Worldwide' },
   { number: '6', label: 'Countries' },
   { number: '2', label: 'Penn & Teller Appearances' },
@@ -215,14 +215,14 @@ onUnmounted(() => {
       </div>
 
       <div class="hero__content container" :class="{ loaded: heroLoaded }">
-        <p class="hero__eyebrow heading-eyebrow" data-split data-split-delay="0.3">Chicago Magician &amp; Sleight of Hand Expert</p>
+        <p class="hero__eyebrow heading-eyebrow" data-split data-split-delay="0.3">CHICAGO MAGICIAN &amp; SLEIGHT OF HAND ARTIST</p>
         <h1 class="hero__title heading-xl" data-split data-split-delay="0.6">
           Magic that happens in <span class="shimmer">your hands.</span>
         </h1>
         <div class="divider hero__divider" />
         <p class="hero__subtitle body-lg">
-          Close-up magic and sleight of hand powered by <em class="underline-sketch">psychology</em>, dry humor,<br class="hide-mobile">
-          and <em class="shimmer">15 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes. Available for private events and entertainment in Chicago.
+          Close-up and parlour magic powered by <em class="underline-sketch">psychology</em>, dry humor,<br class="hide-mobile">
+          and <em class="shimmer">14 years</em> of making the <em class="underline-sketch">impossible happen</em> inches from your eyes.
         </p>
         <div class="hero__actions">
           <router-link to="/contact" class="btn btn--filled magnetic glow-pulse"><span>Book Your Event</span></router-link>
