@@ -204,22 +204,6 @@ const artworks = [
       </div>
     </section>
 
-    <!-- Published Works -->
-    <section class="section published-works">
-      <div class="container">
-        <div class="published-header reveal">
-          <h2 class="heading-md reveal reveal-delay-1">Published Works</h2>
-          <p class="body-lg reveal reveal-delay-2">
-            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em> and at The Magic Castle in Hollywood.
-          </p>
-          <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magical-button">
-            <span>View on Amazon</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Take a Piece Home -->
     <section class="section take-home">
       <div class="container">
@@ -230,6 +214,22 @@ const artworks = [
           </div>
           <a :href="etsyShopUrl" target="_blank" rel="noopener" class="btn btn--plum magical-button">
             <span>Visit Shop</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Published Works -->
+    <section class="section published-works">
+      <div class="container">
+        <div class="published-header reveal">
+          <h2 class="heading-md reveal reveal-delay-1">Published Works</h2>
+          <p class="body-lg reveal reveal-delay-2">
+            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em> and at The Magic Castle in Hollywood.
+          </p>
+          <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magical-button">
+            <span>View on Amazon</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
         </div>
@@ -491,18 +491,18 @@ const artworks = [
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .published-header h2 {
   color: var(--gold);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .published-header p {
   color: var(--ivory-dim);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .published-header em {
@@ -521,17 +521,17 @@ const artworks = [
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .take-home__text h2 {
   color: var(--ivory);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .take-home__text p {
   color: var(--ivory-dim);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ── Magical Button Effects ─────────────────── */
@@ -811,7 +811,7 @@ const artworks = [
 @media (max-width: 768px) {
   .published-header,
   .take-home__content {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
   }
   
   .art-gallery { 
