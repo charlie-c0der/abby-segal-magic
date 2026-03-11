@@ -64,14 +64,13 @@ useStrategicLinking({
 })
 
 const milestones = [
-  { year: '2012', event: 'Learned first trick at 11 - her sister was hired as a magician\'s assistant, and Abby got jealous. Taught herself from YouTube.' },
-  { year: '2013', event: 'Created her own show and started performing at preschools. In sixth grade. Became "Crazy Davy\'s" magic assistant at local gigs.' },
-  { year: '2016', event: 'First paid solo gigs. Schools, camps, birthday parties, nursing homes across the Lowell, MA area. Still in high school.' },
-  { year: '2018', event: 'Auditioned for Penn & Teller: Fool Us with an original trick. Didn\'t make the cut. Spent two years perfecting it.' },
-  { year: '2021', event: 'Appeared on Penn & Teller: Fool Us (CW, Season 7). Teller sketched her portrait and called her a "wonder-worker." She was 20.' },
-  { year: '2023', event: 'Graduated Bates College - B.A. Psychology, Film Studies minor. Won $6,000 first prize at Bobcat Ventures for her magic business. Published "Shelly Shazam!" children\'s book.' },
-  { year: '2024', event: 'Regular performer at Chicago Magic Lounge. Lectured at Magifest. Book sold at The Magic Castle. Featured on Penguin Magic Podcast. Art exhibited in Prague.' },
-  { year: '2025', event: 'International shows: Helsinki, Amsterdam, and counting. The world stage - literally.' },
+  { year: '2012', event: 'Started performing magic at age 11. Began learning and developing skills in close-up magic and sleight of hand.' },
+  { year: '2013', event: 'Created her own magic show and started performing at preschools and local venues.' },
+  { year: '2016', event: 'First professional solo performances. Schools, camps, birthday parties, and corporate events.' },
+  { year: '2021', event: 'First appearance on Penn & Teller: Fool Us (CW Television Network) showcasing original magic routines.' },
+  { year: '2023', event: 'Graduated Bates College - B.A. Psychology with concentrations in Film Studies and Design. Published "Shelly Shazam!" children\'s book.' },
+  { year: '2024', event: 'Regular performer at Chicago Magic Lounge. Lectured at Magifest. Featured on Penguin Magic Podcast. Art exhibited at Berlinskej Model in Prague.' },
+  { year: '2025', event: 'Second appearance on Penn & Teller: Fool Us. International performances at The Helsinki Magic Show and The Amsterdam Magic Show.' },
 ]
 </script>
 
@@ -83,7 +82,7 @@ const milestones = [
         <p class="heading-eyebrow reveal">About</p>
         <h1 class="heading-xl reveal reveal-delay-1">Not your average <em class="shimmer">magician.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 600px; margin-top: 16px;">
-          A Chicago magician and sleight of hand expert who's been making the impossible happen since she was 11.
+          A Chicago magician who has been performing magic at theaters, special events, schools, and corporate functions since the age of 11.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>
@@ -99,71 +98,24 @@ const milestones = [
         </div>
 
         <div class="about-bio">
-          <h2 class="heading-md reveal" style="margin-bottom: 24px;">The origin story</h2>
+          <h2 class="heading-md reveal" style="margin-bottom: 24px;">Biography</h2>
 
           <p class="body-lg reveal">
-            Abby Segal got into magic <em class="shimmer">at 11</em> because her older sister Julia was hired
-            as an assistant to a family friend and magician named David Penn - "Crazy Davy."
-            He came over to their house in Chelmsford, Massachusetts, and did a trick
-            with sponge balls that <em class="underline-sketch">ended up in Abby's hand</em>. <em class="shimmer">She was hooked.</em>
+            <em class="shimmer">Abby Segal</em> is a magician based in <em class="underline-sketch">Chicago</em>. She has been performing magic at theaters, special events, schools, and corporate functions since the age of <em class="shimmer">11</em>. In <em class="underline-sketch">2021 and 2025</em>, Abby showcased her original magic routines on the CW television series <em class="shimmer">Penn & Teller: Fool Us</em>.
           </p>
 
           <p class="body-lg reveal reveal-delay-1">
-            <em class="shimmer">"I just remember that feeling of astonishment,"</em> she says.
-            <em>"It wasn't that I needed to figure out how it worked. I liked the
-            <em class="underline-sketch">way it made me feel</em> and wanted to see how it could <em class="shimmer">make other people feel</em>."</em>
+            Abby graduated from <em class="shimmer">Bates College</em> with a <em class="underline-sketch">B.A. in Psychology</em>, and concentrations in <em class="shimmer">Film Studies and Design</em>. She incorporates these disciplines into her magic, striving to create moments of <em class="underline-sketch">astonishment for her audiences</em>.
           </p>
-
-          <p class="body-lg reveal reveal-delay-1">
-            She <em class="underline-sketch">taught herself from YouTube</em>. By <em class="shimmer">sixth grade</em> she'd created her own
-            show and was performing at preschools. By high school she was <em>gigging
-            solo</em> - schools, camps, corporate events, nursing homes. At 18, she auditioned
-            for <em class="shimmer">Penn & Teller: Fool Us</em> with an original trick. She didn't make it.
-            She spent <em class="underline-sketch">two years perfecting it</em>. Then COVID hit, she tried again -
-            and this time, at <em class="shimmer">20 years old</em>, she was on <em class="underline-sketch">national television</em>. Teller
-            sketched her portrait backstage and called her a <em class="shimmer">"wonder-worker."</em>
-          </p>
-
-          <h2 class="heading-md reveal reveal-delay-2" style="margin-top: 40px; margin-bottom: 24px;">The psychology thing</h2>
 
           <p class="body-lg reveal reveal-delay-2">
-            Abby graduated from <em class="shimmer">Bates College</em> with a <em class="underline-sketch">B.A. in Psychology</em> and a Film Studies
-            minor. This isn't a fun fact - <em class="shimmer">it's core to how she performs</em>. In her cognitive
-            psychology lab, she literally <em class="underline-sketch">wrote her research paper on magic</em>: how
-            violating a routine's expectations elevates audience surprise. She studies
-            <em class="shimmer">how you pay attention</em>, what you'll remember, what you'll miss, and
-            how to <em class="underline-sketch">make you feel something real</em>.
-          </p>
-
-          <p class="body-lg reveal reveal-delay-3">
-            At Bates, she used magic tricks as final projects - an animation-course
-            flipbook trick, a rhetoric class analogy about fake news, a Village
-            Club Series magic show. She won <em>$6,000 first prize</em> at the
-            Bobcat Ventures pitch competition for her magic business. The judges
-            noted her company was already up and running and making money - "an
-            impressive place for a student-run startup."
+            Alongside performing, Abby is also a <em class="shimmer">creator and teacher of magic</em>. In addition to appearing at private events, she is a regular performer at the <em class="underline-sketch">Chicago Magic Lounge</em>. Her other appearances include <em class="shimmer">The Magic Castle</em> in Hollywood, <em class="underline-sketch">Keys and Heels</em> in New York City, <em class="shimmer">The Helsinki Magic Show</em> in Finland, and <em class="underline-sketch">The Amsterdam Magic Show</em> in the Netherlands.
           </p>
 
           <h2 class="heading-md reveal reveal-delay-3" style="margin-top: 40px; margin-bottom: 24px;">Beyond the stage</h2>
 
           <p class="body-lg reveal reveal-delay-3">
-            Abby is also a published author - her children's book <em>Shelly Shazam!</em>
-            is sold on Amazon and at The Magic Castle in Hollywood. She's a visual
-            artist whose collages and illustrations have been exhibited at Berlinskej
-            Model in Prague. She's been featured on the Penguin Magic Podcast, lectured
-            at Magifest, and teaches magic workshops for all ages.
-          </p>
-
-          <p class="body-lg reveal reveal-delay-4">
-            Her mentor Evan Northrup put it best: <em>"From minute one, she pulled
-            us in. She was very natural, which is unusual for someone of her age.
-            Very conversational and just calming to watch - because she had such a
-            grasp of what she was doing already."</em>
-          </p>
-
-          <p class="body-lg reveal reveal-delay-4" style="font-style: italic; color: var(--gold);">
-            Pure skill. No gimmicks. Just 15 years of obsessive practice 
-            and a psychology degree that explains why you never see it coming.
+            Beyond the stage Abby is also a <em class="shimmer">published author</em> - her children's book <em class="underline-sketch">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague. She's been featured on the <em class="shimmer">Penguin Magic Podcast</em>, lectured at <em class="underline-sketch">Magifest</em>, and teaches magic workshops for all ages.
           </p>
 
           <div class="reveal reveal-delay-4" style="margin-top: 32px;">
@@ -208,7 +160,7 @@ const milestones = [
             <div class="venue-icon">📺</div>
             <h3 class="venue-name">Penn & Teller: Fool Us</h3>
             <p class="venue-loc">CW Television Network</p>
-            <p class="venue-desc">National television appearance</p>
+            <p class="venue-desc">Featured in 2021 and 2025</p>
           </div>
           <div class="venue-card reveal reveal-delay-2">
             <div class="venue-icon">🏰</div>
