@@ -560,7 +560,7 @@ onUnmounted(() => {
 .shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; height: 100dvh; }
 .shows-horizontal__spacer { min-width: 20vw; }
 .show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--ash); border: 1px solid var(--ember);
-  border-radius: var(--radius-md); padding: 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
+  border-radius: var(--radius-md); padding: 48px 48px 60px 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
 .show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
 .show-panel__number { font-family: var(--font-display); font-size: 64px; font-weight: 900; letter-spacing: -0.03em; color: rgba(141, 59, 120, 0.12); position: absolute; top: 32px; right: 32px; line-height: 1; }
 .show-panel__title { font-family: var(--font-display); font-size: var(--text-subtitle); font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; }
