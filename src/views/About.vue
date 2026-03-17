@@ -85,7 +85,7 @@ useStrategicLinking({
       <div class="container about-grid">
         <div class="about-portrait reveal">
           <div class="about-portrait__frame">
-            <img src="/assets/portraits/images/portrait.webp" alt="Abby Segal portrait" loading="lazy" decoding="async" />
+            <img src="/assets/portraits/images/headshot1.webp" alt="Abby Segal portrait" loading="lazy" decoding="async" />
           </div>
         </div>
 
