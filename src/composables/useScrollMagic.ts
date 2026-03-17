@@ -314,7 +314,7 @@ export function useScrollMagic() {
       left: 50%;
       width: 20px;
       height: 20px;
-      background: radial-gradient(circle, rgba(201, 168, 76, 0.4), transparent);
+      background: radial-gradient(circle, rgba(170, 136, 51, 0.4), transparent);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       z-index: 9999;

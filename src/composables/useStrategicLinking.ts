@@ -386,7 +386,7 @@ export const strategicLinkStyles = `
 .strategic-link {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+  border-bottom: 1px solid rgba(170, 136, 51, 0.3);
   transition: all 0.3s ease;
   padding-bottom: 1px;
 }
@@ -394,7 +394,7 @@ export const strategicLinkStyles = `
 .strategic-link:hover {
   color: var(--gold-light);
   border-bottom-color: var(--gold);
-  text-shadow: 0 0 8px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 8px rgba(170, 136, 51, 0.4);
 }
 
 .strategic-cta {

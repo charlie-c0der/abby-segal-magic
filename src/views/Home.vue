@@ -464,7 +464,7 @@ onUnmounted(() => {
 .hero__card-inner {
   width: 100%;
   height: 100%;
-  background: linear-gradient(160deg, rgba(141, 59, 120, 0.03), rgba(201, 168, 76, 0.02));
+  background: linear-gradient(160deg, rgba(141, 59, 120, 0.03), rgba(170, 136, 51, 0.02));
   border: 1px solid rgba(141, 59, 120, 0.08);
   border-radius: 20px;
   display: flex;
@@ -504,7 +504,7 @@ onUnmounted(() => {
   position: absolute; inset: 0;
   background:
     radial-gradient(ellipse 60% 50% at 30% 40%, rgba(141, 59, 120, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 50% at 70% 60%, rgba(201, 168, 76, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 70% 60%, rgba(170, 136, 51, 0.03) 0%, transparent 60%),
     radial-gradient(ellipse at center, transparent 30%, rgba(9, 9, 14, 0.85) 100%);
   z-index: 1;
 }

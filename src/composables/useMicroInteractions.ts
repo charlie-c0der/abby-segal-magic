@@ -47,7 +47,7 @@ export function useMicroInteractions() {
       duration: 0.3,
       ease: "back.out(1.7)",
       magneticStrength: 0.2,
-      rippleColor: "rgba(201, 168, 76, 0.3)",
+      rippleColor: "rgba(170, 136, 51, 0.3)",
       hapticFeedback: true
     }
     
@@ -101,7 +101,7 @@ export function useMicroInteractions() {
     
     // Add glow effect
     gsap.to(el, {
-      boxShadow: `0 10px 30px rgba(201, 168, 76, 0.3)`,
+      boxShadow: `0 10px 30px rgba(170, 136, 51, 0.3)`,
       duration: 0.3,
       ease: "power2.out"
     })
@@ -119,7 +119,7 @@ export function useMicroInteractions() {
       scale: 1,
       x: 0,
       y: 0,
-      boxShadow: "0 0 0 rgba(201, 168, 76, 0)",
+      boxShadow: "0 0 0 rgba(170, 136, 51, 0)",
       duration: 0.4,
       ease: "elastic.out(1, 0.6)"
     })
@@ -208,7 +208,7 @@ export function useMicroInteractions() {
     // Accessibility-focused animation
     gsap.to(el, {
       scale: 1.02,
-      boxShadow: `0 0 0 3px rgba(201, 168, 76, 0.4)`,
+      boxShadow: `0 0 0 3px rgba(170, 136, 51, 0.4)`,
       duration: 0.2,
       ease: "power2.out"
     })
@@ -218,7 +218,7 @@ export function useMicroInteractions() {
     if (!state.isHovered) {
       gsap.to(el, {
         scale: 1,
-        boxShadow: "0 0 0 rgba(201, 168, 76, 0)",
+        boxShadow: "0 0 0 rgba(170, 136, 51, 0)",
         duration: 0.2,
         ease: "power2.out"
       })
@@ -340,7 +340,7 @@ export function useMicroInteractions() {
         gsap.to(el, {
           scale: 1.02,
           borderColor: "#c9a84c",
-          boxShadow: "0 0 20px rgba(201, 168, 76, 0.3)",
+          boxShadow: "0 0 20px rgba(170, 136, 51, 0.3)",
           duration: 0.2,
           ease: "power2.out"
         })
@@ -350,7 +350,7 @@ export function useMicroInteractions() {
         gsap.to(el, {
           scale: 1,
           borderColor: "",
-          boxShadow: "0 0 0 rgba(201, 168, 76, 0)",
+          boxShadow: "0 0 0 rgba(170, 136, 51, 0)",
           duration: 0.3,
           ease: "power2.out"
         })
@@ -389,7 +389,7 @@ export function useMicroInteractions() {
         duration: 0.2,
         ease: "power2.out",
         magneticStrength: 0.1,
-        rippleColor: "rgba(201, 168, 76, 0.2)",
+        rippleColor: "rgba(170, 136, 51, 0.2)",
         hapticFeedback: false
       }
     }
@@ -399,7 +399,7 @@ export function useMicroInteractions() {
       duration: 0.3,
       ease: "back.out(1.7)",
       magneticStrength: 0.2,
-      rippleColor: "rgba(201, 168, 76, 0.3)",
+      rippleColor: "rgba(170, 136, 51, 0.3)",
       hapticFeedback: true
     }
   }

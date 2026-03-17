@@ -177,13 +177,13 @@ onMounted(() => {
     45deg,
     transparent,
     transparent 8px,
-    rgba(201, 168, 76, 0.03) 8px,
-    rgba(201, 168, 76, 0.03) 9px
+    rgba(170, 136, 51, 0.03) 8px,
+    rgba(170, 136, 51, 0.03) 9px
   );
 }
 .preloader__card-pattern-inner {
   font-size: 32px;
-  color: rgba(201, 168, 76, 0.4);
+  color: rgba(170, 136, 51, 0.4);
   animation: symbolPulse 2s ease-in-out infinite;
 }
 @keyframes symbolPulse {

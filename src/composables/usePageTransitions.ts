@@ -36,7 +36,7 @@ export function usePageTransitions() {
       height: 100%;
       background: linear-gradient(135deg, 
         rgba(141, 59, 120, 0.95) 0%, 
-        rgba(201, 168, 76, 0.95) 100%);
+        rgba(170, 136, 51, 0.95) 100%);
       z-index: 10000;
       pointer-events: none;
       backdrop-filter: blur(20px);
@@ -193,7 +193,7 @@ export function usePageTransitions() {
       position: fixed;
       width: 20px;
       height: 20px;
-      background: radial-gradient(circle, rgba(201, 168, 76, 0.3), transparent);
+      background: radial-gradient(circle, rgba(170, 136, 51, 0.3), transparent);
       border-radius: 50%;
       left: 50%;
       top: 50%;

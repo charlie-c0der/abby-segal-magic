@@ -80,7 +80,7 @@ export function useLoadingExperience(config: LoadingConfig = {}) {
         height: 100vh;
         background: linear-gradient(135deg, 
           rgba(141, 59, 120, 0.98) 0%, 
-          rgba(201, 168, 76, 0.98) 100%);
+          rgba(170, 136, 51, 0.98) 100%);
         z-index: 20000;
         display: flex;
         flex-direction: column;
@@ -122,7 +122,7 @@ export function useLoadingExperience(config: LoadingConfig = {}) {
               background: linear-gradient(90deg, #fff 0%, #c9a84c 100%);
               transform: translate(-50%, -50%) rotate(45deg);
               border-radius: 2px;
-              box-shadow: 0 0 20px rgba(201, 168, 76, 0.8);
+              box-shadow: 0 0 20px rgba(170, 136, 51, 0.8);
             ">
               <div class="wand-star" style="
                 position: absolute;
@@ -132,7 +132,7 @@ export function useLoadingExperience(config: LoadingConfig = {}) {
                 height: 20px;
                 background: #c9a84c;
                 clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-                box-shadow: 0 0 15px rgba(201, 168, 76, 0.9);
+                box-shadow: 0 0 15px rgba(170, 136, 51, 0.9);
               "></div>
             </div>
           </div>
@@ -168,7 +168,7 @@ export function useLoadingExperience(config: LoadingConfig = {}) {
                 background: linear-gradient(90deg, #fff 0%, #c9a84c 100%);
                 border-radius: 2px;
                 transition: width 0.3s ease;
-                box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+                box-shadow: 0 0 10px rgba(170, 136, 51, 0.5);
               "></div>
             </div>
             <div class="progress-text" style="
@@ -268,7 +268,7 @@ export function useLoadingExperience(config: LoadingConfig = {}) {
     // Star sparkle animation
     gsap.to(star, {
       scale: 1.3,
-      boxShadow: "0 0 25px rgba(201, 168, 76, 1)",
+      boxShadow: "0 0 25px rgba(170, 136, 51, 1)",
       duration: 0.8,
       repeat: -1,
       yoyo: true,
@@ -392,7 +392,7 @@ export function useLoadingExperience(config: LoadingConfig = {}) {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: 0 0 15px rgba(201, 168, 76, 0.8);
+        box-shadow: 0 0 15px rgba(170, 136, 51, 0.8);
         z-index: 3;
       `
       loadingElement.appendChild(sparkle)

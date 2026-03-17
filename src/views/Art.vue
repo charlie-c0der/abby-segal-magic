@@ -394,7 +394,7 @@ const artworks = [
 }
 
 .gallery-piece__frame:hover {
-  box-shadow: 0 15px 50px rgba(201, 168, 76, 0.2);
+  box-shadow: 0 15px 50px rgba(170, 136, 51, 0.2);
 }
 
 .gallery-piece__image {
@@ -423,7 +423,7 @@ const artworks = [
   right: 0;
   bottom: 0;
   background: radial-gradient(circle at 50% 30%, 
-    rgba(201, 168, 76, 0.1) 0%, 
+    rgba(170, 136, 51, 0.1) 0%, 
     transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -600,7 +600,7 @@ const artworks = [
   height: 100%;
   background: linear-gradient(90deg, 
     transparent, 
-    rgba(201, 168, 76, 0.3), 
+    rgba(170, 136, 51, 0.3), 
     transparent);
   transition: left 0.6s ease;
   z-index: 0;
@@ -652,7 +652,7 @@ const artworks = [
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 30%, 
-    rgba(201, 168, 76, 0.05) 0%, 
+    rgba(170, 136, 51, 0.05) 0%, 
     transparent 70%);
   cursor: default;
   pointer-events: none;
@@ -681,7 +681,7 @@ const artworks = [
 /* Desktop hover - with scale animation */
 @media (min-width: 769px) {
   .gallery-lightbox__nav:hover {
-    background: rgba(201, 168, 76, 0.2);
+    background: rgba(170, 136, 51, 0.2);
     border-color: var(--gold);
     color: var(--gold);
     transform: translateY(-50%) scale(1.1);
@@ -692,7 +692,7 @@ const artworks = [
 @media (max-width: 768px) {
   .gallery-lightbox__nav:hover,
   .gallery-lightbox__nav:active {
-    background: rgba(201, 168, 76, 0.3);
+    background: rgba(170, 136, 51, 0.3);
     border-color: var(--gold);
     color: var(--gold);
     transform: translateY(-50%); /* No scale to prevent movement */
@@ -769,7 +769,7 @@ const artworks = [
 }
 
 .gallery-lightbox__close:hover {
-  background: rgba(201, 168, 76, 0.2);
+  background: rgba(170, 136, 51, 0.2);
   border-color: var(--gold);
   color: var(--gold);
   transform: scale(1.1);

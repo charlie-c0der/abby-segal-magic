@@ -69,7 +69,7 @@ onUnmounted(() => {
 .atmosphere-element {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.03), transparent 70%);
+  background: radial-gradient(circle, rgba(170, 136, 51, 0.03), transparent 70%);
 }
 
 .atmosphere-element--1 {

@@ -2,7 +2,7 @@
 
 Utility scripts for maintaining the Abby Segal Magic website.
 
-## optimize-images.cjs
+## optimize-images.js
 
 Converts JPG/PNG images to optimized WebP format with thumbnails for better web performance.
 
@@ -15,27 +15,27 @@ npm install --save-dev sharp
 
 **Optimize specific images:**
 ```bash
-node scripts/optimize-images.cjs new-artwork.jpg another-image.png
+node scripts/optimize-images.js new-artwork.jpg another-image.png
 ```
 
 **Optimize all images in art directory:**
 ```bash
-node scripts/optimize-images.cjs --all
+node scripts/optimize-images.js --all
 ```
 
 **Force overwrite existing WebP files:**
 ```bash
-node scripts/optimize-images.cjs --all --force
+node scripts/optimize-images.js --all --force
 ```
 
 **Custom quality settings:**
 ```bash
-node scripts/optimize-images.cjs --all --quality=90 --thumb=80
+node scripts/optimize-images.js --all --quality=90 --thumb=80
 ```
 
 **Use different directory:**
 ```bash
-node scripts/optimize-images.cjs --dir=./public/assets/portraits/images/ --all
+node scripts/optimize-images.js --dir=./public/assets/portraits/images/ --all
 ```
 
 ### What it does
@@ -79,7 +79,7 @@ When adding new art images:
 ```bash
 # 1. Add new JPG/PNG files to public/assets/art/images/
 # 2. Run optimization
-node scripts/optimize-images.cjs --all
+node scripts/optimize-images.js --all
 
 # 3. Update Art.vue to include new artworks with WebP paths
 # 4. Test locally

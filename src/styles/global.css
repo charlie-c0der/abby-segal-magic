@@ -14,10 +14,10 @@
   --ember: #2D2A38;
 
   /* Gold — prestige, playing cards, spotlight */
-  --gold: #C9A84C;
-  --gold-light: #DFC06E;
-  --gold-dim: rgba(201, 168, 76, 0.12);
-  --gold-glow: rgba(201, 168, 76, 0.06);
+  --gold: #AA8833;
+  --gold-light: #C0A055;
+  --gold-dim: rgba(170, 136, 51, 0.12);
+  --gold-glow: rgba(170, 136, 51, 0.06);
 
   /* Plum — magic, mystery, the supernatural */
   --plum: #8D3B78;
@@ -314,7 +314,7 @@ h1, h2, h3, h4 {
   z-index: 0;
 }
 .blob--gold {
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.06), transparent 70%);
+  background: radial-gradient(circle, rgba(170, 136, 51, 0.06), transparent 70%);
 }
 .blob--plum {
   background: radial-gradient(circle, rgba(141, 59, 120, 0.05), transparent 70%);
@@ -777,7 +777,7 @@ html.lenis, html.lenis body {
 .strategic-link {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+  border-bottom: 1px solid rgba(170, 136, 51, 0.3);
   transition: all 0.3s ease;
   padding-bottom: 1px;
   font-weight: 500;
@@ -786,7 +786,7 @@ html.lenis, html.lenis body {
 .strategic-link:hover {
   color: var(--gold-light);
   border-bottom-color: var(--gold);
-  text-shadow: 0 0 8px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 8px rgba(170, 136, 51, 0.4);
   transform: translateY(-1px);
 }
 

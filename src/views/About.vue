@@ -252,12 +252,12 @@ h2 em {
 
 .venue-card.featured {
   border-color: var(--gold);
-  background: rgba(201, 168, 76, 0.05);
+  background: rgba(170, 136, 51, 0.05);
 }
 
 .venue-card.featured:hover {
   border-color: var(--gold);
-  background: rgba(201, 168, 76, 0.1);
+  background: rgba(170, 136, 51, 0.1);
 }
 
 .venue-icon {

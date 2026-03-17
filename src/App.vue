@@ -249,7 +249,7 @@ body { cursor: none; }
   height: 72px;
   background: rgba(237, 230, 218, 0.9);
   border-radius: 4px;
-  border: 1px solid rgba(201, 168, 76, 0.4);
+  border: 1px solid rgba(170, 136, 51, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -330,7 +330,7 @@ const openFaq = ref<number | null>(null)
   font-family: var(--font-display); font-size: var(--text-hero); font-weight: 900; letter-spacing: -0.03em; color: var(--gold-dim); line-height: 1;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.show-card:hover .show-card__number { color: var(--gold); text-shadow: 0 0 30px rgba(201, 168, 76, 0.4); transform: scale(1.1); }
+.show-card:hover .show-card__number { color: var(--gold); text-shadow: 0 0 30px rgba(170, 136, 51, 0.4); transform: scale(1.1); }
 .show-card__subtitle { font-size: var(--text-body-sm); color: var(--white-muted); margin-top: 4px; }
 .show-card__body { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; padding: 40px; }
 .show-card__meta { display: flex; gap: 40px; margin-bottom: 20px; }
