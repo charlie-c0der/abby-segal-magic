@@ -37,7 +37,7 @@
 
   /* Type — geometric, precise, magical */
   --font-display: 'Playfair Display', 'Georgia', serif;
-  --font-body: 'Poiret One', cursive;
+  --font-body: 'Montserrat', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Typography Scale — 1.33 ratio (perfect fourth) */
