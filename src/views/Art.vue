@@ -201,6 +201,12 @@ const artworks = [
   { title: 'Perceptual Shift', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art6.webp', thumb: '/assets/art/images/art6-thumb.webp' },
   { title: 'Illusion & Reality', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art7.webp', thumb: '/assets/art/images/art7-thumb.webp' },
   { title: 'Mystic Portrait II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art8.webp', thumb: '/assets/art/images/art8-thumb.webp' },
+  
+  // Latest artworks from new0drive-pictures
+  { title: 'Conceptual Study I', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_0231.webp', thumb: '/assets/art/images/img_0231-thumb.webp' },
+  { title: 'Conceptual Study II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_0237.webp', thumb: '/assets/art/images/img_0237-thumb.webp' },
+  { title: 'Abstract Composition', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_2578.webp', thumb: '/assets/art/images/img_2578-thumb.webp' },
+  { title: 'Visual Exploration', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_9710.webp', thumb: '/assets/art/images/img_9710-thumb.webp' },
 ]
 </script>
 
