@@ -107,7 +107,7 @@ useStrategicLinking({
           <h2 class="heading-md reveal reveal-delay-3" style="margin-top: 40px; margin-bottom: 24px;">Beyond the stage</h2>
 
           <p class="body-lg reveal reveal-delay-3">
-            Beyond the stage Abby is a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague. She's been featured on the <em class="shimmer">Penguin Magic Podcast</em>, lectured at <em class="underline-sketch">Magifest</em>, and teaches magic workshops for all ages.
+            Beyond the stage, Abby is a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague, currently on display at the <em class="shimmer">Andersonville Galleria</em> in Chicago. She's been featured on the <em class="underline-sketch">Penguin Magic Podcast</em>, lectured at <em class="shimmer">Magifest</em>, and teaches magic workshops for all ages.
           </p>
 
           <!-- Book Abby button removed - redundant with header/footer -->
