@@ -510,10 +510,14 @@ onUnmounted(() => {
 }
 .hero__content {
   position: relative; z-index: 2;
-  padding-top: 140px; padding-bottom: 80px;
+  padding-top: 140px; padding-bottom: 100px;
   opacity: 0; transition: opacity 0.8s var(--ease-out);
 }
 .hero__content.loaded { opacity: 1; }
+.hero__title {
+  line-height: 1.2;
+  padding-bottom: 8px;
+}
 .hero__divider { opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.4s forwards; }
 .hero__subtitle { max-width: 560px; margin-bottom: 40px; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.6s forwards; }
 .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.9s forwards; }
