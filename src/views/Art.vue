@@ -191,6 +191,16 @@ const artworks = [
   { title: 'Hidden Poetry', medium: 'Found text collage', year: '2023', image: '/assets/art/images/art-poetry.webp', thumb: '/assets/art/images/art-poetry-thumb.webp' },
   { title: 'Trapped Eyes', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art-eyes.webp', thumb: '/assets/art/images/art-eyes-thumb.webp' },
   { title: 'Stretched Girl', medium: 'Digital illustration', year: '2023', image: '/assets/art/images/art-stretched.webp', thumb: '/assets/art/images/art-stretched-thumb.webp' },
+  
+  // New artworks
+  { title: 'Mystic Portrait I', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART1.JPG', thumb: '/assets/art/images/ART1.JPG' },
+  { title: 'Ethereal Vision', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART2.JPG', thumb: '/assets/art/images/ART2.JPG' },
+  { title: 'Chromatic Dreams', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART3.JPG', thumb: '/assets/art/images/ART3.JPG' },
+  { title: 'Temporal Fragments', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART4.JPG', thumb: '/assets/art/images/ART4.JPG' },
+  { title: 'Dimensional Study', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART5.jpg', thumb: '/assets/art/images/ART5.jpg' },
+  { title: 'Perceptual Shift', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART6.jpg', thumb: '/assets/art/images/ART6.jpg' },
+  { title: 'Illusion & Reality', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART7.jpg', thumb: '/assets/art/images/ART7.jpg' },
+  { title: 'Mystic Portrait II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/ART8.JPG', thumb: '/assets/art/images/ART8.JPG' },
 ]
 </script>
 
