@@ -1,0 +1,213 @@
+/* Shared styles for font testing */
+:root {
+    /* Backgrounds */
+    --void: #09090E;
+    --obsidian: #0F0E15;
+    --smoke: #17161F;
+    --ash: #201E2A;
+    --ember: #2D2A38;
+
+    /* Gold */
+    --gold: #C9A84C;
+    --gold-light: #DFC06E;
+    --gold-dim: rgba(201, 168, 76, 0.12);
+
+    /* Plum */
+    --plum: #8D3B78;
+    --plum-light: #A8558F;
+    --plum-dim: rgba(141, 59, 120, 0.12);
+
+    /* Ivory */
+    --ivory: #EDE6DA;
+    --ivory-dim: rgba(237, 230, 218, 0.7);
+    --ivory-muted: rgba(237, 230, 218, 0.4);
+
+    /* Typography Scale */
+    --text-display: clamp(64px, 9vw, 128px);
+    --text-hero: clamp(48px, 7vw, 96px);
+    --text-title: clamp(36px, 5vw, 64px);
+    --text-subtitle: clamp(26px, 3vw, 40px);
+    --text-card-title: clamp(20px, 2vw, 24px);
+    --text-eyebrow: 14px;
+    --text-body-lg: clamp(18px, 1.3vw, 21px);
+    --text-body: 16px;
+    --text-body-sm: 14px;
+
+    /* Spacing */
+    --container: 1200px;
+    
+    /* Transitions */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    
+    /* Radius */
+    --radius-md: 12px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--void);
+    color: var(--ivory);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+}
+
+/* Font info panel */
+.font-info {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--ash);
+    border: 1px solid var(--ember);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    font-size: 12px;
+    font-family: monospace;
+    z-index: 1000;
+    max-width: 250px;
+}
+
+.font-info h3 {
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.font-info p {
+    margin: 4px 0;
+    color: var(--ivory-dim);
+}
+
+.font-info strong {
+    color: var(--ivory);
+}
+
+/* Test content styles */
+.test-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--ember);
+}
+
+.test-section:last-child {
+    border-bottom: none;
+}
+
+.display-test {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-title {
+    font-size: var(--text-display);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: var(--text-title);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: var(--text-card-title);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 16px;
+}
+
+.body-large {
+    font-size: var(--text-body-lg);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    color: var(--ivory-dim);
+}
+
+.body-regular {
+    font-size: var(--text-body);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.body-small {
+    font-size: var(--text-body-sm);
+    line-height: 1.6;
+    color: var(--ivory-muted);
+}
+
+/* Sample content grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.content-card {
+    background: var(--ash);
+    border: 1px solid var(--ember);
+    border-radius: var(--radius-md);
+    padding: 32px;
+}
+
+@media (max-width: 768px) {
+    .font-info {
+        position: static;
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .test-section {
+        padding: 40px 0;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}

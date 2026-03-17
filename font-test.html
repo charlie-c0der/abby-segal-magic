@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Testing - Abby Segal Magic</title>
+    
+    <!-- Preconnect to font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Dynamic font loading based on URL params -->
+    <script>
+        // Parse URL parameters for font selection
+        const params = new URLSearchParams(window.location.search);
+        const displayFont = params.get('display') || 'playfair';
+        const bodyFont = params.get('body') || 'inter';
+        
+        // Font combinations with Google Fonts URLs
+        const fonts = {
+            // Display Fonts (Serif & Script)
+            playfair: { 
+                name: 'Playfair Display', 
+                url: 'Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700',
+                fallback: 'Georgia, serif'
+            },
+            cormorant: { 
+                name: 'Cormorant Garamond', 
+                url: 'Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500',
+                fallback: 'Georgia, serif'
+            },
+            crimson: { 
+                name: 'Crimson Text', 
+                url: 'Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600',
+                fallback: 'Georgia, serif'
+            },
+            libre: { 
+                name: 'Libre Baskerville', 
+                url: 'Libre+Baskerville:ital,wght@0,400;0,700;1,400',
+                fallback: 'Georgia, serif'
+            },
+            dancing: { 
+                name: 'Dancing Script', 
+                url: 'Dancing+Script:wght@400;500;600;700',
+                fallback: 'cursive'
+            },
+            great: { 
+                name: 'Great Vibes', 
+                url: 'Great+Vibes',
+                fallback: 'cursive'
+            },
+            cinzel: { 
+                name: 'Cinzel', 
+                url: 'Cinzel:wght@400;500;600;700;800;900',
+                fallback: 'serif'
+            },
+            
+            // Body Fonts (Sans-serif)
+            inter: { 
+                name: 'Inter', 
+                url: 'Inter:wght@300;400;500;600;700',
+                fallback: '-apple-system, BlinkMacSystemFont, sans-serif'
+            },
+            source: { 
+                name: 'Source Sans Pro', 
+                url: 'Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600',
+                fallback: 'sans-serif'
+            },
+            lato: { 
+                name: 'Lato', 
+                url: 'Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700',
+                fallback: 'sans-serif'
+            },
+            nunito: { 
+                name: 'Nunito Sans', 
+                url: 'Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600',
+                fallback: 'sans-serif'
+            },
+            poppins: { 
+                name: 'Poppins', 
+                url: 'Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500',
+                fallback: 'sans-serif'
+            },
+            montserrat: { 
+                name: 'Montserrat', 
+                url: 'Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600',
+                fallback: 'sans-serif'
+            }
+        };
+        
+        // Build Google Fonts URL
+        const displayFontData = fonts[displayFont];
+        const bodyFontData = fonts[bodyFont];
+        
+        if (displayFontData && bodyFontData) {
+            const googleFontsUrl = `https://fonts.googleapis.com/css2?family=${displayFontData.url}&family=${bodyFontData.url}&display=swap`;
+            
+            // Create and inject the font link
+            const fontLink = document.createElement('link');
+            fontLink.rel = 'stylesheet';
+            fontLink.href = googleFontsUrl;
+            document.head.appendChild(fontLink);
+        }
+    </script>
+    
+    <style>
+        /* Base styles from global.css */
+        :root {
+            /* Backgrounds */
+            --void: #09090E;
+            --obsidian: #0F0E15;
+            --smoke: #17161F;
+            --ash: #201E2A;
+            --ember: #2D2A38;
+
+            /* Gold */
+            --gold: #C9A84C;
+            --gold-light: #DFC06E;
+            --gold-dim: rgba(201, 168, 76, 0.12);
+
+            /* Plum */
+            --plum: #8D3B78;
+            --plum-light: #A8558F;
+            --plum-dim: rgba(141, 59, 120, 0.12);
+
+            /* Ivory */
+            --ivory: #EDE6DA;
+            --ivory-dim: rgba(237, 230, 218, 0.7);
+            --ivory-muted: rgba(237, 230, 218, 0.4);
+
+            /* Typography Scale */
+            --text-display: clamp(64px, 9vw, 128px);
+            --text-hero: clamp(48px, 7vw, 96px);
+            --text-title: clamp(36px, 5vw, 64px);
+            --text-subtitle: clamp(26px, 3vw, 40px);
+            --text-card-title: clamp(20px, 2vw, 24px);
+            --text-eyebrow: 14px;
+            --text-body-lg: clamp(18px, 1.3vw, 21px);
+            --text-body: 16px;
+            --text-body-sm: 14px;
+
+            /* Spacing */
+            --container: 1200px;
+            
+            /* Transitions */
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            
+            /* Radius */
+            --radius-md: 12px;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: var(--void);
+            color: var(--ivory);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic font assignment from URL params */
+        body {
+            font-family: var(--font-body);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+
+        /* Font info panel */
+        .font-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--ash);
+            border: 1px solid var(--ember);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            font-size: 12px;
+            font-family: monospace;
+            z-index: 1000;
+            max-width: 250px;
+        }
+
+        .font-info h3 {
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .font-info p {
+            margin: 4px 0;
+            color: var(--ivory-dim);
+        }
+
+        .font-info strong {
+            color: var(--ivory);
+        }
+
+        /* Test content styles */
+        .test-section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--ember);
+        }
+
+        .test-section:last-child {
+            border-bottom: none;
+        }
+
+        .display-test {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-title {
+            font-size: var(--text-display);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.0;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: var(--text-hero);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: var(--text-title);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: var(--text-card-title);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .eyebrow {
+            font-family: var(--font-display);
+            font-size: var(--text-eyebrow);
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--plum);
+            margin-bottom: 16px;
+        }
+
+        .body-large {
+            font-size: var(--text-body-lg);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: var(--ivory-dim);
+        }
+
+        .body-regular {
+            font-size: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .body-small {
+            font-size: var(--text-body-sm);
+            line-height: 1.6;
+            color: var(--ivory-muted);
+        }
+
+        /* Sample content grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .content-card {
+            background: var(--ash);
+            border: 1px solid var(--ember);
+            border-radius: var(--radius-md);
+            padding: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .font-info {
+                position: static;
+                margin: 20px;
+                max-width: none;
+            }
+            
+            .test-section {
+                padding: 40px 0;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dynamic CSS injection -->
+    <script>
+        // Inject font CSS variables based on URL params
+        const params = new URLSearchParams(window.location.search);
+        const displayFont = params.get('display') || 'playfair';
+        const bodyFont = params.get('body') || 'inter';
+        const title = params.get('title') || '';
+        
+        // Update page title to show current fonts
+        if (title) {
+            document.title = `${title} - Font Test`;
+        } else {
+            document.title = `${displayFont} + ${bodyFont} - Font Test`;
+        }
+        
+        const fonts = {
+            playfair: { name: 'Playfair Display', fallback: 'Georgia, serif' },
+            cormorant: { name: 'Cormorant Garamond', fallback: 'Georgia, serif' },
+            crimson: { name: 'Crimson Text', fallback: 'Georgia, serif' },
+            libre: { name: 'Libre Baskerville', fallback: 'Georgia, serif' },
+            dancing: { name: 'Dancing Script', fallback: 'cursive' },
+            great: { name: 'Great Vibes', fallback: 'cursive' },
+            cinzel: { name: 'Cinzel', fallback: 'serif' },
+            inter: { name: 'Inter', fallback: '-apple-system, BlinkMacSystemFont, sans-serif' },
+            source: { name: 'Source Sans Pro', fallback: 'sans-serif' },
+            lato: { name: 'Lato', fallback: 'sans-serif' },
+            nunito: { name: 'Nunito Sans', fallback: 'sans-serif' },
+            poppins: { name: 'Poppins', fallback: 'sans-serif' },
+            montserrat: { name: 'Montserrat', fallback: 'sans-serif' }
+        };
+        
+        const displayFontData = fonts[displayFont];
+        const bodyFontData = fonts[bodyFont];
+        
+        // Inject CSS variables with higher specificity
+        if (displayFontData && bodyFontData) {
+            const style = document.createElement('style');
+            style.id = 'font-override';
+            style.textContent = `
+                /* Force font loading */
+                html {
+                    --font-display: '${displayFontData.name}', ${displayFontData.fallback} !important;
+                    --font-body: '${bodyFontData.name}', ${bodyFontData.fallback} !important;
+                }
+                body {
+                    font-family: var(--font-body) !important;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                    font-family: var(--font-display) !important;
+                }
+                .hero-title, .hero-subtitle, .section-title, .card-title, .eyebrow {
+                    font-family: var(--font-display) !important;
+                }
+                .body-large, .body-regular, .body-small {
+                    font-family: var(--font-body) !important;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Force re-render after font loading
+            setTimeout(() => {
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger reflow
+                document.body.style.display = '';
+            }, 100);
+        }
+    </script>
+
+    <!-- Font info panel -->
+    <div class="font-info">
+        <h3>Current Fonts</h3>
+        <p><strong>Display:</strong> <span id="display-font-name"></span></p>
+        <p><strong>Body:</strong> <span id="body-font-name"></span></p>
+        <p><strong>URL:</strong> <code id="current-url"></code></p>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section Test -->
+        <section class="test-section">
+            <div class="display-test">
+                <div class="eyebrow">Chicago Magician</div>
+                <h1 class="hero-title">Abby Segal</h1>
+                <h2 class="hero-subtitle">Close-Up Magic & Sleight of Hand</h2>
+                <p class="body-large">
+                    Intimate performances that blur the line between impossible and inevitable. 
+                    As seen on Penn & Teller: Fool Us.
+                </p>
+            </div>
+        </section>
+
+        <!-- Typography Scale Test -->
+        <section class="test-section">
+            <h2 class="section-title">The Art of Wonder</h2>
+            <p class="body-regular">
+                Magic is the art of creating moments where the impossible becomes inevitable. 
+                Through sleight of hand, psychology, and theatrical timing, I craft experiences 
+                that live in the space between what you see and what you believe.
+            </p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3 class="card-title">Close-Up Magic</h3>
+                    <p class="body-regular">
+                        Intimate magic performed mere inches away from your guests. Cards, coins, 
+                        and everyday objects become vessels for the impossible.
+                    </p>
+                    <p class="body-small">Perfect for cocktail hours, dinner parties, and corporate events.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3 class="card-title">Parlour Performances</h3>
+                    <p class="body-regular">
+                        Theatrical magic designed for small audiences. A blend of storytelling, 
+                        psychology, and sleight of hand that creates shared moments of wonder.
+                    </p>
+                    <p class="body-small">Ideal for private gatherings and exclusive events.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3 class="card-title">Corporate Entertainment</h3>
+                    <p class="body-regular">
+                        Sophisticated entertainment that breaks the ice and creates connections. 
+                        Magic that's memorable without being overwhelming.
+                    </p>
+                    <p class="body-small">Customizable for company events and client entertainment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mixed Content Test -->
+        <section class="test-section">
+            <div class="eyebrow">About the Performer</div>
+            <h2 class="section-title">Crafting the Impossible</h2>
+            <p class="body-large">
+                I'm Abby Segal, a Chicago-based magician who specializes in close-up magic 
+                and sleight of hand. My approach combines technical precision with 
+                psychological insight to create moments that feel both mysterious and intimate.
+            </p>
+            <p class="body-regular">
+                After years of studying the craft, I've developed a style that focuses on 
+                the human connection at the heart of every magical moment. Whether performing 
+                at the Chicago Magic Lounge or at private events across the city, my goal 
+                is always the same: to create experiences that live long after the cards 
+                are put away.
+            </p>
+            <p class="body-small">
+                Based in Chicago, available for private events, corporate functions, 
+                and special occasions throughout the greater Chicagoland area.
+            </p>
+        </section>
+    </div>
+
+    <!-- Update font info panel -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const displayFont = params.get('display') || 'playfair';
+        const bodyFont = params.get('body') || 'inter';
+        
+        const fonts = {
+            playfair: 'Playfair Display',
+            cormorant: 'Cormorant Garamond',
+            crimson: 'Crimson Text',
+            libre: 'Libre Baskerville',
+            dancing: 'Dancing Script',
+            great: 'Great Vibes',
+            cinzel: 'Cinzel',
+            inter: 'Inter',
+            source: 'Source Sans Pro',
+            lato: 'Lato',
+            nunito: 'Nunito Sans',
+            poppins: 'Poppins',
+            montserrat: 'Montserrat'
+        };
+        
+        document.getElementById('display-font-name').textContent = fonts[displayFont];
+        document.getElementById('body-font-name').textContent = fonts[bodyFont];
+        document.getElementById('current-url').textContent = `?display=${displayFont}&body=${bodyFont}`;
+    </script>
+</body>
+</html>

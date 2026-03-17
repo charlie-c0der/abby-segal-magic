@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Launcher - Abby Segal Magic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #09090E;
+            color: #EDE6DA;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-align: center;
+            background: linear-gradient(135deg, #C9A84C, #DFC06E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(237, 230, 218, 0.7);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .instructions {
+            background: #201E2A;
+            border: 1px solid #2D2A38;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .instructions h2 {
+            color: #8D3B78;
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+        }
+
+        .instructions p {
+            margin-bottom: 12px;
+            color: rgba(237, 230, 218, 0.8);
+        }
+
+        .font-grid {
+            display: grid;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .font-category {
+            background: #17161F;
+            border: 1px solid #2D2A38;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .font-category h2 {
+            color: #C9A84C;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .font-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .font-combo {
+            background: #201E2A;
+            border: 1px solid #2D2A38;
+            border-radius: 8px;
+            padding: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .font-combo:hover {
+            border-color: #8D3B78;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .combo-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #EDE6DA;
+        }
+
+        .combo-fonts {
+            font-size: 0.9rem;
+            color: rgba(237, 230, 218, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .combo-description {
+            font-size: 0.8rem;
+            color: rgba(237, 230, 218, 0.5);
+            font-style: italic;
+        }
+
+        .current-combo {
+            background: rgba(141, 59, 120, 0.1);
+            border-color: #8D3B78;
+        }
+
+        .quick-links {
+            background: #0F0E15;
+            border: 1px solid #2D2A38;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .quick-links h2 {
+            color: #C9A84C;
+            margin-bottom: 16px;
+        }
+
+        .button-grid {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quick-btn {
+            background: transparent;
+            border: 1px solid #8D3B78;
+            color: #8D3B78;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .quick-btn:hover {
+            background: #8D3B78;
+            color: #09090E;
+        }
+
+        .current-font-display {
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid #C9A84C;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .current-font-display strong {
+            color: #C9A84C;
+        }
+
+        @media (max-width: 768px) {
+            .font-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .quick-btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Font Testing Lab</h1>
+        <p class="subtitle">Compare different font combinations for Abby Segal Magic</p>
+
+        <div class="instructions">
+            <h2>How to Use</h2>
+            <p><strong>🎯 Goal:</strong> Test different font combinations to see which works best for the site</p>
+            <p><strong>📖 Method:</strong> Click any combination below to open in a new tab. Open multiple tabs to compare side-by-side</p>
+            <p><strong>🎨 Focus:</strong> Pay attention to readability, brand feeling, and how display + body fonts work together</p>
+        </div>
+
+        <div id="currentCombo" class="current-font-display" style="display: none;">
+            <strong>Current:</strong> <span id="currentFonts"></span>
+        </div>
+
+        <div class="font-grid">
+            <!-- Curated Combinations -->
+            <div class="font-category">
+                <h2>🎭 Curated Combinations</h2>
+                <p style="margin-bottom: 20px; color: rgba(237, 230, 218, 0.6);">Thoughtfully paired combinations that work well together</p>
+                <div class="font-links">
+                    <!-- Current combination -->
+                    <a href="font-test.html?display=playfair&body=inter" target="_blank" class="font-combo current-combo">
+                        <div class="combo-title">Current Site (Baseline)</div>
+                        <div class="combo-fonts">Playfair Display + Inter</div>
+                        <div class="combo-description">Current production fonts</div>
+                    </a>
+                    
+                    <!-- Sophisticated serif options -->
+                    <a href="font-test.html?display=cormorant&body=source" target="_blank" class="font-combo">
+                        <div class="combo-title">Sophisticated Scholar</div>
+                        <div class="combo-fonts">Cormorant Garamond + Source Sans Pro</div>
+                        <div class="combo-description">More literary, academic feel</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=libre&body=lato" target="_blank" class="font-combo">
+                        <div class="combo-title">Classic Elegance</div>
+                        <div class="combo-fonts">Libre Baskerville + Lato</div>
+                        <div class="combo-description">Timeless and approachable</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=crimson&body=nunito" target="_blank" class="font-combo">
+                        <div class="combo-title">Warm Traditional</div>
+                        <div class="combo-fonts">Crimson Text + Nunito Sans</div>
+                        <div class="combo-description">Friendly traditional with modern body</div>
+                    </a>
+                    
+                    <!-- Script/decorative options -->
+                    <a href="font-test.html?display=dancing&body=poppins" target="_blank" class="font-combo">
+                        <div class="combo-title">Artistic Flair</div>
+                        <div class="combo-fonts">Dancing Script + Poppins</div>
+                        <div class="combo-description">Handwritten elegance meets modern</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=great&body=montserrat" target="_blank" class="font-combo">
+                        <div class="combo-title">Luxury Script</div>
+                        <div class="combo-fonts">Great Vibes + Montserrat</div>
+                        <div class="combo-description">High-end calligraphy feel</div>
+                    </a>
+                    
+                    <!-- Classical options -->
+                    <a href="font-test.html?display=cinzel&body=source" target="_blank" class="font-combo">
+                        <div class="combo-title">Imperial Mystery</div>
+                        <div class="combo-fonts">Cinzel + Source Sans Pro</div>
+                        <div class="combo-description">Ancient magic aesthetic</div>
+                    </a>
+                    
+                    <!-- Modern alternatives -->
+                    <a href="font-test.html?display=playfair&body=poppins" target="_blank" class="font-combo">
+                        <div class="combo-title">Modern Elegance</div>
+                        <div class="combo-fonts">Playfair Display + Poppins</div>
+                        <div class="combo-description">Keep display, softer body font</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Display Font Focus -->
+            <div class="font-category">
+                <h2>🎪 Display Font Testing</h2>
+                <p style="margin-bottom: 20px; color: rgba(237, 230, 218, 0.6);">Same body font (Inter), different display fonts</p>
+                <div class="font-links">
+                    <a href="font-test.html?display=playfair&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Playfair (Current)</div>
+                        <div class="combo-fonts">Dramatic serif</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=cormorant&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Cormorant Garamond</div>
+                        <div class="combo-fonts">Literary elegance</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=crimson&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Crimson Text</div>
+                        <div class="combo-fonts">Warm traditional</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=libre&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Libre Baskerville</div>
+                        <div class="combo-fonts">Classic serif</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=dancing&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Dancing Script</div>
+                        <div class="combo-fonts">Handwritten style</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=cinzel&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Cinzel</div>
+                        <div class="combo-fonts">Imperial capitals</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Body Font Focus -->
+            <div class="font-category">
+                <h2>📝 Body Font Testing</h2>
+                <p style="margin-bottom: 20px; color: rgba(237, 230, 218, 0.6);">Same display font (Playfair), different body fonts</p>
+                <div class="font-links">
+                    <a href="font-test.html?display=playfair&body=inter" target="_blank" class="font-combo">
+                        <div class="combo-title">Inter (Current)</div>
+                        <div class="combo-fonts">Modern geometric</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=playfair&body=source" target="_blank" class="font-combo">
+                        <div class="combo-title">Source Sans Pro</div>
+                        <div class="combo-fonts">Clean professional</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=playfair&body=lato" target="_blank" class="font-combo">
+                        <div class="combo-title">Lato</div>
+                        <div class="combo-fonts">Friendly humanist</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=playfair&body=nunito" target="_blank" class="font-combo">
+                        <div class="combo-title">Nunito Sans</div>
+                        <div class="combo-fonts">Warm rounded</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=playfair&body=poppins" target="_blank" class="font-combo">
+                        <div class="combo-title">Poppins</div>
+                        <div class="combo-fonts">Geometric modern</div>
+                    </a>
+                    
+                    <a href="font-test.html?display=playfair&body=montserrat" target="_blank" class="font-combo">
+                        <div class="combo-title">Montserrat</div>
+                        <div class="combo-fonts">Urban geometric</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <h2>⚡ Quick Actions</h2>
+            <div class="button-grid">
+                <a href="font-test.html?display=playfair&body=inter" target="_blank" class="quick-btn">View Current</a>
+                <a href="javascript:openMultiple()" class="quick-btn">Open Top 4</a>
+                <a href="javascript:openSerifs()" class="quick-btn">Compare Serifs</a>
+                <a href="javascript:openScripts()" class="quick-btn">Compare Scripts</a>
+                <a href="." class="quick-btn">Refresh Page</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show current combination if coming from a font test page
+        if (document.referrer && document.referrer.includes('font-test.html')) {
+            const referrerParams = new URLSearchParams(document.referrer.split('?')[1] || '');
+            const display = referrerParams.get('display') || 'playfair';
+            const body = referrerParams.get('body') || 'inter';
+            
+            document.getElementById('currentCombo').style.display = 'block';
+            document.getElementById('currentFonts').textContent = `${display} + ${body}`;
+        }
+
+        // Quick action functions
+        function openMultiple() {
+            const combos = [
+                { params: 'display=playfair&body=inter', title: 'Current' },
+                { params: 'display=cormorant&body=source', title: 'Scholar' },
+                { params: 'display=libre&body=lato', title: 'Classic' },
+                { params: 'display=dancing&body=poppins', title: 'Artistic' }
+            ];
+            
+            combos.forEach((combo, index) => {
+                setTimeout(() => {
+                    // Add timestamp to force fresh load
+                    const timestamp = Date.now() + index;
+                    const url = `font-test.html?${combo.params}&t=${timestamp}&title=${combo.title}`;
+                    window.open(url, `font_test_${index}`, 'width=1200,height=800');
+                }, index * 500); // Increase delay to avoid conflicts
+            });
+        }
+
+        function openSerifs() {
+            const serifs = [
+                { params: 'display=playfair&body=inter', title: 'Playfair' },
+                { params: 'display=cormorant&body=inter', title: 'Cormorant' },
+                { params: 'display=crimson&body=inter', title: 'Crimson' },
+                { params: 'display=libre&body=inter', title: 'Libre' }
+            ];
+            
+            serifs.forEach((combo, index) => {
+                setTimeout(() => {
+                    const timestamp = Date.now() + index;
+                    const url = `font-test.html?${combo.params}&t=${timestamp}&title=${combo.title}`;
+                    window.open(url, `serif_test_${index}`, 'width=1200,height=800');
+                }, index * 400);
+            });
+        }
+
+        function openScripts() {
+            const scripts = [
+                { params: 'display=dancing&body=poppins', title: 'Dancing+Poppins' },
+                { params: 'display=great&body=montserrat', title: 'Great+Montserrat' },
+                { params: 'display=dancing&body=inter', title: 'Dancing+Inter' },
+                { params: 'display=great&body=source', title: 'Great+Source' }
+            ];
+            
+            scripts.forEach((combo, index) => {
+                setTimeout(() => {
+                    const timestamp = Date.now() + index;
+                    const url = `font-test.html?${combo.params}&t=${timestamp}&title=${combo.title}`;
+                    window.open(url, `script_test_${index}`, 'width=1200,height=800');
+                }, index * 400);
+            });
+        }
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        window.open('font-test.html?display=playfair&body=inter', '_blank');
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        window.open('font-test.html?display=cormorant&body=source', '_blank');
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        window.open('font-test.html?display=libre&body=lato', '_blank');
+                        break;
+                    case '4':
+                        e.preventDefault();
+                        window.open('font-test.html?display=dancing&body=poppins', '_blank');
+                        break;
+                }
+            }
+        });
+
+        // Show keyboard shortcuts hint
+        const shortcuts = document.createElement('div');
+        shortcuts.innerHTML = `
+            <div style="position: fixed; bottom: 20px; left: 20px; background: rgba(15, 14, 21, 0.9); padding: 12px; border-radius: 8px; font-size: 12px; color: rgba(237, 230, 218, 0.6); font-family: monospace;">
+                <strong style="color: #C9A84C;">Shortcuts:</strong><br>
+                Cmd/Ctrl + 1-4: Open top combos<br>
+                Click + Ctrl: Open in background tab
+            </div>
+        `;
+        document.body.appendChild(shortcuts);
+    </script>
+</body>
+</html>
