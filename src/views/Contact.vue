@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
-import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
 // World-class SEO for Contact page (high conversion value)
@@ -52,13 +51,6 @@ useWorldClassSEO({
   ],
   
   contentType: 'contact'
-})
-
-// Strategic linking for Contact page (minimal - focus on conversion)
-useStrategicLinking({
-  enableAutolinking: false, // Keep contact page focused on conversion
-  maxLinksPerPage: 3,
-  respectExistingLinks: true
 })
 
 const form = ref({

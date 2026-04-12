@@ -770,26 +770,6 @@ html.lenis, html.lenis body {
   }
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   STRATEGIC INTERNAL LINKING STYLES
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-.strategic-link {
-  color: var(--gold);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(170, 136, 51, 0.3);
-  transition: all 0.3s ease;
-  padding-bottom: 1px;
-  font-weight: 500;
-}
-
-.strategic-link:hover {
-  color: var(--gold-light);
-  border-bottom-color: var(--gold);
-  text-shadow: 0 0 8px rgba(170, 136, 51, 0.4);
-  transform: translateY(-1px);
-}
-
 .strategic-cta {
   background: linear-gradient(135deg, var(--plum-glow), var(--gold-glow));
   border-top: 1px solid var(--ember);
@@ -833,24 +813,4 @@ html.lenis, html.lenis body {
 .strategic-cta__button {
   margin-top: 1rem;
   box-shadow: 0 8px 25px rgba(141, 59, 120, 0.3);
-}
-
-/* Enhanced link targeting for specific content types */
-.strategic-link[data-strategic-link="true"] {
-  position: relative;
-}
-
-.strategic-link[data-strategic-link="true"]:after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  transition: width 0.3s ease;
-}
-
-.strategic-link[data-strategic-link="true"]:hover:after {
-  width: 100%;
 }

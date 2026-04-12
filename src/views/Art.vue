@@ -2,7 +2,6 @@
 import { ref, nextTick, watch } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
-import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
 // World-class SEO for Art Gallery page
@@ -49,13 +48,6 @@ useWorldClassSEO({
   ],
   
   contentType: 'gallery'
-})
-
-// Strategic linking for Art page
-useStrategicLinking({
-  enableAutolinking: true,
-  maxLinksPerPage: 4,
-  respectExistingLinks: true
 })
 
 const lightboxOpen = ref(false)

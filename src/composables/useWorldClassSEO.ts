@@ -319,13 +319,8 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
     })
   }
 
-  // Strategic internal linking
-  function enhanceInternalLinking() {
-    nextTick(() => {
-      // Enhanced internal linking is handled by useStrategicLinking composable
-      // This placeholder ensures the function exists for the API
-    })
-  }
+  // Internal linking is hand-placed in each view; no runtime DOM rewriting.
+  function enhanceInternalLinking() {}
 
   onMounted(() => {
     originalTitle = document.title

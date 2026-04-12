@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
-import { useStrategicLinking } from '../composables/useStrategicLinking'
 import LazyYouTube from '../components/LazyYouTube.vue'
 
 useReveal()
@@ -53,13 +52,6 @@ useWorldClassSEO({
   ],
   
   contentType: 'press'
-})
-
-// Strategic linking for Press page
-useStrategicLinking({
-  enableAutolinking: true,
-  maxLinksPerPage: 5,
-  respectExistingLinks: true
 })
 
 const features = [

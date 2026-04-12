@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO, generateFAQSchema, generateLocalBusinessSchema } from '../composables/useWorldClassSEO'
-import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
 // World-class SEO for Shows page with FAQ and Local Business schema
@@ -125,13 +124,6 @@ useWorldClassSEO({
       }
     }
   ]
-})
-
-// Strategic linking for Shows page
-useStrategicLinking({
-  enableAutolinking: true,
-  maxLinksPerPage: 8,
-  respectExistingLinks: true
 })
 
 const shows = [

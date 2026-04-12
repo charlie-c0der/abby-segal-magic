@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
-import { useStrategicLinking } from '../composables/useStrategicLinking'
 
 useReveal()
 // World-class SEO for About page
@@ -54,13 +53,6 @@ useWorldClassSEO({
   ],
   
   contentType: 'about'
-})
-
-// Strategic linking for About page
-useStrategicLinking({
-  enableAutolinking: true,
-  maxLinksPerPage: 5,
-  respectExistingLinks: true
 })
 
 // Timeline data removed

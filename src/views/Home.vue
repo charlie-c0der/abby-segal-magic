@@ -5,7 +5,6 @@ import { useParticles } from '../composables/useParticles'
 import { useSplitText } from '../composables/useSplitText'
 import { useTilt } from '../composables/useTilt'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
-import { useStrategicLinking } from '../composables/useStrategicLinking'
 // MagicReveal import removed - final CTA section deleted
 import LazyYouTube from '../components/LazyYouTube.vue'
 import gsap from 'gsap'
@@ -72,13 +71,6 @@ useWorldClassSEO({
   ],
   
   contentType: 'service'
-})
-
-// Strategic internal linking
-useStrategicLinking({
-  enableAutolinking: true,
-  maxLinksPerPage: 6,
-  respectExistingLinks: true
 })
 
 const heroLoaded = ref(false)
