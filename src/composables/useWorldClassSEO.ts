@@ -2,7 +2,7 @@
  * World-Class SEO System - Comprehensive optimization for maximum search visibility
  * Implements advanced SEO strategies including semantic markup, performance optimization, and strategic linking
  */
-import { onMounted, onUnmounted, nextTick } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 interface AdvancedSEOData {
