@@ -188,7 +188,6 @@ const shows = [
 const addOns = [
   { icon: '🎓', title: 'Magic Workshops', desc: 'Private or group magic instruction. Learn <em class="shimmer">real sleight of hand</em> from someone who\'s been teaching since <em class="underline-sketch">sixth grade</em>. Perfect for team-building, kids\' parties, or aspiring magicians.' },
   { icon: '🎨', title: 'Custom Routines', desc: '<em class="shimmer">Brand magic.</em> Abby can design a routine around your company, product, or event theme. <em class="underline-sketch">Your logo appears on a card.</em> That sort of thing.' },
-  { icon: '🎤', title: 'MC & Hosting', desc: 'Need someone to run the evening? Abby can MC with <em class="shimmer">magic woven throughout</em> - transitions, surprises, and the occasional <em class="underline-sketch">impossible moment</em> between courses.' },
 ]
 
 const faqs = [
@@ -257,37 +256,37 @@ onUnmounted(() => {
     <section class="section">
       <div class="container">
         <div v-for="show in shows" :key="show.number" class="show-card reveal">
-          <div class="show-card__header">
-            <span class="show-card__number">{{ show.number }}</span>
-            <div>
-              <h2 class="heading-lg">{{ show.title }}</h2>
-              <p class="show-card__subtitle">{{ show.subtitle }}</p>
+          <div class="show-card__media">
+            <video
+              v-if="!videoFailed[show.number]"
+              ref="videoRefs"
+              :poster="show.poster"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              :aria-label="`${show.title} performance video`"
+            >
+              <source :src="show.videoMp4" type="video/mp4" @error="onVideoError(show.number)" />
+            </video>
+            <img
+              v-else
+              :src="show.poster"
+              :alt="`${show.title} in Chicago — Abby Segal performing`"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="show-card__overlay">
+              <span class="show-card__number">{{ show.number }}</span>
+              <div class="show-card__headings">
+                <h2 class="heading-lg show-card__title">{{ show.title }}</h2>
+                <p class="show-card__subtitle">{{ show.subtitle }}</p>
+              </div>
             </div>
           </div>
 
-          <div class="show-card__body">
-            <div class="show-card__video">
-              <video
-                v-if="!videoFailed[show.number]"
-                ref="videoRefs"
-                :poster="show.poster"
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="metadata"
-                :aria-label="`${show.title} performance video`"
-              >
-                <source :src="show.videoMp4" type="video/mp4" @error="onVideoError(show.number)" />
-              </video>
-              <img
-                v-else
-                :src="show.poster"
-                :alt="`${show.title} in Chicago — Abby Segal performing`"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+          <div class="show-card__content">
             <div class="show-card__details">
               <div class="show-card__meta">
                 <div class="show-card__meta-item">
@@ -314,47 +313,18 @@ onUnmounted(() => {
     </section>
 
     <!-- Add-ons -->
-    <section class="section" style="border-top: 1px solid var(--ember); background: var(--obsidian);">
+    <section class="section section--compact addons-section">
       <div class="container">
         <p class="heading-eyebrow reveal" style="text-align: center;">Also Available</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
+        <h2 class="heading-md reveal reveal-delay-1" style="text-align: center; margin-bottom: 32px;">
           Beyond the <em>show.</em>
         </h2>
-        <div class="addons-grid addons-grid--4">
-          <div v-for="(a, i) in addOns" :key="a.title" class="card reveal" :class="`reveal-delay-${(i % 4)+1}`">
+        <div class="addons-grid">
+          <div v-for="(a, i) in addOns" :key="a.title" class="card card--compact reveal" :class="`reveal-delay-${(i % 4)+1}`">
             <span class="addon-icon">{{ a.icon }}</span>
-            <h3 class="heading-md" style="font-size: var(--text-card-title); margin: 12px 0 8px;">{{ a.title }}</h3>
-            <p class="body-md" v-html="a.desc"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Performance Gallery -->
-    <section class="section performance-gallery">
-      <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">In Action</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
-          See the <em class="shimmer">magic happen</em>.
-        </h2>
-        
-        <div class="gallery-grid">
-          <div class="gallery-item reveal reveal-delay-1">
-            <img src="/assets/general/images/close-up-magician-chicago-performing.webp" alt="Close-up magician in Chicago — Abby Segal mid-performance at a private event" loading="lazy" decoding="async" />
-            <div class="gallery-overlay">
-              <h3>Close-Up Performance</h3>
-            </div>
-          </div>
-          <div class="gallery-item reveal reveal-delay-2">
-            <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="Parlour magician in Chicago — Abby Segal on stage at Chicago Magic Lounge" loading="lazy" decoding="async" />
-            <div class="gallery-overlay">
-              <h3>Parlour Show</h3>
-            </div>
-          </div>
-          <div class="gallery-item reveal reveal-delay-3">
-            <img src="/assets/press/images/press-2.webp" alt="Corporate event magician in Chicago — audience reaction during Abby Segal performance" loading="lazy" decoding="async" />
-            <div class="gallery-overlay">
-              <h3>Audience Reactions</h3>
+            <div>
+              <h3 class="addon-title">{{ a.title }}</h3>
+              <p class="body-md" v-html="a.desc"></p>
             </div>
           </div>
         </div>
@@ -410,35 +380,85 @@ onUnmounted(() => {
 .shows-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
 .shows-hero h1 em, h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
-.show-card { border: 1px solid var(--ember); border-radius: var(--radius-lg); margin-bottom: 32px; transition: all 0.5s var(--ease-out); overflow: hidden; }
-.show-card:hover { border-color: rgba(141, 59, 120, 0.3); box-shadow: 0 16px 50px rgba(0,0,0,0.3); }
-.show-card__header { display: flex; align-items: center; gap: 24px; padding: 40px; border-bottom: 1px solid var(--ember); }
-.show-card__number {
-  font-family: var(--font-display); font-size: var(--text-hero); font-weight: 900; letter-spacing: -0.03em; color: var(--gold-dim); line-height: 1;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.show-card:hover .show-card__number { color: var(--gold); text-shadow: 0 0 30px rgba(170, 136, 51, 0.4); transform: scale(1.1); }
-.show-card__subtitle { font-size: var(--text-body-sm); color: var(--white-muted); margin-top: 4px; }
-.show-card__body { display: grid; grid-template-columns: minmax(300px, 1.1fr) 1.4fr 0.9fr; gap: 40px; padding: 40px; align-items: start; }
-.show-card__video {
-  position: relative;
-  border-radius: var(--radius-md);
+.show-card {
+  border: 1px solid var(--ember);
+  border-radius: var(--radius-lg);
+  margin-bottom: 48px;
+  transition: all 0.5s var(--ease-out);
   overflow: hidden;
-  background: #000;
+}
+.show-card:hover {
+  border-color: rgba(141, 59, 120, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.show-card__media {
+  position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  border: 1px solid var(--ember);
+  background: #000;
+  overflow: hidden;
 }
-.show-card__video video,
-.show-card__video img {
+.show-card__media video,
+.show-card__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  background: #000;
 }
-.show-card__meta { display: flex; gap: 40px; margin-bottom: 20px; }
+
+.show-card__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  padding: 56px 48px 40px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+.show-card__number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--gold);
+  line-height: 0.9;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.show-card:hover .show-card__number {
+  transform: scale(1.05);
+}
+.show-card__headings { flex: 1; min-width: 0; }
+.show-card__title {
+  color: var(--ivory);
+  margin: 0;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.85);
+}
+.show-card__subtitle {
+  font-size: var(--text-body);
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.7);
+}
+
+.show-card__content {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 56px;
+  padding: 48px;
+  align-items: start;
+}
+
+.show-card__meta { display: flex; gap: 48px; margin-bottom: 24px; }
 .show-card__meta-item p { font-size: var(--text-body-lg); font-weight: 500; margin-top: 4px; }
 .show-card__experience {
   font-style: italic; color: var(--plum); font-size: var(--text-body); margin-top: 16px;
@@ -448,9 +468,29 @@ onUnmounted(() => {
 .show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: var(--text-body); color: var(--white-dim); }
 .show-card__ideal li::before { content: '✦ '; color: var(--gold); font-size: 10px; }
 
-.addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.addons-grid--4 { grid-template-columns: repeat(4, 1fr); }
-.addon-icon { font-size: 32px; }
+/* Addons (compact, 2 items) */
+.addons-section { padding-top: 64px; padding-bottom: 64px; border-top: 1px solid var(--ember); background: var(--obsidian); }
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.card--compact {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+}
+.addon-icon { font-size: 28px; line-height: 1; flex-shrink: 0; }
+.addon-title {
+  font-family: var(--font-display);
+  font-size: var(--text-card-title);
+  margin: 0 0 6px;
+  color: var(--ivory);
+}
+.card--compact .body-md { font-size: var(--text-body-sm); }
 
 /* FAQ */
 .faq-list { display: flex; flex-direction: column; gap: 0; }
@@ -473,95 +513,15 @@ onUnmounted(() => {
 .faq-item__a { padding-bottom: 24px; }
 .faq-item__a p { color: var(--white-dim); max-width: 650px; }
 
-/* Performance Gallery */
-.performance-gallery {
-  background: var(--obsidian);
-  border-top: 1px solid var(--ember);
-  border-bottom: 1px solid var(--ember);
-}
-
-.performance-gallery h2 em {
-  color: var(--gold);
-  font-style: italic;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.gallery-item {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  cursor: pointer;
-  transition: transform 0.3s var(--ease-out);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
-
-.gallery-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(9, 9, 14, 0.85));
-  color: white;
-  padding: 2rem 1.5rem 1.5rem;
-  transform: translateY(100%);
-  transition: transform 0.3s var(--ease-out);
-}
-
-.gallery-item:hover .gallery-overlay {
-  transform: translateY(0);
-}
-
-.gallery-overlay h3 {
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0;
-  color: var(--gold);
-}
-
 @media (max-width: 1100px) {
-  .show-card__body { grid-template-columns: minmax(260px, 1fr) 1.4fr; gap: 32px; }
-  .show-card__ideal { grid-column: 1 / -1; border-top: 1px solid var(--ember); padding-top: 24px; }
+  .show-card__content { grid-template-columns: 1fr; gap: 32px; }
+  .show-card__ideal { border-top: 1px solid var(--ember); padding-top: 24px; }
 }
 @media (max-width: 768px) {
-  .show-card__body { grid-template-columns: 1fr; gap: 24px; }
-  .show-card__ideal { grid-column: auto; }
-  .show-card__header { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .show-card__number { font-size: var(--text-subtitle); }
-  .addons-grid, .addons-grid--4 { grid-template-columns: 1fr 1fr; }
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  @media (max-width: 480px) { 
-    .addons-grid, .addons-grid--4 { grid-template-columns: 1fr; }
-    .gallery-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+  .show-card { margin-bottom: 32px; }
+  .show-card__overlay { padding: 40px 24px 20px; gap: 16px; }
+  .show-card__content { padding: 28px 24px; gap: 24px; }
+  .show-card__meta { gap: 28px; flex-wrap: wrap; }
+  .addons-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 </style>
