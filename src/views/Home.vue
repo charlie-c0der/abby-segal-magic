@@ -53,7 +53,7 @@ useWorldClassSEO({
   ],
   
   // Technical SEO
-  ogImage: '/assets/general/images/performance.webp',
+  ogImage: '/assets/general/images/close-up-magician-chicago-performing.webp',
   ogType: 'website',
   twitterCard: 'summary_large_image',
   canonicalUrl: '/',
@@ -62,7 +62,7 @@ useWorldClassSEO({
   
   // Performance optimization
   preloadImages: [
-    '/assets/portraits/images/abby-2024.webp',
+    '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
     '/assets/hero/hero-poster.webp'
   ],
   prefetchLinks: [
@@ -271,7 +271,7 @@ onUnmounted(() => {
         <div class="intro-section__visual reveal">
           <div class="img-reveal">
             <div class="intro-portrait">
-              <img src="/assets/portraits/images/abby-2024.webp" alt="Abby Segal - Chicago Magician" loading="lazy" decoding="async" />
+              <img src="/assets/portraits/images/close-up-magician-chicago-abby-segal.webp" alt="Abby Segal, close-up magician in Chicago, performing at Chicago Magic Lounge" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="intro-section__float" data-speed="0.85">

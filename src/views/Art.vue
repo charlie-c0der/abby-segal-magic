@@ -235,7 +235,7 @@ const artworks = [
           >
             <div class="gallery-piece__frame">
               <div class="gallery-piece__image">
-                <img :src="art.thumb" alt="Artwork by Abby Segal" loading="lazy" decoding="async" />
+                <img :src="art.thumb" :alt="`${art.title}, ${art.medium.toLowerCase()} by Abby Segal, Chicago collage artist`" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-piece__spotlight"></div>
             </div>
@@ -325,7 +325,7 @@ const artworks = [
           <div class="gallery-lightbox__main">
             <div class="artwork-frame">
               <div class="artwork-spotlight"></div>
-              <img :src="lightboxImage" alt="Artwork by Abby Segal" class="artwork-image" @click.stop />
+              <img :src="lightboxImage" alt="Mixed media collage artwork by Abby Segal, Chicago collage artist" class="artwork-image" @click.stop />
             </div>
           </div>
           

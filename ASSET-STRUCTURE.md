@@ -78,7 +78,7 @@ const artVideoUrl = '/assets/art/videos/painting-process-timelapse.mp4'
 const pressVideoUrl = '/assets/press/videos/penn-teller-fool-us-full.mp4'
 
 // Use in Press.vue:
-<video poster="/assets/press/images/press-show.webp" controls>
+<video poster="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" controls>
   <source src="/assets/press/videos/interview-highlights.mp4" type="video/mp4">
 </video>
 ```
@@ -100,7 +100,7 @@ const introVideoUrl = '/assets/portraits/videos/professional-intro.mp4'
 const performanceVideoUrl = '/assets/general/videos/performance-reel.mp4'
 
 // Use in Home.vue:
-<video controls poster="/assets/general/images/performance.webp">
+<video controls poster="/assets/general/images/close-up-magician-chicago-performing.webp">
   <source src="/assets/general/videos/magic-demo-compilation.mp4" type="video/mp4">
 </video>
 ```
@@ -115,9 +115,9 @@ Category Prefix + Descriptive Name + Format
 Examples:
 - art-collage-1.webp           (artwork)
 - art-collage-1-thumb.webp     (thumbnail) 
-- press-show.webp              (press photo)
+- parlour-magician-chicago-magic-lounge.webp              (press photo)
 - portrait.webp                (professional photo)
-- performance.webp             (general performance)
+- close-up-magician-chicago-performing.webp             (general performance)
 ```
 
 ### **📹 Videos:**
@@ -160,7 +160,7 @@ mv painting-creation.mp4 public/assets/art/videos/art-process-watercolor.mp4
 </video>
 
 <!-- In Press.vue for media content -->
-<video controls poster="/assets/press/images/press-show.webp">
+<video controls poster="/assets/press/images/parlour-magician-chicago-magic-lounge.webp">
   <source src="/assets/press/videos/penn-teller-full-episode.mp4" type="video/mp4">
 </video>
 ```

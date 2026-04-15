@@ -35,7 +35,7 @@ useWorldClassSEO({
   ],
   
   // Technical SEO
-  ogImage: '/assets/general/images/performance.webp',
+  ogImage: '/assets/general/images/close-up-magician-chicago-performing.webp',
   ogType: 'website',
   canonicalUrl: '/contact',
   priority: 0.9,
@@ -43,7 +43,7 @@ useWorldClassSEO({
   
   // Performance optimization
   preloadImages: [
-    '/assets/general/images/performance.webp'
+    '/assets/general/images/close-up-magician-chicago-performing.webp'
   ],
   prefetchLinks: [
     '/shows',

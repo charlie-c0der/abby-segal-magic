@@ -176,16 +176,16 @@ const pressLogos = [
     <!-- Photo Gallery Strip -->
     <section class="press-photos">
       <div class="press-photos__track">
-        <img src="/assets/press/images/press-1.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-show.webp" alt="Abby on stage" loading="lazy" decoding="async" />
-        <img src="/assets/portraits/images/abby-2024.webp" alt="Abby Segal 2024" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-prague.webp" alt="Art gallery showcase in Prague" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-2.webp" alt="Abby performing" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-1.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-show.webp" alt="Abby on stage" loading="lazy" decoding="async" />
-        <img src="/assets/portraits/images/abby-2024.webp" alt="Abby Segal 2024" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-prague.webp" alt="Art gallery showcase in Prague" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/press-2.webp" alt="Abby performing" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-1.webp" alt="Close-up magician Chicago — Abby Segal performing card magic" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="Parlour magician Chicago — Abby Segal on stage at Chicago Magic Lounge" loading="lazy" decoding="async" />
+        <img src="/assets/portraits/images/close-up-magician-chicago-abby-segal.webp" alt="Female magician in Chicago — Abby Segal 2024 portrait" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-prague.webp" alt="Abby Segal collage art gallery showcase in Prague" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-2.webp" alt="Wedding and corporate magician Chicago — Abby Segal performing at a private event" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img src="/assets/portraits/images/close-up-magician-chicago-abby-segal.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-prague.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/press-2.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       </div>
     </section>
 

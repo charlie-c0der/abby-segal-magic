@@ -35,7 +35,7 @@ public/assets/
 
 ### **Performance Photo:**
 ```vue
-<img src="/assets/general/images/new-performance.webp" alt="Performance description" loading="lazy" />
+<img src="/assets/general/images/new-close-up-magician-chicago-performing.webp" alt="Performance description" loading="lazy" />
 ```
 
 ---
@@ -65,7 +65,7 @@ public/assets/
 
 ### **Performance Demo Video:**
 ```vue
-<video controls poster="/assets/general/images/performance.webp">
+<video controls poster="/assets/general/images/close-up-magician-chicago-performing.webp">
   <source src="/assets/general/videos/magic-demo.mp4" type="video/mp4">
 </video>
 ```

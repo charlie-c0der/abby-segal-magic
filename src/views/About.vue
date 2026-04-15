@@ -35,7 +35,7 @@ useWorldClassSEO({
   ],
   
   // Technical SEO
-  ogImage: '/assets/portraits/images/abby-2024.webp',
+  ogImage: '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
   ogType: 'profile',
   canonicalUrl: '/about',
   priority: 0.9,
@@ -43,7 +43,7 @@ useWorldClassSEO({
   
   // Performance optimization
   preloadImages: [
-    '/assets/portraits/images/abby-2024.webp',
+    '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
     '/assets/portraits/images/penn-teller-appearance.webp'
   ],
   prefetchLinks: [
@@ -77,7 +77,7 @@ useWorldClassSEO({
       <div class="container about-grid">
         <div class="about-portrait reveal">
           <div class="about-portrait__frame">
-            <img src="/assets/portraits/images/headshot1.webp" alt="Abby Segal portrait" loading="lazy" decoding="async" />
+            <img src="/assets/portraits/images/headshot1.webp" alt="Portrait of Abby Segal, female magician based in Chicago" loading="lazy" decoding="async" />
           </div>
         </div>
 

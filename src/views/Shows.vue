@@ -39,7 +39,7 @@ useWorldClassSEO({
   ],
   
   // Technical SEO
-  ogImage: '/assets/general/images/performance.webp',
+  ogImage: '/assets/general/images/close-up-magician-chicago-performing.webp',
   ogType: 'article',
   canonicalUrl: '/shows',
   priority: 1.0,
@@ -47,8 +47,8 @@ useWorldClassSEO({
   
   // Performance optimization
   preloadImages: [
-    '/assets/general/images/performance.webp',
-    '/assets/press/images/press-show.webp'
+    '/assets/general/images/close-up-magician-chicago-performing.webp',
+    '/assets/press/images/parlour-magician-chicago-magic-lounge.webp'
   ],
   prefetchLinks: [
     '/contact',
@@ -157,7 +157,7 @@ const shows = [
     experience: 'The rest of the room fades. For ten minutes, the table is its own little <em class="shimmer">planet</em>. Guests lean in. Phones come out. Someone asks if they can <em class="underline-sketch">keep a card</em>.',
     ideal: ['Private dinners', 'VIP corporate tables', 'Wedding sweetheart tables', 'Intimate receptions', 'Gallery openings'],
     videoMp4: '/assets/shows/close-up-30s.mp4',
-    poster: '/assets/general/images/performance.webp',
+    poster: '/assets/general/images/close-up-magician-chicago-performing.webp',
   },
   {
     number: '02',
@@ -169,7 +169,7 @@ const shows = [
     experience: 'Think comedy show meets impossible magic meets <em class="shimmer">"how is this possible."</em> Everyone has <em class="underline-sketch">the best seat in the house</em> because the magic happens <em class="shimmer">WITH the audience</em>.',
     ideal: ['Theatre & comedy venues', 'Corporate keynotes', 'Fundraiser galas', 'School assemblies', 'Birthday celebrations'],
     videoMp4: '/assets/shows/parlour-30s.mp4',
-    poster: '/assets/press/images/press-show.webp',
+    poster: '/assets/press/images/parlour-magician-chicago-magic-lounge.webp',
   },
   {
     number: '03',
@@ -249,7 +249,7 @@ function onVideoError(showNumber: string) {
               <img
                 v-else
                 :src="show.poster"
-                :alt="`${show.title} performance`"
+                :alt="`${show.title} in Chicago — Abby Segal performing`"
                 loading="lazy"
                 decoding="async"
               />
@@ -306,19 +306,19 @@ function onVideoError(showNumber: string) {
         
         <div class="gallery-grid">
           <div class="gallery-item reveal reveal-delay-1">
-            <img src="/assets/general/images/performance.webp" alt="Abby performing close-up magic" loading="lazy" decoding="async" />
+            <img src="/assets/general/images/close-up-magician-chicago-performing.webp" alt="Close-up magician in Chicago — Abby Segal mid-performance at a private event" loading="lazy" decoding="async" />
             <div class="gallery-overlay">
               <h3>Close-Up Performance</h3>
             </div>
           </div>
           <div class="gallery-item reveal reveal-delay-2">
-            <img src="/assets/press/images/press-show.webp" alt="Abby performing at Chicago Magic Lounge" loading="lazy" decoding="async" />
+            <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="Parlour magician in Chicago — Abby Segal on stage at Chicago Magic Lounge" loading="lazy" decoding="async" />
             <div class="gallery-overlay">
               <h3>Parlour Show</h3>
             </div>
           </div>
           <div class="gallery-item reveal reveal-delay-3">
-            <img src="/assets/press/images/press-2.webp" alt="Audience reaction during Abby's performance" loading="lazy" decoding="async" />
+            <img src="/assets/press/images/press-2.webp" alt="Corporate event magician in Chicago — audience reaction during Abby Segal performance" loading="lazy" decoding="async" />
             <div class="gallery-overlay">
               <h3>Audience Reactions</h3>
             </div>
