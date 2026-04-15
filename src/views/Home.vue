@@ -325,43 +325,6 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- ━━━ AS SEEN ON SECTION ━━━ -->
-    <section class="section as-seen-on">
-      <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center; color: var(--gold);">As Seen On</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px; color: var(--ivory);">
-          Featured on <em class="shimmer" style="color: var(--gold);">major platforms</em>.
-        </h2>
-        
-        <div class="press-logos reveal reveal-delay-2">
-          <div class="press-logo">
-            <h3>Penn & Teller</h3>
-            <span>Fool Us (CW)</span>
-          </div>
-          <div class="press-logo">
-            <h3>Chicago Magic Lounge</h3>
-            <span>Resident Performer</span>
-          </div>
-          <div class="press-logo">
-            <h3>The Magic Castle</h3>
-            <span>Hollywood, CA</span>
-          </div>
-          <div class="press-logo">
-            <h3>Penguin Magic</h3>
-            <span>Featured Podcast</span>
-          </div>
-          <div class="press-logo">
-            <h3>Bates College</h3>
-            <span>Featured Graduate</span>
-          </div>
-          <div class="press-logo">
-            <h3>Berlinskej Model</h3>
-            <span>Art Exhibition</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ━━━ BRAND WALL: TRUSTED BY ━━━ -->
     <BrandWall
       eyebrow="Trusted by"
@@ -785,73 +748,9 @@ onUnmounted(() => {
   }
 }
 
-/* As Seen On */
-.as-seen-on {
-  background: var(--obsidian);
-  border-top: 1px solid var(--ember);
-  border-bottom: 1px solid var(--ember);
-}
-
-.as-seen-on h2 em {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 400;
-}
-
-.press-logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.press-logo {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: var(--ash);
-  border: 1px solid var(--ember);
-  border-radius: var(--radius-lg);
-  transition: all 0.3s var(--ease-out);
-}
-
-.press-logo:hover {
-  transform: translateY(-5px);
-  border-color: var(--plum);
-  background: rgba(141, 59, 120, 0.05);
-}
-
-.press-logo h3 {
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  margin-bottom: 0.5rem;
-  color: var(--ivory);
-}
-
-.press-logo span {
-  font-size: var(--text-body-sm);
-  color: var(--cream-dim);
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .press-logos {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .press-logo {
-    padding: 1.5rem 1rem;
-  }
-}
-
 /* Big quote responsive styles removed */
 
 @media (max-width: 480px) {
-  .press-logos {
-    grid-template-columns: 1fr;
-  }
-  
   .big-quote__image {
     max-width: 300px;
   }
