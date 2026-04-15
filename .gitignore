@@ -31,3 +31,5 @@ video-frames*/
 capture-*
 record-*
 analyze-*
+public/__tmp_video_preview/
+docs/

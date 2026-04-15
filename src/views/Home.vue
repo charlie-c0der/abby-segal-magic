@@ -7,6 +7,7 @@ import { useTilt } from '../composables/useTilt'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
 // MagicReveal import removed - final CTA section deleted
 import LazyYouTube from '../components/LazyYouTube.vue'
+import HeroVideo from '../components/HeroVideo.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -62,7 +63,7 @@ useWorldClassSEO({
   // Performance optimization
   preloadImages: [
     '/assets/portraits/images/abby-2024.webp',
-    '/assets/general/images/performance.webp'
+    '/assets/hero/hero-poster.webp'
   ],
   prefetchLinks: [
     '/shows',
@@ -191,7 +192,7 @@ onUnmounted(() => {
     <!-- ━━━ HERO ━━━ -->
     <section class="hero">
       <canvas id="hero-particles" class="hero__particles" />
-      <div class="hero__bg-image" />
+      <HeroVideo />
       <div class="hero__vignette" />
       <!-- Organic blobs for warmth -->
       <div class="blob blob--plum" style="width: 500px; height: 500px; left: -10%; top: 20%;" />
@@ -487,11 +488,6 @@ onUnmounted(() => {
   66% { transform: translate(0, -50%) rotate(10deg) translateY(8px); }
 }
 .hero__particles { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.hero__bg-image {
-  position: absolute; inset: 0;
-  background: url('/assets/general/images/performance.webp') center/cover no-repeat;
-  opacity: 0.15; filter: grayscale(60%) sepia(20%); z-index: 0;
-}
 .hero__vignette {
   position: absolute; inset: 0;
   background:

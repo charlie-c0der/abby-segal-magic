@@ -48,7 +48,7 @@ useWorldClassSEO({
   // Performance optimization
   preloadImages: [
     '/assets/general/images/performance.webp',
-    '/assets/general/images/closeup-magic.webp'
+    '/assets/press/images/press-show.webp'
   ],
   prefetchLinks: [
     '/contact',
@@ -64,7 +64,7 @@ useWorldClassSEO({
     generateFAQSchema([
       {
         question: 'What types of magic shows does Abby offer?',
-        answer: 'Abby offers two main types of performances: Close-Up Magic (strolling table-side magic for 4-400 guests) and Parlour Shows (interactive stage magic for up to 80 people).'
+        answer: 'Abby offers three formats: Close-Up Magic (intimate table-side sleight of hand for 4-12 guests per table), Parlour Shows (interactive stage magic for up to 80 people), and Mingle Magic (strolling magic that moves through the room for up to 400 guests).'
       },
       {
         question: 'How much does it cost to hire Abby for an event?',
@@ -86,7 +86,7 @@ useWorldClassSEO({
     {
       '@type': 'Service',
       'name': 'Close-Up Magic Performance',
-      'description': 'Strolling and table-side close-up magic and sleight of hand for private events, corporate entertainment, and activities in Chicago.',
+      'description': 'Intimate table-side close-up magic and sleight of hand for private dinners, VIP tables, and small receptions in Chicago.',
       'provider': {
         '@type': 'Person',
         'name': 'Abby Segal',
@@ -99,14 +99,14 @@ useWorldClassSEO({
       },
       'offers': {
         '@type': 'Offer',
-        'description': '45-minute close-up magic performance for 4-400 guests',
+        'description': '20-60 minute intimate close-up magic performance for 4-12 guests per table',
         'areaServed': 'Chicago, Illinois'
       }
     },
     {
-      '@type': 'Service', 
+      '@type': 'Service',
       'name': 'Parlour Magic Show',
-      'description': 'Intimate stage magic performance for private events, corporate entertainment, and theatre venues.',
+      'description': 'Interactive stage magic performance for private events, corporate entertainment, and theatre venues.',
       'provider': {
         '@type': 'Person',
         'name': 'Abby Segal',
@@ -122,6 +122,26 @@ useWorldClassSEO({
         'description': 'Interactive stage magic show for up to 80 guests',
         'areaServed': 'Chicago, Illinois'
       }
+    },
+    {
+      '@type': 'Service',
+      'name': 'Mingle Magic Performance',
+      'description': 'Strolling and roaming close-up magic for corporate cocktail hours, wedding receptions, trade shows, and large private events in Chicago.',
+      'provider': {
+        '@type': 'Person',
+        'name': 'Abby Segal',
+        'url': 'https://www.abbysegalmagic.com'
+      },
+      'serviceType': 'Entertainment',
+      'areaServed': {
+        '@type': 'City',
+        'name': 'Chicago'
+      },
+      'offers': {
+        '@type': 'Offer',
+        'description': '30 minute to 3+ hour strolling magic performance for 4-400 guests',
+        'areaServed': 'Chicago, Illinois'
+      }
     }
   ]
 })
@@ -130,12 +150,14 @@ const shows = [
   {
     number: '01',
     title: 'Close-Up Magic',
-    subtitle: 'Strolling & Table-Side',
-    duration: '45 minutes',
-    audience: '4 – 400 guests',
-    description: 'Abby moves through your event, performing for small groups at a time. Cards transform <em class="underline-sketch">in your hands</em>. Coins <em class="shimmer">vanish while you\'re holding them</em>. Someone\'s watch ends up somewhere it <em>shouldn\'t</em>. The magic happens <em class="shimmer">inches from your eyes</em> - <em class="underline-sketch">no stage, no distance, no place to hide</em>. Your guests will grab their friends and say <em class="shimmer">"you HAVE to see this."</em>',
-    experience: 'Guests don\'t watch the show - <em class="underline-sketch">they\'re IN the show</em>. Expect laughter, gasps, and at least one person saying <em class="shimmer">"do that again"</em> (she won\'t).',
-    ideal: ['Corporate cocktail hours', 'Wedding receptions', 'Private dinners', 'Holiday parties', 'Trade shows & activations'],
+    subtitle: 'Table-Side & Intimate',
+    duration: 'Customizable (20–60 min)',
+    audience: '4 – 12 guests per table',
+    description: 'The deck is <em class="underline-sketch">six inches away</em>. Cards transform <em class="shimmer">in your hands</em>. A coin vanishes <em>between your fingers</em>. No stage, no distance — just you, the deck, and the impossible happening <em class="shimmer">as you watch it</em>. Every detail checked, every angle covered. This is sleight of hand at its most <em class="underline-sketch">uncompromising</em>.',
+    experience: 'The rest of the room fades. For ten minutes, the table is its own little <em class="shimmer">planet</em>. Guests lean in. Phones come out. Someone asks if they can <em class="underline-sketch">keep a card</em>.',
+    ideal: ['Private dinners', 'VIP corporate tables', 'Wedding sweetheart tables', 'Intimate receptions', 'Gallery openings'],
+    videoMp4: '/assets/shows/close-up-30s.mp4',
+    poster: '/assets/general/images/performance.webp',
   },
   {
     number: '02',
@@ -146,6 +168,20 @@ const shows = [
     description: 'A full interactive show where <em class="underline-sketch">the audience is part of the performance</em>. Volunteers come up. <em class="shimmer">Impossible things happen</em>. Predictions are revealed. It\'s theatrical, funny, and <em>deeply personal</em> - because Abby <em class="underline-sketch">tailors every show</em> to the room she\'s in. Debuted at the <em class="shimmer">legendary Chicago Magic Lounge</em>.',
     experience: 'Think comedy show meets impossible magic meets <em class="shimmer">"how is this possible."</em> Everyone has <em class="underline-sketch">the best seat in the house</em> because the magic happens <em class="shimmer">WITH the audience</em>.',
     ideal: ['Theatre & comedy venues', 'Corporate keynotes', 'Fundraiser galas', 'School assemblies', 'Birthday celebrations'],
+    videoMp4: '/assets/shows/parlour-30s.mp4',
+    poster: '/assets/press/images/press-show.webp',
+  },
+  {
+    number: '03',
+    title: 'Mingle Magic',
+    subtitle: 'Strolling & Roaming',
+    duration: '30 min – 3+ hours',
+    audience: '4 – 400 guests total',
+    description: 'Abby moves <em class="underline-sketch">through your event</em>, hitting every pocket of the room. Five minutes here, seven there. By the end of the cocktail hour, <em class="shimmer">everyone has a story</em>. Cards change color in someone\'s pocket. A ring disappears from a hand and appears <em>in a drink</em>. The magic <em class="shimmer">travels</em> — so do the gasps.',
+    experience: 'Guests pull their friends over. <em class="shimmer">"You HAVE to see what she just did."</em> The room hums louder as the night goes on.',
+    ideal: ['Corporate cocktail hours', 'Wedding receptions', 'Trade shows & activations', 'Holiday parties', 'Product launches'],
+    videoMp4: '/assets/shows/mingle-30s.mp4',
+    poster: '/assets/press/images/press-2.webp',
   },
 ]
 
@@ -165,6 +201,11 @@ const faqs = [
 ]
 
 const openFaq = ref<number | null>(null)
+
+const videoFailed = ref<Record<string, boolean>>({})
+function onVideoError(showNumber: string) {
+  videoFailed.value[showNumber] = true
+}
 </script>
 
 <template>
@@ -193,6 +234,26 @@ const openFaq = ref<number | null>(null)
           </div>
 
           <div class="show-card__body">
+            <div class="show-card__video">
+              <video
+                v-if="!videoFailed[show.number]"
+                :poster="show.poster"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+                :aria-label="`${show.title} performance video`"
+              >
+                <source :src="show.videoMp4" type="video/mp4" @error="onVideoError(show.number)" />
+              </video>
+              <img
+                v-else
+                :src="show.poster"
+                :alt="`${show.title} performance`"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="show-card__details">
               <div class="show-card__meta">
                 <div class="show-card__meta-item">
@@ -324,7 +385,25 @@ const openFaq = ref<number | null>(null)
 }
 .show-card:hover .show-card__number { color: var(--gold); text-shadow: 0 0 30px rgba(170, 136, 51, 0.4); transform: scale(1.1); }
 .show-card__subtitle { font-size: var(--text-body-sm); color: var(--white-muted); margin-top: 4px; }
-.show-card__body { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; padding: 40px; }
+.show-card__body { display: grid; grid-template-columns: minmax(300px, 1.1fr) 1.4fr 0.9fr; gap: 40px; padding: 40px; align-items: start; }
+.show-card__video {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--ember);
+}
+.show-card__video video,
+.show-card__video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
 .show-card__meta { display: flex; gap: 40px; margin-bottom: 20px; }
 .show-card__meta-item p { font-size: var(--text-body-lg); font-weight: 500; margin-top: 4px; }
 .show-card__experience {
@@ -430,8 +509,13 @@ const openFaq = ref<number | null>(null)
   color: var(--gold);
 }
 
+@media (max-width: 1100px) {
+  .show-card__body { grid-template-columns: minmax(260px, 1fr) 1.4fr; gap: 32px; }
+  .show-card__ideal { grid-column: 1 / -1; border-top: 1px solid var(--ember); padding-top: 24px; }
+}
 @media (max-width: 768px) {
-  .show-card__body { grid-template-columns: 1fr; }
+  .show-card__body { grid-template-columns: 1fr; gap: 24px; }
+  .show-card__ideal { grid-column: auto; }
   .show-card__header { flex-direction: column; align-items: flex-start; gap: 12px; }
   .show-card__number { font-size: var(--text-subtitle); }
   .addons-grid, .addons-grid--4 { grid-template-columns: 1fr 1fr; }
