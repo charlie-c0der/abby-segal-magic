@@ -8,6 +8,7 @@ import { useWorldClassSEO } from '../composables/useWorldClassSEO'
 // MagicReveal import removed - final CTA section deleted
 import LazyYouTube from '../components/LazyYouTube.vue'
 import HeroVideo from '../components/HeroVideo.vue'
+import BrandWall from '../components/BrandWall.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -92,6 +93,22 @@ const stats = [
   { number: '1000+', label: 'Shows Worldwide' },
   { number: '6', label: 'Countries' },
   { number: '2', label: 'Penn & Teller Appearances' },
+]
+
+const corporateBrands = [
+  { name: 'Ritter Sport', src: '/assets/brands/ritter-sport.webp', alt: 'Ritter Sport — corporate magic client of Abby Segal' },
+  { name: 'BCLP', src: '/assets/brands/bclp.webp', alt: 'Bryan Cave Leighton Paisner — corporate magic client of Abby Segal' },
+  { name: 'DLA Piper', src: '/assets/brands/dla-piper.webp', alt: 'DLA Piper — corporate magic client of Abby Segal', lightBg: true },
+  { name: 'RapidSOS', src: '/assets/brands/rapidsos.webp', alt: 'RapidSOS — corporate magic client of Abby Segal' },
+]
+
+const venueBrands = [
+  { name: 'Chicago Magic Lounge', src: '/assets/brands/chicago-magic-lounge.webp', alt: 'Chicago Magic Lounge — Abby Segal is a resident performer' },
+  { name: 'The Magic Castle', src: '/assets/brands/magic-castle.webp', alt: 'The Academy of Magical Arts / Magic Castle, Hollywood — Abby Segal has performed here' },
+  { name: 'Helsinki Magic Show', src: '/assets/brands/helsinki-magic-show.webp', alt: 'Helsinki Magic Show — Abby Segal has performed at this international festival' },
+  { name: 'Amsterdam Magic Show', src: '/assets/brands/amsterdam-magic-show.webp', alt: 'Amsterdam Magic Show — Abby Segal has performed at this international festival', lightBg: true },
+  { name: 'Genii Magazine', src: '/assets/brands/genii.webp', alt: 'Genii, The Conjurors Magazine — Abby Segal featured' },
+  { name: 'Chicago BSides', src: '/assets/brands/chicago-bsides.webp', alt: 'Chicago BSides — Abby Segal performed at this conference' },
 ]
 
 const testimonials = [
@@ -344,6 +361,20 @@ onUnmounted(() => {
         </div>
       </div>
     </section>
+
+    <!-- ━━━ BRAND WALL: TRUSTED BY ━━━ -->
+    <BrandWall
+      eyebrow="Trusted by"
+      title="Booked by <em class=&quot;shimmer&quot; style=&quot;color: var(--gold);&quot;>teams that know the difference</em>."
+      :logos="corporateBrands"
+    />
+
+    <!-- ━━━ BRAND WALL: AS SEEN AT ━━━ -->
+    <BrandWall
+      eyebrow="As seen at"
+      title="Venues and <em class=&quot;shimmer&quot; style=&quot;color: var(--gold);&quot;>industry stages</em>."
+      :logos="venueBrands"
+    />
 
     <!-- ━━━ HORIZONTAL SCROLL SHOWS ━━━ -->
     <section class="shows-horizontal">
