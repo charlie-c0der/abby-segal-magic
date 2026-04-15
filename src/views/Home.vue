@@ -343,7 +343,7 @@ onUnmounted(() => {
     <section class="shows-horizontal">
       <div class="shows-horizontal__header container">
         <p class="heading-eyebrow">Performances</p>
-        <h2 class="heading-lg" data-split data-split-delay="0">Two formats. One unforgettable night.</h2>
+        <h2 class="heading-lg" data-split data-split-delay="0">Three formats. One unforgettable event.</h2>
       </div>
 
       <div class="shows-horizontal__track">
@@ -353,10 +353,10 @@ onUnmounted(() => {
           <div class="show-panel__number">01</div>
           <h3 class="show-panel__title">Close-Up<br>Magic</h3>
           <div class="divider" />
-          <p class="body-md">The magic happens <em class="shimmer">in your hands</em>, at your table, <em class="underline-sketch">inches from your eyes</em>. Abby mingles through your event performing <em>jaw-dropping</em> sleight of hand and close-up magic for small groups. Perfect for cocktail hours, dinners, and receptions.</p>
+          <p class="body-md">The deck is <em class="underline-sketch">six inches away</em>. Cards transform <em class="shimmer">in your hands</em>. No stage, no distance — just you, the deck, and the impossible happening <em>as you watch it</em>.</p>
           <div class="show-panel__meta">
-            <span>45 min</span>
-            <span>4–400 guests</span>
+            <span>20–60 min</span>
+            <span>4–12 per table</span>
           </div>
         </div>
 
@@ -364,10 +364,21 @@ onUnmounted(() => {
           <div class="show-panel__number">02</div>
           <h3 class="show-panel__title">Parlour<br>Show</h3>
           <div class="divider" />
-          <p class="body-md">An interactive stage show where <em class="shimmer">your guests become the stars</em>. Volunteers participate, <em class="underline-sketch">impossible things happen</em>, secrets are revealed - and everyone has <em>the best seat in the house</em>. As debuted at the <em class="shimmer">legendary Chicago Magic Lounge</em>.</p>
+          <p class="body-md">An interactive stage show where <em class="shimmer">your guests become the stars</em>. Volunteers participate, <em class="underline-sketch">impossible things happen</em>, secrets are revealed — and everyone has <em>the best seat in the house</em>. Debuted at the <em class="shimmer">legendary Chicago Magic Lounge</em>.</p>
           <div class="show-panel__meta">
-            <span>Custom length</span>
+            <span>30–60 min</span>
             <span>Up to 80 guests</span>
+          </div>
+        </div>
+
+        <div class="show-panel tilt-card">
+          <div class="show-panel__number">03</div>
+          <h3 class="show-panel__title">Mingle<br>Magic</h3>
+          <div class="divider" />
+          <p class="body-md">Abby moves <em class="underline-sketch">through your event</em>, hitting every pocket of the room. Five minutes here, seven there. By the end of the cocktail hour, <em class="shimmer">everyone has a story</em>.</p>
+          <div class="show-panel__meta">
+            <span>30 min – 3+ hrs</span>
+            <span>4–400 guests</span>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO, generateFAQSchema, generateLocalBusinessSchema } from '../composables/useWorldClassSEO'
 
@@ -206,6 +206,38 @@ const videoFailed = ref<Record<string, boolean>>({})
 function onVideoError(showNumber: string) {
   videoFailed.value[showNumber] = true
 }
+
+const videoRefs = ref<HTMLVideoElement[]>([])
+let videoObserver: IntersectionObserver | null = null
+
+onMounted(() => {
+  if (typeof IntersectionObserver === 'undefined') return
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduced) {
+    videoRefs.value.forEach((v) => v?.pause())
+    return
+  }
+  videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const v = entry.target as HTMLVideoElement
+        if (entry.isIntersecting) {
+          const p = v.play()
+          if (p && typeof p.catch === 'function') p.catch(() => { /* autoplay blocked */ })
+        } else {
+          v.pause()
+        }
+      })
+    },
+    { threshold: 0.4 }
+  )
+  videoRefs.value.forEach((v) => v && videoObserver!.observe(v))
+})
+
+onUnmounted(() => {
+  videoObserver?.disconnect()
+  videoObserver = null
+})
 </script>
 
 <template>
@@ -237,8 +269,10 @@ function onVideoError(showNumber: string) {
             <div class="show-card__video">
               <video
                 v-if="!videoFailed[show.number]"
+                ref="videoRefs"
                 :poster="show.poster"
-                controls
+                autoplay
+                loop
                 muted
                 playsinline
                 preload="metadata"
