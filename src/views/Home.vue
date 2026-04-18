@@ -158,11 +158,21 @@ onMounted(async () => {
   if (st2) scrollTriggers.push(st2)
 
   // Horizontal scroll only on desktop — mobile uses CSS snap-scroll
-  const showsTrack = document.querySelector('.shows-horizontal__track')
+  const showsTrack = document.querySelector<HTMLElement>('.shows-horizontal__track')
   if (showsTrack && window.innerWidth > 768) {
+    const getDistance = () => Math.max(0, showsTrack.scrollWidth - window.innerWidth)
     const st3 = gsap.to(showsTrack, {
-      xPercent: -50, ease: 'none',
-      scrollTrigger: { trigger: '.shows-horizontal', start: 'top top', end: '+=80%', scrub: 1, pin: true, anticipatePin: 1 },
+      x: () => -getDistance(),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.shows-horizontal',
+        start: 'top top',
+        end: () => '+=' + getDistance(),
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
     }).scrollTrigger
     if (st3) scrollTriggers.push(st3)
   }

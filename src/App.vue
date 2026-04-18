@@ -17,6 +17,10 @@ import BackToTop from './components/BackToTop.vue'
 import { useAnimationOrchestra } from './composables/useAnimationOrchestra'
 import { useMagicCursor } from './composables/useMagicCursor'
 import Lenis from 'lenis'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const { cursorX, cursorY, cursorScale, cursorVisible } = useMagicCursor()
 // Initialize world-class animation system
@@ -34,7 +38,7 @@ const showPreloader = ref(true)
 const siteReady = ref(false)
 
 let lenis: Lenis | null = null
-let rafId = 0
+let tickLenis: ((time: number) => void) | null = null
 
 function onPreloaderDone() {
   showPreloader.value = false
@@ -53,33 +57,29 @@ onMounted(() => {
     gestureOrientation: 'vertical'
   })
 
-  function raf(time: number) {
-    lenis?.raf(time)
-    rafId = requestAnimationFrame(raf)
+  // Drive Lenis from GSAP's ticker so scroll + animations stay locked in step,
+  // then forward Lenis scroll events to ScrollTrigger so pins/scrubs use Lenis state.
+  tickLenis = (time: number) => {
+    lenis?.raf(time * 1000)
   }
-  rafId = requestAnimationFrame(raf)
+  gsap.ticker.add(tickLenis)
+  gsap.ticker.lagSmoothing(0)
+  lenis.on('scroll', ScrollTrigger.update)
 
-  // Integrate with GSAP ScrollTrigger if available
-  if (typeof window !== 'undefined' && window.ScrollTrigger) {
-    lenis.on('scroll', window.ScrollTrigger.update)
-  }
-
-  // Make Lenis available globally for components
   if (typeof window !== 'undefined') {
     window.lenis = lenis
-
-    // Refresh ScrollTrigger after Lenis is ready
-    setTimeout(() => {
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.refresh()
-      }
-    }, 100)
+    window.ScrollTrigger = ScrollTrigger
   }
+
+  // Refresh after paint so ScrollTrigger measures with the final layout.
+  requestAnimationFrame(() => ScrollTrigger.refresh())
 })
 
 onUnmounted(() => {
-  cancelAnimationFrame(rafId)
+  if (tickLenis) gsap.ticker.remove(tickLenis)
   lenis?.destroy()
+  lenis = null
+  tickLenis = null
 })
 
 // Easter egg - Konami code triggers a card cascade

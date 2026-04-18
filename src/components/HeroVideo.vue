@@ -4,10 +4,6 @@ import { onMounted, onUnmounted, ref } from 'vue'
 const videoRef = ref<HTMLVideoElement | null>(null)
 const showVideo = ref(false)
 
-function isMobile(): boolean {
-  return window.matchMedia('(max-width: 768px)').matches
-}
-
 function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
@@ -29,7 +25,7 @@ function handlePlayFailure() {
 }
 
 onMounted(() => {
-  if (isMobile() || prefersReducedMotion() || isSlowConnection()) {
+  if (prefersReducedMotion() || isSlowConnection()) {
     return
   }
   showVideo.value = true
