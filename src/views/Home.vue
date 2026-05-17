@@ -5,7 +5,6 @@ import { useParticles } from '../composables/useParticles'
 import { useSplitText } from '../composables/useSplitText'
 import { useTilt } from '../composables/useTilt'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
-// MagicReveal import removed - final CTA section deleted
 import LazyYouTube from '../components/LazyYouTube.vue'
 import HeroVideo from '../components/HeroVideo.vue'
 import BrandWall from '../components/BrandWall.vue'
