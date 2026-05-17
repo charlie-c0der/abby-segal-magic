@@ -1,137 +1,44 @@
-# Abby Segal Magic - Professional Magician Portfolio
+# Abby Segal Magic
 
-A modern, professional website for Chicago-based magician Abby Segal, featuring close-up magic, parlour performances, and visual art. Built with Vue 3, TypeScript, and cutting-edge web technologies.
+Marketing site for Chicago magician **Abby Segal** — close-up, parlour, and mingle magic for private and corporate events, plus a visual-art portfolio.
 
-## 🎭 About the Site
+**Live:** https://www.abbysegalmagic.com
 
-This website showcases Abby Segal's magic performances, press coverage (including Penn & Teller: Fool Us), and visual art portfolio. Designed to convert visitors into bookings while maintaining an artistic, sophisticated aesthetic.
+## Tech
 
-## 🚀 Features
+Vue 3.5 (Composition API + `<script setup lang="ts">`), TypeScript (strict), Vite 7, vue-router 4, GSAP + ScrollTrigger, Lenis smooth scroll. Styling is **plain CSS with custom properties** (no preprocessor). Deployed on Vercel (auto-deploy on push to `master`). Contact form via Formspree (endpoint `xpznzkyj`).
 
-### ✨ Performance Focus
-- **Video Integration**: Penn & Teller Fool Us performance showcase
-- **Photography Gallery**: Professional performance and press photos
-- **Show Types**: Detailed breakdown of close-up vs. parlour magic
-- **Testimonials**: Client reviews and press coverage
+## Develop
 
-### 🎨 Art Portfolio
-- **Etsy Integration**: Direct link to shop at https://www.etsy.com/shop/AbbySegalArt
-- **Lightbox Gallery**: High-quality artwork viewing
-- **Commission Information**: Custom artwork booking
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # type-check + lint (max 10 warnings) + production build
+npm run preview  # serve the build
+```
 
-### 📞 Professional Contact
-- **Formspree Integration**: Functional contact form
-- **Accessibility**: Proper labels, ARIA attributes, keyboard navigation
-- **Response Time**: Clear communication expectations
-
-### 🔧 Technical Excellence
-- **SEO Optimized**: Unique meta tags, structured data, sitemaps
-- **Performance**: Optimized images, non-render-blocking fonts
-- **Accessibility**: WCAG compliant, skip navigation, focus management
-- **Mobile First**: Responsive design across all devices
-
-## 🛠 Tech Stack
-
-- **Framework**: Vue 3 with Composition API
-- **Language**: TypeScript
-- **Build Tool**: Vite
-- **Styling**: Sass/SCSS with CSS custom properties
-- **Animations**: GSAP with ScrollTrigger
-- **Forms**: Formspree integration
-- **Deployment**: Vercel with automatic builds
-
-## 📁 Project Structure
+## Structure
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── BackToTop.vue   # Scroll-to-top button
-│   ├── Breadcrumbs.vue # Navigation breadcrumbs  
-│   ├── LazyYouTube.vue # Performance video embed
-│   └── ...
-├── views/              # Main pages
-│   ├── Home.vue        # Homepage with hero, testimonials
-│   ├── About.vue       # Biography, timeline, venues
-│   ├── Shows.vue       # Performance types, FAQ
-│   ├── Press.vue       # Media coverage, Penn & Teller
-│   ├── Art.vue         # Visual art gallery
-│   ├── Contact.vue     # Booking form
-│   └── NotFound.vue    # Custom 404
-├── composables/        # Vue composition utilities
-│   ├── useSEO.ts      # Dynamic meta tag management
-│   ├── useReveal.ts   # Scroll animations
-│   └── ...
-└── styles/
-    └── global.css      # Design system, typography
+  main.ts            # router (7 lazy routes)
+  App.vue            # shell: nav, transitions, Lenis↔GSAP, cursor, footer
+  views/             # Home, About, Shows, Press, Art, Contact, NotFound
+  components/         # NavBar, FooterSection, Preloader, LazyYouTube, …
+  composables/        # SEO (useSeoCore + useSEO/useWorldClassSEO), animation, reveal, …
+  constants/          # navigation, social links
+  styles/global.css   # design system (color, type, spacing tokens)
+public/assets/         # WebP images + mp4/webm video, by category
 ```
 
-## 🎯 Website Audit Implementation
+## Design tokens
 
-This site has undergone comprehensive optimization based on a professional website audit:
+Dark, warm, intimate. Core palette: void `#09090E`, gold `#AA8833`, plum `#8D3B78`, bronze `#C5822F`, ivory `#EDE6DA`. Type: Playfair Display (display), Montserrat (body), JetBrains Mono (mono). Full token set in `src/styles/global.css`.
 
-### ✅ Critical Issues Resolved
-- ✅ Contact form functionality (proper labels, name attributes)
-- ✅ SEO optimization (unique titles, meta descriptions, structured data)
-- ✅ Accessibility compliance (skip navigation, ARIA labels)
-- ✅ Performance optimization (image optimization, font preloading)
+## Contributing
 
-### ✅ User Experience Enhancements  
-- ✅ Professional photography integration
-- ✅ Video content (Penn & Teller performance)
-- ✅ Lightbox gallery for artwork
-- ✅ Mobile-responsive design
-- ✅ Custom 404 page with brand consistency
+`CLAUDE.md` is the engineering source of truth — architecture, conventions, asset workflow, gotchas, and the SEO regression-check procedure. Read it before making changes.
 
-### ✅ Technical Improvements
-- ✅ Canonical URLs and sitemaps
-- ✅ Social media meta tags
-- ✅ Robots.txt configuration
-- ✅ Breadcrumb navigation
-- ✅ Back-to-top functionality
+## License
 
-## 🚀 Performance Metrics
-
-- **Lighthouse Score**: 95+ across all categories
-- **Core Web Vitals**: Excellent ratings
-- **SEO**: Comprehensive optimization
-- **Accessibility**: WCAG 2.1 AA compliant
-- **Mobile Experience**: Fully responsive
-
-## 📧 Contact Integration
-
-The contact form uses Formspree (endpoint: `xpznzkyj`) for reliable form submissions with:
-- Spam protection
-- Email notifications  
-- Response tracking
-- Mobile optimization
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary**: Deep black (#0b0a09) with warm undertones
-- **Accent**: Antique gold (#c9a84c) for highlights
-- **Secondary**: Dusty rose (#c4847a) for interaction
-- **Text**: Cream (#f5ede3) for high contrast readability
-
-### Typography
-- **Display**: Playfair Display (elegant, artistic headings)
-- **Body**: Inter (clean, readable body text)
-- **Monospace**: JetBrains Mono (technical details)
-
-### Animations
-- **Scroll Reveals**: GSAP-powered entrance animations
-- **Hover Effects**: Subtle transforms and color changes
-- **Page Transitions**: Magic-themed transitions for new users
-- **Performance**: Reduced motion for returning visitors
-
-## 🌐 Live Site
-
-**Production**: https://abby-segal-magic.vercel.app
-
-## 📄 License
-
-This project is proprietary. All rights reserved by Abby Segal.
-
----
-
-*Built with ❤️ for the art of magic*
+Proprietary. All rights reserved by Abby Segal.
