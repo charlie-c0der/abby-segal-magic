@@ -4,6 +4,7 @@
  */
 import { onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { SEO_BASE_URL, createSeoHead } from './useSeoCore'
 
 interface AdvancedSEOData {
   // Core Meta
@@ -43,7 +44,7 @@ interface PerformanceMetrics {
   largestContentfulPaint: number
 }
 
-const baseUrl = 'https://www.abbysegalmagic.com'
+const baseUrl = SEO_BASE_URL
 const siteName = 'Abby Segal Magic'
 const businessInfo = {
   name: 'Abby Segal',
@@ -60,37 +61,21 @@ const businessInfo = {
 export function useWorldClassSEO(data: AdvancedSEOData) {
   const route = useRoute()
   let originalTitle = ''
-  const addedElements: HTMLElement[] = []
+  const head = createSeoHead()
   const performanceMetrics: Partial<PerformanceMetrics> = {}
 
-  // Enhanced meta tag management
+  // Meta tag management — delegates to the shared SEO core
   function updateMeta(nameOrProperty: string, content: string, isProperty = false) {
-    const selector = isProperty ? `meta[property="${nameOrProperty}"]` : `meta[name="${nameOrProperty}"]`
-    let meta = document.querySelector(selector) as HTMLMetaElement
-    
-    if (!meta) {
-      meta = document.createElement('meta')
-      if (isProperty) {
-        meta.setAttribute('property', nameOrProperty)
-      } else {
-        meta.setAttribute('name', nameOrProperty)
-      }
-      document.head.appendChild(meta)
-      addedElements.push(meta)
+    if (isProperty) {
+      head.setProperty(nameOrProperty, content)
+    } else {
+      head.setMeta(nameOrProperty, content)
     }
-    meta.content = content
   }
 
-  // Enhanced canonical URL handling
+  // Canonical URL handling — delegates to the shared SEO core
   function updateCanonical(url: string) {
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.rel = 'canonical'
-      document.head.appendChild(canonical)
-      addedElements.push(canonical)
-    }
-    canonical.href = url.startsWith('http') ? url : `${baseUrl}${url}`
+    head.setCanonical(url)
   }
 
   // Advanced JSON-LD structured data
@@ -214,7 +199,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
         link.as = 'image'
         link.href = src
         document.head.appendChild(link)
-        addedElements.push(link)
+        head.track(link)
       })
     }
 
@@ -225,7 +210,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
         link.rel = 'prefetch'
         link.href = href
         document.head.appendChild(link)
-        addedElements.push(link)
+        head.track(link)
       })
     }
 
@@ -242,7 +227,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
       link.rel = 'dns-prefetch'
       link.href = `//${domain}`
       document.head.appendChild(link)
-      addedElements.push(link)
+      head.track(link)
     })
   }
 
@@ -366,11 +351,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
 
     // Enhanced structured data
     const structuredData = generateEnhancedStructuredData()
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify(structuredData)
-    document.head.appendChild(script)
-    addedElements.push(script)
+    head.injectJsonLd(structuredData)
 
     // Social media optimization
     optimizeSocialMedia()
@@ -393,7 +374,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
 
   onUnmounted(() => {
     document.title = originalTitle
-    addedElements.forEach(element => element.remove())
+    head.cleanup()
   })
 
   return {
