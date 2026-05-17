@@ -183,7 +183,7 @@ useSEO({
 }
 
 .link-grid a:hover {
-  color: var(--plum);
+  color: var(--gold);
   border-color: var(--plum);
   background: rgba(141, 59, 120, 0.1);
 }

@@ -180,7 +180,7 @@ onUnmounted(() => {
 }
 .nav__link:hover,
 .nav__link--active {
-  color: var(--plum);
+  color: var(--gold);
 }
 .nav__link--active::after,
 .nav__link:hover::after {

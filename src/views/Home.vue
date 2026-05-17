@@ -750,7 +750,7 @@ onUnmounted(() => {
 }
 
 .video-content h2 em {
-  color: var(--plum);
+  color: var(--gold);
   font-style: normal;
   font-weight: 400;
 }

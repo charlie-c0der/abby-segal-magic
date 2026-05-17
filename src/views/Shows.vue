@@ -461,7 +461,7 @@ onUnmounted(() => {
 .show-card__meta { display: flex; gap: 48px; margin-bottom: 24px; }
 .show-card__meta-item p { font-size: var(--text-body-lg); font-weight: 500; margin-top: 4px; }
 .show-card__experience {
-  font-style: italic; color: var(--plum); font-size: var(--text-body); margin-top: 16px;
+  font-style: italic; color: var(--gold); font-size: var(--text-body); margin-top: 16px;
   padding-top: 16px; border-top: 1px solid var(--ember);
 }
 .show-card__ideal ul { list-style: none; padding: 0; margin-top: 12px; }

@@ -6,12 +6,12 @@
 /* Fonts loaded via <link> in index.html for non-blocking render */
 
 :root {
-  /* Backgrounds — cool-shifted blacks with faint purple undertone */
-  --void: #09090E;
-  --obsidian: #0F0E15;
-  --smoke: #17161F;
-  --ash: #201E2A;
-  --ember: #2D2A38;
+  /* Backgrounds — deep aubergine — dark purple base */
+  --void: #160B22;
+  --obsidian: #1C0F2B;
+  --smoke: #241433;
+  --ash: #2C1A40;
+  --ember: #382550;
 
   /* Gold — prestige, playing cards, spotlight */
   --gold: #AA8833;
@@ -49,7 +49,7 @@
   --text-card-title: clamp(20px, 2vw, 24px);
   --text-eyebrow: 14px;
 
-  /* Body — Inter */
+  /* Body — Montserrat */
   --text-body-lg: clamp(18px, 1.3vw, 21px);
   --text-body: 16px;
   --text-body-sm: 14px;
@@ -188,7 +188,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--plum);
+  color: var(--gold);
   margin-bottom: 16px;
   line-height: 1.0;
 }
@@ -265,7 +265,7 @@ h1, h2, h3, h4 {
 /* Rose variant for secondary actions */
 .btn--plum {
   border-color: var(--plum);
-  color: var(--plum);
+  color: var(--ivory);
 }
 .btn--plum::before {
   background: var(--plum);
@@ -626,7 +626,7 @@ html.lenis, html.lenis body {
   }
   
   .nav__mobile-link:active {
-    color: var(--plum) !important;
+    color: var(--gold) !important;
   }
   
   /* Art gallery touch improvements */

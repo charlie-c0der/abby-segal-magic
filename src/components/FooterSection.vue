@@ -99,7 +99,7 @@ const socials = SOCIAL_LINKS_ARRAY
   color: var(--white-muted);
   transition: color 0.3s;
 }
-.footer__links a:hover { color: var(--plum); }
+.footer__links a:hover { color: var(--gold); }
 .footer__socials {
   display: flex;
   gap: 20px;
@@ -109,7 +109,7 @@ const socials = SOCIAL_LINKS_ARRAY
   color: var(--white-muted);
   transition: color 0.3s;
 }
-.footer__socials a:hover { color: var(--plum); }
+.footer__socials a:hover { color: var(--gold); }
 .footer__copy {
   font-size: var(--text-micro);
   color: var(--white-muted);
