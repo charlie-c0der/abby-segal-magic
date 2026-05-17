@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import BookingForm from '../components/BookingForm.vue'
 
 useReveal()
 // World-class SEO for Contact page (high conversion value)
 useWorldClassSEO({
   title: 'Book Abby Segal | Hire a Chicago Magician for Private Events & Entertainment',
   description: 'Contact Abby Segal to hire a Chicago magician for private events, corporate entertainment, weddings, and more. Close-up magic and sleight of hand performances. Custom quotes within 24 hours.',
-  
+
   // Conversion-focused keywords with priority terms
   focusKeyphrases: [
     'hire Abby Segal Chicago magician',
@@ -33,14 +33,14 @@ useWorldClassSEO({
     'entertainment magician for hire Chicago',
     'Chicago sleight of hand performer'
   ],
-  
+
   // Technical SEO
   ogImage: '/assets/general/images/close-up-magician-chicago-performing.webp',
   ogType: 'website',
   canonicalUrl: '/contact',
   priority: 0.9,
   changeFreq: 'monthly',
-  
+
   // Performance optimization
   preloadImages: [
     '/assets/general/images/close-up-magician-chicago-performing.webp'
@@ -49,71 +49,9 @@ useWorldClassSEO({
     '/shows',
     '/about'
   ],
-  
+
   contentType: 'contact'
 })
-
-const form = ref({
-  name: '',
-  email: '',
-  phone: '',
-  eventDate: '',
-  eventType: '',
-  guestCount: '',
-  message: '',
-})
-
-const submitted = ref(false)
-const submitting = ref(false)
-const errorMessage = ref('')
-
-async function handleSubmit() {
-  submitting.value = true
-  
-  try {
-    // Using Formspree for form handling
-    const response = await fetch('https://formspree.io/f/xpznzkyj', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: form.value.name,
-        email: form.value.email,
-        phone: form.value.phone,
-        eventDate: form.value.eventDate,
-        eventType: form.value.eventType,
-        guestCount: form.value.guestCount,
-        message: form.value.message,
-        subject: `Magic Booking Inquiry from ${form.value.name}`,
-      }),
-    })
-    
-    if (response.ok) {
-      submitted.value = true
-    } else {
-      throw new Error('Form submission failed')
-    }
-  } catch (error) {
-    console.error('Form submission error:', error)
-    errorMessage.value = 'Sorry, there was an error sending your message. Please try again or email directly.'
-  } finally {
-    submitting.value = false
-  }
-}
-
-const eventTypes = [
-  'Corporate Event',
-  'Private Party',
-  'Wedding / Reception',
-  'Birthday Party',
-  'School / University',
-  'Theatre / Venue',
-  'Virtual Event',
-  'Magic Lessons',
-  'Art Commission',
-  'Other',
-]
 </script>
 
 <template>
@@ -134,117 +72,7 @@ const eventTypes = [
       <div class="container contact-grid">
         <!-- Form -->
         <div class="contact-form reveal">
-          <transition name="fade" mode="out-in">
-            <form v-if="!submitted" @submit.prevent="handleSubmit" class="form">
-              <fieldset :disabled="submitting" class="form-fieldset">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="contact-name">Name *</label>
-                    <input 
-                      id="contact-name"
-                      v-model="form.name" 
-                      name="name"
-                      type="text" 
-                      required 
-                      aria-required="true"
-                      placeholder="Your name" 
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="contact-email">Email *</label>
-                    <input 
-                      id="contact-email"
-                      v-model="form.email" 
-                      name="email"
-                      type="email" 
-                      required 
-                      aria-required="true"
-                      placeholder="your@email.com" 
-                    />
-                  </div>
-                </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="contact-phone">Phone</label>
-                  <input 
-                    id="contact-phone"
-                    v-model="form.phone" 
-                    name="phone"
-                    type="tel" 
-                    placeholder="(555) 123-4567" 
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="contact-date">Event Date</label>
-                  <input 
-                    id="contact-date"
-                    v-model="form.eventDate" 
-                    name="eventDate"
-                    type="date" 
-                  />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="contact-type">Event Type</label>
-                  <select 
-                    id="contact-type"
-                    v-model="form.eventType"
-                    name="eventType"
-                  >
-                    <option value="" disabled>Select type...</option>
-                    <option v-for="t in eventTypes" :key="t" :value="t">{{ t }}</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="contact-guests">Estimated Guests</label>
-                  <input 
-                    id="contact-guests"
-                    v-model="form.guestCount" 
-                    name="guestCount"
-                    type="text" 
-                    placeholder="e.g. 50-100" 
-                  />
-                </div>
-              </div>
-
-                <div class="form-group">
-                  <label for="contact-message">Tell me about your event *</label>
-                  <textarea 
-                    id="contact-message"
-                    v-model="form.message" 
-                    name="message"
-                    required 
-                    aria-required="true"
-                    rows="5" 
-                    placeholder="What's the occasion? Any details that would help me plan the perfect show..." 
-                  />
-                </div>
-              </fieldset>
-
-              <p v-if="errorMessage" class="form-error" role="alert">{{ errorMessage }}</p>
-
-              <button type="submit" class="btn btn--filled" :disabled="submitting">
-                <span>{{ submitting ? 'Sending...' : 'Send Message' }}</span>
-              </button>
-            </form>
-
-            <div v-else class="contact-success" role="alert" aria-live="polite">
-              <div class="contact-success__sparkles">
-                <span v-for="n in 12" :key="n" class="contact-success__sparkle" :style="{
-                  '--angle': (n * 30) + 'deg',
-                  animationDelay: (n * 0.05) + 's',
-                }" />
-              </div>
-              <span class="contact-success__icon">✦</span>
-              <h2 class="heading-md">Message sent!</h2>
-              <p class="body-lg">
-                Thanks for reaching out. I'll get back to you within 24 hours.
-              </p>
-            </div>
-          </transition>
+          <BookingForm submit-label="Send Message" />
         </div>
 
         <!-- Info Sidebar -->
@@ -292,130 +120,6 @@ const eventTypes = [
   align-items: start;
 }
 
-/* Form */
-.form { display: flex; flex-direction: column; gap: 20px; }
-.form-fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.form-fieldset:disabled {
-  opacity: 0.6;
-  pointer-events: none;
-}
-.form-error {
-  color: #ff6b6b;
-  font-size: var(--text-body-sm);
-  margin: 12px 0 0;
-  padding: 12px 16px;
-  background: rgba(255, 107, 107, 0.1);
-  border: 1px solid rgba(255, 107, 107, 0.3);
-  border-radius: 8px;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-group label {
-  font-family: var(--font-mono);
-  font-size: var(--text-micro);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--white-muted);
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 14px 16px;
-  background: var(--ash);
-  border: 1px solid var(--ember);
-  color: var(--ivory);
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  transition: border-color 0.3s;
-  outline: none;
-  border-radius: 0;
-  -webkit-appearance: none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--plum);
-  box-shadow: 0 0 0 3px rgba(141, 59, 120, 0.08);
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: var(--white-muted);
-}
-.form-group select {
-  color: var(--white-dim);
-}
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* Success */
-.contact-success {
-  text-align: center;
-  padding: 80px 40px;
-  border: 1px solid var(--plum);
-  border-radius: var(--radius-lg);
-  position: relative;
-  overflow: hidden;
-  animation: successReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-@keyframes successReveal {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-.contact-success__icon {
-  font-size: 48px;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 16px;
-  animation: symbolSpin 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-@keyframes symbolSpin {
-  from { transform: rotate(0deg) scale(0); opacity: 0; }
-  to { transform: rotate(360deg) scale(1); opacity: 1; }
-}
-.contact-success__sparkles {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.contact-success__sparkle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--plum);
-  border-radius: 50%;
-  animation: sparkleOut 0.8s ease-out forwards;
-  box-shadow: 0 0 6px var(--plum);
-}
-.contact-success__sparkle:nth-child(odd) {
-  background: var(--gold);
-  box-shadow: 0 0 6px var(--gold);
-}
-@keyframes sparkleOut {
-  from {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: translate(
-      calc(cos(var(--angle)) * 80px),
-      calc(sin(var(--angle)) * 80px)
-    ) scale(0);
-    opacity: 0;
-  }
-}
-
-/* Info */
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -446,51 +150,17 @@ const eventTypes = [
 }
 .contact-info__socials a:hover { color: var(--gold); }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.4s;
-}
-.fade-enter-from, .fade-leave-to { opacity: 0; }
-
 @media (max-width: 768px) {
-  .contact-grid { 
-    grid-template-columns: 1fr; 
+  .contact-grid {
+    grid-template-columns: 1fr;
     gap: 40px;
   }
-  
-  .form-row { 
-    grid-template-columns: 1fr; 
-    gap: 16px;
-  }
-  
-  .contact-info { 
+  .contact-info {
     position: static;
     order: 2;
   }
-  
   .contact-form {
     order: 1;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    min-height: 48px;
-    font-size: 16px; /* Prevent zoom on iOS */
-    padding: 16px;
-  }
-  
-  .form-group textarea {
-    min-height: 120px;
-  }
-  
-  .contact-info__grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
-  .contact-success {
-    padding: 40px 24px;
-    margin: 0 -8px;
   }
 }
 </style>
