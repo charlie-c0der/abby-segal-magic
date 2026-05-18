@@ -6,8 +6,8 @@ useReveal()
 // World-class SEO for About page
 useWorldClassSEO({
   title: 'About Abby Segal | Chicago Magician, Sleight of Hand Expert & Entertainer',
-  description: 'Learn about Abby Segal — Chicago magician and sleight of hand expert performing close-up magic since age 11. Resident performer at Chicago Magic Lounge. As seen on Penn & Teller: Fool Us.',
-  
+  description: 'Learn about Abby Segal — Chicago magician and sleight of hand expert performing close-up magic for over a decade. Regular performer at Chicago Magic Lounge. As seen on Penn & Teller: Fool Us.',
+
   // Enhanced keyword targeting for About page with priority terms
   focusKeyphrases: [
     'Abby Segal Chicago magician',
@@ -33,29 +33,26 @@ useWorldClassSEO({
     'Chicago corporate entertainment performer',
     'activities in Chicago magic shows'
   ],
-  
+
   // Technical SEO
   ogImage: '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
   ogType: 'profile',
   canonicalUrl: '/about',
   priority: 0.9,
   changeFreq: 'monthly',
-  
+
   // Performance optimization
   preloadImages: [
-    '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
-    '/assets/portraits/images/penn-teller-appearance.webp'
+    '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp'
   ],
   prefetchLinks: [
     '/shows',
     '/contact',
     '/press'
   ],
-  
+
   contentType: 'about'
 })
-
-// Timeline data removed
 </script>
 
 <template>
@@ -66,13 +63,13 @@ useWorldClassSEO({
         <p class="heading-eyebrow reveal">About</p>
         <h1 class="heading-xl reveal reveal-delay-1">Not your average <em class="shimmer">magician.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 600px; margin-top: 16px;">
-          A Chicago magician who has been performing magic at theaters, special events, schools, and corporate functions since the age of 11.
+          A Chicago magician who has been performing at theaters, special events, schools, and corporate functions for over a decade.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>
     </section>
 
-    <!-- Story - the real one -->
+    <!-- Story -->
     <section class="section">
       <div class="container about-grid">
         <div class="about-portrait reveal">
@@ -85,97 +82,32 @@ useWorldClassSEO({
           <h2 class="heading-md reveal" style="margin-bottom: 24px;">Biography</h2>
 
           <p class="body-lg reveal">
-            <em class="shimmer">Abby Segal</em> is a magician based in <em class="underline-sketch">Chicago</em>. She has been performing magic at theaters, special events, schools, and corporate functions since the age of <em class="shimmer">11</em>. In <em class="underline-sketch">2021 and 2025</em>, Abby showcased her original magic routines on the CW television series <em class="shimmer">Penn & Teller: Fool Us</em>.
+            Abby Segal is a magician based in <em class="shimmer">Chicago</em>. She has been performing magic at theaters, special events, schools, and corporate functions for <em class="shimmer">over a decade</em>. In 2021 and 2025, Abby showcased her original magic routines on the CW television series <em class="shimmer">Penn &amp; Teller: Fool Us</em>.
           </p>
 
           <p class="body-lg reveal reveal-delay-1">
-            Abby graduated from <em class="shimmer">Bates College</em> with a <em class="underline-sketch">B.A. in Psychology</em>, and concentrations in <em class="shimmer">Film Studies and Design</em>. She incorporates these disciplines into her magic, striving to create moments of <em class="underline-sketch">astonishment for her audiences</em>.
+            Abby graduated from <em class="shimmer">Bates College</em> with a B.A. in Psychology, and concentrations in Film Studies and Design. She incorporates these disciplines into her magic, striving to create moments of astonishment for her audiences.
           </p>
 
           <p class="body-lg reveal reveal-delay-2">
-            Alongside performing, Abby is also a <em class="shimmer">creator and teacher of magic</em>. In addition to appearing at private events, she is a regular performer at the <em class="underline-sketch">Chicago Magic Lounge</em>. Her other appearances include <em class="shimmer">The Magic Castle</em> in Hollywood, <em class="underline-sketch">Keys and Heels</em> in New York City, <em class="shimmer">The Helsinki Magic Show</em> in Finland, and <em class="underline-sketch">The Amsterdam Magic Show</em> in the Netherlands.
+            Alongside performing, Abby is also a creator and teacher of magic. In addition to appearing at private events, she is a regular performer at the <em class="shimmer">Chicago Magic Lounge</em>. Her other appearances include The Magic Castle in Hollywood, Keys and Heels in New York City, The Helsinki Magic Show in Finland, and The Amsterdam Magic Show in the Netherlands.
+          </p>
+
+          <p class="body-md reveal reveal-delay-2 about-bio__shows-link">
+            <router-link to="/shows">Explore the three ways to experience the magic →</router-link>
           </p>
 
           <h2 class="heading-md reveal reveal-delay-3" style="margin-top: 40px; margin-bottom: 24px;">Beyond the stage</h2>
 
-          <p class="body-lg reveal reveal-delay-3">
-            Beyond the stage, Abby is a <em class="shimmer">visual artist</em> whose collages and illustrations have been exhibited at <em class="underline-sketch">Berlinskej Model</em> in Prague, currently on display at the <em class="shimmer">Andersonville Galleria</em> in Chicago. She's been featured on the <em class="underline-sketch">Penguin Magic Podcast</em>, lectured at <em class="shimmer">Magifest</em>, and teaches magic workshops for all ages.
-          </p>
-
-          <!-- Book Abby button removed - redundant with header/footer -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Timeline section removed -->
-
-    <!-- Venues -->
-    <section class="section">
-      <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Venues</p>
-        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 60px;">
-          From private events to <em>world stages.</em>
-        </h2>
-        <div class="venues-grid">
-          <div class="venue-card featured reveal reveal-delay-1">
-            <div class="venue-icon">📺</div>
-            <h3 class="venue-name">Penn & Teller: Fool Us</h3>
-            <p class="venue-loc">CW Television Network</p>
-            <p class="venue-desc">Featured in 2021 and 2025</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-2">
-            <div class="venue-icon">🏰</div>
-            <h3 class="venue-name">The Magic Castle</h3>
-            <p class="venue-loc">Hollywood, CA</p>
-            <p class="venue-desc">Legendary magicians' club</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-3">
-            <div class="venue-icon">🎪</div>
-            <h3 class="venue-name">Chicago Magic Lounge</h3>
-            <p class="venue-loc">Chicago, IL</p>
-            <p class="venue-desc">Regular performer</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-1">
-            <div class="venue-icon">🗽</div>
-            <h3 class="venue-name">Keys & Heels</h3>
-            <p class="venue-loc">New York City</p>
-            <p class="venue-desc">Intimate magic venue</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-2">
-            <div class="venue-icon">🌍</div>
-            <h3 class="venue-name">Helsinki Magic Show</h3>
-            <p class="venue-loc">Helsinki, Finland</p>
-            <p class="venue-desc">International performances</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-3">
-            <div class="venue-icon">🌷</div>
-            <h3 class="venue-name">Amsterdam Magic Show</h3>
-            <p class="venue-loc">Amsterdam, Netherlands</p>
-            <p class="venue-desc">European tour</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-1">
-            <div class="venue-icon">🎰</div>
-            <h3 class="venue-name">Rio Theatre</h3>
-            <p class="venue-loc">Las Vegas, NV</p>
-            <p class="venue-desc">Vegas magic scene</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-2">
-            <div class="venue-icon">🎯</div>
-            <h3 class="venue-name">Magifest</h3>
-            <p class="venue-loc">Magic Convention</p>
-            <p class="venue-desc">Lecture & performance</p>
-          </div>
-          <div class="venue-card reveal reveal-delay-3">
-            <div class="venue-icon">🎨</div>
-            <h3 class="venue-name">Berlinskej Model</h3>
-            <p class="venue-loc">Prague, Czech Republic</p>
-            <p class="venue-desc">Art exhibition</p>
+          <div class="about-bio__beyond reveal reveal-delay-3">
+            <img src="/assets/art/images/art-prague.webp" alt="Original collage by Abby Segal, exhibited at Berlinskej Model in Prague" loading="lazy" decoding="async" class="about-bio__art" />
+            <p class="body-lg">
+              Abby is also a <em class="shimmer">published author</em> — her children's book <em class="shimmer">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a visual artist whose collages and illustrations have been exhibited at <em class="shimmer">Berlinskej Model</em> in Prague. She's been featured on the Penguin Magic Podcast, lectured at Magifest, and teaches magic workshops for all ages.
+            </p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Bottom CTA section removed - redundant with header/footer -->
   </div>
 </template>
 
@@ -211,91 +143,26 @@ useWorldClassSEO({
 .about-bio p { margin-bottom: 20px; }
 .about-bio em { color: var(--gold); font-style: normal; font-weight: 400; }
 .about-bio h2 em { color: var(--gold); }
-
-/* Timeline styles removed */
-
-/* Venues */
-.venues-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 20px; 
+.about-bio__shows-link a {
+  color: var(--gold);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
 }
-
-h2 em { 
-  color: var(--gold); 
-  font-style: normal; 
-  font-weight: 400; 
-}
-
-.venue-card {
-  background: var(--ash);
+.about-bio__shows-link a:hover { border-color: var(--gold); }
+.about-bio__beyond { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: start; }
+.about-bio__art {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
   border: 1px solid var(--ember);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  transition: all 0.3s var(--ease-out);
-  text-align: center;
-}
-
-.venue-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--plum);
-  background: rgba(141, 59, 120, 0.05);
-}
-
-.venue-card.featured {
-  border-color: var(--gold);
-  background: rgba(170, 136, 51, 0.05);
-}
-
-.venue-card.featured:hover {
-  border-color: var(--gold);
-  background: rgba(170, 136, 51, 0.1);
-}
-
-.venue-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  display: block;
-  opacity: 0.8;
-}
-
-.venue-name { 
-  font-family: var(--font-display); 
-  font-size: var(--text-card-title); 
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 8px;
-  color: var(--ivory);
-}
-
-.venue-loc { 
-  font-size: var(--text-btn); 
-  color: var(--cream-muted); 
-  margin-bottom: 8px;
-}
-
-.venue-desc {
-  font-size: var(--text-body-sm);
-  color: var(--cream-dim);
-  font-style: italic;
+  border-radius: var(--radius-md);
 }
 
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-portrait__frame { position: static; }
-  .venues-grid { 
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-    gap: 16px; 
-  }
-  .venue-card {
-    padding: 20px;
-  }
-  /* Timeline mobile styles removed */
-}
-
-@media (max-width: 480px) {
-  .venues-grid {
-    grid-template-columns: 1fr;
-  }
+  .about-bio__beyond { grid-template-columns: 1fr; gap: 16px; }
+  .about-bio__art { max-width: 240px; }
 }
 </style>
