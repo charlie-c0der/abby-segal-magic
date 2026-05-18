@@ -8,7 +8,7 @@ useReveal()
 useWorldClassSEO({
   title: 'Press & Media | Chicago Magician Abby Segal on Penn & Teller: Fool Us',
   description: 'Chicago magician Abby Segal featured on Penn & Teller: Fool Us, Chicago Magic Lounge, and international magic performances. Press coverage, media appearances, and close-up magic reviews.',
-  
+
   // Media and authority-focused keywords with priority terms
   focusKeyphrases: [
     'Abby Segal Chicago Magic Lounge press',
@@ -32,25 +32,24 @@ useWorldClassSEO({
     'activities in Chicago magic performer',
     'private events Chicago magician press'
   ],
-  
+
   // Technical SEO
-  ogImage: '/assets/press/images/penn-teller-feature.webp',
+  ogImage: '/assets/press/images/parlour-magician-chicago-magic-lounge.webp',
   ogType: 'article',
   canonicalUrl: '/press',
   priority: 0.8,
   changeFreq: 'monthly',
-  
+
   // Performance optimization
   preloadImages: [
-    '/assets/press/images/penn-teller-feature.webp',
-    '/assets/press/images/chicago-magic-lounge.webp'
+    '/assets/press/images/parlour-magician-chicago-magic-lounge.webp'
   ],
   prefetchLinks: [
     '/shows',
     '/about',
     '/contact'
   ],
-  
+
   contentType: 'press'
 })
 
@@ -113,6 +112,9 @@ const features = [
   },
 ]
 
+const leadQuote = features[0]!
+const moreFeatures = features.slice(1)
+
 const pressLogos = [
   { name: 'Penn & Teller: Fool Us', outlet: 'CW' },
   { name: 'Lowell Sun', outlet: 'Print' },
@@ -130,14 +132,24 @@ const pressLogos = [
         <p class="heading-eyebrow reveal">Press & Media</p>
         <h1 class="heading-xl reveal reveal-delay-1">In the <em class="shimmer">spotlight.</em></h1>
         <p class="body-lg reveal reveal-delay-2" style="max-width: 560px;">
-          Featured on national television, covered in Chicago press,
-          and praised by some of the biggest names in magic.
+          Featured on national television and praised by some of the biggest names in magic.
         </p>
         <div class="divider reveal reveal-delay-3" />
       </div>
     </section>
 
-    <!-- Video Feature -->
+    <!-- Lead: Penn's quote -->
+    <section class="section press-lead-section">
+      <div class="container">
+        <blockquote class="press-lead reveal">
+          <p class="press-lead__quote">"<span v-html="leadQuote.quote"></span>"</p>
+          <p class="press-lead__source">— {{ leadQuote.source }}</p>
+          <p class="press-lead__context">{{ leadQuote.context }} · {{ leadQuote.year }}</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Fool Us video (relegated below the quote) -->
     <section class="section">
       <div class="container">
         <div class="video-feature reveal">
@@ -146,12 +158,10 @@ const pressLogos = [
           </div>
           <div class="video-feature__info">
             <p class="heading-eyebrow">Featured Performance</p>
-            <h2 class="heading-md">Penn & Teller: Fool Us</h2>
+            <h2 class="heading-md">Penn &amp; Teller: Fool Us</h2>
             <div class="divider" />
             <p class="body-md">
-              In 2021, Abby performed an original card trick on the CW's hit
-              magic competition show. Penn Jillette praised her style as
-              "humble and sweet, and still confident" - and she was 20 years old.
+              Abby performed original routines on the CW's hit magic competition show in <em class="shimmer">2021 and 2025</em>.
             </p>
             <a href="https://www.youtube.com/watch?v=yHC32hkzFrc" target="_blank" rel="noopener" class="btn" style="margin-top: 20px;">
               <span>Watch Full Performance</span>
@@ -178,7 +188,7 @@ const pressLogos = [
       <div class="press-photos__track">
         <img src="/assets/press/images/press-1.webp" alt="Close-up magician Chicago — Abby Segal performing card magic" loading="lazy" decoding="async" />
         <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="Parlour magician Chicago — Abby Segal on stage at Chicago Magic Lounge" loading="lazy" decoding="async" />
-        <img src="/assets/portraits/images/close-up-magician-chicago-abby-segal.webp" alt="Female magician in Chicago — Abby Segal 2024 portrait" loading="lazy" decoding="async" />
+        <img src="/assets/portraits/images/close-up-magician-chicago-abby-segal.webp" alt="Female magician in Chicago — Abby Segal portrait" loading="lazy" decoding="async" />
         <img src="/assets/press/images/press-prague.webp" alt="Abby Segal collage art gallery showcase in Prague" loading="lazy" decoding="async" />
         <img src="/assets/press/images/press-2.webp" alt="Wedding and corporate magician Chicago — Abby Segal performing at a private event" loading="lazy" decoding="async" />
         <img src="/assets/press/images/press-1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -199,10 +209,10 @@ const pressLogos = [
 
         <div class="press-quotes">
           <div
-            v-for="(f, i) in features"
+            v-for="(f, i) in moreFeatures"
             :key="i"
             class="press-quote card reveal"
-            :class="[`reveal-delay-${(i % 4) + 1}`, { 'press-quote--highlight': f.highlight }]"
+            :class="`reveal-delay-${(i % 4) + 1}`"
           >
             <p class="press-quote__text">"<span v-html="f.quote"></span>"</p>
             <div class="divider" />
@@ -222,9 +232,7 @@ const pressLogos = [
       <div class="container" style="text-align: center;">
         <h2 class="heading-lg reveal">Working on a <em>story?</em></h2>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 540px; margin: 16px auto 32px;">
-          Press inquiries, interview requests, high-res photos, and a full media kit
-          are available upon request. Abby loves talking about magic, psychology,
-          art, and breaking stereotypes.
+          Press inquiries, interview requests, high-res photos, and a full media kit available on request.
         </p>
         <router-link to="/contact" class="btn reveal reveal-delay-2"><span>Press Inquiries</span></router-link>
       </div>
@@ -236,13 +244,34 @@ const pressLogos = [
 .press-hero { padding-top: calc(var(--section-pad) + 80px); padding-bottom: 0; }
 .press-hero h1 em, h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 
+/* Lead Penn quote */
+.press-lead-section { padding-top: 64px; padding-bottom: 64px; }
+.press-lead { max-width: 860px; margin: 0 auto; text-align: center; }
+.press-lead__quote {
+  font-family: var(--font-display);
+  font-size: var(--text-subtitle);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ivory);
+  margin-bottom: 24px;
+}
+.press-lead__quote :deep(em) { font-style: normal; color: var(--gold); }
+.press-lead__source { font-weight: 600; font-size: var(--text-body-lg); color: var(--ivory); }
+.press-lead__context {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  margin-top: 6px;
+}
+
 .video-feature { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: center; }
 .video-feature__embed { aspect-ratio: 16/9; background: var(--ash); border: 1px solid var(--ember); overflow: hidden; }
 .video-feature__embed iframe { width: 100%; height: 100%; }
 
 .press-quotes { columns: 2; column-gap: 24px; }
 .press-quote { break-inside: avoid; margin-bottom: 24px; }
-.press-quote--highlight { border-color: rgba(141, 59, 120, 0.3); }
 .press-quote__text { font-family: var(--font-display); font-size: 17px; font-style: italic; font-weight: 400; line-height: 1.6; color: var(--ivory-dim); }
 .press-quote__meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .press-quote__source { font-weight: 600; font-size: var(--text-body-sm); color: var(--gold); }
@@ -303,5 +332,6 @@ const pressLogos = [
   .video-feature { grid-template-columns: 1fr; }
   .press-quotes { columns: 1; }
   .press-photos__track img { height: 180px; }
+  .press-lead__quote { font-size: var(--text-card-title); }
 }
 </style>
