@@ -3,7 +3,7 @@ export const NAV_LINKS = [
   { path: '/shows', label: 'Shows' },
   { path: '/press', label: 'Press' },
   { path: '/art', label: 'Art' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/contact', label: 'Book Abby' },
 ] as const
 
 export const PATH_LABELS: Record<string, string> = Object.fromEntries(
