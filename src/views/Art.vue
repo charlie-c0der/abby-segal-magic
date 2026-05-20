@@ -713,7 +713,6 @@ const artworks = [
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--ember);
   cursor: default;
 }
 

@@ -47,20 +47,20 @@
   --text-title: clamp(36px, 5vw, 64px);
   --text-subtitle: clamp(26px, 3vw, 40px);
   --text-card-title: clamp(20px, 2vw, 24px);
-  --text-eyebrow: 14px;
+  --text-eyebrow: 16px;
 
   /* Body — Montserrat */
   --text-body-lg: clamp(18px, 1.3vw, 21px);
   --text-body: 16px;
-  --text-body-sm: 14px;
+  --text-body-sm: 15px;
 
   /* UI */
-  --text-btn: 13px;
+  --text-btn: 14px;
   --text-nav: 13px;
   --text-stat: clamp(36px, 5vw, 56px);
   --text-stat-label: 13px;
   --text-ticker: 14px;
-  --text-micro: 12px;
+  --text-micro: 13px;
 
   /* Spacing */
   --section-pad: clamp(80px, 10vw, 140px);

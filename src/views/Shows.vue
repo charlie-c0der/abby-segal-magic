@@ -132,7 +132,6 @@ const shows = [
     duration: 'Customizable (20–60 min)',
     audience: '5–60 guests',
     description: 'A unique and intimate magic show performed at a table surrounded by guests — personal and interactive, where the magic happens right there in front of you. Imagine a fun magic show in the comfort of your own living room, or a surprise addition to your corporate event.',
-    experience: 'The rest of the room fades. For ten minutes, the table is its own little <em class="shimmer">planet</em>. Guests lean in. Phones come out. Someone asks if they can <em class="underline-sketch">keep a card</em>.',
     ideal: ['Private dinners', 'VIP corporate tables', 'Wedding sweetheart tables', 'Intimate receptions', 'Gallery openings'],
     videoMp4: '/assets/shows/close-up-30s.mp4',
     poster: '/assets/general/images/close-up-magician-chicago-performing.webp',
@@ -144,7 +143,6 @@ const shows = [
     duration: 'Customizable (30–60 min)',
     audience: 'Up to 80 guests',
     description: "A full interactive show where the audience is part of the performance. Volunteers come up. Impossible things happen. Predictions are revealed. It's theatrical, funny, and deeply personal — because Abby tailors every show to the room she's in. Debuted at the legendary Chicago Magic Lounge.",
-    experience: 'Think comedy show meets impossible magic meets <em class="shimmer">"how is this possible."</em> Everyone has <em class="underline-sketch">the best seat in the house</em> because the magic happens <em class="shimmer">WITH the audience</em>.',
     ideal: ['Theatre & comedy venues', 'Corporate keynotes', 'Fundraiser galas', 'School assemblies', 'Birthday celebrations'],
     videoMp4: '/assets/shows/parlour-30s.mp4',
     poster: '/assets/press/images/parlour-magician-chicago-magic-lounge.webp',
@@ -156,7 +154,6 @@ const shows = [
     duration: '30 min – 3+ hours',
     audience: '4–400 guests total',
     description: 'Abby moves throughout your event, creating unforgettable moments wherever guests gather. Perfect for cocktail parties, bar and bat mitzvahs, fundraisers, weddings, and corporate events. Designed to keep the energy high and the room engaged — every group gets personal, interactive magic that gives them something to talk about long after the event ends.',
-    experience: 'Guests pull their friends over. <em class="shimmer">"You HAVE to see what she just did."</em> The room hums louder as the night goes on.',
     ideal: ['Corporate cocktail hours', 'Wedding receptions', 'Trade shows & activations', 'Holiday parties', 'Product launches'],
     videoMp4: '/assets/shows/mingle-30s.mp4',
     poster: '/assets/press/images/press-2.webp',
@@ -261,7 +258,6 @@ onUnmounted(() => {
                 </div>
               </div>
               <p class="body-md">{{ show.description }}</p>
-              <p class="show-card__experience" v-html="show.experience"></p>
             </div>
             <div class="show-card__ideal">
               <p class="heading-eyebrow">Perfect for</p>
@@ -360,10 +356,6 @@ onUnmounted(() => {
 
 .show-card__meta { display: flex; gap: 48px; margin-bottom: 24px; }
 .show-card__meta-item p { font-size: var(--text-body-lg); font-weight: 500; margin-top: 4px; }
-.show-card__experience {
-  font-style: italic; color: var(--gold); font-size: var(--text-body); margin-top: 16px;
-  padding-top: 16px; border-top: 1px solid var(--ember);
-}
 .show-card__ideal ul { list-style: none; padding: 0; margin-top: 12px; }
 .show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: var(--text-body); color: var(--white-dim); }
 .show-card__ideal li::before { content: '✦ '; color: var(--gold); font-size: 10px; }

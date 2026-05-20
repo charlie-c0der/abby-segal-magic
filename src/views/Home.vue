@@ -95,22 +95,22 @@ const venueBrands = [
 
 const testimonials = [
   {
-    quote: 'Your style is so <em class="shimmer">humble and sweet</em>, and <em class="underline-sketch">still confident</em>.',
+    quote: 'Your style is so humble and sweet, and still confident.',
     author: 'Penn Jillette',
     context: 'Penn & Teller: Fool Us, CW',
   },
   {
-    quote: 'From minute one, <em class="underline-sketch">she pulled us in</em>. She was <em class="shimmer">very natural</em>, which is unusual for someone of her age. Very conversational and <em>just calming to watch</em>.',
+    quote: 'From minute one, she pulled us in. She was very natural, which is unusual for someone of her age. Very conversational and just calming to watch.',
     author: 'Evan Northrup',
     context: 'Professional Magician, quoted in Lowell Sun',
   },
   {
-    quote: 'She was <em class="shimmer">actually better than me</em> at the magic within three years. She would show me <em class="underline-sketch">better ways of doing things</em> I was trying to do.',
+    quote: 'She was actually better than me at the magic within three years. She would show me better ways of doing things I was trying to do.',
     author: 'David Penn',
     context: "Abby's first mentor, Patch.com",
   },
   {
-    quote: 'Abby Segal is a <em class="shimmer">rising young star</em> in magic. She has lectured at <em class="underline-sketch">Magifest</em> and is a featured performer at <em class="shimmer">The Chicago Magic Lounge</em>.',
+    quote: 'Abby Segal is a rising young star in magic. She has lectured at Magifest and is a featured performer at The Chicago Magic Lounge.',
     author: 'Penguin Magic Podcast',
     context: 'Season 6, Episode 16',
   },
@@ -202,10 +202,14 @@ onUnmounted(() => {
         </h1>
         <div class="divider hero__divider" />
         <p class="hero__subtitle body-lg">Indulge your senses in wonder.</p>
+        <p class="hero__tagline">Magician for Private Events &amp; Corporate Experiences</p>
         <div class="hero__actions">
           <button type="button" class="btn btn--filled magnetic glow-pulse" @click="scrollToBooking">
             <span>Book a Show</span>
           </button>
+          <router-link to="/press" class="btn magnetic-element">
+            <span>Watch Video</span>
+          </router-link>
         </div>
         <p class="hero__credibility">Seen on Penn &amp; Teller: Fool Us &nbsp;·&nbsp; House Magician at the Chicago Magic Lounge &nbsp;·&nbsp; Hollywood's Magic Castle</p>
       </div>
@@ -219,7 +223,7 @@ onUnmounted(() => {
     <!-- ━━━ 2. SOCIAL PROOF ━━━ -->
     <BrandWall
       eyebrow="Trusted by"
-      title="Booked by <em class=&quot;shimmer&quot; style=&quot;color: var(--gold);&quot;>teams that know the difference</em>."
+      title="In good <em class=&quot;shimmer&quot; style=&quot;color: var(--gold);&quot;>company</em>."
       :logos="corporateBrands"
     />
     <BrandWall
@@ -236,11 +240,11 @@ onUnmounted(() => {
           <p class="body-lg reveal reveal-delay-1">Abby Segal brings a modern approach to magic that feels personal, surprising, and impossible to forget. Her performances create moments of astonishment that pull people in and stay with them long after the event ends.</p>
           <p class="body-lg reveal reveal-delay-2">With over a decade of experience, appearances on Penn &amp; Teller: Fool Us, and performances at the Chicago Magic Lounge and venues worldwide, Abby brings originality and confidence to every room.</p>
           <p class="body-lg reveal reveal-delay-3">Whether performing for four guests or four hundred, Abby knows how to read a room, connect with people, and make your event unforgettable.</p>
-          <blockquote class="why-abby__quote reveal reveal-delay-4">"I'm drawn to the moment when something shifts — that <em class="shimmer">glimmer in someone's eyes</em> when they've been confronted by astonishment, and the uncertainty that fills our world."</blockquote>
+          <blockquote class="why-abby__quote reveal reveal-delay-4">"I'm drawn to the moment when something shifts — that glimmer in someone's eyes when they've been confronted by astonishment, and the uncertainty that fills our world."</blockquote>
         </div>
         <div class="why-abby__visual reveal">
           <div class="img-reveal">
-            <img src="/assets/general/images/close-up-magician-chicago-performing.webp" alt="Abby Segal performing close-up magic for a captivated audience in Chicago" loading="lazy" decoding="async" />
+            <img src="/assets/portraits/images/portrait.webp" alt="Abby Segal — Chicago magician, professional portrait" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -285,7 +289,7 @@ onUnmounted(() => {
           <div class="show-panel__number">01</div>
           <h3 class="show-panel__title">Close-Up<br>Magic</h3>
           <div class="divider" />
-          <p class="body-md">A unique and intimate magic show performed at a table surrounded by guests — personal and interactive, where the magic happens <em class="shimmer">right there in front of you</em>. Imagine a fun magic show in the comfort of your own living room, or a surprise addition to your corporate event.</p>
+          <p class="body-md">A unique and intimate magic show performed at a table surrounded by guests — personal and interactive, where the magic happens right there in front of you. Imagine a fun magic show in the comfort of your own living room, or a surprise addition to your corporate event.</p>
           <div class="show-panel__meta">
             <span>20–60 min</span>
             <span>5–60 guests</span>
@@ -296,7 +300,7 @@ onUnmounted(() => {
           <div class="show-panel__number">02</div>
           <h3 class="show-panel__title">Parlour<br>Show</h3>
           <div class="divider" />
-          <p class="body-md">A full interactive show where the audience is part of the performance. Volunteers come up. Impossible things happen. Predictions are revealed. It's theatrical, funny, and deeply personal — because Abby tailors every show to the room she's in. Debuted at the <em class="shimmer">legendary Chicago Magic Lounge</em>.</p>
+          <p class="body-md">A full interactive show where the audience is part of the performance. Volunteers come up. Impossible things happen. Predictions are revealed. It's theatrical, funny, and deeply personal — because Abby tailors every show to the room she's in. Debuted at the legendary Chicago Magic Lounge.</p>
           <div class="show-panel__meta">
             <span>30–60 min</span>
             <span>Up to 80 guests</span>
@@ -307,7 +311,7 @@ onUnmounted(() => {
           <div class="show-panel__number">03</div>
           <h3 class="show-panel__title">Mingle<br>Magic</h3>
           <div class="divider" />
-          <p class="body-md">Abby moves throughout your event, creating unforgettable moments wherever guests gather. Perfect for cocktail parties, bar and bat mitzvahs, fundraisers, weddings, and corporate events. Designed to keep the energy high and the room engaged — <em class="shimmer">every group gets personal, interactive magic</em>.</p>
+          <p class="body-md">Abby moves throughout your event, creating unforgettable moments wherever guests gather. Perfect for cocktail parties, bar and bat mitzvahs, fundraisers, weddings, and corporate events. Designed to keep the energy high and the room engaged — every group gets personal, interactive magic.</p>
           <div class="show-panel__meta">
             <span>30 min – 3+ hours</span>
             <span>4–400 guests total</span>
@@ -323,7 +327,9 @@ onUnmounted(() => {
     <!-- ━━━ 6. INLINE BOOKING ━━━ -->
     <section id="booking" class="section booking-section">
       <div class="container">
-        <BookingForm heading="Bring Abby to Your Event" submit-label="Request Availability" />
+        <p class="heading-eyebrow reveal" style="text-align: center;">Book Abby</p>
+        <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 40px;">Bring Abby to <em>Your Event</em>.</h2>
+        <BookingForm submit-label="Request Availability" />
       </div>
     </section>
 
@@ -364,7 +370,8 @@ onUnmounted(() => {
     <section class="section final-cta">
       <div class="container" style="text-align: center;">
         <h2 class="heading-lg reveal">Let's Make Your Event <em>Unforgettable.</em></h2>
-        <div class="final-cta__actions reveal reveal-delay-1">
+        <p class="body-lg reveal reveal-delay-1" style="max-width: 540px; margin: 16px auto 0; color: var(--ivory-dim);">Magic you'll remember long after the night is over.</p>
+        <div class="final-cta__actions reveal reveal-delay-2">
           <button type="button" class="btn btn--filled magnetic glow-pulse" @click="scrollToBooking">
             <span>Book a Show</span>
           </button>
@@ -454,13 +461,14 @@ onUnmounted(() => {
   padding-bottom: 8px;
 }
 .hero__divider { opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.4s forwards; }
-.hero__subtitle { max-width: 560px; margin-bottom: 40px; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.6s forwards; }
+.hero__subtitle { max-width: 560px; margin-bottom: 12px; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.6s forwards; }
+.hero__tagline { max-width: 560px; margin-bottom: 36px; font-family: var(--font-mono); font-size: var(--text-body-sm); letter-spacing: 0.06em; color: var(--ivory-dim); opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.75s forwards; }
 .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.9s forwards; }
 .hero__credibility {
   margin-top: 28px;
   font-family: var(--font-mono);
-  font-size: var(--text-micro);
-  letter-spacing: 0.1em;
+  font-size: var(--text-body-sm);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--white-muted);
   opacity: 0;
@@ -552,6 +560,7 @@ onUnmounted(() => {
 
 /* ── BOOKING ────────────────────────── */
 .booking-section { border-top: 1px solid var(--ember); }
+.booking-section h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
 .booking-section .booking-form { max-width: 720px; margin: 0 auto; }
 
 /* ── ART TEASER ─────────────────────── */

@@ -99,12 +99,10 @@ useWorldClassSEO({
 
           <h2 class="heading-md reveal reveal-delay-3" style="margin-top: 40px; margin-bottom: 24px;">Beyond the stage</h2>
 
-          <div class="about-bio__beyond reveal reveal-delay-3">
-            <img src="/assets/art/images/art-prague.webp" alt="Original collage by Abby Segal, exhibited at Berlinskej Model in Prague" loading="lazy" decoding="async" class="about-bio__art" />
-            <p class="body-lg">
-              Abby is also a <em class="shimmer">published author</em> — her children's book <em class="shimmer">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a visual artist whose collages and illustrations have been exhibited at <em class="shimmer">Berlinskej Model</em> in Prague. She's been featured on the Penguin Magic Podcast, lectured at Magifest, and teaches magic workshops for all ages.
-            </p>
-          </div>
+          <!-- TODO: add Chicago Magic Lounge watercolor (red curtain) image here when provided -->
+          <p class="body-lg reveal reveal-delay-3">
+            Abby is also a <em class="shimmer">published author</em> — her children's book <em class="shimmer">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a visual artist whose collages and illustrations have been exhibited at <em class="shimmer">Berlinskej Model</em> in Prague. She's been featured on the Penguin Magic Podcast, lectured at Magifest, and teaches magic workshops for all ages.
+          </p>
         </div>
       </div>
     </section>
@@ -150,19 +148,9 @@ useWorldClassSEO({
   transition: border-color 0.3s;
 }
 .about-bio__shows-link a:hover { border-color: var(--gold); }
-.about-bio__beyond { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: start; }
-.about-bio__art {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border: 1px solid var(--ember);
-  border-radius: var(--radius-md);
-}
 
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-portrait__frame { position: static; }
-  .about-bio__beyond { grid-template-columns: 1fr; gap: 16px; }
-  .about-bio__art { max-width: 240px; }
 }
 </style>
