@@ -478,7 +478,7 @@ onUnmounted(() => {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.hero__scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; z-index: 2; }
+.hero__scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: none; flex-direction: column; align-items: center; gap: 12px; z-index: 2; }
 .hero__scroll-text { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-muted); }
 .hero__scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2.5s ease-in-out infinite; }
 @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.5); } }
@@ -582,7 +582,6 @@ onUnmounted(() => {
   .hero__eyebrow { font-size: 12px; line-height: 1.5; margin-bottom: 20px; }
   .hero__title { font-size: clamp(34px, 11vw, 52px); }
   .hero__card { display: none; }
-  .hero__scroll-indicator { display: none; }
   .hero__actions { flex-direction: column; align-items: stretch; gap: 16px; }
   .hero__actions .btn { text-align: center; justify-content: center; }
 
