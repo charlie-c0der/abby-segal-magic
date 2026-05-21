@@ -153,6 +153,8 @@ useWorldClassSEO({
   width: 100%;
   border-radius: var(--radius-md);
   margin: 8px 0 24px;
+  border: 1px solid var(--ivory-ghost);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 768px) {
