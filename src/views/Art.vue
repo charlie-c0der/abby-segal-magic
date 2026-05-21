@@ -210,9 +210,9 @@ const artworks = [
         <h1 class="heading-xl reveal reveal-delay-1">The other <em class="shimmer">medium.</em></h1>
         <div class="divider reveal reveal-delay-2" />
         <p class="body-lg reveal reveal-delay-3" style="max-width: 600px;">
-          <em class="underline-sketch">Magic isn't Abby's only medium.</em> As a visual artist, she works in <em class="shimmer">collage,
-          mixed media, and illustration</em> - creating pieces that explore <em class="underline-sketch">perception, identity, and the magic hidden in plain sight</em>. Her work has been
-          exhibited at <em class="shimmer">Berlinskej Model in Prague</em>.
+          Magic isn't Abby's only medium. As a visual artist, she works in collage,
+          mixed media, and illustration - creating pieces that explore perception, identity, and the magic hidden in plain sight. Her work has been
+          exhibited at Berlinskej Model in Prague.
         </p>
       </div>
     </section>
@@ -266,7 +266,7 @@ const artworks = [
         <div class="published-header reveal">
           <h2 class="heading-md reveal reveal-delay-1">Published Works</h2>
           <p class="body-lg reveal reveal-delay-2">
-            <em class="shimmer">Shelly Shazam!</em> invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers <em class="underline-sketch">the magic in coming up with her own ideas</em>. Available on <em class="shimmer">Amazon</em>.
+            Shelly Shazam! invites young readers to explore their own imagination and creativity by interacting with the world around them. Join Shelly as she discovers the magic in coming up with her own ideas. Available on Amazon.
           </p>
           <a href="https://www.amazon.com/stores/author/B0C7NJG3JT/allbooks" target="_blank" rel="noopener" class="btn btn--filled reveal reveal-delay-3 magical-button">
             <span>View on Amazon</span>
