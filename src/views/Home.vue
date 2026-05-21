@@ -578,9 +578,11 @@ onUnmounted(() => {
 
 /* ── RESPONSIVE ─────────────────────── */
 @media (max-width: 768px) {
-  .hero__content { padding-top: 140px; }
-  .hero__eyebrow { line-height: 1.5; margin-bottom: 24px; }
+  .hero__content { padding-top: 120px; padding-bottom: 64px; }
+  .hero__eyebrow { font-size: 12px; line-height: 1.5; margin-bottom: 20px; }
+  .hero__title { font-size: clamp(34px, 11vw, 52px); }
   .hero__card { display: none; }
+  .hero__scroll-indicator { display: none; }
   .hero__actions { flex-direction: column; align-items: stretch; gap: 16px; }
   .hero__actions .btn { text-align: center; justify-content: center; }
 
