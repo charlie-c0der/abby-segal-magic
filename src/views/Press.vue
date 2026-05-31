@@ -187,7 +187,7 @@ const pressLogos = [
     <section class="press-photos">
       <div class="press-photos__track">
         <img src="/assets/press/images/press-1.webp" alt="Close-up magician Chicago — Abby Segal performing card magic" loading="lazy" decoding="async" />
-        <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="Parlour magician Chicago — Abby Segal on stage at Chicago Magic Lounge" loading="lazy" decoding="async" />
+        <img src="/assets/press/images/parlour-magician-chicago-magic-lounge.webp" alt="Stage magician Chicago — Abby Segal on stage at Chicago Magic Lounge" loading="lazy" decoding="async" />
         <img src="/assets/portraits/images/close-up-magician-chicago-abby-segal.webp" alt="Female magician in Chicago — Abby Segal portrait" loading="lazy" decoding="async" />
         <img src="/assets/press/images/press-prague.webp" alt="Abby Segal collage art gallery showcase in Prague" loading="lazy" decoding="async" />
         <img src="/assets/press/images/press-2.webp" alt="Wedding and corporate magician Chicago — Abby Segal performing at a private event" loading="lazy" decoding="async" />

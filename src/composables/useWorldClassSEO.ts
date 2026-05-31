@@ -91,7 +91,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
       '@id': `${baseUrl}/#website`,
       'url': baseUrl,
       'name': siteName,
-      'description': 'Chicago magician Abby Segal specializes in close-up magic, sleight of hand, and parlour performances for private events and corporate entertainment.',
+      'description': 'Chicago magician Abby Segal specializes in close-up magic, sleight of hand, and stage performances for private events and corporate entertainment.',
       'publisher': {
         '@id': `${baseUrl}/#person`
       },
@@ -112,7 +112,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
       'name': businessInfo.name,
       'url': baseUrl,
       'jobTitle': businessInfo.jobTitle,
-      'description': 'Professional magician and sleight of hand expert based in Chicago, specializing in close-up magic and parlour performances.',
+      'description': 'Professional magician and sleight of hand expert based in Chicago, specializing in close-up magic and stage performances.',
       'address': {
         '@type': 'PostalAddress',
         'addressLocality': 'Chicago',
@@ -128,7 +128,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
       'knowsAbout': [
         'Close-up Magic',
         'Sleight of Hand',
-        'Parlour Magic',
+        'Stage Magic',
         'Entertainment',
         'Corporate Events',
         'Private Parties'
@@ -247,7 +247,7 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
     const serviceKeywords = [
       'close-up magic for hire',
       'sleight of hand performer',
-      'parlour magic shows',
+      'stage magic shows',
       'corporate entertainment magician',
       'private party magic'
     ]
@@ -444,7 +444,7 @@ export function generateLocalBusinessSchema() {
           '@type': 'Offer',
           'itemOffered': {
             '@type': 'Service',
-            'name': 'Parlour Shows',
+            'name': 'Stage Shows',
             'description': 'Interactive stage magic for groups up to 80 people'
           }
         }

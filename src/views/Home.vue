@@ -5,6 +5,7 @@ import { useParticles } from '../composables/useParticles'
 import { useSplitText } from '../composables/useSplitText'
 import { useTilt } from '../composables/useTilt'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
+import { SHOW_FORMATS } from '../constants/shows'
 import HeroVideo from '../components/HeroVideo.vue'
 import BrandWall from '../components/BrandWall.vue'
 import BookingForm from '../components/BookingForm.vue'
@@ -20,7 +21,7 @@ useTilt('.tilt-card')
 // World-class SEO optimization
 useWorldClassSEO({
   title: 'Abby Segal — Chicago Magician | Close-Up Magic & Sleight of Hand Entertainment',
-  description: 'Chicago magician Abby Segal specializes in close-up magic, sleight of hand, and parlour performances for private events, corporate entertainment, and theatre. As seen on Penn & Teller: Fool Us.',
+  description: 'Chicago magician Abby Segal specializes in close-up magic, sleight of hand, and stage performances for private events, corporate entertainment, and theatre. As seen on Penn & Teller: Fool Us.',
 
   // Enhanced keyword targeting with priority keywords
   focusKeyphrases: [
@@ -285,36 +286,14 @@ onUnmounted(() => {
       <div class="shows-horizontal__track">
         <div class="shows-horizontal__spacer" />
 
-        <div class="show-panel tilt-card">
-          <div class="show-panel__number">01</div>
-          <h3 class="show-panel__title">Close-Up<br>Magic</h3>
+        <div v-for="show in SHOW_FORMATS" :key="show.number" class="show-panel tilt-card">
+          <div class="show-panel__number">{{ show.number }}</div>
+          <h3 class="show-panel__title">{{ show.title.split(' ')[0] }}<br>{{ show.title.split(' ').slice(1).join(' ') }}</h3>
           <div class="divider" />
-          <p class="body-md">A unique and intimate magic show performed at a table surrounded by guests — personal and interactive, where the magic happens right there in front of you. Imagine a fun magic show in the comfort of your own living room, or a surprise addition to your corporate event.</p>
+          <p class="body-md">{{ show.description }}</p>
           <div class="show-panel__meta">
-            <span>20–60 min</span>
-            <span>5–60 guests</span>
-          </div>
-        </div>
-
-        <div class="show-panel tilt-card">
-          <div class="show-panel__number">02</div>
-          <h3 class="show-panel__title">Parlour<br>Show</h3>
-          <div class="divider" />
-          <p class="body-md">A full interactive show where the audience is part of the performance. Volunteers come up. Impossible things happen. Predictions are revealed. It's theatrical, funny, and deeply personal — because Abby tailors every show to the room she's in. Debuted at the legendary Chicago Magic Lounge.</p>
-          <div class="show-panel__meta">
-            <span>30–60 min</span>
-            <span>Up to 80 guests</span>
-          </div>
-        </div>
-
-        <div class="show-panel tilt-card">
-          <div class="show-panel__number">03</div>
-          <h3 class="show-panel__title">Mingle<br>Magic</h3>
-          <div class="divider" />
-          <p class="body-md">Abby moves throughout your event, creating unforgettable moments wherever guests gather. Perfect for cocktail parties, bar and bat mitzvahs, fundraisers, weddings, and corporate events. Designed to keep the energy high and the room engaged — every group gets personal, interactive magic.</p>
-          <div class="show-panel__meta">
-            <span>30 min – 3+ hours</span>
-            <span>4–400 guests total</span>
+            <span>{{ show.durationShort }}</span>
+            <span>{{ show.audience }}</span>
           </div>
         </div>
 
