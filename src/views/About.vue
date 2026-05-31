@@ -101,7 +101,11 @@ useWorldClassSEO({
 
           <img src="/assets/art/images/art3.webp" alt="Watercolor of the Chicago Magic Lounge by Abby Segal — red stage curtain" loading="lazy" decoding="async" class="about-bio__art reveal reveal-delay-3" />
           <p class="body-lg reveal reveal-delay-3">
-            Abby is also a <em class="shimmer">published author</em> — her children's book <em class="shimmer">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a visual artist whose collages and illustrations have been exhibited at <em class="shimmer">Berlinskej Model</em> in Prague. She's been featured on the Penguin Magic Podcast, lectured at Magifest, and teaches magic workshops for all ages.
+            Abby is also a <em class="shimmer">published author</em> — her children's book <em class="shimmer">Shelly Shazam!</em> is sold on Amazon and at The Magic Castle in Hollywood. She's a visual artist whose collages and illustrations have been exhibited at <em class="shimmer">Berlinskej Model</em> in Prague and are on display at the <em class="shimmer">Andersonville Galleria</em> in Chicago. She's been featured on the Penguin Magic Podcast, lectured at Magifest, and teaches magic workshops for all ages.
+          </p>
+
+          <p class="body-md reveal reveal-delay-3 about-bio__shows-link">
+            <router-link to="/art">Explore Abby's visual art &rarr;</router-link>
           </p>
         </div>
       </div>
