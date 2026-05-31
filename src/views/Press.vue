@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
@@ -6,6 +7,18 @@ import LazyYouTube from '../components/LazyYouTube.vue'
 
 const route = useRoute()
 useReveal()
+
+// Home's "Watch Video" CTA deep-links to /press#fool-us. Lenis drives the page,
+// so the router's native hash scroll doesn't take — scroll to the reel ourselves.
+onMounted(() => {
+  if (route.hash !== '#fool-us') return
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const el = document.getElementById('fool-us')
+    if (!el) return
+    if (window.lenis) window.lenis.scrollTo(el, { offset: -80 })
+    else el.scrollIntoView({ behavior: 'smooth' })
+  }))
+})
 // World-class SEO for Press page (social proof & authority)
 useWorldClassSEO({
   title: 'Press & Media | Chicago Magician Abby Segal on Penn & Teller: Fool Us',
@@ -149,28 +162,16 @@ const pressLogos = [
       </div>
     </section>
 
-    <!-- Fool Us video (deep-link target for the home "Watch Video" CTA) -->
-    <section id="fool-us" class="section">
+    <!-- Video reel (deep-link target for the home "Watch Video" CTA) -->
+    <section id="fool-us" class="section video-reel">
       <div class="container">
-        <div class="video-feature reveal">
-          <div class="video-feature__embed">
-            <LazyYouTube
-              video-id="yHC32hkzFrc"
-              title="Abby Segal on Penn & Teller: Fool Us"
-              :autoplay="route.hash === '#fool-us'"
-            />
-          </div>
-          <div class="video-feature__info">
-            <p class="heading-eyebrow">Featured Performance</p>
-            <h2 class="heading-md">Penn &amp; Teller: Fool Us</h2>
-            <div class="divider" />
-            <p class="body-md">
-              Abby performed original routines on the CW's hit magic competition show in 2021 and 2025.
-            </p>
-            <a href="https://www.youtube.com/watch?v=yHC32hkzFrc" target="_blank" rel="noopener" class="btn" style="margin-top: 20px;">
-              <span>See the Reactions</span>
-            </a>
-          </div>
+        <p class="heading-eyebrow reveal text-center">Video Reel</p>
+        <div class="video-reel__embed reveal reveal-delay-1">
+          <LazyYouTube
+            video-id="yHC32hkzFrc"
+            title="Abby Segal performance reel"
+            :autoplay="route.hash === '#fool-us'"
+          />
         </div>
       </div>
     </section>
@@ -270,9 +271,7 @@ const pressLogos = [
   margin-top: 6px;
 }
 
-.video-feature { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: center; }
-.video-feature__embed { aspect-ratio: 16/9; background: var(--ash); border: 1px solid var(--ember); overflow: hidden; }
-.video-feature__embed iframe { width: 100%; height: 100%; }
+.video-reel__embed { max-width: 900px; margin: 24px auto 0; }
 
 .press-quotes { columns: 2; column-gap: 24px; }
 .press-quote { break-inside: avoid; margin-bottom: 24px; }
@@ -333,7 +332,6 @@ const pressLogos = [
 }
 
 @media (max-width: 768px) {
-  .video-feature { grid-template-columns: 1fr; }
   .press-quotes { columns: 1; }
   .press-photos__track img { height: 180px; }
   .press-lead__quote { font-size: var(--text-card-title); }
