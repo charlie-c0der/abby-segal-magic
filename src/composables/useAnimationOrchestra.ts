@@ -6,14 +6,12 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { usePageTransitions } from './usePageTransitions'
 import { useScrollMagic } from './useScrollMagic'
 import { useMicroInteractions } from './useMicroInteractions'
-import { useLoadingExperience } from './useLoadingExperience'
 import gsap from 'gsap'
 
 interface OrchestraConfig {
   enablePageTransitions: boolean
   enableScrollMagic: boolean
   enableMicroInteractions: boolean
-  enableLoadingExperience: boolean
   enablePerformanceOptimizations: boolean
   enableAccessibility: boolean
   debugMode: boolean
@@ -39,7 +37,6 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
     enablePageTransitions: true,
     enableScrollMagic: true,
     enableMicroInteractions: true,
-    enableLoadingExperience: true,
     enablePerformanceOptimizations: true,
     enableAccessibility: true,
     debugMode: false
@@ -51,19 +48,7 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
   const pageTransitions = settings.enablePageTransitions ? usePageTransitions() : null
   const scrollMagic = settings.enableScrollMagic ? useScrollMagic() : null
   const microInteractions = settings.enableMicroInteractions ? useMicroInteractions() : null
-  const loadingExperience = settings.enableLoadingExperience ? useLoadingExperience({
-    duration: 2500,
-    showProgress: true,
-    enableParticles: true,
-    customMessages: [
-      "Preparing the stage...",
-      "Shuffling the magic deck...",
-      "Setting up illusions...",
-      "Gathering enchantments...",
-      "Ready for the show!"
-    ]
-  }) : null
-  
+
   let performanceMonitor: number = 0
   let lastFrameTime = 0
   let frameCount = 0
@@ -80,7 +65,7 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
 
   async function initializeOrchestra() {
     if (isInitialized.value) return
-    
+
     console.warn('🎭 Initializing Animation Orchestra...')
     
     // Check performance capabilities
@@ -98,116 +83,20 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
       startPerformanceMonitoring()
     }
     
-    // Initialize core page experience
-    await initializePageExperience()
-    
     // Setup scroll-based storytelling
     if (scrollMagic) {
       initializeScrollExperience()
-    }
-    
-    // Add micro-interactions
-    if (microInteractions) {
-      initializeMicroInteractions()
-    }
-    
-    // Setup page transitions
-    if (pageTransitions) {
-      initializePageTransitions()
     }
     
     isInitialized.value = true
     console.warn('✨ Animation Orchestra ready!')
   }
 
-  async function initializePageExperience() {
-    // Wait for loading experience to complete
-    if (loadingExperience?.isLoading()) {
-      return new Promise<void>((resolve) => {
-        const checkLoading = () => {
-          if (!loadingExperience.isLoading()) {
-            resolve()
-          } else {
-            setTimeout(checkLoading, 100)
-          }
-        }
-        checkLoading()
-      })
-    }
-  }
-
   function initializeScrollExperience() {
     if (!scrollMagic) return
-    
-    // Hero section with cascade reveals
-    scrollMagic.createRevealPattern({
-      selector: '.hero .reveal',
-      pattern: 'cascade',
-      duration: 1.2,
-      stagger: 0.15
-    })
-    
-    // Text sections with typewriter effect
-    scrollMagic.createRevealPattern({
-      selector: '.typewriter',
-      pattern: 'typewriter',
-      duration: 0.05,
-      stagger: 0.03
-    })
-    
-    // Cards with wave animation
-    scrollMagic.createRevealPattern({
-      selector: '.show-card',
-      pattern: 'wave',
-      duration: 0.8,
-      stagger: 0.1
-    })
-    
-    // Parallax backgrounds
-    scrollMagic.createParallax('.parallax-bg', 0.3)
-    scrollMagic.createParallax('.parallax-element', 0.5)
-    
-    // Magnetic fields for special elements
-    scrollMagic.createMagneticField('.magnetic-element', 25)
-    
-    // Performance optimization
+
+    // Global ScrollTrigger config + reduced-motion fallback
     scrollMagic.initPerformanceMode()
-  }
-
-  function initializeMicroInteractions() {
-    if (!microInteractions) return
-    
-    // Get optimized settings based on device capabilities
-    const interactionConfig = microInteractions.optimizeForDevice()
-    
-    // Enhanced button interactions
-    microInteractions.addButtonInteractions('.btn, .button, button, [role="button"]', {
-      ...interactionConfig,
-      magneticStrength: 0.2,
-      hapticFeedback: true
-    })
-    
-    // Premium card interactions
-    microInteractions.addCardInteractions('.card, .show-card', 1.2)
-    
-    // Form enhancements
-    microInteractions.addInputInteractions('input, textarea, select')
-  }
-
-  function initializePageTransitions() {
-    if (!pageTransitions) return
-    
-    // Add magnetic effects to navigation
-    pageTransitions.addMagneticEffect('.nav-link, .menu-item', 0.3)
-    
-    // Enhanced reveal for page loads
-    const pageElements = document.querySelectorAll('main .reveal')
-    pageTransitions.magneticReveal(pageElements, {
-      duration: 1.0,
-      ease: "back.out(1.7)",
-      stagger: 0.1,
-      magneticStrength: 0.3
-    })
   }
 
   async function optimizeForDevice() {
@@ -223,9 +112,6 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
         force3D: false,
         nullTargetWarn: false
       })
-      
-      // Reduce particle count and effect complexity
-      settings.enableLoadingExperience = !isSlowConnection
       
       if (settings.debugMode) {
         console.warn('🔧 Optimizations applied for low-power device')
@@ -243,8 +129,7 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
       
       // Disable complex animations
       settings.enablePageTransitions = false
-      settings.enableLoadingExperience = false
-      
+
       if (settings.debugMode) {
         console.warn('♿ Reduced motion mode enabled')
       }
@@ -345,90 +230,12 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
     gsap.killTweensOf("*")
   }
 
-  // Public API for controlling the orchestra
-  function pauseAllAnimations() {
-    gsap.globalTimeline.pause()
-  }
-
-  function resumeAllAnimations() {
-    gsap.globalTimeline.resume()
-  }
-
-  function setAnimationSpeed(speed: number) {
-    gsap.globalTimeline.timeScale(speed)
-  }
-
-  // Advanced entrance animation for any element
-  function magicalEntrance(selector: string, pattern: 'cascade' | 'spiral' | 'magnetic' = 'cascade') {
-    const elements = document.querySelectorAll(selector)
-    if (!elements.length) return
-    
-    switch (pattern) {
-      case 'cascade':
-        gsap.fromTo(elements,
-          { opacity: 0, y: 60, scale: 0.9 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1.2,
-            stagger: 0.15,
-            ease: "back.out(1.7)"
-          }
-        )
-        break
-        
-      case 'spiral':
-        elements.forEach((el, i) => {
-          gsap.fromTo(el,
-            { opacity: 0, scale: 0, rotation: 180 },
-            {
-              opacity: 1,
-              scale: 1,
-              rotation: 0,
-              duration: 1.0,
-              delay: i * 0.1,
-              ease: "back.out(2)"
-            }
-          )
-        })
-        break
-        
-      case 'magnetic':
-        elements.forEach((el, i) => {
-          gsap.fromTo(el,
-            { 
-              opacity: 0, 
-              x: (i % 2 === 0 ? -100 : 100),
-              y: 30,
-              rotation: (i % 2 === 0 ? -15 : 15)
-            },
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              rotation: 0,
-              duration: 1.2,
-              delay: i * 0.1,
-              ease: "elastic.out(1, 0.6)"
-            }
-          )
-        })
-        break
-    }
-  }
-
   return {
     isInitialized,
     performanceMetrics,
     pageTransitions,
     scrollMagic,
     microInteractions,
-    loadingExperience,
-    pauseAllAnimations,
-    resumeAllAnimations,
-    setAnimationSpeed,
-    magicalEntrance,
     cleanup
   }
 }

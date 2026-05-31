@@ -28,7 +28,6 @@ useAnimationOrchestra({
   enablePageTransitions: true,
   enableScrollMagic: true,
   enableMicroInteractions: true,
-  enableLoadingExperience: false, // Keep existing preloader
   enablePerformanceOptimizations: true,
   enableAccessibility: true,
   debugMode: false

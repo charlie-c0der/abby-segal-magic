@@ -35,6 +35,11 @@
   --ivory-muted: rgba(237, 230, 218, 0.4);
   --ivory-ghost: rgba(237, 230, 218, 0.06);
 
+  /* Gallery / lightbox mat — shared framing for the grid + lightbox (Art) */
+  --mat-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%, rgba(20, 9, 31, 0.06) 100%);
+  --mat-keyline: rgba(22, 11, 34, 0.08);
+  --mat-art-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
+
   /* Type — geometric, precise, magical */
   --font-display: 'Playfair Display', 'Georgia', serif;
   --font-body: 'Montserrat', -apple-system, sans-serif;

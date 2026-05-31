@@ -87,54 +87,6 @@ export function usePageTransitions() {
     return overlay
   }
 
-  // Magnetic reveal animation for page entrance
-  function magneticReveal(elements: NodeListOf<Element> | Element[], config = defaultConfig) {
-    if (!elements.length) return
-    
-    elements.forEach((element, index) => {
-      const el = element as HTMLElement
-      
-      // Set initial state
-      gsap.set(el, { 
-        opacity: 0, 
-        y: 60,
-        scale: 0.9,
-        rotationX: 15,
-        transformOrigin: "center bottom"
-      })
-      
-      // Magnetic reveal with physics-based motion
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        rotationX: 0,
-        duration: config.duration,
-        delay: index * config.stagger,
-        ease: "back.out(1.7)",
-        onStart: () => {
-          // Add magnetic pull effect
-          const tl = gsap.timeline({ repeat: 1, yoyo: true })
-          tl.to(el, {
-            scale: 1.02,
-            duration: 0.1,
-            ease: "power2.inOut"
-          })
-        }
-      })
-      
-      // Subtle floating animation after reveal
-      gsap.to(el, {
-        y: -5,
-        duration: 2,
-        delay: (index * config.stagger) + config.duration,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true
-      })
-    })
-  }
-
   // Advanced morphing transition
   function morphTransition(_fromRoute: string, toRoute: string, config = defaultConfig) {
     return new Promise<void>((resolve) => {
@@ -159,10 +111,6 @@ export function usePageTransitions() {
             // Navigate to new route
             router.push(toRoute).then(() => {
               nextTick(() => {
-                // Reveal new page elements
-                const newElements = document.querySelectorAll('.reveal, [data-reveal]')
-                magneticReveal(newElements, config)
-                
                 // Fade out overlay
                 gsap.to(overlay, {
                   opacity: 0,
@@ -220,53 +168,9 @@ export function usePageTransitions() {
     })
   }
 
-  // Magnetic button interaction
-  function addMagneticEffect(selector: string, strength = 0.3) {
-    const elements = document.querySelectorAll(selector)
-    
-    elements.forEach(element => {
-      const el = element as HTMLElement
-      
-      el.addEventListener('mouseenter', () => {
-        gsap.to(el, {
-          scale: 1.05,
-          duration: 0.3,
-          ease: "back.out(1.7)"
-        })
-      })
-      
-      el.addEventListener('mouseleave', () => {
-        gsap.to(el, {
-          scale: 1,
-          x: 0,
-          y: 0,
-          duration: 0.5,
-          ease: "power3.out"
-        })
-      })
-      
-      el.addEventListener('mousemove', (e: MouseEvent) => {
-        const rect = el.getBoundingClientRect()
-        const centerX = rect.left + rect.width / 2
-        const centerY = rect.top + rect.height / 2
-        const deltaX = (e.clientX - centerX) * strength
-        const deltaY = (e.clientY - centerY) * strength
-        
-        gsap.to(el, {
-          x: deltaX,
-          y: deltaY,
-          duration: 0.3,
-          ease: "power3.out"
-        })
-      })
-    })
-  }
-
   return {
     isTransitioning,
     morphTransition,
-    magneticReveal,
-    scrollMorphTransition,
-    addMagneticEffect
+    scrollMorphTransition
   }
 }

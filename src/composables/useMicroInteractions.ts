@@ -41,7 +41,7 @@ export function useMicroInteractions() {
   // Premium button interactions with physics
   function addButtonInteractions(selector: string, config: InteractionConfig = {}) {
     const elements = document.querySelectorAll(selector)
-    
+
     const defaults: Required<InteractionConfig> = {
       scale: 1.05,
       duration: 0.3,
@@ -277,7 +277,7 @@ export function useMicroInteractions() {
   // Advanced hover effects for cards and images
   function addCardInteractions(selector: string, intensity = 1) {
     const cards = document.querySelectorAll(selector)
-    
+
     cards.forEach(card => {
       const el = card as HTMLElement
       let isHovered = false
@@ -371,7 +371,7 @@ export function useMicroInteractions() {
     // Wait for DOM to be ready
     setTimeout(() => {
       // Auto-detect and enhance interactive elements
-      addButtonInteractions('button, .btn, .button, [role="button"]')
+      addButtonInteractions('button, .btn, [role="button"]')
       addCardInteractions('.card, .show-card')
       addInputInteractions('input, textarea, select')
     }, 100)

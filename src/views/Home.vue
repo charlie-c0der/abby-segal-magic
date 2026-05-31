@@ -207,7 +207,7 @@ onUnmounted(() => {
           <button type="button" class="btn btn--filled magnetic glow-pulse" @click="scrollToBooking">
             <span>Book a Show</span>
           </button>
-          <router-link to="/press" class="btn magnetic-element">
+          <router-link to="/press" class="btn">
             <span>Watch Video</span>
           </router-link>
         </div>
@@ -319,7 +319,7 @@ onUnmounted(() => {
         </div>
 
         <div class="show-panel show-panel--cta">
-          <router-link to="/shows" class="btn btn--filled magnetic-element"><span>See Full Details →</span></router-link>
+          <router-link to="/shows" class="btn btn--filled"><span>See Full Details →</span></router-link>
         </div>
       </div>
     </section>
@@ -349,8 +349,8 @@ onUnmounted(() => {
           <img src="/assets/art/images/art3.webp" alt="Original collage artwork by Abby Segal" loading="lazy" />
         </div>
         <div class="art-teaser__actions reveal reveal-delay-3">
-          <router-link to="/art" class="btn btn--filled magnetic-element"><span>Shop Art</span></router-link>
-          <router-link to="/art" class="btn magnetic-element"><span>View Collection</span></router-link>
+          <router-link to="/art" class="btn btn--filled"><span>Shop Art</span></router-link>
+          <router-link to="/art" class="btn"><span>View Collection</span></router-link>
         </div>
       </div>
     </section>
@@ -362,7 +362,7 @@ onUnmounted(() => {
         <p class="body-lg reveal reveal-delay-1" style="max-width: 620px; margin: 16px auto 0;">
           Abby Segal is a Chicago-based magician and visual artist known for skillful close-up magic and original intimate performances.
         </p>
-        <router-link to="/about" class="btn reveal reveal-delay-2 magnetic-element about-blurb__cta"><span>Learn More</span></router-link>
+        <router-link to="/about" class="btn reveal reveal-delay-2 about-blurb__cta"><span>Learn More</span></router-link>
       </div>
     </section>
 

@@ -405,7 +405,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
 .gallery-piece__frame {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%, rgba(20, 9, 31, 0.06) 100%),
+    var(--mat-sheen),
     var(--ivory);
   padding: 20px;
   border-radius: 8px;
@@ -423,8 +423,8 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   z-index: 2;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(22, 11, 34, 0.08);
-  box-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
+  border: 1px solid var(--mat-keyline);
+  box-shadow: var(--mat-art-shadow);
 }
 
 .gallery-piece__image img {
@@ -647,7 +647,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
 .artwork-frame {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%, rgba(20, 9, 31, 0.06) 100%),
+    var(--mat-sheen),
     var(--ivory);
   padding: 2rem;
   border-radius: 8px;
@@ -678,8 +678,8 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   max-height: 60vh;
   object-fit: contain;
   border-radius: 4px;
-  border: 1px solid rgba(22, 11, 34, 0.08);
-  box-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
+  border: 1px solid var(--mat-keyline);
+  box-shadow: var(--mat-art-shadow);
   cursor: default;
   opacity: 1;
   transition: opacity 0.35s ease;
