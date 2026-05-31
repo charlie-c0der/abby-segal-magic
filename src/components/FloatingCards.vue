@@ -5,6 +5,7 @@
  * Reacts to scroll position with parallax depth.
  */
 import { onMounted, onUnmounted, ref } from 'vue'
+import { isTouchDevice, prefersReducedMotion } from '../composables/useDeviceCapabilities'
 
 interface FloatingCard {
   id: number
@@ -47,10 +48,8 @@ function onScroll() {
 }
 
 onMounted(() => {
-  // Skip on mobile / touch - saves GPU
-  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return
-  // Skip if user prefers reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  // Skip on mobile/touch (saves GPU) or when reduced motion is requested
+  if (isTouchDevice() || prefersReducedMotion()) return
 
   cards.value = generateCards()
   window.addEventListener('scroll', onScroll, { passive: true })

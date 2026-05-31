@@ -143,7 +143,7 @@ useSEO({
 }
 
 .not-found p {
-  color: var(--white-dim);
+  color: var(--ivory-dim);
   max-width: 500px;
   margin: 0 auto 3rem;
 }
@@ -173,7 +173,7 @@ useSEO({
 }
 
 .link-grid a {
-  color: var(--white-dim);
+  color: var(--ivory-dim);
   text-decoration: none;
   padding: 0.5rem 1rem;
   border: 1px solid var(--ember);

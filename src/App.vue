@@ -23,15 +23,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const { cursorX, cursorY, cursorScale, cursorVisible } = useMagicCursor()
-// Initialize world-class animation system
-useAnimationOrchestra({
-  enablePageTransitions: true,
-  enableScrollMagic: true,
-  enableMicroInteractions: true,
-  enablePerformanceOptimizations: true,
-  enableAccessibility: true,
-  debugMode: false
-})
+// Global animation setup (ScrollTrigger config + reduced-motion handling)
+useAnimationOrchestra()
 
 const showPreloader = ref(true)
 const siteReady = ref(false)

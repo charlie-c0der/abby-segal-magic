@@ -165,7 +165,7 @@ onUnmounted(() => {
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--white-dim);
+  color: var(--ivory-dim);
   transition: color 0.3s;
   position: relative;
 }
@@ -240,7 +240,7 @@ onUnmounted(() => {
 .nav__mobile-link {
   font-family: var(--font-display);
   font-size: var(--text-card-title);
-  color: var(--white-dim);
+  color: var(--ivory-dim);
   cursor: pointer;
   transition: color 0.3s;
   padding: 12px 24px;

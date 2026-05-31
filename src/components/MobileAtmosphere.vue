@@ -4,6 +4,7 @@
  * Creates subtle magical atmosphere optimized for touch devices
  */
 import { onMounted, onUnmounted, ref } from 'vue'
+import { isTouchDevice, prefersReducedMotion } from '../composables/useDeviceCapabilities'
 
 const scrollY = ref(0)
 const isVisible = ref(false)
@@ -13,13 +14,9 @@ function onScroll() {
 }
 
 onMounted(() => {
-  // Only show on mobile/touch devices
-  const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-  if (!isMobile) return
-  
-  // Respect reduced motion preference
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-  
+  // Mobile/touch only, and never when reduced motion is requested
+  if (!isTouchDevice() || prefersReducedMotion()) return
+
   isVisible.value = true
   window.addEventListener('scroll', onScroll, { passive: true })
 })

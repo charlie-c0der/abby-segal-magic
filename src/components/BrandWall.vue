@@ -8,7 +8,6 @@ interface Logo {
 
 defineProps<{
   eyebrow: string
-  title: string
   logos: Logo[]
   columns?: number
 }>()
@@ -18,7 +17,7 @@ defineProps<{
   <section class="brand-wall section">
     <div class="container">
       <p class="heading-eyebrow reveal brand-wall__eyebrow">{{ eyebrow }}</p>
-      <h2 class="heading-lg reveal reveal-delay-1 brand-wall__title" v-html="title"></h2>
+      <h2 class="heading-lg reveal reveal-delay-1 brand-wall__title"><slot name="title" /></h2>
       <ul
         class="brand-wall__grid reveal reveal-delay-2"
         :style="{ '--brand-cols': columns ?? logos.length }"
@@ -56,6 +55,7 @@ defineProps<{
   margin-bottom: 48px;
   color: var(--ivory);
 }
+.brand-wall__title em { color: var(--gold); font-style: normal; }
 .brand-wall__grid {
   list-style: none;
   padding: 0;

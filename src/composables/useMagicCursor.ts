@@ -5,6 +5,7 @@
  */
 import { onMounted, onUnmounted, ref } from 'vue'
 import { getThemeColors } from '../utils/colors'
+import { isTouchDevice } from './useDeviceCapabilities'
 
 interface Particle {
   x: number
@@ -112,7 +113,7 @@ export function useMagicCursor() {
 
   onMounted(() => {
     // Skip custom cursor on touch devices - saves GPU & battery
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    if (isTouchDevice()) {
       return
     }
 

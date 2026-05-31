@@ -461,19 +461,19 @@ h1, h2, h3, h4 {
   50% { box-shadow: 0 0 24px 4px rgba(141, 59, 120, 0.12); }
 }
 
-/* ── Performance Hints ────────────────── */
-.section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
-}
+/* ── Utilities ────────────────────────── */
+.text-center { text-align: center; }
 
+/* ── Performance Hints ────────────────── */
+/* will-change only on elements that transform during interaction/scroll. The
+   marquee/ticker are intentionally excluded — a running CSS animation already
+   gets its own compositor layer, and reduced-motion stops them entirely, so a
+   persistent layer would just pin GPU memory for nothing. */
 .hero__card,
 .hero__title,
 .hero__subtitle,
 .custom-cursor,
 .custom-cursor--dot,
-.ticker__track,
-.press-photos__track,
 .fcard {
   will-change: transform;
 }
@@ -743,7 +743,7 @@ html.lenis, html.lenis body {
   max-width: 600px;
   color: var(--ivory-dim);
   line-height: 1.6;
-  font-size: var(--text-lg);
+  font-size: var(--text-body-lg);
   margin-bottom: 2rem;
 }
 
@@ -804,7 +804,7 @@ html.lenis, html.lenis body {
 }
 
 .strategic-cta__text {
-  font-size: var(--text-lg);
+  font-size: var(--text-body-lg);
   color: var(--ivory-dim);
   margin-bottom: 1.5rem;
   font-weight: 500;

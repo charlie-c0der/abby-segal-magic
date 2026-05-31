@@ -43,8 +43,6 @@ useWorldClassSEO({
   ogImage: '/assets/general/images/close-up-magician-chicago-performing.webp',
   ogType: 'article',
   canonicalUrl: '/shows',
-  priority: 1.0,
-  changeFreq: 'monthly',
 
   // Performance optimization
   preloadImages: [
@@ -187,11 +185,10 @@ onUnmounted(() => {
               v-if="!videoFailed[show.number]"
               ref="videoRefs"
               :poster="show.poster"
-              autoplay
               loop
               muted
               playsinline
-              preload="metadata"
+              preload="none"
               :aria-label="`${show.title} performance video`"
             >
               <source :src="show.videoMp4" type="video/mp4" @error="onVideoError(show.number)" />
@@ -324,7 +321,7 @@ onUnmounted(() => {
 .show-card__meta { display: flex; gap: 48px; margin-bottom: 24px; }
 .show-card__meta-item p { font-size: var(--text-body-lg); font-weight: 500; margin-top: 4px; }
 .show-card__ideal ul { list-style: none; padding: 0; margin-top: 12px; }
-.show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: var(--text-body); color: var(--white-dim); }
+.show-card__ideal li { padding: 8px 0; border-bottom: 1px solid var(--ember); font-size: var(--text-body); color: var(--ivory-dim); }
 .show-card__ideal li::before { content: '✦ '; color: var(--gold); font-size: 10px; }
 
 @media (max-width: 1100px) {

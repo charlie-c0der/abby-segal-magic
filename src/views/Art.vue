@@ -34,8 +34,6 @@ useWorldClassSEO({
   ogImage: '/assets/art/images/art-collage-1.webp',
   ogType: 'article',
   canonicalUrl: '/art',
-  priority: 0.7,
-  changeFreq: 'monthly',
 
   // Performance optimization
   prefetchLinks: [

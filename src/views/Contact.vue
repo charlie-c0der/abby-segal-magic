@@ -38,8 +38,6 @@ useWorldClassSEO({
   ogImage: '/assets/general/images/close-up-magician-chicago-performing.webp',
   ogType: 'website',
   canonicalUrl: '/contact',
-  priority: 0.9,
-  changeFreq: 'monthly',
 
   // Performance optimization
   prefetchLinks: [
@@ -142,7 +140,7 @@ useWorldClassSEO({
 }
 .contact-info__socials a {
   font-size: var(--text-body-sm);
-  color: var(--white-dim);
+  color: var(--ivory-dim);
   transition: color 0.3s;
 }
 .contact-info__socials a:hover { color: var(--gold); }

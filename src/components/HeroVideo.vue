@@ -1,23 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { prefersReducedMotion, isSlowConnection } from '../composables/useDeviceCapabilities'
 
 const videoRef = ref<HTMLVideoElement | null>(null)
 const showVideo = ref(false)
-
-function prefersReducedMotion(): boolean {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
-
-function isSlowConnection(): boolean {
-  type NavigatorWithConnection = Navigator & {
-    connection?: { effectiveType?: string; saveData?: boolean }
-  }
-  const conn = (navigator as NavigatorWithConnection).connection
-  if (!conn) return false
-  if (conn.saveData) return true
-  const slow = ['slow-2g', '2g', '3g']
-  return !!conn.effectiveType && slow.includes(conn.effectiveType)
-}
 
 function handlePlayFailure() {
   // Autoplay was blocked — keep poster visible, hide video

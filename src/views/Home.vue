@@ -58,8 +58,6 @@ useWorldClassSEO({
   ogType: 'website',
   twitterCard: 'summary_large_image',
   canonicalUrl: '/',
-  priority: 1.0,
-  changeFreq: 'weekly',
 
   // Performance optimization
   preloadImages: [
@@ -129,7 +127,11 @@ const featuredReaction = testimonials[0]!
 const otherReactions = testimonials.slice(1)
 
 function scrollToBooking() {
-  document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+  const target = document.getElementById('booking')
+  if (!target) return
+  // Route through Lenis so ScrollTrigger stays in sync (native scrollIntoView bypasses it)
+  if (window.lenis) window.lenis.scrollTo(target)
+  else target.scrollIntoView({ behavior: 'smooth' })
 }
 
 onMounted(async () => {
@@ -258,7 +260,7 @@ onUnmounted(() => {
           <button type="button" class="btn btn--filled magnetic glow-pulse" @click="scrollToBooking">
             <span>Book a Show</span>
           </button>
-          <router-link to="/press" class="btn">
+          <router-link to="/press#fool-us" class="btn">
             <span>Watch Video</span>
           </router-link>
         </div>
@@ -272,16 +274,12 @@ onUnmounted(() => {
     </section>
 
     <!-- ━━━ 2. SOCIAL PROOF ━━━ -->
-    <BrandWall
-      eyebrow="Trusted by"
-      title="In good <em class=&quot;shimmer&quot; style=&quot;color: var(--gold);&quot;>company</em>."
-      :logos="corporateBrands"
-    />
-    <BrandWall
-      eyebrow="As seen at"
-      title="Venues and <em class=&quot;shimmer&quot; style=&quot;color: var(--gold);&quot;>industry stages</em>."
-      :logos="venueBrands"
-    />
+    <BrandWall eyebrow="Trusted by" :logos="corporateBrands">
+      <template #title>In good <em class="shimmer">company</em>.</template>
+    </BrandWall>
+    <BrandWall eyebrow="As seen at" :logos="venueBrands">
+      <template #title>Venues and <em class="shimmer">industry stages</em>.</template>
+    </BrandWall>
 
     <!-- ━━━ 3. WHY ABBY ━━━ -->
     <section class="section why-abby">
@@ -304,20 +302,20 @@ onUnmounted(() => {
     <!-- ━━━ 4. REAL REACTIONS ━━━ -->
     <section class="section reactions-section">
       <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Real Reactions</p>
+        <p class="heading-eyebrow reveal text-center">Real Reactions</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 48px;">
           Don't take <em>our word</em> for it.
         </h2>
 
         <blockquote class="reactions__featured reveal reveal-delay-1">
-          <p class="reactions__featured-quote">"<span v-html="featuredReaction.quote"></span>"</p>
+          <p class="reactions__featured-quote">"{{ featuredReaction.quote }}"</p>
           <p class="testimonial__author">{{ featuredReaction.author }}</p>
           <p class="testimonial__context">{{ featuredReaction.context }}</p>
         </blockquote>
 
         <div class="testimonials-row">
           <div v-for="(t, i) in otherReactions" :key="i" class="card reveal" :class="`reveal-delay-${i + 1}`">
-            <p class="testimonial__quote">"<span v-html="t.quote"></span>"</p>
+            <p class="testimonial__quote">"{{ t.quote }}"</p>
             <div class="divider" />
             <p class="testimonial__author">{{ t.author }}</p>
             <p v-if="t.context" class="testimonial__context">{{ t.context }}</p>
@@ -369,7 +367,7 @@ onUnmounted(() => {
     <!-- ━━━ 6. INLINE BOOKING ━━━ -->
     <section id="booking" class="section booking-section">
       <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Book Abby</p>
+        <p class="heading-eyebrow reveal text-center">Book Abby</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 40px;">Bring Abby to <em>Your Event</em>.</h2>
         <BookingForm submit-label="Request Availability" />
       </div>
@@ -378,7 +376,7 @@ onUnmounted(() => {
     <!-- ━━━ 7. ART TEASER ━━━ -->
     <section class="section art-teaser">
       <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">Collect Abby</p>
+        <p class="heading-eyebrow reveal text-center">Collect Abby</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center;">
           Own a <em>Piece</em> of the Magic.
         </h2>
@@ -399,7 +397,7 @@ onUnmounted(() => {
 
     <!-- ━━━ 8. SHORT ABOUT ━━━ -->
     <section class="section about-blurb">
-      <div class="container" style="text-align: center;">
+      <div class="container text-center">
         <p class="heading-eyebrow reveal">About</p>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 620px; margin: 16px auto 0;">
           Abby Segal is a Chicago-based magician and visual artist known for skillful close-up magic and original intimate performances.
@@ -410,7 +408,7 @@ onUnmounted(() => {
 
     <!-- ━━━ 9. FINAL CTA ━━━ -->
     <section class="section final-cta">
-      <div class="container" style="text-align: center;">
+      <div class="container text-center">
         <h2 class="heading-lg reveal">Let's Make Your Event <em>Unforgettable.</em></h2>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 540px; margin: 16px auto 0; color: var(--ivory-dim);">Magic you'll remember long after the night is over.</p>
         <div class="final-cta__actions reveal reveal-delay-2">
@@ -512,7 +510,7 @@ onUnmounted(() => {
   font-size: var(--text-body-sm);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--white-muted);
+  color: var(--ivory-muted);
   opacity: 0;
   animation: fadeSlideIn 0.6s var(--ease-out) 2.1s forwards;
 }
@@ -521,7 +519,7 @@ onUnmounted(() => {
   to { opacity: 1; transform: translateY(0); }
 }
 .hero__scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: none; flex-direction: column; align-items: center; gap: 12px; z-index: 2; }
-.hero__scroll-text { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-muted); }
+.hero__scroll-text { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory-muted); }
 .hero__scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2.5s ease-in-out infinite; }
 @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.5); } }
 

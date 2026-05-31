@@ -20,9 +20,7 @@ interface AdvancedSEOData {
   // Technical
   canonicalUrl?: string
   robots?: string
-  priority?: number
-  changeFreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
-  
+
   // Structured Data
   jsonLd?: Record<string, unknown> | Record<string, unknown>[]
   breadcrumbs?: Array<{ name: string; url: string }>
@@ -53,8 +51,9 @@ const businessInfo = {
   phone: '',
   email: 'hello@abbysegalmagic.com',
   socialProfiles: [
-    'https://www.instagram.com/abbysegalmagic',
-    'https://www.facebook.com/abbysegalmagic'
+    'https://www.instagram.com/abbysegalmagic/',
+    'https://www.youtube.com/channel/UC9IvIVvbBis47CZWKV7tjLg',
+    'https://www.facebook.com/abbysegalmagic/'
   ]
 }
 
@@ -231,30 +230,6 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
     })
   }
 
-  // Advanced keyword optimization
-  function generateSemanticKeywords(focusKeyphrases: string[], semanticKeywords: string[]) {
-    const allKeywords = [...focusKeyphrases, ...semanticKeywords]
-    
-    // Add location-based keywords
-    const locationKeywords = [
-      'Chicago magician',
-      'Illinois entertainment',
-      'Midwest magic shows',
-      'Chicago corporate events'
-    ]
-    
-    // Add service-specific long-tail keywords
-    const serviceKeywords = [
-      'close-up magic for hire',
-      'sleight of hand performer',
-      'stage magic shows',
-      'corporate entertainment magician',
-      'private party magic'
-    ]
-    
-    return [...allKeywords, ...locationKeywords, ...serviceKeywords].join(', ')
-  }
-
   // Enhanced social media optimization
   function optimizeSocialMedia() {
     const socialMeta = {
@@ -323,15 +298,6 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
       updateMeta('twitter:description', data.description)
     }
 
-    // Enhanced keyword handling
-    if (data.focusKeyphrases || data.semanticKeywords) {
-      const keywords = generateSemanticKeywords(
-        data.focusKeyphrases || [],
-        data.semanticKeywords || []
-      )
-      updateMeta('keywords', keywords)
-    }
-
     // Canonical URL
     if (data.canonicalUrl) {
       updateCanonical(data.canonicalUrl)
@@ -344,8 +310,6 @@ export function useWorldClassSEO(data: AdvancedSEOData) {
     if (data.ogImage) {
       updateMeta('og:image', data.ogImage.startsWith('http') ? data.ogImage : `${baseUrl}${data.ogImage}`, true)
       updateMeta('twitter:image', data.ogImage.startsWith('http') ? data.ogImage : `${baseUrl}${data.ogImage}`)
-      updateMeta('og:image:width', '1200', true)
-      updateMeta('og:image:height', '630', true)
       updateMeta('og:image:alt', data.title || 'Abby Segal Magic', true)
     }
 
@@ -449,13 +413,6 @@ export function generateLocalBusinessSchema() {
           }
         }
       ]
-    },
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': '5',
-      'reviewCount': '47',
-      'bestRating': '5',
-      'worstRating': '1'
     }
   }
 }

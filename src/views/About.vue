@@ -38,8 +38,6 @@ useWorldClassSEO({
   ogImage: '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
   ogType: 'profile',
   canonicalUrl: '/about',
-  priority: 0.9,
-  changeFreq: 'monthly',
 
   // Performance optimization
   preloadImages: [

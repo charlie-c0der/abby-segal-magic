@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
 import LazyYouTube from '../components/LazyYouTube.vue'
 
+const route = useRoute()
 useReveal()
 // World-class SEO for Press page (social proof & authority)
 useWorldClassSEO({
@@ -37,8 +39,6 @@ useWorldClassSEO({
   ogImage: '/assets/press/images/parlour-magician-chicago-magic-lounge.webp',
   ogType: 'article',
   canonicalUrl: '/press',
-  priority: 0.8,
-  changeFreq: 'monthly',
 
   // Performance optimization
   preloadImages: [
@@ -142,19 +142,23 @@ const pressLogos = [
     <section class="section press-lead-section">
       <div class="container">
         <blockquote class="press-lead reveal">
-          <p class="press-lead__quote">"<span v-html="leadQuote.quote"></span>"</p>
+          <p class="press-lead__quote">"{{ leadQuote.quote }}"</p>
           <p class="press-lead__source">— {{ leadQuote.source }}</p>
           <p class="press-lead__context">{{ leadQuote.context }} · {{ leadQuote.year }}</p>
         </blockquote>
       </div>
     </section>
 
-    <!-- Fool Us video (relegated below the quote) -->
-    <section class="section">
+    <!-- Fool Us video (deep-link target for the home "Watch Video" CTA) -->
+    <section id="fool-us" class="section">
       <div class="container">
         <div class="video-feature reveal">
           <div class="video-feature__embed">
-            <LazyYouTube video-id="yHC32hkzFrc" title="Abby Segal on Penn & Teller: Fool Us" />
+            <LazyYouTube
+              video-id="yHC32hkzFrc"
+              title="Abby Segal on Penn & Teller: Fool Us"
+              :autoplay="route.hash === '#fool-us'"
+            />
           </div>
           <div class="video-feature__info">
             <p class="heading-eyebrow">Featured Performance</p>
@@ -202,7 +206,7 @@ const pressLogos = [
     <!-- Press Quotes -->
     <section class="section" style="background: var(--obsidian); border-top: 1px solid var(--ember);">
       <div class="container">
-        <p class="heading-eyebrow reveal" style="text-align: center;">In their words</p>
+        <p class="heading-eyebrow reveal text-center">In their words</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center; margin-bottom: 60px;">
           Press <em>features.</em>
         </h2>
@@ -214,7 +218,7 @@ const pressLogos = [
             class="press-quote card reveal"
             :class="`reveal-delay-${(i % 4) + 1}`"
           >
-            <p class="press-quote__text">"<span v-html="f.quote"></span>"</p>
+            <p class="press-quote__text">"{{ f.quote }}"</p>
             <div class="divider" />
             <div class="press-quote__meta">
               <span class="press-quote__source">{{ f.source }}</span>
@@ -229,7 +233,7 @@ const pressLogos = [
 
     <!-- Media Kit -->
     <section class="section">
-      <div class="container" style="text-align: center;">
+      <div class="container text-center">
         <h2 class="heading-lg reveal">Working on a <em>story?</em></h2>
         <p class="body-lg reveal reveal-delay-1" style="max-width: 540px; margin: 16px auto 32px;">
           Press inquiries, interview requests, high-res photos, and a full media kit available on request.
@@ -262,7 +266,7 @@ const pressLogos = [
   font-size: var(--text-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--white-muted);
+  color: var(--ivory-muted);
   margin-top: 6px;
 }
 
@@ -275,8 +279,8 @@ const pressLogos = [
 .press-quote__text { font-family: var(--font-display); font-size: 17px; font-style: italic; font-weight: 400; line-height: 1.6; color: var(--ivory-dim); }
 .press-quote__meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .press-quote__source { font-weight: 600; font-size: var(--text-body-sm); color: var(--gold); }
-.press-quote__context { font-size: var(--text-btn); color: var(--white-muted); }
-.press-quote__year { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--white-muted); }
+.press-quote__context { font-size: var(--text-btn); color: var(--ivory-muted); }
+.press-quote__year { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--ivory-muted); }
 
 /* Press Photos Strip */
 .press-photos { overflow: hidden; border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
@@ -325,7 +329,7 @@ const pressLogos = [
   font-size: var(--text-micro);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--white-muted);
+  color: var(--ivory-muted);
 }
 
 @media (max-width: 768px) {

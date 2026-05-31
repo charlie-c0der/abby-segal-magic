@@ -14,6 +14,7 @@ const form = ref({
   eventType: '',
   guestCount: '',
   message: '',
+  honeypot: '', // spam trap — must stay empty for real users
 })
 
 const submitted = ref(false)
@@ -21,6 +22,11 @@ const submitting = ref(false)
 const errorMessage = ref('')
 
 async function handleSubmit() {
+  // Bots fill the hidden honeypot — silently "succeed" without sending.
+  if (form.value.honeypot) {
+    submitted.value = true
+    return
+  }
   submitting.value = true
 
   try {
@@ -38,6 +44,7 @@ async function handleSubmit() {
         guestCount: form.value.guestCount,
         message: form.value.message,
         subject: `Magic Booking Inquiry from ${form.value.name}`,
+        _gotcha: form.value.honeypot,
       }),
     })
 
@@ -73,6 +80,16 @@ const eventTypes = [
     <h2 v-if="heading" class="heading-md booking-form__heading">{{ heading }}</h2>
     <transition name="fade" mode="out-in">
       <form v-if="!submitted" @submit.prevent="handleSubmit" class="form">
+        <!-- Honeypot: off-screen, not tabbable — only bots fill it -->
+        <input
+          v-model="form.honeypot"
+          type="text"
+          name="_gotcha"
+          class="form-hp"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
         <fieldset :disabled="submitting" class="form-fieldset">
           <div class="form-row">
             <div class="form-group">
@@ -144,6 +161,7 @@ const eventTypes = [
 .booking-form__heading { margin-bottom: 24px; }
 
 .form { display: flex; flex-direction: column; gap: 20px; }
+.form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-fieldset {
   border: none;
   padding: 0;
@@ -172,7 +190,7 @@ const eventTypes = [
   font-size: var(--text-micro);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--white-muted);
+  color: var(--ivory-muted);
 }
 .form-group input,
 .form-group select,
@@ -196,10 +214,10 @@ const eventTypes = [
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--white-muted);
+  color: var(--ivory-muted);
 }
 .form-group select {
-  color: var(--white-dim);
+  color: var(--ivory-dim);
 }
 .form-group textarea {
   resize: vertical;

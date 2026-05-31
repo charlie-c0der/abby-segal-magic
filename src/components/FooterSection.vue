@@ -96,7 +96,7 @@ const socials = SOCIAL_LINKS_ARRAY
 }
 .footer__links a {
   font-size: var(--text-btn);
-  color: var(--white-muted);
+  color: var(--ivory-muted);
   transition: color 0.3s;
 }
 .footer__links a:hover { color: var(--gold); }
@@ -106,13 +106,13 @@ const socials = SOCIAL_LINKS_ARRAY
 }
 .footer__socials a {
   font-size: var(--text-btn);
-  color: var(--white-muted);
+  color: var(--ivory-muted);
   transition: color 0.3s;
 }
 .footer__socials a:hover { color: var(--gold); }
 .footer__copy {
   font-size: var(--text-micro);
-  color: var(--white-muted);
+  color: var(--ivory-muted);
   width: 100%;
   text-align: center;
   margin-top: 24px;

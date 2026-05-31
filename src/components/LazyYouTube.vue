@@ -4,15 +4,22 @@
  * Saves ~500KB+ of YouTube JS/CSS until actually needed.
  * Shows a thumbnail placeholder with a play button.
  */
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   videoId: string
   title: string
-}>()
+  /** Open the embed immediately on mount (e.g. when deep-linked from another page). */
+  autoplay?: boolean
+}>(), { autoplay: false })
 
 const activated = ref(false)
 const thumbnailUrl = `https://img.youtube.com/vi/${props.videoId}/hqdefault.jpg`
+
+// The iframe src carries autoplay=1, so activating it here starts playback.
+onMounted(() => {
+  if (props.autoplay) activated.value = true
+})
 </script>
 
 <template>

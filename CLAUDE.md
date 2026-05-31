@@ -39,7 +39,7 @@ ESLint only covers `src/`; `scripts/` is not linted or type-checked by the build
 ## Conventions
 
 - `<script setup lang="ts">` + Composition API. Cross-cutting concerns go in a composable.
-- **Styling is plain CSS** using global custom properties from `global.css`. Core palette: `--void #09090E` (bg), `--gold #AA8833` (prestige), `--plum #8D3B78` (magic), `--bronze #C5822F` (warmth), `--ivory #EDE6DA` (text); each has `-light/-dim/-glow` variants plus `--obsidian/--smoke/--ash/--ember` backgrounds. Fonts: `--font-display` Playfair Display, `--font-body` **Montserrat** (a stale `/* Body — Inter */` comment in global.css is wrong — the font is Montserrat), `--font-mono` JetBrains Mono. Clamp-based type scale (`--text-*`), spacing, easings, radii are all tokenized — use the tokens, don't hardcode.
+- **Styling is plain CSS** using global custom properties from `global.css`. Core palette: `--void #160B22` (deep aubergine bg), `--gold #AA8833` (prestige), `--plum #8D3B78` (magic), `--bronze #C5822F` (warmth), `--ivory #EDE6DA` (text); each has `-light/-dim/-glow` variants plus `--obsidian/--smoke/--ash/--ember` backgrounds. Fonts: `--font-display` Playfair Display, `--font-body` **Montserrat** (a stale `/* Body — Inter */` comment in global.css is wrong — the font is Montserrat), `--font-mono` JetBrains Mono. Clamp-based type scale (`--text-*`), spacing, easings, radii are all tokenized — use the tokens, don't hardcode.
 - Routes are lazy (`() => import(...)`). Keep new routes lazy.
 - Every image needs descriptive, keyword-aware `alt`; gallery images use a `<name>.webp` + `<name>-thumb.webp` pair.
 
@@ -55,7 +55,7 @@ Add an image: drop the source JPG/PNG anywhere, run `node scripts/optimize-image
 - After layout-affecting changes call `ScrollTrigger.refresh()` post-paint (App.vue already does one `requestAnimationFrame` refresh on mount).
 - Custom cursor is `cursor: none`; disabled ≤768px (`body { cursor: auto }`).
 - `useWorldClassSEO` auto-injects the WebSite+Person `@graph` + DNS-prefetch + apple-mobile meta on every page that calls it — don't duplicate them per-view.
-- **Known issues, intentionally not fixed:** `generateLocalBusinessSchema()` in `useWorldClassSEO.ts` hardcodes a fake `aggregateRating` (5★ / 47 reviews) — a Google structured-data policy risk, flagged here, left as-is pending a real review source. `enhanceInternalLinking()` is a no-op. `monitorPerformance()` references `window.gtag` though no analytics is installed.
+- **Known issues, intentionally not fixed:** `enhanceInternalLinking()` is a no-op. `monitorPerformance()` references `window.gtag` though no analytics is installed.
 - `npm run build` fails if eslint emits >10 warnings (mostly `no-console`; `warn`/`error` are allowed).
 - No unit test suite for the app. SEO is the only thing with a regression guard (below).
 
