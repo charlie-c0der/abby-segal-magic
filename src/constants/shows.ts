@@ -27,7 +27,7 @@ export const SHOW_FORMATS: ShowFormat[] = [
     durationShort: '20–60 min',
     audience: '5–60 guests',
     description: 'A unique and intimate magic show performed at a table surrounded by guests — personal and interactive, where the magic happens right there in front of you. Imagine a fun magic show in the comfort of your own living room, or a surprise addition to your corporate event.',
-    ideal: ['Private dinners', 'VIP corporate tables', 'Wedding sweetheart tables', 'Intimate receptions', 'Gallery openings'],
+    ideal: ['Private dinners', 'VIP corporate tables', 'Intimate receptions', 'Gallery openings'],
     videoMp4: '/assets/shows/close-up-30s.mp4',
     poster: '/assets/general/images/close-up-magician-chicago-performing.webp',
   },
