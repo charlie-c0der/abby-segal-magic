@@ -8,12 +8,12 @@ import LazyYouTube from '../components/LazyYouTube.vue'
 const route = useRoute()
 useReveal()
 
-// Home's "Watch Video" CTA deep-links to /press#fool-us. Lenis drives the page,
+// Home's "Watch Video" CTA deep-links to /press#video-reel. Lenis drives the page,
 // so the router's native hash scroll doesn't take — scroll to the reel ourselves.
 onMounted(() => {
-  if (route.hash !== '#fool-us') return
+  if (route.hash !== '#video-reel') return
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    const el = document.getElementById('fool-us')
+    const el = document.getElementById('video-reel')
     if (!el) return
     if (window.lenis) window.lenis.scrollTo(el, { offset: -80 })
     else el.scrollIntoView({ behavior: 'smooth' })
@@ -163,14 +163,14 @@ const pressLogos = [
     </section>
 
     <!-- Video reel (deep-link target for the home "Watch Video" CTA) -->
-    <section id="fool-us" class="section video-reel">
+    <section id="video-reel" class="section video-reel">
       <div class="container">
         <p class="heading-eyebrow reveal text-center">Video Reel</p>
         <div class="video-reel__embed reveal reveal-delay-1">
           <LazyYouTube
             video-id="yHC32hkzFrc"
             title="Abby Segal performance reel"
-            :autoplay="route.hash === '#fool-us'"
+            :autoplay="route.hash === '#video-reel'"
           />
         </div>
       </div>

@@ -260,7 +260,7 @@ onUnmounted(() => {
           <button type="button" class="btn btn--filled magnetic glow-pulse" @click="scrollToBooking">
             <span>Book a Show</span>
           </button>
-          <router-link to="/press#fool-us" class="btn">
+          <router-link to="/press#video-reel" class="btn">
             <span>Watch Video</span>
           </router-link>
         </div>
