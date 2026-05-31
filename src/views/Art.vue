@@ -406,12 +406,12 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   position: relative;
   background:
     var(--mat-sheen),
-    var(--ivory);
+    var(--mat-color);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  border: 1px solid var(--ivory);
+  border: 1px solid var(--mat-color);
 }
 
 .gallery-piece__frame:hover {
@@ -648,14 +648,14 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   position: relative;
   background:
     var(--mat-sheen),
-    var(--ivory);
+    var(--mat-color);
   padding: 2rem;
   border-radius: 8px;
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.45),
     0 36px 90px rgba(0, 0, 0, 0.6),
     0 0 80px rgba(197, 130, 47, 0.07);
-  border: 1px solid var(--ivory);
+  border: 1px solid var(--mat-color);
   cursor: default;
 }
 
