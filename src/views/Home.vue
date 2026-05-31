@@ -78,6 +78,15 @@ useWorldClassSEO({
 const heroLoaded = ref(false)
 const scrollTriggers: ScrollTrigger[] = []
 
+// Performances section — which format card is centred (drives focus emphasis,
+// the progress dots, and the active card's accent glow). Per-format accent:
+const activeShow = ref(0)
+const showsIn = ref(false)
+const showAccents = ['rgba(141, 59, 120, 0.30)', 'rgba(170, 136, 51, 0.30)', 'rgba(197, 130, 47, 0.30)']
+let entranceObserver: IntersectionObserver | null = null
+let perfScrollTarget: HTMLElement | null = null
+let onPerfScroll: (() => void) | null = null
+
 const corporateBrands = [
   { name: 'Ritter Sport', src: '/assets/brands/ritter-sport.webp', alt: 'Ritter Sport — corporate magic client of Abby Segal' },
   { name: 'BCLP', src: '/assets/brands/bclp.webp', alt: 'Bryan Cave Leighton Paisner — corporate magic client of Abby Segal' },
@@ -141,9 +150,35 @@ onMounted(async () => {
   }).scrollTrigger
   if (st2) scrollTriggers.push(st2)
 
-  // Horizontal scroll only on desktop — mobile uses CSS snap-scroll
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  // Focus emphasis — mark the card nearest the viewport centre as active.
+  // Deterministic (driven by the desktop pin's onUpdate + the mobile scroll).
+  const panelEls = Array.from(document.querySelectorAll<HTMLElement>('.show-panel[data-idx]'))
+  const updateActiveShow = () => {
+    const cx = window.innerWidth / 2
+    let best = activeShow.value, bestDist = Infinity
+    panelEls.forEach((p) => {
+      const r = p.getBoundingClientRect()
+      const d = Math.abs(r.left + r.width / 2 - cx)
+      if (d < bestDist) { bestDist = d; best = Number(p.dataset.idx) }
+    })
+    activeShow.value = best
+  }
+
+  // One-time entrance: lift the cards in when the section first scrolls into view.
+  const perfSection = document.querySelector('.shows-horizontal')
+  if (perfSection) {
+    entranceObserver = new IntersectionObserver((entries, obs) => {
+      if (entries.some((e) => e.isIntersecting)) { showsIn.value = true; obs.disconnect() }
+    }, { threshold: 0 })
+    entranceObserver.observe(perfSection)
+  }
+
+  // Horizontal scroll only on desktop, and only when motion is allowed —
+  // mobile uses CSS snap-scroll; reduced-motion falls back to a static stack.
   const showsTrack = document.querySelector<HTMLElement>('.shows-horizontal__track')
-  if (showsTrack && window.innerWidth > 768) {
+  if (showsTrack && window.innerWidth > 768 && !prefersReduced) {
     const getDistance = () => Math.max(0, showsTrack.scrollWidth - window.innerWidth)
     const st3 = gsap.to(showsTrack, {
       x: () => -getDistance(),
@@ -156,10 +191,23 @@ onMounted(async () => {
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        onUpdate: updateActiveShow,
       },
     }).scrollTrigger
     if (st3) scrollTriggers.push(st3)
   }
+
+  // Mobile (native horizontal scroll) drives the same focus update.
+  let perfRaf = 0
+  onPerfScroll = () => {
+    if (perfRaf) return
+    perfRaf = requestAnimationFrame(() => { perfRaf = 0; updateActiveShow() })
+  }
+  if (showsTrack) {
+    perfScrollTarget = showsTrack
+    showsTrack.addEventListener('scroll', onPerfScroll, { passive: true })
+  }
+  updateActiveShow()
 
   document.querySelectorAll('.img-reveal').forEach((el) => {
     const st = ScrollTrigger.create({ trigger: el, start: 'top 80%', onEnter: () => el.classList.add('revealed'), once: true })
@@ -176,6 +224,11 @@ onMounted(async () => {
 onUnmounted(() => {
   scrollTriggers.forEach(st => st.kill())
   scrollTriggers.length = 0
+  if (perfScrollTarget && onPerfScroll) perfScrollTarget.removeEventListener('scroll', onPerfScroll)
+  perfScrollTarget = null
+  onPerfScroll = null
+  entranceObserver?.disconnect()
+  entranceObserver = null
 })
 </script>
 
@@ -277,16 +330,29 @@ onUnmounted(() => {
     </section>
 
     <!-- ━━━ 5. THREE FORMATS ━━━ -->
-    <section class="shows-horizontal">
+    <section class="shows-horizontal" :class="{ 'is-in': showsIn }" :style="{ '--active-accent': showAccents[activeShow] }">
       <div class="shows-horizontal__header container">
         <p class="heading-eyebrow">Performances</p>
         <h2 class="heading-lg" data-split data-split-delay="0">Three formats. One unforgettable event.</h2>
+        <div class="shows-progress" aria-hidden="true">
+          <span
+            v-for="(s, i) in SHOW_FORMATS"
+            :key="s.number"
+            class="shows-progress__dot"
+            :class="{ 'is-active': activeShow === i }"
+          />
+        </div>
       </div>
 
       <div class="shows-horizontal__track">
-        <div class="shows-horizontal__spacer" />
-
-        <div v-for="show in SHOW_FORMATS" :key="show.number" class="show-panel tilt-card">
+        <div
+          v-for="(show, i) in SHOW_FORMATS"
+          :key="show.number"
+          :data-idx="i"
+          class="show-panel tilt-card"
+          :class="{ 'is-active': activeShow === i }"
+          :style="{ '--i': i }"
+        >
           <div class="show-panel__number">{{ show.number }}</div>
           <h3 class="show-panel__title">{{ show.title.split(' ')[0] }}<br>{{ show.title.split(' ').slice(1).join(' ') }}</h3>
           <div class="divider" />
@@ -526,8 +592,8 @@ onUnmounted(() => {
 .shows-horizontal { height: 120vh; position: relative; }
 .shows-horizontal__header { padding-top: 80px; padding-bottom: 48px; }
 .shows-horizontal__header h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
-.shows-horizontal__track { display: flex; gap: 32px; padding: 0 48px; align-items: center; height: 100vh; height: 100dvh; }
-.shows-horizontal__spacer { min-width: 20vw; }
+/* Symmetric padding so the first card sits centred at scroll-start and the last at the end */
+.shows-horizontal__track { display: flex; gap: 32px; padding: 0 calc(50vw - 210px); align-items: center; height: 100vh; height: 100dvh; }
 .show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--ash); border: 1px solid var(--ember);
   border-radius: var(--radius-md); padding: 48px 48px 60px 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
 .show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
@@ -536,6 +602,33 @@ onUnmounted(() => {
 .show-panel .body-md em { color: var(--gold); }
 .show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--ember); min-width: 300px; }
+
+/* Progress dots — reflect the centred format */
+.shows-progress { display: flex; gap: 10px; margin-top: 24px; }
+.shows-progress__dot { width: 8px; height: 8px; border-radius: 999px; background: var(--ivory-muted); transition: width 0.4s var(--ease-out), background 0.4s; }
+.shows-progress__dot.is-active { width: 28px; background: var(--gold); }
+
+/* Focus emphasis + entrance — motion only. Three independent props keep them
+   from fighting: entrance = translate/opacity, tilt = transform, focus = scale. */
+@media (prefers-reduced-motion: no-preference) {
+  .shows-horizontal:not(.is-in) .show-panel { opacity: 0; }
+  .shows-horizontal.is-in .show-panel { animation: panelRise 0.7s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 0.1s); }
+  @keyframes panelRise { from { opacity: 0; translate: 0 32px; } to { opacity: 1; translate: 0 0; } }
+
+  .show-panel { transition: scale 0.45s var(--ease-out), filter 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.4s; }
+  .show-panel:not(.show-panel--cta) { filter: brightness(0.55); scale: 0.96; }
+  .show-panel.is-active { filter: brightness(1); scale: 1; border-color: var(--gold); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), 0 0 55px var(--active-accent, transparent); }
+  .show-panel:hover { filter: brightness(1); }
+}
+
+/* Reduced motion — no scroll-jacking: a calm, static centred stack */
+@media (prefers-reduced-motion: reduce) {
+  .shows-horizontal { height: auto !important; }
+  .shows-horizontal__track { flex-direction: column !important; align-items: center !important; height: auto !important; overflow: visible !important; transform: none !important; padding: 0 24px !important; gap: 24px !important; }
+  .shows-horizontal__spacer { display: none !important; }
+  .show-panel, .show-panel--cta { scale: 1 !important; filter: none !important; min-width: 0 !important; width: 100% !important; max-width: 480px !important; height: auto !important; min-height: 0 !important; }
+  .shows-progress { display: none !important; }
+}
 
 /* ── BOOKING ────────────────────────── */
 .booking-section { border-top: 1px solid var(--ember); }
@@ -583,7 +676,8 @@ onUnmounted(() => {
     display: flex;
     flex-direction: row;
     height: auto !important;
-    padding: 0 20px;
+    /* side padding centres the snapped card (cards are 82vw) */
+    padding: 0 9vw;
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
