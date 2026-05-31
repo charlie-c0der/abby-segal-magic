@@ -42,9 +42,6 @@ useWorldClassSEO({
   changeFreq: 'monthly',
 
   // Performance optimization
-  preloadImages: [
-    '/assets/general/images/close-up-magician-chicago-performing.webp'
-  ],
   prefetchLinks: [
     '/shows',
     '/about'

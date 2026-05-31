@@ -31,17 +31,13 @@ useWorldClassSEO({
   ],
   
   // Technical SEO
-  ogImage: '/assets/art/images/art-sample-1.webp',
+  ogImage: '/assets/art/images/art-collage-1.webp',
   ogType: 'article',
   canonicalUrl: '/art',
   priority: 0.7,
   changeFreq: 'monthly',
-  
+
   // Performance optimization
-  preloadImages: [
-    '/assets/art/images/art-sample-1.webp',
-    '/assets/art/images/art-sample-2.webp'
-  ],
   prefetchLinks: [
     '/about',
     '/contact'
@@ -212,7 +208,7 @@ const artworks = [
         <p class="body-lg reveal reveal-delay-3" style="max-width: 600px;">
           Magic isn't Abby's only medium. As a visual artist, she works in collage,
           mixed media, and illustration - creating pieces that explore perception, identity, and the magic hidden in plain sight. Her work has been
-          exhibited at Berlinskej Model in Prague.
+          exhibited at Berlinskej Model in Prague and is featured at the Andersonville Galleria in Chicago.
         </p>
       </div>
     </section>
@@ -377,12 +373,14 @@ const artworks = [
 
 .gallery-piece__frame {
   position: relative;
-  background: var(--ash);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%, rgba(20, 9, 31, 0.06) 100%),
+    var(--ivory);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  border: 1px solid var(--ember);
+  border: 1px solid var(--ivory);
 }
 
 .gallery-piece__frame:hover {
@@ -394,6 +392,8 @@ const artworks = [
   z-index: 2;
   border-radius: 4px;
   overflow: hidden;
+  border: 1px solid rgba(22, 11, 34, 0.08);
+  box-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
 }
 
 .gallery-piece__image img {
@@ -625,7 +625,7 @@ const artworks = [
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
+  background: #0b0612;
   font-family: var(--font-body);
   cursor: default !important;
 }
@@ -634,7 +634,9 @@ const artworks = [
 .gallery-lightbox__background {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, #2a2a2a 0%, #1a1a1a 70%);
+  background:
+    radial-gradient(ellipse 72% 58% at 50% 36%, rgba(56, 37, 80, 0.55) 0%, transparent 62%),
+    radial-gradient(ellipse at center, #14091f 0%, #0b0612 72%);
   z-index: 1;
   cursor: default;
   pointer-events: none;
@@ -643,9 +645,9 @@ const artworks = [
 .gallery-lightbox__ambient-light {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 30%, 
-    rgba(170, 136, 51, 0.05) 0%, 
-    transparent 70%);
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 16%, rgba(197, 130, 47, 0.14) 0%, transparent 60%),
+    radial-gradient(circle at 50% 34%, rgba(170, 136, 51, 0.06) 0%, transparent 68%);
   cursor: default;
   pointer-events: none;
 }
@@ -709,22 +711,29 @@ const artworks = [
 
 .artwork-frame {
   position: relative;
-  background: var(--ash);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%, rgba(20, 9, 31, 0.06) 100%),
+    var(--ivory);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    0 36px 90px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(197, 130, 47, 0.07);
+  border: 1px solid var(--ivory);
   cursor: default;
 }
 
 .artwork-spotlight {
   position: absolute;
-  top: -20px;
+  top: -58px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120%;
-  height: 40px;
-  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  width: 78%;
+  height: 96px;
+  background: radial-gradient(ellipse at center, rgba(255, 244, 224, 0.22) 0%, transparent 72%);
   border-radius: 50%;
+  filter: blur(6px);
   pointer-events: none;
   cursor: default;
 }
@@ -734,6 +743,8 @@ const artworks = [
   max-height: 60vh;
   object-fit: contain;
   border-radius: 4px;
+  border: 1px solid rgba(22, 11, 34, 0.08);
+  box-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
   cursor: default;
 }
 
@@ -773,8 +784,8 @@ const artworks = [
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--white-muted);
+  font-size: var(--text-micro);
+  color: var(--ivory-muted);
   text-align: center;
   z-index: 10;
   display: none;
@@ -866,14 +877,23 @@ const artworks = [
 .lightbox-leave-active { 
   transition: all 0.3s ease-in; 
 }
-.lightbox-enter-from { 
-  opacity: 0; 
+.lightbox-enter-from {
+  opacity: 0;
 }
-.lightbox-enter-from .artwork-image { 
-  transform: scale(0.9); 
+.lightbox-enter-active .artwork-frame,
+.lightbox-leave-active .artwork-frame {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
 }
-.lightbox-leave-to { 
-  opacity: 0; 
+.lightbox-enter-from .artwork-frame {
+  transform: translateY(28px) scale(0.95);
+  opacity: 0;
+}
+.lightbox-leave-to {
+  opacity: 0;
+}
+.lightbox-leave-to .artwork-frame {
+  transform: scale(0.97);
+  opacity: 0;
 }
 
 @media (max-width: 1024px) {
