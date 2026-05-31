@@ -113,8 +113,7 @@ onUnmounted(() => {
   right: 0;
   z-index: 100000;
   padding: 24px 0;
-  /* Transition only cheap props — never backdrop-filter (animating blur is a
-     mobile-jank killer and caused the hamburger/sticky-header lag). */
+  /* Never transition backdrop-filter — animating blur janks mobile (it caused the hamburger lag). */
   transition: padding 0.4s var(--ease-out), background 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
   background: transparent;
 }

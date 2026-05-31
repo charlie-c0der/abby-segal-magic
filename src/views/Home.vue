@@ -78,8 +78,7 @@ useWorldClassSEO({
 const heroLoaded = ref(false)
 const scrollTriggers: ScrollTrigger[] = []
 
-// Performances section — which format card is centred (drives focus emphasis,
-// the progress dots, and the active card's accent glow). Per-format accent:
+// Performances: which format card is centred (drives focus, dots, and accent glow).
 const activeShow = ref(0)
 const showsIn = ref(false)
 const showAccents = ['rgba(141, 59, 120, 0.30)', 'rgba(170, 136, 51, 0.30)', 'rgba(197, 130, 47, 0.30)']
@@ -152,8 +151,7 @@ onMounted(async () => {
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  // Focus emphasis — mark the card nearest the viewport centre as active.
-  // Deterministic (driven by the desktop pin's onUpdate + the mobile scroll).
+  // Mark the card nearest the viewport centre as active (drives focus + dots).
   const panelEls = Array.from(document.querySelectorAll<HTMLElement>('.show-panel[data-idx]'))
   const updateActiveShow = () => {
     const cx = window.innerWidth / 2
@@ -175,8 +173,7 @@ onMounted(async () => {
     entranceObserver.observe(perfSection)
   }
 
-  // Horizontal scroll only on desktop, and only when motion is allowed —
-  // mobile uses CSS snap-scroll; reduced-motion falls back to a static stack.
+  // Desktop-only pin (mobile uses CSS snap-scroll; reduced-motion = static stack).
   const showsTrack = document.querySelector<HTMLElement>('.shows-horizontal__track')
   if (showsTrack && window.innerWidth > 768 && !prefersReduced) {
     const getDistance = () => Math.max(0, showsTrack.scrollWidth - window.innerWidth)
@@ -625,7 +622,6 @@ onUnmounted(() => {
 @media (prefers-reduced-motion: reduce) {
   .shows-horizontal { height: auto !important; }
   .shows-horizontal__track { flex-direction: column !important; align-items: center !important; height: auto !important; overflow: visible !important; transform: none !important; padding: 0 24px !important; gap: 24px !important; }
-  .shows-horizontal__spacer { display: none !important; }
   .show-panel, .show-panel--cta { scale: 1 !important; filter: none !important; min-width: 0 !important; width: 100% !important; max-width: 480px !important; height: auto !important; min-height: 0 !important; }
   .shows-progress { display: none !important; }
 }
@@ -686,7 +682,6 @@ onUnmounted(() => {
     transform: none !important;
   }
   .shows-horizontal__track::-webkit-scrollbar { display: none; }
-  .shows-horizontal__spacer { display: none; }
   .show-panel {
     min-width: 82vw;
     max-width: 82vw;
