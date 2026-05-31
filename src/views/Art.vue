@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick, watch } from 'vue'
+import { ref, computed, nextTick, watch } from 'vue'
 import { useReveal } from '../composables/useReveal'
 import { useWorldClassSEO } from '../composables/useWorldClassSEO'
 
@@ -50,6 +50,7 @@ const lightboxOpen = ref(false)
 const lightboxImage = ref('')
 const lightboxIndex = ref(0)
 const lightboxRef = ref<HTMLElement | null>(null)
+const imageLoaded = ref(false)
 
 const etsyShopUrl = 'https://www.etsy.com/shop/AbbySegalArt'
 
@@ -59,6 +60,7 @@ let startY = 0
 let startTime = 0
 
 function openLightbox(image: string, index: number) {
+  imageLoaded.value = false
   lightboxImage.value = image
   lightboxIndex.value = index
   lightboxOpen.value = true
@@ -71,6 +73,7 @@ function navigateLightbox(direction: 'prev' | 'next') {
   
   const artwork = artworks[newIndex]
   if (artwork) {
+    imageLoaded.value = false
     lightboxImage.value = artwork.image
     lightboxIndex.value = newIndex
     
@@ -83,6 +86,22 @@ function navigateLightbox(direction: 'prev' | 'next') {
 
 function closeLightbox() {
   lightboxOpen.value = false
+}
+
+// Keep keyboard focus inside the lightbox while it is open
+function trapFocus(e: KeyboardEvent) {
+  const focusables = lightboxRef.value?.querySelectorAll<HTMLElement>('button')
+  if (!focusables || focusables.length === 0) return
+  const first = focusables[0]
+  const last = focusables[focusables.length - 1]
+  if (!first || !last) return
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault()
+    last.focus()
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault()
+    first.focus()
+  }
 }
 
 // Focus management for lightbox accessibility
@@ -116,6 +135,9 @@ watch(lightboxOpen, async (isOpen) => {
     if (magicCanvas) {
       (magicCanvas as HTMLElement).style.opacity = ''
     }
+    // Return focus to the gallery tile that opened the lightbox
+    const trigger = document.querySelectorAll<HTMLElement>('.gallery-piece')[lightboxIndex.value]
+    trigger?.focus()
   }
 })
 
@@ -149,11 +171,9 @@ function onTouchEnd(e: TouchEvent) {
       if (absX > absY && absX > 50) {
         if (deltaX > 0) {
           // Swipe right = previous image
-          console.log('🎨 Swipe right detected - going to previous image')
           navigateLightbox('prev')
         } else {
-          // Swipe left = next image  
-          console.log('🎨 Swipe left detected - going to next image')
+          // Swipe left = next image
           navigateLightbox('next')
         }
       }
@@ -166,36 +186,39 @@ function onTouchEnd(e: TouchEvent) {
 }
 
 // Placeholder gallery - replace with real images
+// h = intrinsic thumbnail height (all thumbs are 400px wide) — reserves layout space to prevent CLS
 const artworks = [
-  { title: 'Borrowed Paper Collage', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-collage-1.webp', thumb: '/assets/art/images/art-collage-1-thumb.webp' },
-  { title: 'Girls Looking Up, Waiting for Rain', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-girls.webp', thumb: '/assets/art/images/art-girls-thumb.webp' },
-  { title: 'Tannes Magic Shop', medium: 'Digital illustration', year: '2024', image: '/assets/art/images/art-tannes.webp', thumb: '/assets/art/images/art-tannes-thumb.webp' },
-  { title: 'Apply Lipstick', medium: 'Digital art', year: '2023', image: '/assets/art/images/art-lipstick.webp', thumb: '/assets/art/images/art-lipstick-thumb.webp' },
-  { title: 'Abstract Shapes', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-shapes.webp', thumb: '/assets/art/images/art-shapes-thumb.webp' },
-  { title: 'Mogul Men, Mountains, Humanity', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-mogul.webp', thumb: '/assets/art/images/art-mogul-thumb.webp' },
-  { title: 'New to Prague', medium: 'Mixed media', year: '2022', image: '/assets/art/images/art-prague.webp', thumb: '/assets/art/images/art-prague-thumb.webp' },
-  { title: 'Smoking or Don\'t', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-smoking.webp', thumb: '/assets/art/images/art-smoking-thumb.webp' },
-  { title: 'Thinking Woman', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-thinking.webp', thumb: '/assets/art/images/art-thinking-thumb.webp' },
-  { title: 'Hidden Poetry', medium: 'Found text collage', year: '2023', image: '/assets/art/images/art-poetry.webp', thumb: '/assets/art/images/art-poetry-thumb.webp' },
-  { title: 'Trapped Eyes', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art-eyes.webp', thumb: '/assets/art/images/art-eyes-thumb.webp' },
-  { title: 'Stretched Girl', medium: 'Digital illustration', year: '2023', image: '/assets/art/images/art-stretched.webp', thumb: '/assets/art/images/art-stretched-thumb.webp' },
-  
+  { title: 'Borrowed Paper Collage', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-collage-1.webp', thumb: '/assets/art/images/art-collage-1-thumb.webp', h: 564 },
+  { title: 'Girls Looking Up, Waiting for Rain', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-girls.webp', thumb: '/assets/art/images/art-girls-thumb.webp', h: 398 },
+  { title: 'Tannes Magic Shop', medium: 'Digital illustration', year: '2024', image: '/assets/art/images/art-tannes.webp', thumb: '/assets/art/images/art-tannes-thumb.webp', h: 277 },
+  { title: 'Apply Lipstick', medium: 'Digital art', year: '2023', image: '/assets/art/images/art-lipstick.webp', thumb: '/assets/art/images/art-lipstick-thumb.webp', h: 404 },
+  { title: 'Abstract Shapes', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-shapes.webp', thumb: '/assets/art/images/art-shapes-thumb.webp', h: 533 },
+  { title: 'Mogul Men, Mountains, Humanity', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-mogul.webp', thumb: '/assets/art/images/art-mogul-thumb.webp', h: 259 },
+  { title: 'New to Prague', medium: 'Mixed media', year: '2022', image: '/assets/art/images/art-prague.webp', thumb: '/assets/art/images/art-prague-thumb.webp', h: 312 },
+  { title: 'Smoking or Don\'t', medium: 'Mixed media collage', year: '2023', image: '/assets/art/images/art-smoking.webp', thumb: '/assets/art/images/art-smoking-thumb.webp', h: 507 },
+  { title: 'Thinking Woman', medium: 'Mixed media', year: '2023', image: '/assets/art/images/art-thinking.webp', thumb: '/assets/art/images/art-thinking-thumb.webp', h: 259 },
+  { title: 'Hidden Poetry', medium: 'Found text collage', year: '2023', image: '/assets/art/images/art-poetry.webp', thumb: '/assets/art/images/art-poetry-thumb.webp', h: 485 },
+  { title: 'Trapped Eyes', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art-eyes.webp', thumb: '/assets/art/images/art-eyes-thumb.webp', h: 270 },
+  { title: 'Stretched Girl', medium: 'Digital illustration', year: '2023', image: '/assets/art/images/art-stretched.webp', thumb: '/assets/art/images/art-stretched-thumb.webp', h: 1556 },
+
   // New artworks - optimized WebP versions
-  { title: 'Mystic Portrait I', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art1.webp', thumb: '/assets/art/images/art1-thumb.webp' },
-  { title: 'Ethereal Vision', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art2.webp', thumb: '/assets/art/images/art2-thumb.webp' },
-  { title: 'Chromatic Dreams', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art3.webp', thumb: '/assets/art/images/art3-thumb.webp' },
-  { title: 'Temporal Fragments', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art4.webp', thumb: '/assets/art/images/art4-thumb.webp' },
-  { title: 'Dimensional Study', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art5.webp', thumb: '/assets/art/images/art5-thumb.webp' },
-  { title: 'Perceptual Shift', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art6.webp', thumb: '/assets/art/images/art6-thumb.webp' },
-  { title: 'Illusion & Reality', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art7.webp', thumb: '/assets/art/images/art7-thumb.webp' },
-  { title: 'Mystic Portrait II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art8.webp', thumb: '/assets/art/images/art8-thumb.webp' },
-  
+  { title: 'Mystic Portrait I', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art1.webp', thumb: '/assets/art/images/art1-thumb.webp', h: 265 },
+  { title: 'Ethereal Vision', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art2.webp', thumb: '/assets/art/images/art2-thumb.webp', h: 278 },
+  { title: 'Chromatic Dreams', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art3.webp', thumb: '/assets/art/images/art3-thumb.webp', h: 275 },
+  { title: 'Temporal Fragments', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art4.webp', thumb: '/assets/art/images/art4-thumb.webp', h: 266 },
+  { title: 'Dimensional Study', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art5.webp', thumb: '/assets/art/images/art5-thumb.webp', h: 302 },
+  { title: 'Perceptual Shift', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art6.webp', thumb: '/assets/art/images/art6-thumb.webp', h: 295 },
+  { title: 'Illusion & Reality', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art7.webp', thumb: '/assets/art/images/art7-thumb.webp', h: 307 },
+  { title: 'Mystic Portrait II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/art8.webp', thumb: '/assets/art/images/art8-thumb.webp', h: 298 },
+
   // Latest artworks from new0drive-pictures
-  { title: 'Conceptual Study I', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_0231.webp', thumb: '/assets/art/images/img_0231-thumb.webp' },
-  { title: 'Conceptual Study II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_0237.webp', thumb: '/assets/art/images/img_0237-thumb.webp' },
-  { title: 'Abstract Composition', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_2578.webp', thumb: '/assets/art/images/img_2578-thumb.webp' },
-  { title: 'Visual Exploration', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_9710.webp', thumb: '/assets/art/images/img_9710-thumb.webp' },
+  { title: 'Conceptual Study I', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_0231.webp', thumb: '/assets/art/images/img_0231-thumb.webp', h: 400 },
+  { title: 'Conceptual Study II', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_0237.webp', thumb: '/assets/art/images/img_0237-thumb.webp', h: 400 },
+  { title: 'Abstract Composition', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_2578.webp', thumb: '/assets/art/images/img_2578-thumb.webp', h: 263 },
+  { title: 'Visual Exploration', medium: 'Mixed media', year: '2024', image: '/assets/art/images/img_9710.webp', thumb: '/assets/art/images/img_9710-thumb.webp', h: 274 },
 ]
+
+const currentArtwork = computed(() => artworks[lightboxIndex.value])
 </script>
 
 <template>
@@ -231,7 +254,7 @@ const artworks = [
           >
             <div class="gallery-piece__frame">
               <div class="gallery-piece__image">
-                <img :src="art.thumb" :alt="`${art.title}, ${art.medium.toLowerCase()} by Abby Segal, Chicago collage artist`" loading="lazy" decoding="async" />
+                <img :src="art.thumb" :width="400" :height="art.h" :alt="`${art.title}, ${art.medium.toLowerCase()} by Abby Segal, Chicago collage artist`" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-piece__spotlight"></div>
             </div>
@@ -280,6 +303,7 @@ const artworks = [
           class="gallery-lightbox" 
           @click.self="closeLightbox"
           @keydown.escape="closeLightbox"
+          @keydown.tab="trapFocus"
           @keydown.arrow-left="navigateLightbox('prev')"
           @keydown.arrow-right="navigateLightbox('next')"
           @touchstart="onTouchStart"
@@ -321,7 +345,14 @@ const artworks = [
           <div class="gallery-lightbox__main">
             <div class="artwork-frame">
               <div class="artwork-spotlight"></div>
-              <img :src="lightboxImage" alt="Mixed media collage artwork by Abby Segal, Chicago collage artist" class="artwork-image" @click.stop />
+              <img
+                :src="lightboxImage"
+                :alt="currentArtwork ? `${currentArtwork.title}, ${currentArtwork.medium.toLowerCase()} by Abby Segal, Chicago artist` : 'Artwork by Abby Segal'"
+                class="artwork-image"
+                :class="{ 'is-loading': !imageLoaded }"
+                @load="imageLoaded = true"
+                @click.stop
+              />
             </div>
           </div>
           
@@ -426,100 +457,6 @@ const artworks = [
 
 .gallery-piece:hover .gallery-piece__spotlight {
   opacity: 1;
-}
-
-/* Gallery labels removed for cleaner presentation */
-
-.book-showcase__content h2 {
-  margin-bottom: 16px;
-  color: var(--ivory);
-}
-
-.book-showcase__content p {
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-
-.book-showcase__content em {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 500;
-}
-
-/* ── Etsy Shop Banner ─────────────────── */
-.etsy-banner {
-  padding: 0;
-}
-.etsy-banner__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 28px;
-  background: var(--ash);
-  border: 1px solid var(--ember);
-  border-radius: var(--radius-md);
-  margin-top: -20px;
-}
-.etsy-banner__text {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  color: var(--cream-dim);
-}
-.etsy-banner__icon {
-  font-size: 20px;
-}
-.btn--sm {
-  padding: 10px 22px;
-  font-size: var(--text-micro);
-}
-
-/* ── Book Showcase ─────────────────────── */
-.book-showcase {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 3rem 0;
-}
-.book-showcase__content h2 {
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-.book-showcase__content p {
-  margin-bottom: 2rem;
-  color: var(--ivory-dim);
-}
-.book-showcase__content em {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 500;
-}
-
-/* ── Gallery Header ─────────────────── */
-.gallery-header {
-  text-align: center;
-  max-width: 500px;
-  margin: 0 auto 3rem auto;
-  padding-top: 2rem;
-}
-
-.gallery-header h2 {
-  margin-bottom: 1rem;
-  color: var(--ivory);
-}
-
-.gallery-header p {
-  color: var(--white-dim);
-  line-height: 1.6;
-}
-
-.gallery-header em {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 500;
 }
 
 /* ── Published Works ─────────────────── */
@@ -746,6 +683,11 @@ const artworks = [
   border: 1px solid rgba(22, 11, 34, 0.08);
   box-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
   cursor: default;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+.artwork-image.is-loading {
+  opacity: 0;
 }
 
 /* Artwork information panel removed for cleaner viewing */
