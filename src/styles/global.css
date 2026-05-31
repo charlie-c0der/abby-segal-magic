@@ -628,12 +628,6 @@ html.lenis, html.lenis body {
   .nav__mobile-link:active {
     color: var(--gold) !important;
   }
-  
-  /* Art gallery touch improvements */
-  .art-item:active {
-    transform: scale(0.98);
-    transition: transform 0.1s ease;
-  }
 }
 
 @media (max-width: 480px) {

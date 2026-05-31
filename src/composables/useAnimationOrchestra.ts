@@ -147,14 +147,6 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
       stagger: 0.15
     })
     
-    // Art gallery with magnetic reveals
-    scrollMagic.createRevealPattern({
-      selector: '.art-item',
-      pattern: 'magnetic',
-      duration: 1.0,
-      stagger: 0.1
-    })
-    
     // Text sections with typewriter effect
     scrollMagic.createRevealPattern({
       selector: '.typewriter',
@@ -196,7 +188,7 @@ export function useAnimationOrchestra(config: Partial<OrchestraConfig> = {}) {
     })
     
     // Premium card interactions
-    microInteractions.addCardInteractions('.card, .art-item, .show-card', 1.2)
+    microInteractions.addCardInteractions('.card, .show-card', 1.2)
     
     // Form enhancements
     microInteractions.addInputInteractions('input, textarea, select')

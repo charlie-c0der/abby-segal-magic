@@ -243,7 +243,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
           <div
             v-for="(art, i) in artworks"
             :key="art.title"
-            class="gallery-piece reveal magnetic-element"
+            class="gallery-piece reveal"
             :class="`reveal-delay-${(i % 4) + 1}`"
             @click="openLightbox(art.image, i)"
             @keydown.enter="openLightbox(art.image, i)"
@@ -551,9 +551,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
     rgba(141, 59, 120, 0.3), 
     transparent);
 }
-/* Old art-item styles removed - replaced with gallery-piece styles */
 
-/* Lightbox */
 /* ── Enhanced Gallery Lightbox ─────────────────── */
 .gallery-lightbox {
   position: fixed;

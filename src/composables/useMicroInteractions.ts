@@ -372,7 +372,7 @@ export function useMicroInteractions() {
     setTimeout(() => {
       // Auto-detect and enhance interactive elements
       addButtonInteractions('button, .btn, .button, [role="button"]')
-      addCardInteractions('.card, .art-item, .show-card')
+      addCardInteractions('.card, .show-card')
       addInputInteractions('input, textarea, select')
     }, 100)
   }
