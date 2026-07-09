@@ -36,7 +36,7 @@
   --ivory-ghost: rgba(237, 230, 218, 0.06);
 
   /* Gallery / lightbox mat — shared framing for the grid + lightbox (Art) */
-  --mat-color: var(--gold);   /* mat board color */
+  --mat-color: #F2F0EF;   /* mat board color — soft gallery white */
   --mat-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 22%, rgba(20, 9, 31, 0.06) 100%);
   --mat-keyline: rgba(22, 11, 34, 0.08);
   --mat-art-shadow: 0 2px 12px rgba(22, 11, 34, 0.18);
@@ -44,7 +44,6 @@
   /* Type — geometric, precise, magical */
   --font-display: 'Playfair Display', 'Georgia', serif;
   --font-body: 'Montserrat', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
 
   /* Typography Scale — 1.33 ratio (perfect fourth) */
   /* Display — Playfair Display */
@@ -53,7 +52,7 @@
   --text-title: clamp(36px, 5vw, 64px);
   --text-subtitle: clamp(26px, 3vw, 40px);
   --text-card-title: clamp(20px, 2vw, 24px);
-  --text-eyebrow: 16px;
+  --text-eyebrow: 22px;
 
   /* Body — Montserrat */
   --text-body-lg: clamp(18px, 1.3vw, 21px);
@@ -225,7 +224,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--gold);
   background: transparent;
   color: var(--gold);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-btn);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -530,7 +529,6 @@ html.lenis, html.lenis body {
     --text-title: clamp(28px, 7vw, 44px);
     --text-subtitle: clamp(22px, 5vw, 32px);
     --text-card-title: clamp(18px, 4vw, 22px);
-    --text-eyebrow: 13px;
     --text-body-lg: clamp(16px, 4vw, 18px);
     --text-stat: clamp(28px, 8vw, 40px);
     --text-stat-label: 12px;
@@ -642,7 +640,6 @@ html.lenis, html.lenis body {
     --text-hero: clamp(30px, 10vw, 44px);
     --text-title: clamp(24px, 8vw, 36px);
     --text-subtitle: clamp(20px, 6vw, 28px);
-    --text-eyebrow: 12px;
     --text-stat: clamp(24px, 10vw, 36px);
   }
 }

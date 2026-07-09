@@ -405,7 +405,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   background:
     var(--mat-sheen),
     var(--mat-color);
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -554,7 +554,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
 .gallery-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 10001;
+  z-index: 100001; /* above .nav (100000) — the lightbox owns the whole screen */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -647,7 +647,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   background:
     var(--mat-sheen),
     var(--mat-color);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 8px;
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.45),
@@ -721,7 +721,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-micro);
   color: var(--ivory-muted);
   text-align: center;
@@ -796,7 +796,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   /* Mobile-specific stable positioning - no movement on tap */
   
   .artwork-frame {
-    padding: 1rem;
+    padding: 0.5rem;
   }
   
   .gallery-main {
@@ -861,7 +861,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   }
   
   .gallery-piece__frame {
-    padding: 15px;
+    padding: 8px;
   }
   
   /* Better mobile banner */
@@ -908,7 +908,7 @@ const currentArtwork = computed(() => artworks[lightboxIndex.value])
   }
   
   .gallery-piece__frame {
-    padding: 12px;
+    padding: 6px;
   }
   
   .gallery-lightbox__main {

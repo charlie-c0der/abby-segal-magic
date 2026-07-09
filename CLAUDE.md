@@ -39,7 +39,7 @@ ESLint only covers `src/`; `scripts/` is not linted or type-checked by the build
 ## Conventions
 
 - `<script setup lang="ts">` + Composition API. Cross-cutting concerns go in a composable.
-- **Styling is plain CSS** using global custom properties from `global.css`. Core palette: `--void #160B22` (deep aubergine bg), `--gold #AA8833` (prestige), `--plum #8D3B78` (magic), `--bronze #C5822F` (warmth), `--ivory #EDE6DA` (text); each has `-light/-dim/-glow` variants plus `--obsidian/--smoke/--ash/--ember` backgrounds. Fonts: `--font-display` Playfair Display, `--font-body` **Montserrat** (a stale `/* Body — Inter */` comment in global.css is wrong — the font is Montserrat), `--font-mono` JetBrains Mono. Clamp-based type scale (`--text-*`), spacing, easings, radii are all tokenized — use the tokens, don't hardcode.
+- **Styling is plain CSS** using global custom properties from `global.css`. Core palette: `--void #160B22` (deep aubergine bg), `--gold #AA8833` (prestige), `--plum #8D3B78` (magic), `--bronze #C5822F` (warmth), `--ivory #EDE6DA` (text); each has `-light/-dim/-glow` variants plus `--obsidian/--smoke/--ash/--ember` backgrounds. Fonts: exactly two — `--font-display` Playfair Display, `--font-body` **Montserrat**. (`--font-mono`/JetBrains Mono was removed 2026-07 to consolidate typography; letterspaced-uppercase "UI text" styles now use `--font-body`.) Clamp-based type scale (`--text-*`), spacing, easings, radii are all tokenized — use the tokens, don't hardcode.
 - Routes are lazy (`() => import(...)`). Keep new routes lazy.
 - Every image needs descriptive, keyword-aware `alt`; gallery images use a `<name>.webp` + `<name>-thumb.webp` pair.
 

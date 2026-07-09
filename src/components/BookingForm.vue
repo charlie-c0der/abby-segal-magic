@@ -186,7 +186,7 @@ const eventTypes = [
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-micro);
   letter-spacing: 0.15em;
   text-transform: uppercase;
