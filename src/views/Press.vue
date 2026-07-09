@@ -134,6 +134,7 @@ const pressLogos = [
   { name: 'Patch.com', outlet: 'Digital' },
   { name: 'Bates College', outlet: 'University' },
   { name: 'Penguin Magic', outlet: 'Podcast' },
+  { name: 'Genii', outlet: 'Magazine' },
   { name: 'Chicago Magic Lounge', outlet: 'Venue' },
 ]
 </script>
@@ -231,17 +232,6 @@ const pressLogos = [
         </div>
       </div>
     </section>
-
-    <!-- Media Kit -->
-    <section class="section">
-      <div class="container text-center">
-        <h2 class="heading-lg reveal">Working on a <em>story?</em></h2>
-        <p class="body-lg reveal reveal-delay-1" style="max-width: 540px; margin: 16px auto 32px;">
-          Press inquiries, interview requests, high-res photos, and a full media kit available on request.
-        </p>
-        <router-link to="/contact" class="btn reveal reveal-delay-2"><span>Press Inquiries</span></router-link>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -263,7 +253,7 @@ const pressLogos = [
 .press-lead__quote :deep(em) { font-style: normal; color: var(--gold); }
 .press-lead__source { font-weight: 600; font-size: var(--text-body-lg); color: var(--ivory); }
 .press-lead__context {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -279,7 +269,7 @@ const pressLogos = [
 .press-quote__meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .press-quote__source { font-weight: 600; font-size: var(--text-body-sm); color: var(--gold); }
 .press-quote__context { font-size: var(--text-btn); color: var(--ivory-muted); }
-.press-quote__year { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--ivory-muted); }
+.press-quote__year { font-family: var(--font-body); font-size: var(--text-micro); color: var(--ivory-muted); }
 
 /* Press Photos Strip */
 .press-photos { overflow: hidden; border-top: 1px solid var(--ember); border-bottom: 1px solid var(--ember); }
@@ -293,7 +283,7 @@ const pressLogos = [
   margin-top: 12px;
   font-size: var(--text-btn);
   color: var(--gold);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   letter-spacing: 0.05em;
   transition: opacity 0.3s;
 }
@@ -324,7 +314,7 @@ const pressLogos = [
   color: var(--ivory-dim);
 }
 .featured-in__outlet {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-micro);
   letter-spacing: 0.15em;
   text-transform: uppercase;
