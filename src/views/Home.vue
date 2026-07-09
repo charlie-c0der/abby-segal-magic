@@ -151,8 +151,6 @@ onMounted(async () => {
   }).scrollTrigger
   if (st2) scrollTriggers.push(st2)
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
   // Mark the card nearest the viewport centre as active (drives focus + dots).
   const panelEls = Array.from(document.querySelectorAll<HTMLElement>('.show-panel[data-idx]'))
   const updateActiveShow = () => {
@@ -175,28 +173,8 @@ onMounted(async () => {
     entranceObserver.observe(perfSection)
   }
 
-  // Desktop-only pin (mobile uses CSS snap-scroll; reduced-motion = static stack).
+  // Native horizontal snap-scroll (all viewports) drives the focus update.
   const showsTrack = document.querySelector<HTMLElement>('.shows-horizontal__track')
-  if (showsTrack && window.innerWidth > 768 && !prefersReduced) {
-    const getDistance = () => Math.max(0, showsTrack.scrollWidth - window.innerWidth)
-    const st3 = gsap.to(showsTrack, {
-      x: () => -getDistance(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.shows-horizontal',
-        start: 'top top',
-        end: () => '+=' + getDistance(),
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: updateActiveShow,
-      },
-    }).scrollTrigger
-    if (st3) scrollTriggers.push(st3)
-  }
-
-  // Mobile (native horizontal scroll) drives the same focus update.
   let perfRaf = 0
   onPerfScroll = () => {
     if (perfRaf) return
@@ -376,7 +354,7 @@ onUnmounted(() => {
     <!-- ━━━ 7. ART TEASER ━━━ -->
     <section class="section art-teaser">
       <div class="container">
-        <p class="heading-eyebrow reveal text-center">Collect Abby</p>
+        <p class="heading-eyebrow reveal text-center">Collect Abby's Art</p>
         <h2 class="heading-lg reveal reveal-delay-1" style="text-align: center;">
           Own a <em>Piece</em> of the Magic.
         </h2>
@@ -502,11 +480,11 @@ onUnmounted(() => {
 }
 .hero__divider { opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.4s forwards; }
 .hero__subtitle { max-width: 560px; margin-bottom: 12px; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.6s forwards; }
-.hero__tagline { max-width: 560px; margin-bottom: 36px; font-family: var(--font-mono); font-size: var(--text-body-sm); letter-spacing: 0.06em; color: var(--ivory-dim); opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.75s forwards; }
+.hero__tagline { max-width: 560px; margin-bottom: 36px; font-family: var(--font-body); font-size: var(--text-body-sm); letter-spacing: 0.06em; color: var(--ivory-dim); opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.75s forwards; }
 .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeSlideIn 0.6s var(--ease-out) 1.9s forwards; }
 .hero__credibility {
   margin-top: 28px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-body-sm);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -519,7 +497,7 @@ onUnmounted(() => {
   to { opacity: 1; transform: translateY(0); }
 }
 .hero__scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: none; flex-direction: column; align-items: center; gap: 12px; z-index: 2; }
-.hero__scroll-text { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory-muted); }
+.hero__scroll-text { font-family: var(--font-body); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory-muted); }
 .hero__scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2.5s ease-in-out infinite; }
 @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.5); } }
 
@@ -583,19 +561,32 @@ onUnmounted(() => {
   color: var(--ivory-muted);
 }
 
-/* ── HORIZONTAL SCROLL SHOWS ────────── */
-.shows-horizontal { height: 120vh; position: relative; }
+/* ── SHOWS CAROUSEL — native snap-scroll on every viewport ── */
+.shows-horizontal { position: relative; padding-bottom: var(--section-pad); }
 .shows-horizontal__header { padding-top: 80px; padding-bottom: 48px; }
 .shows-horizontal__header h2 em { color: var(--gold); font-style: normal; font-weight: 400; }
-/* Symmetric padding so the first card sits centred at scroll-start and the last at the end */
-.shows-horizontal__track { display: flex; gap: 32px; padding: 0 calc(50vw - 210px); align-items: center; height: 100vh; height: 100dvh; }
-.show-panel { min-width: 420px; max-width: 420px; height: 500px; background: var(--ash); border: 1px solid var(--ember);
-  border-radius: var(--radius-md); padding: 48px 48px 60px 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; }
+/* Symmetric side padding so the first and last cards can snap to centre.
+   Vertical padding gives the active card's glow/shadow room — the scroll
+   container clips anything painted outside it. */
+.shows-horizontal__track {
+  display: flex;
+  gap: 32px;
+  padding: 48px calc(50vw - 210px);
+  /* stretch = every card matches the tallest card's height */
+  align-items: stretch;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.shows-horizontal__track::-webkit-scrollbar { display: none; }
+.show-panel { min-width: 420px; max-width: 420px; min-height: 500px; background: var(--ash); border: 1px solid var(--ember);
+  border-radius: var(--radius-md); padding: 48px 48px 60px 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; scroll-snap-align: center; }
 .show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
 .show-panel__number { font-family: var(--font-display); font-size: 64px; font-weight: 900; letter-spacing: -0.03em; color: rgba(141, 59, 120, 0.18); position: absolute; top: 32px; right: 32px; line-height: 1; }
 .show-panel__title { font-family: var(--font-display); font-size: var(--text-subtitle); font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; }
 .show-panel .body-md em { color: var(--gold); }
-.show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-mono); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+.show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-body); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--ember); min-width: 300px; }
 
 /* Progress dots — reflect the centred format */
@@ -616,13 +607,6 @@ onUnmounted(() => {
   .show-panel:hover { filter: brightness(1); }
 }
 
-/* Reduced motion — no scroll-jacking: a calm, static centred stack */
-@media (prefers-reduced-motion: reduce) {
-  .shows-horizontal { height: auto !important; }
-  .shows-horizontal__track { flex-direction: column !important; align-items: center !important; height: auto !important; overflow: visible !important; transform: none !important; padding: 0 24px !important; gap: 24px !important; }
-  .show-panel, .show-panel--cta { scale: 1 !important; filter: none !important; min-width: 0 !important; width: 100% !important; max-width: 480px !important; height: auto !important; min-height: 0 !important; }
-  .shows-progress { display: none !important; }
-}
 
 /* ── BOOKING ────────────────────────── */
 .booking-section { border-top: 1px solid var(--ember); }
@@ -658,34 +642,17 @@ onUnmounted(() => {
   .reactions__featured-quote { font-size: var(--text-card-title); }
   .testimonials-row { grid-template-columns: 1fr; gap: 20px; }
 
-  /* Mobile shows section — snap-scroll horizontal carousel */
-  .shows-horizontal {
-    height: auto !important;
-    position: relative !important;
-    padding-bottom: var(--section-pad);
-    transform: none !important;
-  }
+  /* Shows carousel — tighter cards on small screens */
   .shows-horizontal__header { padding-top: 48px; padding-bottom: 24px; }
   .shows-horizontal__track {
-    display: flex;
-    flex-direction: row;
-    height: auto !important;
     /* side padding centres the snapped card (cards are 82vw) */
-    padding: 0 9vw;
+    padding: 24px 9vw;
     gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    transform: none !important;
   }
-  .shows-horizontal__track::-webkit-scrollbar { display: none; }
   .show-panel {
     min-width: 82vw;
     max-width: 82vw;
     width: 82vw;
-    flex-shrink: 0;
-    scroll-snap-align: center;
     height: auto;
     padding: 32px 24px;
     min-height: auto;
