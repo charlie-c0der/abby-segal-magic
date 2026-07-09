@@ -62,7 +62,7 @@ useWorldClassSEO({
   // Performance optimization
   preloadImages: [
     '/assets/portraits/images/close-up-magician-chicago-abby-segal.webp',
-    '/assets/hero/hero-poster.webp'
+    '/assets/hero/hero-poster-v2.webp'
   ],
   prefetchLinks: [
     '/shows',

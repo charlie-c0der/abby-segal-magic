@@ -47,16 +47,16 @@ onUnmounted(() => {
       muted
       playsinline
       preload="metadata"
-      poster="/assets/hero/hero-poster.webp"
+      poster="/assets/hero/hero-poster-v2.webp"
       aria-hidden="true"
     >
-      <source src="/assets/hero/hero-loop.webm" type="video/webm" />
-      <source src="/assets/hero/hero-loop.mp4" type="video/mp4" />
+      <source src="/assets/hero/hero-loop-v2.webm" type="video/webm" />
+      <source src="/assets/hero/hero-loop-v2.mp4" type="video/mp4" />
     </video>
     <img
       v-else
       class="hero-video__media hero-video__fallback"
-      src="/assets/hero/hero-poster.webp"
+      src="/assets/hero/hero-poster-v2.webp"
       alt=""
       aria-hidden="true"
       decoding="async"
