@@ -581,12 +581,13 @@ onUnmounted(() => {
 }
 .shows-horizontal__track::-webkit-scrollbar { display: none; }
 .show-panel { min-width: 420px; max-width: 420px; min-height: 500px; background: var(--ash); border: 1px solid var(--ember);
-  border-radius: var(--radius-md); padding: 48px 48px 60px 48px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0; transition: border-color 0.4s; position: relative; scroll-snap-align: center; }
+  border-radius: var(--radius-md); padding: 48px 48px 60px 48px; display: flex; flex-direction: column; justify-content: flex-start; flex-shrink: 0; transition: border-color 0.4s; position: relative; scroll-snap-align: center; }
 .show-panel:hover { border-color: var(--plum); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
 .show-panel__number { font-family: var(--font-display); font-size: 64px; font-weight: 900; letter-spacing: -0.03em; color: rgba(141, 59, 120, 0.18); position: absolute; top: 32px; right: 32px; line-height: 1; }
 .show-panel__title { font-family: var(--font-display); font-size: var(--text-subtitle); font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; }
 .show-panel .body-md em { color: var(--gold); }
-.show-panel__meta { display: flex; gap: 20px; margin-top: 20px; font-family: var(--font-body); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+/* margin-top:auto pins the meta row to the card bottom so it aligns across cards */
+.show-panel__meta { display: flex; gap: 20px; margin-top: auto; padding-top: 20px; font-family: var(--font-body); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
 .show-panel--cta { justify-content: center; align-items: center; background: transparent; border: 1px dashed var(--ember); min-width: 300px; }
 
 /* Progress dots — reflect the centred format */
